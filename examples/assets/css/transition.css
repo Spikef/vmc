@@ -1,0 +1,110 @@
+/*翻页*/
+@keyframes slideRightToCenter {
+    from {
+        transform: translate3d(100%, 0, 0);
+    }
+    to {
+        transform: translate3d(0%, 0, 0);
+    }
+}
+@keyframes slideCenterToLeft {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-60%, 0, 0);
+    }
+}
+
+@keyframes slideLeftToCenter {
+    from {
+        transform: translate3d(-60%, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes slideCenterToRight {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.forward-transition,
+.back-transition{
+    will-change: transform;
+}
+
+.forward-enter {
+    animation: slideRightToCenter .4s forwards;
+}
+.forward-leave {
+    animation: slideCenterToLeft .4s forwards;
+}
+
+.back-enter {
+    animation: slideLeftToCenter .4s forwards;
+}
+.back-leave {
+    animation: slideCenterToRight .4s forwards;
+}
+
+.forward-enter,
+.back-leave{
+    z-index: 1;
+}
+
+.load-transition {
+    transition: all .3s ease;
+}
+
+.load-enter, .load-leave {
+    opacity: 0.8;
+}
+
+/*上下切出*/
+.up-transition, .down-transition {
+    transition: all .3s ease;
+}
+
+.up-enter, .up-leave {
+    transform: translate3d(0, 100%, 0);
+}
+
+.down-enter, .down-leave {
+    transform: translate3d(0, -100%, 0);
+}
+
+/*左右切出*/
+.left-transition, .right-transition {
+    transition: all .3s ease;
+}
+
+.left-enter, .left-leave {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.right-enter, .right-leave {
+    transform: translate3d(100%, 0, 0);
+}
+
+/*淡入淡出*/
+.fade-transition{
+    transition: opacity .1s ease;
+}
+.fade-enter, .fade-leave{
+    opacity: 0;
+}
+
+/*伸缩展出*/
+.expand-down-transition {
+    overflow-y: hidden;
+    transform: translate3d(0, 0, 0);
+}
+.expand-list-transition {
+    overflow-y: hidden;
+    transform: translate3d(0, 0, 0);
+}
