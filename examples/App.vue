@@ -30,6 +30,14 @@
 
                 this.$nextTick(() => t.next());
             });
+            this.$router.records = [];
+
+            this.$router.forward = path => {
+                var state = this.$router.stringifyPath(this.$route);
+                this.$router.records.push(state);
+
+                this.$router.go(path);
+            };
         }
     }
 </script>
@@ -46,7 +54,7 @@
         border: none;
         font-size: 20px;
         overflow: hidden;
-        background-color: #eeeeee;
+        background-color: #fff;
     }
 
     #app {
@@ -65,7 +73,7 @@
         user-select:none;
         font-family: "PingFang SC", "Microsoft YaHei", Helvetica Neue,Helvetica,Arial,sans-serif;
         font-weight: normal;
-        background-color: #eeeeee;
+        background-color: #fff;
         font-size: 0.8rem;
         z-index: 0;
     }

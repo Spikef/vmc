@@ -29,7 +29,7 @@ var router = new Router();
 router.map(routes);
 
 router.redirect({
-    '*': '/'
+    '*': '/demos'
 });
 
 router.beforeEach(t => {
