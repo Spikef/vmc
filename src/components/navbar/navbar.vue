@@ -58,9 +58,11 @@
 </script>
 
 <style rel="stylesheet/less" lang="less">
+    @width: 50px;
+
     .vmc-navbar {
         .left {
-            width: 50px;
+            width: @width;
             padding: 8px 0;
         }
 
@@ -70,7 +72,7 @@
         }
 
         .right {
-            width: 50px;
+            width: @width;
             height: 100%;
         }
 
