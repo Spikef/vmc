@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App';
 import Touch from 'vue-touch';
 import Router from 'vue-router';
+import { VMC } from '../src/components/index';
 
 Vue.config.debug = true;    // 开启调试模式
 
@@ -19,17 +20,18 @@ console.log = function() {
     log.apply(console, args);
 };
 
-import routes from './drivers/routes';
+import routes from './pages/routes';
 
 Vue.use(Touch);
 Vue.use(Router);
+Vue.use(VMC);
 
 var router = new Router();
 
 router.map(routes);
 
 router.redirect({
-    '*': '/demos'
+    '*': '/index'
 });
 
 router.beforeEach(t => {
@@ -40,8 +42,8 @@ router.beforeEach(t => {
     t.next();
 });
 
-router.start(App, 'body');
+router.start(App, '#app');
 
 
-// var attachFastClick = require('fastclick');
-// attachFastClick.attach(document.body);
+var attachFastClick = require('fastclick');
+attachFastClick.attach(document.body);

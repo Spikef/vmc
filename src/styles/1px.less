@@ -1,50 +1,50 @@
 @import "variable";
 
 // 使用1px类时，需要注意 如果是absolute定位的，在引入mx-1px后，需要重新写入absolute定位
-.vm-1px{
+.vmc-1px{
     &{
-        .vm-1px(@border-color);
+        .vmc-1px(@border-color);
     }
     &-top{
-        .vm-1px-side(@border-color, top, before);
+        .vmc-1px-side(@border-color, top, before);
     }
     &-bottom{
-        .vm-1px-side(@border-color, bottom, before);
+        .vmc-1px-side(@border-color, bottom, before);
     }
     &-left{
-        .vm-1px-side(@border-color, left, before);
+        .vmc-1px-side(@border-color, left, before);
     }
     &-right{
-        .vm-1px-side(@border-color, right, before);
+        .vmc-1px-side(@border-color, right, before);
     }
     &-left-right{
-        .vm-1px-side(@border-color, left, before);
-        .vm-1px-side(@border-color, right, after);
+        .vmc-1px-side(@border-color, left, before);
+        .vmc-1px-side(@border-color, right, after);
     }
     &-top-bottom{
-        .vm-1px-side(@border-color, top, before);
-        .vm-1px-side(@border-color, bottom, after);
+        .vmc-1px-side(@border-color, top, before);
+        .vmc-1px-side(@border-color, bottom, after);
     }
     &-left-top{
-        .vm-1px-side(@border-color, left, before);
-        .vm-1px-side(@border-color, top, after);
+        .vmc-1px-side(@border-color, left, before);
+        .vmc-1px-side(@border-color, top, after);
     }
     &-left-bottom{
-        .vm-1px-side(@border-color, left, before);
-        .vm-1px-side(@border-color, bottom, after);
+        .vmc-1px-side(@border-color, left, before);
+        .vmc-1px-side(@border-color, bottom, after);
     }
     &-right-top{
-        .vm-1px-side(@border-color, right, before);
-        .vm-1px-side(@border-color, top, after);
+        .vmc-1px-side(@border-color, right, before);
+        .vmc-1px-side(@border-color, top, after);
     }
     &-right-bottom{
-        .vm-1px-side(@border-color, right, before);
-        .vm-1px-side(@border-color, bottom, after);
+        .vmc-1px-side(@border-color, right, before);
+        .vmc-1px-side(@border-color, bottom, after);
     }
 }
 
 // @mixin
-.vm-1px(@color: #ccc, @radius: 0) {
+.vmc-1px(@color: #ccc, @radius: 0) {
     position: relative;
     &:before {
         position        : absolute;
@@ -74,7 +74,7 @@
     }
 }
 
-.vm-1px-side-base(@pseudo) {
+.vmc-1px-side-base(@pseudo) {
     position: relative;
     &:@{pseudo} {
         position        : absolute;
@@ -83,8 +83,8 @@
     }
 }
 
-.vm-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = top) {
-    .vm-1px-side-base(@pseudo);
+.vmc-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = top) {
+    .vmc-1px-side-base(@pseudo);
 
     &:@{pseudo} {
         width     : 100%;
@@ -94,11 +94,11 @@
         left      : 0;
     }
 
-    .vm-1px-device-fix(@pseudo, "Y");
+    .vmc-1px-device-fix(@pseudo, "Y");
 }
 
-.vm-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = bottom) {
-    .vm-1px-side-base(@pseudo);
+.vmc-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = bottom) {
+    .vmc-1px-side-base(@pseudo);
 
     &:@{pseudo} {
         width        : 100%;
@@ -108,11 +108,11 @@
         left         : 0;
     }
 
-    .vm-1px-device-fix(@pseudo, "Y");
+    .vmc-1px-device-fix(@pseudo, "Y");
 }
 
-.vm-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = left) {
-    .vm-1px-side-base(@pseudo);
+.vmc-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = left) {
+    .vmc-1px-side-base(@pseudo);
 
     &:@{pseudo} {
         width      : 1px;
@@ -122,11 +122,11 @@
         left       : 0;
     }
 
-    .vm-1px-device-fix(@pseudo, "X");
+    .vmc-1px-device-fix(@pseudo, "X");
 }
 
-.vm-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = right) {
-    .vm-1px-side-base(@pseudo);
+.vmc-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = right) {
+    .vmc-1px-side-base(@pseudo);
 
     &:@{pseudo} {
         width       : 1px;
@@ -136,10 +136,10 @@
         right       : -1px;
     }
 
-    .vm-1px-device-fix(@pseudo, "X");
+    .vmc-1px-device-fix(@pseudo, "X");
 }
 
-.vm-1px-device-fix(@pseudo, @transform) when (@transform = "X") {
+.vmc-1px-device-fix(@pseudo, @transform) when (@transform = "X") {
     @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
         &@{pseudo} {
             transform: scaleX(0.6667);
@@ -157,7 +157,7 @@
     }
 };
 
-.vm-1px-device-fix(@pseudo, @transform) when (@transform = "Y") {
+.vmc-1px-device-fix(@pseudo, @transform) when (@transform = "Y") {
     @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
         &@{pseudo} {
             transform: scaleY(0.6667);
