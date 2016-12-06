@@ -1,5 +1,5 @@
 <template>
-    <component :is="spinner"></component>
+    <component :is="spinner" :size="size" :color="color"></component>
 </template>
 
 <script type="text/ecmascript-6">
@@ -12,17 +12,21 @@
     ];
 
     const parseSpinner = function(index) {
-        if ({}.toString.call(index) === '[object Number]') {
+        index = index || 0;
+
+        if (/^\d+$/.test(index)) {
             if (SPINNERS.length <= index) {
                 console.warn(`'${index}' spinner not found, use the default spinner.`);
                 index = 0;
             }
             return SPINNERS[index];
         }
+
         if (SPINNERS.indexOf(index) === -1) {
             console.warn(`'${index}' spinner not found, use the default spinner.`);
             index = SPINNERS[0];
         }
+
         return index;
     };
 
@@ -57,17 +61,9 @@
             SpinnerFadingCircle: require('./spinner/fading-circle.vue')
         },
         props: {
-            type: {
-                default: 0
-            },
-            size: {
-                type: Number,
-                default: 28
-            },
-            color: {
-                type: String,
-                default: '#ccc'
-            }
+            type: [Number, String],
+            size: [Number, String],
+            color: String
         }
     };
 </script>

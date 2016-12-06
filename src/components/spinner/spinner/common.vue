@@ -2,10 +2,11 @@
     export default {
         computed: {
             spinnerSize() {
-                return this.size || this.$parent.size || 28;
+                console.log(this.size)
+                return Number(this.size || 28);
             },
             spinnerColor() {
-                return this.color || this.$parent.color || '#ccc';
+                return this.color || '#ccc';
             },
             spinnerStyle() {
                 return {
@@ -15,8 +16,14 @@
             }
         },
         props: {
-            size: Number,
-            color: String
+            size: {
+                type: [Number, String],
+                default: 28
+            },
+            color: {
+                type: String,
+                default: '#ccc'
+            }
         }
     };
 </script>

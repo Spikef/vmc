@@ -1,8 +1,6 @@
 <template>
     <div class="vmc-spinner-fading-circle" :style="spinnerStyle">
-        <div v-for="n in 12" :class="['is-circle' + (n + 1)]" class="vmc-spinner-fading-circle-circle"></div>
-
-        <div class="vmc-spinner-block" v-for="i in 12">
+        <div class="vmc-spinner-block" :style="blockStyle(i)" v-for="i in 12">
             <div class="vmc-spinner-circle" :style="circleStyle(i)"></div>
         </div>
     </div>
@@ -13,7 +11,19 @@
 
     export default {
         mixins: [common],
-
+        methods: {
+            blockStyle(index) {
+                return {
+                    transform: 'rotate(' + 30 * index + 'deg)'
+                }
+            },
+            circleStyle(index) {
+                return {
+                    backgroundColor: this.spinnerColor,
+                    animationDelay: (1.2 / 12 * index - 1.2) + 's'
+                }
+            }
+        }
     };
 </script>
 
@@ -22,14 +32,18 @@
         position: relative;
 
         .vmc-spinner-block {
+            position: absolute;
             width: 100%;
             height: 100%;
-            position: absolute;
             left: 0;
             top: 0;
 
             .vmc-spinner-circle {
-
+                margin: 0 auto;
+                width: 15%;
+                height: 15%;
+                border-radius: 100%;
+                animation: vmc-spinner-fading-circle 1.2s infinite ease-in-out both;
             }
         }
     }

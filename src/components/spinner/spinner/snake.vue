@@ -9,7 +9,10 @@
         mixins: [common],
         computed: {
             spinnerStyle() {
+                var size = Math.ceil(this.spinnerSize / 8);
+
                 return {
+                    borderWidth: size + 'px',
                     borderTopColor: this.spinnerColor,
                     borderLeftColor: this.spinnerColor,
                     borderBottomColor: this.spinnerColor,
@@ -24,7 +27,8 @@
 <style rel="stylesheet/less" lang="less">
     .vmc-spinner-snake {
         animation: vmc-spinner-snake 0.8s infinite linear;
-        border: 4px solid transparent;
+        border-style: solid;
+        border-color: transparent;
         border-radius: 50%;
         box-sizing: border-box;
     }
