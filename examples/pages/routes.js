@@ -46,6 +46,7 @@ module.exports = {
         doc_title: 'input',
         component: require('./componets/input.vue'),
         depth: 20
-    }
+    },
+
 
 };

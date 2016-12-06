@@ -11,6 +11,7 @@ import { mInput } from './input';
 // 界面组件
 import { Topbar, Navbar } from './navbar';
 import Tabbar from './tabbar';
+import Spinner from './spinner';
 
 module.exports = {
     Alert,
@@ -23,5 +24,6 @@ module.exports = {
     Topbar,
     Navbar,
     Tabbar,
+    Spinner,
     VMC: require('./install')
 };
