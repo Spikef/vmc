@@ -20,8 +20,8 @@
 
 
 <script type="text/ecmascript-6">
-    import Navbar from '../../src/components/navbar/navbar.vue';
-    import Radio from '../../src/components/radio/radio.vue';
+    import Navbar from '../../../src/components/navbar/navbar.vue';
+    import Radio from '../../../src/components/radio/radio.vue';
     export default {
         components: {
             Navbar,

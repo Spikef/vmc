@@ -11,34 +11,34 @@ module.exports = {
         component: require('./about.vue'),
         depth: 10
     },
-    'components/alert': {
+    '/components/alert': {
         name: 'components-alert',
         doc_title: 'alert',
         component: require('./componets/alert.vue'),
         depth: 20
     },
-    'message': {
+    '/message': {
         name: 'message',
         doc_title: 'alert',
-        component: require('./message.vue'),
+        component: require('./componets/message.vue'),
         depth: 20
     },
-    'radio': {
+    '/radio': {
         name: 'radio',
         doc_title: 'radio',
-        component: require('./radio.vue'),
+        component: require('./componets/radio.vue'),
         depth: 20
     },
-    'checklist': {
+    '/checklist': {
         name: 'checklist',
         doc_title: 'checklist',
-        component: require('./checklist.vue'),
+        component: require('./componets/checklist.vue'),
         depth: 20
     },
-    'jscomponents': {
+    '/jscomponents': {
         name: 'jscomponents',
         doc_title: 'jscomponents',
-        component: require('./jscomponents.vue'),
+        component: require('./componets/jscomponents.vue'),
         depth: 20
     }
 

@@ -28,8 +28,8 @@
 </style>
 
 <script type="text/ecmascript-6">
-    import Navbar from '../../src/components/navbar/navbar.vue';
-    import Checkbox from '../../src/components/checkbox/checkbox.vue';
+    import Navbar from '../../../src/components/navbar/navbar.vue';
+    import Checkbox from '../../../src/components/checkbox/checkbox.vue';
     export default {
         components: {
             Navbar,

@@ -31,10 +31,10 @@
 </style>
 
 <script type="text/ecmascript-6">
-    import Navbar from '../../src/components/navbar/navbar.vue'
-    import Alert from '../../src/components/alert/alert.vue';
-    import Confirm from '../../src/components/confirm/confirm.vue';
-    import Dialog from '../../src/components/dialog/dialog.vue';
+    import Navbar from '../../../src/components/navbar/navbar.vue'
+    import Alert from '../../../src/components/alert/alert.vue';
+    import Confirm from '../../../src/components/confirm/confirm.vue';
+    import Dialog from '../../../src/components/dialog/dialog.vue';
 
 
 
