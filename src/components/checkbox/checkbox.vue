@@ -1,6 +1,6 @@
 <template>
     <span class="vmc-checkbox">
-        <input type="checkbox" :id="id" :value="value" v-model="checked">
+        <input type="checkbox" :id="id" :value="value" v-model="checked" >
         <label :for="id">
             <slot></slot>
         </label>

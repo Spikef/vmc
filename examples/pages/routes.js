@@ -16,5 +16,30 @@ module.exports = {
         doc_title: 'alert',
         component: require('./componets/alert.vue'),
         depth: 20
+    },
+    'message': {
+        name: 'message',
+        doc_title: 'alert',
+        component: require('./message.vue'),
+        depth: 20
+    },
+    'radio': {
+        name: 'radio',
+        doc_title: 'radio',
+        component: require('./radio.vue'),
+        depth: 20
+    },
+    'checklist': {
+        name: 'checklist',
+        doc_title: 'checklist',
+        component: require('./checklist.vue'),
+        depth: 20
+    },
+    'jscomponents': {
+        name: 'jscomponents',
+        doc_title: 'jscomponents',
+        component: require('./jscomponents.vue'),
+        depth: 20
     }
+
 };
