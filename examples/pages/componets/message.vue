@@ -18,18 +18,6 @@
 
     </div>
 </template>
-<style>
-
-    #di div{
-        background-color: #f6f8fa;
-        text-align: center;
-        line-height:50px;
-        margin-top:50px;
-        border-radius:8px;
-    }
-
-</style>
-
 <script type="text/ecmascript-6">
     import Navbar from '../../../src/components/navbar/navbar.vue'
     import Alert from '../../../src/components/alert/alert.vue';
@@ -60,3 +48,14 @@
         }
     }
 </script>
+<style rel="stylesheet/less" lang="less">
+
+    #di div{
+        background-color: #f6f8fa;
+        text-align: center;
+        line-height:50px;
+        margin-top:50px;
+        border-radius:8px;
+    }
+
+</style>
