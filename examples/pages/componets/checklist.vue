@@ -48,6 +48,7 @@
     .alipay{
         padding-top:20px;
         padding-left:20px;
+
     }
     .sel{
         padding-left:20px;

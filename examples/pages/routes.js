@@ -47,6 +47,12 @@ module.exports = {
         component: require('./componets/input.vue'),
         depth: 20
     },
+    'test':{
+        name: 'test',
+        doc_title: 'test',
+        component: require('./componets/test.vue'),
+        depth: 20
+    }
 
 
 };

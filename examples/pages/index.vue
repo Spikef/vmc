@@ -35,6 +35,11 @@
                 toast
                 <i class="icono-caretRight"></i>
             </div>
+            <div class="line vmc-1px-top-bottom" @click="spinn">
+                <i class="icono-mail" style="float:left"></i>
+                spinner
+                <i class="icono-caretRight"></i>
+            </div>
         </div>
     </div>
 </template>
@@ -62,6 +67,9 @@
             },
             inpu(){
                 this.$router.go('/input')
+            },
+            spinn(){
+                this.$router.go('/test')
             }
         }
 
