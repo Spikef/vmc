@@ -1,20 +1,20 @@
 <template>
-    <div>
+    <div id="messages">
         <navbar>Message Box</navbar>
-        <div id="di">
-            <div @click="clicks" id="da" content="tit">
+        <div id="messageboxs">
+            <div @click="clicks" id="alerts" class="messagess">
                打开alert提示框
             </div>
-            <div @click="clickc" id="dc">
+            <div @click="clickc" id="confirms" class="messagess">
                 打开confirm提示框
             </div>
-            <div @click="clickp" id="dp">
+            <div @click="clickp" id="prompts" class="messagess">
                 打开prompt提示框
             </div>
 
         </div>
-        <alert v-ref:alert  content="确认"></alert>
-        <confirm v-ref:confirm content="确认删除？"></confirm>
+
+
 
     </div>
 </template>
@@ -36,10 +36,10 @@
         },
         methods: {
             clicks() {
-                this.$refs.alert._show('');
+                this.$Alert("alert提示框");
             },
             clickc(){
-                this.$refs.confirm._show("");
+                this.$Confirm("confirm提示框");
             },
             clickp(){
 
@@ -49,13 +49,14 @@
     }
 </script>
 <style rel="stylesheet/less" lang="less">
+    #messages {
+        .messagess {
+            background-color: #f6f8fa;
+            text-align: center;
+            line-height: 50px;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
 
-    #di div{
-        background-color: #f6f8fa;
-        text-align: center;
-        line-height:50px;
-        margin-top:50px;
-        border-radius:8px;
     }
-
 </style>

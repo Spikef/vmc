@@ -1,14 +1,14 @@
 <template>
-    <div>
+    <div id="radios">
         <navbar>radio</navbar>
         <div class="cnt" >
         <div class="aly" >
             <p>单选框列表</p>
-            <radio name="p" id="alipay" value="选项A" :checked.sync="nn" >选项A</radio>
-            <radio name="p" id="wechat" value="选项B" :checked.sync="nn">选项B</radio>
-            <radio name="p" id="wech" value="选项C" :checked.sync="nn">选项C</radio>
+            <radio name="p" id="selectA" value="选项A" :checked.sync="radiovalue" >选项A</radio>
+            <radio name="p" id="selectB" value="选项B" :checked.sync="radiovalue">选项B</radio>
+            <radio name="p" id="selectC" value="选项C" :checked.sync="radiovalue">选项C</radio>
         </div>
-            <div class="sele"><span>选中的项:</span><span class="se">{{nn}}</span>
+            <div class="radioselect"><span>选中的项:</span><span class="selects">{{radiovalue}}</span>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         },
         data(){
             return{
-                nn: ''
+                radiovalue: ''
             }
 
         }
@@ -31,20 +31,24 @@
     }
 </script>
 <style rel="stylesheet/less" lang="less">
+    #radios {
+        .aly {
+            padding-left: 10px;
+            height: 125px;
+            width: 100%;
+            background-color: #fafafa;
 
-    .aly{
-        padding-left:10px;
-        height:125px;
-        width:100%;
-        background-color: #fafafa;
-
-    }
-    .sele{
-        padding-left:10px;
-        margin-top:20px;
-        width:100%;
-        height:40px;
-        background-color: #fafafa;
+        }
+        .radioselect {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 10px;
+            margin-top: 20px;
+            width: 100%;
+            height: 40px;
+            background-color: #fafafa;
+        }
     }
 
 

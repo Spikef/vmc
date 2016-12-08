@@ -3,67 +3,67 @@
         <navbar>JS Components</navbar>
             <div style="height:100%;overflow:auto;box-sizing: border-box">
             <div class="di">
-                <div class="da"><i class="icono-caretDownSquare "></i><span>Toast</span></div>
+                <div class="da"><i class="icono-caretDownSquare "></i><span class="ptitle">Toast</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-spinner" ></i><span>indicator</span></div>
+                <div class="da"><i class="icono-spinner" ></i><span class="ptitle">indicator</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-downArrow " ></i><span>Pull down</span></div>
+                <div class="da"><i class="icono-downArrow " ></i><span class="ptitle">Pull down</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-upArrow " ></i><span>Pull up</span></div>
+                <div class="da"><i class="icono-upArrow " ></i><span class="ptitle">Pull up</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-infinity" ></i><span>Infinite scroll</span></div>
+                <div class="da"><i class="icono-infinity" ></i><span class="ptitle">Infinite scroll</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-commentEmpty" ></i><span>Message box</span></div>
+                <div class="da"><i class="icono-commentEmpty" ></i><span class="ptitle">Message box</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-file" ></i><span>Action sheet</span></div>
+                <div class="da"><i class="icono-file" ></i><span class="ptitle">Action sheet</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-caretRightSquare" ></i><span>Popup</span></div>
+                <div class="da"><i class="icono-caretRightSquare" ></i><span class="ptitle">Popup</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-image" ></i><span>Swipe</span></div>
+                <div class="da"><i class="icono-image" ></i><span class="ptitle">Swipe</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-image" ></i><span>Lazy load</span></div>
+                <div class="da"><i class="icono-image" ></i><span class="ptitle">Lazy load</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-list" ></i><span>Range</span></div>
+                <div class="da"><i class="icono-list" ></i><span class="ptitle">Range</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-image" ></i><span>Progress</span></div>
+                <div class="da"><i class="icono-image" ></i><span class="ptitle">Progress</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             <div class="line vmc-1px-top"></div>
             <div  class="di">
-                <div class="da"><i class="icono-paperClip" ></i><span>Picker</span></div>
+                <div class="da"><i class="icono-paperClip" ></i><span class="ptitle">Picker</span></div>
                 <i class="icono-caretRight " ></i>
             </div>
             </div>
@@ -94,7 +94,7 @@
 
         color: #c2c2c2;
     }
-    span{
+    .ptitle{
         padding-left:15px;
         font-size:15px;
         font-weight:bold;
