@@ -1,6 +1,6 @@
 <template>
     <div class="vmc-spinner-double-bounce" :style="spinnerStyle">
-        <div class="vmc-spinner-bounce" :style="bounceStyle(i)" v-for="i in 2"></div>
+        <div class="bounce" :style="bounceStyle(i)" v-for="i in 2"></div>
     </div>
 </template>
 
@@ -29,7 +29,7 @@
     .vmc-spinner-double-bounce {
         position: relative;
 
-        .vmc-spinner-bounce {
+        .bounce {
             width: 100%;
             height: 100%;
             border-radius: 50%;

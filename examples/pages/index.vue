@@ -4,39 +4,23 @@
         <div class="content">
             <div class="title">表单组件</div>
 
-            <div class="line vmc-1px-top" @click="ra">
-                <i class="icono-mail" style="float:left"></i>
-                radio
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-top" @click="checkb">
-                <i class="icono-mail" style="float:left"></i>
+            <div class="line vmc-1px-top" @click="jump('checkbox')">
                 checkbox
                 <i class="icono-caretRight"></i>
             </div>
-            <div class="line vmc-1px-top-bottom" @click="inpu">
-                <i class="icono-mail" style="float:left"></i>
-                input
+            <div class="line vmc-1px-top-bottom" @click="jump('radio')">
+                radio
                 <i class="icono-caretRight"></i>
             </div>
-            <div class="title">提示组件</div>
-            <div class="line vmc-1px-top" @click="messages">
-                <i class="icono-mail" style="float:left"></i>
-                alert
+
+            <div class="title">全局组件</div>
+            <div class="line vmc-1px-top-bottom" @click="jump('message')">
+                message
                 <i class="icono-caretRight"></i>
             </div>
-            <div class="line vmc-1px-top" @click="messages">
-                <i class="icono-mail" style="float:left"></i>
-                confirm
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-top-bottom" @click="jsm">
-                <i class="icono-mail" style="float:left"></i>
-                toast
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-top-bottom" @click="spinn">
-                <i class="icono-mail" style="float:left"></i>
+
+            <div class="title">UI组件</div>
+            <div class="line vmc-1px-top-bottom" @click="jump('spinner')">
                 spinner
                 <i class="icono-caretRight"></i>
             </div>
@@ -45,7 +29,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../src/components/index';
+    import { Navbar } from '../../src/components/navbar';
 
     export default {
         name: 'index',
@@ -53,23 +37,8 @@
             Navbar
         },
         methods: {
-            ra() {
-                this.$router.go('/radio')
-            },
-            checkb(){
-                this.$router.go('/checklist')
-            },
-            messages(){
-                this.$router.go('/message')
-            },
-            jsm(){
-                this.$router.go('/jscomponents')
-            },
-            inpu(){
-                this.$router.go('/input')
-            },
-            spinn(){
-                this.$router.go('/test')
+            jump(path) {
+                this.$router.go('/components/' + path);
             }
         }
 

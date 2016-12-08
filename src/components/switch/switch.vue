@@ -1,0 +1,97 @@
+<template>
+    <span class="vmc-switch">
+        <input type="checkbox" :id="id" :value="value" v-model="checked" :disabled="disabled">
+        <label :for="id">
+            <slot></slot>
+        </label>
+    </span>
+</template>
+
+<script type="text/ecmascript-6">
+    export default {
+        props: {
+            id: {
+                type: String,
+                default() {
+                    return 'switch-' + Math.random().toString(36).substr(2, 8);
+                }
+            },
+            value: [String, Number, Boolean],
+            checked: [Boolean, Array],
+            disabled: Boolean
+        }
+    }
+</script>
+
+<style rel="stylesheet/less" lang="less">
+    @SwitchHeight: 32px;
+
+    .vmc-switch {
+        font-size: 0;
+        display: flex;
+        align-items: center;
+
+        label {
+            flex: 1;
+            display: inline-block;
+            position: relative;
+            height: @SwitchHeight;
+            line-height: @SwitchHeight;
+            font-size: 16px;
+            color: #243441;
+            margin-left: 5px;
+            font-weight: normal;
+        }
+
+        input {
+            display: inline-block;
+            appearance: none;
+            position: relative;
+            width: 52px;
+            height: @SwitchHeight;
+            border: 1px solid #DFDFDF;
+            outline: 0;
+            border-radius: 16px;
+            box-sizing: border-box;
+            background: #DFDFDF;
+            margin: 0;
+            padding: 0;
+
+            &:before{
+                content: " ";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                height: @SwitchHeight - 2;
+                border-radius: 15px;
+                background-color: #FDFDFD;
+                transition: transform .3s;
+            }
+            &:after{
+                content: " ";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: @SwitchHeight - 2;
+                height: @SwitchHeight - 2;
+                border-radius: 15px;
+                background-color: #FFFFFF;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+                transition: transform .3s;
+            }
+
+            &:checked{
+                border-color: #04BE02;
+                background-color: #04BE02;
+
+                &:before{
+                    transform: scale(0);
+                }
+                &:after{
+                    transform: translateX(20px);
+                }
+            }
+        }
+    }
+</style>

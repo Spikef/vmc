@@ -1,7 +1,7 @@
 <template>
     <span class="vmc-radio">
-        <input type="radio" :id="id" :value="value" v-model="checked">
-        <label :for="id">
+        <input type="radio" :id="id" :value="value" v-model="checked" :disabled="disabled">
+        <label :for="id" :class="{disabled: disabled}">
             <slot></slot>
         </label>
     </span>
@@ -17,7 +17,8 @@
                 }
             },
             value: [String, Number, Boolean],
-            checked: [Boolean, Array]
+            checked: [Boolean, Array],
+            disabled: Boolean
         }
     }
 </script>
@@ -59,11 +60,24 @@
                 position: absolute;
                 left: 2px;
             }
+
+            &.disabled:before {
+                background-color: #E6E6E6;
+            }
+
+            &.disabled:after {
+                color: #B1B1B1;
+            }
         }
 
         input:checked + label:before {
             background-color: #ED1F31;
             border: 1px solid #ED1F31;
+        }
+
+        input:checked + .disabled:before {
+            background-color: #E6E6E6;
+            border: 1px solid #C1CACA;
         }
 
         input:checked + label:after {

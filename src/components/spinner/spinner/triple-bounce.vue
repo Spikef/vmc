@@ -1,6 +1,6 @@
 <template>
     <div class="vmc-spinner-triple-bounce" :style="spinnerStyle">
-        <div class="vmc-spinner-bounce" :style="bounceStyle(i)" v-for="i in 3"></div>
+        <div class="bounce" :style="bounceStyle(i)" v-for="i in 3"></div>
     </div>
 </template>
 
@@ -44,7 +44,7 @@
     .vmc-spinner-triple-bounce {
         font-size: 0;
 
-        .vmc-spinner-bounce {
+        .bounce {
             border-radius: 100%;
             display: inline-block;
             animation: vmc-spinner-triple-bounce 1.4s infinite ease-in-out both;

@@ -1,6 +1,6 @@
 <template>
     <div class="vmc-spinner-blade" :style="spinnerStyle">
-        <div class="vmc-spinner-blade" :style="bladeStyle(i)" v-for="i in 12"></div>
+        <div class="blade" :style="bladeStyle(i)" v-for="i in 12"></div>
     </div>
 </template>
 
@@ -33,7 +33,7 @@
     .vmc-spinner-blade {
         position: relative;
 
-        .vmc-spinner-blade {
+        .blade {
             position: absolute;
             left: 44.5%;
             top: 37%;

@@ -7,6 +7,7 @@ import Dialog from './dialog';
 import { Checkbox, Checkall } from './checkbox';
 import Radio from './radio';
 import { mInput } from './input';
+import Switch from './switch';
 
 // 界面组件
 import { Topbar, Navbar } from './navbar';
@@ -21,6 +22,7 @@ module.exports = {
     Checkall,
     mInput,
     Radio,
+    Switch,
     Topbar,
     Navbar,
     Tabbar,

@@ -42,9 +42,9 @@
      * <spinner type="snake"></spinner>
      *
      * <!-- double-bounce -->
-     * <spinner :type="1"></spinner>
+     * <spinner :type="2"></spinner>
      *
-     * <!-- default snake -->
+     * <!-- default blade -->
      * <spinner :size="30" color="#999"></spinner>
      */
     export default {

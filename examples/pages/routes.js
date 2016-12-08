@@ -11,48 +11,34 @@ module.exports = {
         component: require('./about.vue'),
         depth: 10
     },
-    '/components/alert': {
-        name: 'components-alert',
-        doc_title: 'alert',
-        component: require('./componets/alert.vue'),
-        depth: 20
+    '/test': {
+        name: 'test',
+        doc_title: '测试页',
+        component: require('./test.vue'),
+        depth: 10
     },
-    '/message': {
+    '/components/message': {
         name: 'message',
-        doc_title: 'alert',
-        component: require('./componets/message.vue'),
+        doc_title: '消息框',
+        component: require('./components/message.vue'),
         depth: 20
     },
-    '/radio': {
+    '/components/radio': {
         name: 'radio',
-        doc_title: 'radio',
-        component: require('./componets/radio.vue'),
+        doc_title: '单选框',
+        component: require('./components/radio.vue'),
         depth: 20
     },
-    '/checklist': {
-        name: 'checklist',
-        doc_title: 'checklist',
-        component: require('./componets/checklist.vue'),
+    '/components/checkbox': {
+        name: 'checkbox',
+        doc_title: '复选框',
+        component: require('./components/checkbox.vue'),
         depth: 20
     },
-    '/jscomponents': {
-        name: 'jscomponents',
-        doc_title: 'jscomponents',
-        component: require('./componets/jscomponents.vue'),
-        depth: 20
-    },
-    '/input': {
-        name: 'input',
-        doc_title: 'input',
-        component: require('./componets/input.vue'),
-        depth: 20
-    },
-    'test':{
+    '/components/spinner':{
         name: 'test',
         doc_title: 'test',
-        component: require('./componets/test.vue'),
+        component: require('./components/spinner.vue'),
         depth: 20
     }
-
-
 };

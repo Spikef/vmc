@@ -1,7 +1,7 @@
 <template>
     <div class="vmc-spinner-fading-circle" :style="spinnerStyle">
-        <div class="vmc-spinner-block" :style="blockStyle(i)" v-for="i in 12">
-            <div class="vmc-spinner-circle" :style="circleStyle(i)"></div>
+        <div class="block" :style="blockStyle(i)" v-for="i in 12">
+            <div class="circle" :style="circleStyle(i)"></div>
         </div>
     </div>
 </template>
@@ -31,14 +31,14 @@
     .vmc-spinner-fading-circle {
         position: relative;
 
-        .vmc-spinner-block {
+        .block {
             position: absolute;
             width: 100%;
             height: 100%;
             left: 0;
             top: 0;
 
-            .vmc-spinner-circle {
+            .circle {
                 margin: 0 auto;
                 width: 15%;
                 height: 15%;
