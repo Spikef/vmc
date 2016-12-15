@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-toast" transition="vmc-toast">
+    <div class="vmc-toast" transition="vmc-toast" v-show="show">
         <mask transparent></mask>
         <div class="block">
             <div class="icon" v-if="showIcon">
@@ -47,7 +47,8 @@
         },
         props: {
             type: [Number, String],
-            content: String
+            content: String,
+            show: Boolean
         },
         computed: {
             showIcon() {
@@ -63,7 +64,26 @@
 <style rel="stylesheet/less" lang="less">
     .vmc-toast {
         .block {
-
+            position: fixed;
+            max-width: 80%;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            z-index: 500;
+            transition: opacity .3s linear;
+            padding: 10px;
         }
     }
+
+    .vmc-toast-enter, .vmc-toast-leave {
+        opacity: 0;
+    }
 </style>
+
+
+<div class="mint-toast is-placemiddle" style="padding: 20px;">
+    <i class="mint-toast-icon mintui mintui-success"></i>
+    <span class="mint-toast-text" style="padding-top: 10px;">操作成功</span>
+</div>

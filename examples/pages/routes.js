@@ -36,9 +36,15 @@ module.exports = {
         depth: 20
     },
     '/components/spinner':{
-        name: 'test',
-        doc_title: 'test',
+        name: 'spinner',
+        doc_title: 'spinner',
         component: require('./components/spinner.vue'),
+        depth: 20
+    },
+    '/components/button':{
+        name: 'button',
+        doc_title: 'button',
+        component: require('./components/button.vue'),
         depth: 20
     }
 };

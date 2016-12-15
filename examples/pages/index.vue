@@ -12,6 +12,10 @@
                 radio
                 <i class="icono-caretRight"></i>
             </div>
+            <div class="line vmc-1px-top-bottom" @click="jump('button')">
+                button
+                <i class="icono-caretRight"></i>
+            </div>
 
             <div class="title">全局组件</div>
             <div class="line vmc-1px-top-bottom" @click="jump('message')">

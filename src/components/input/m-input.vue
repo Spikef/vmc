@@ -1,5 +1,5 @@
 <template>
-    <input class="vmc-input" type="text" :placeholder="placeholder" v-model="value" @input="_onInput">
+    <input class="vmc-input-m" type="text" :placeholder="placeholder" v-model="value" @input="_onInput">
 </template>
 
 <script type="text/ecmascript-6">
@@ -74,7 +74,7 @@
 </script>
 
 <style rel="stylesheet/less" lang="less">
-    .vmc-input {
+    .vmc-input-m {
         outline: none;
         border: none;
         height: 100%;
