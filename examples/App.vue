@@ -5,7 +5,7 @@
             :transition="direction">
         </router-view>
 
-        <tabbar :index="index" :items="items" :show="showTab"></tabbar>
+        <tabbar :index="index" :items="items" :show="showTab" ></tabbar>
     </div>
 </template>
 
