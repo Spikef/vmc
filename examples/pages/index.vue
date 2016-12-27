@@ -28,6 +28,16 @@
                 spinner
                 <i class="icono-caretRight"></i>
             </div>
+
+            <div class="title">布局组件</div>
+            <div class="line vmc-1px-top-bottom" @click="jump('tabbar')">
+                tabbar
+                <i class="icono-caretRight"></i>
+            </div>
+            <div class="line vmc-1px-top-bottom" @click="jump('grid')">
+                grid
+                <i class="icono-caretRight"></i>
+            </div>
         </div>
     </div>
 </template>

@@ -2,7 +2,6 @@
     export default {
         computed: {
             spinnerSize() {
-                console.log(this.size)
                 return Number(this.size || 28);
             },
             spinnerColor() {

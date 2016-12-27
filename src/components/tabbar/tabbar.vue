@@ -1,13 +1,17 @@
 <template>
     <div class="vmc-tab-bar" :style="style">
         <div class="tab-item" :class="{active: $index == index}" @click="_onItemClick(item, $index)" v-for="($index, item) in items">
-            {{{item.icon}}}
-            <span class="tab-text">{{item.text}}</span>
+            <slot-item :scope="{item: item}">
+                {{{item.icon}}}
+                <span class="tab-text">{{item.text}}</span>
+            </slot-item>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+    import * as utils from '../utils';
+
     export default {
         props: {
             index: {

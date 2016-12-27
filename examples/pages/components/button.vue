@@ -1,6 +1,6 @@
 <template>
     <div id="button">
-        <navbar>单选框</navbar>
+        <navbar>按钮</navbar>
 
         <div class="content">
             <div class="button-list">
@@ -22,7 +22,7 @@
                 <v-button type="primary">
                     <i slot="icon-left" class="icono-cart"></i>
                     button with icon and spinner
-                    <span  slot="icon-right">
+                    <span slot="icon-right">
                         <spinner color="white" size="20"></spinner>
                     </span>
                 </v-button>

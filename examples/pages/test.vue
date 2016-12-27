@@ -18,6 +18,55 @@
         components: {
             Spinner,
             Switch
+        },
+        methods: {
+            out(item) {
+                console.log(item)
+            }
+        },
+        data() {
+            return {
+                list: [
+                    {
+                        name: 'kk',
+                        age: 27
+                    },
+                    {
+                        name: 'dd',
+                        age: 32
+                    }
+                ]
+            }
+        },
+        ready() {
+            var id = this.$route.query.id;
+            if (id == 1) {
+                setTimeout(() => {
+                    this.list = [
+                        {
+                            name: 'bbbb',
+                            age: 27
+                        },
+                        {
+                            name: 'cccc',
+                            age: 32
+                        },
+                        {
+                            name: 'dddd',
+                            age: 12
+                        }
+                    ]
+                }, 2000);
+            } else {
+                setTimeout(() => {
+                    this.list = [
+                        {
+                            name: '王重阳',
+                            age: 66
+                        }
+                    ]
+                }, 5000);
+            }
         }
     }
 </script>

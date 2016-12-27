@@ -13,6 +13,8 @@ import Switch from './switch';
 import { Topbar, Navbar } from './navbar';
 import Tabbar from './tabbar';
 import Spinner from './spinner';
+import Dropload from './dropload';
+import Grid from './grid';
 
 module.exports = {
     Alert,
@@ -27,5 +29,8 @@ module.exports = {
     Navbar,
     Tabbar,
     Spinner,
-    VMC: require('./install')
+    Dropload,
+    Grid,
+    VMC: require('./install'),
+    Utils: require('./utils')
 };

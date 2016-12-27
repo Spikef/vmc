@@ -35,16 +35,28 @@ module.exports = {
         component: require('./components/checkbox.vue'),
         depth: 20
     },
-    '/components/spinner':{
+    '/components/spinner': {
         name: 'spinner',
         doc_title: 'spinner',
         component: require('./components/spinner.vue'),
         depth: 20
     },
-    '/components/button':{
+    '/components/button': {
         name: 'button',
         doc_title: 'button',
         component: require('./components/button.vue'),
+        depth: 20
+    },
+    '/components/tabbar': {
+        name: 'tabbar',
+        doc_title: 'tabbar',
+        component: require('./components/tabbar.vue'),
+        depth: 20
+    },
+    '/components/grid': {
+        name: 'grid',
+        doc_title: 'grid',
+        component: require('./components/grid.vue'),
         depth: 20
     }
 };

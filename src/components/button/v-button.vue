@@ -45,11 +45,11 @@
     export default {
         props: {
             inline: Boolean,
-            radius: Number,
-            height: Number,
-            border: Number,
-            width: Number,
-            size: Number,
+            radius: [Number, String],
+            height: [Number, String],
+            border: [Number, String],
+            width: [Number, String],
+            size: [Number, String],
             disabled: Boolean,
             text: {
                 type: String,

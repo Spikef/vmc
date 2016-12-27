@@ -80,7 +80,7 @@
     }
 </script>
 
-<style rel="stylesheet" lang="less">
+<style rel="stylesheet/less" lang="less">
     @import "assets/css/transition.css";
     @import "../src/styles/vmc.less";
 

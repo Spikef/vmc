@@ -1,14 +1,16 @@
 <template>
     <topbar class="vmc-navbar" :style="style" v-if="show">
-        <div class="left" @click="_onBack">
-            <i class="icono-caretLeft"></i>
-        </div>
+        <slot name="main">
+            <div class="left" @click="_onBack">
+                <i class="icono-caretLeft"></i>
+            </div>
 
-        <div class="center">
-            <slot></slot>
-        </div>
+            <div class="center">
+                <slot></slot>
+            </div>
 
-        <div class="right"></div>
+            <div class="right"></div>
+        </slot>
     </topbar>
 </template>
 

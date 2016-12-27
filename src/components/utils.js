@@ -21,3 +21,18 @@ Object.defineProperties(env, {
         }
     }
 });
+
+// filters, directives, transitions
+import Vue from 'vue';
+import * as directives from '../utils/directive';
+
+Object.keys(directives).forEach(name => {
+    let _name = name.replace(/[A-Z](?![A-Z])/g, $0 => '-' + $0.toLowerCase());
+    let isEl = directives[name].element;
+
+    if (isEl) {
+        Vue.elementDirective(_name, directives[name]);
+    } else {
+        Vue.directive(_name, directives[name]);
+    }
+});
