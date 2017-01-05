@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App';
 import Touch from 'vue-touch';
 import Router from 'vue-router';
-import { VMC } from '../src/components/index';
+import { VMC } from '../src';
 
 Vue.config.debug = true;    // 开启调试模式
 

@@ -23,6 +23,12 @@ module.exports = {
         component: require('./components/message.vue'),
         depth: 20
     },
+    '/components/toast': {
+        name: 'toast',
+        doc_title: '消息提示',
+        component: require('./components/toast.vue'),
+        depth: 20
+    },
     '/components/radio': {
         name: 'radio',
         doc_title: '单选框',
@@ -47,6 +53,12 @@ module.exports = {
         component: require('./components/button.vue'),
         depth: 20
     },
+    '/components/submit': {
+        name: 'submit',
+        doc_title: 'submit',
+        component: require('./components/submit.vue'),
+        depth: 20
+    },
     '/components/tabbar': {
         name: 'tabbar',
         doc_title: 'tabbar',
@@ -57,6 +69,24 @@ module.exports = {
         name: 'grid',
         doc_title: 'grid',
         component: require('./components/grid.vue'),
+        depth: 20
+    },
+    '/components/justify': {
+        name: 'justify',
+        doc_title: 'justify',
+        component: require('./components/justify.vue'),
+        depth: 20
+    },
+    '/components/dropload': {
+        name: 'dropload',
+        doc_title: 'dropload',
+        component: require('./components/dropload.vue'),
+        depth: 20
+    },
+    '/components/tabcontrol': {
+        name: 'tabcontrol',
+        doc_title: 'tabcontrol',
+        component: require('./components/tabcontrol.vue'),
         depth: 20
     }
 };

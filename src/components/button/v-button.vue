@@ -1,6 +1,6 @@
 <template>
-    <span class="vmc-button-v" :class="{disabled: disabled}" :style="style">
-        <div class="vmc-button">
+    <span class="vmc-button" :class="{disabled: disabled}" :style="style">
+        <div class="block">
             <slot name="icon-left"></slot>
             <slot>{{text}}</slot>
             <slot name="icon-right"></slot>
@@ -115,12 +115,24 @@
 </script>
 
 <style rel="stylesheet/less" lang="less">
-    .vmc-button-v {
+    .vmc-button {
         text-align: center;
         font-size: 14px;
         height: 40px;
+        position: relative;
 
-        .vmc-button {
+        &:active:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #000000;
+            opacity: .4;
+        }
+
+        .block {
             height: 100%;
             display: flex;
             justify-content: center;
@@ -129,6 +141,10 @@
 
         &.disabled {
             opacity: .65;
+
+            &:active:after {
+                display: none;
+            }
         }
 
         [slot="icon-left"] {

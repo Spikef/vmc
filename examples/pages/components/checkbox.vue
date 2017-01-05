@@ -41,8 +41,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../../src/components/navbar';
-    import { Checkbox, Checkall } from '../../../src/components/checkbox';
+    import { Navbar, Checkbox, Checkall } from '../../../src';
 
     export default {
         components: {

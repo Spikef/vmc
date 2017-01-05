@@ -37,6 +37,6 @@ export default configs => {
             }
 
             vm.$refs.confirm._show(Object.assign({}, opts, options));
-        }
+        };
     }
 }

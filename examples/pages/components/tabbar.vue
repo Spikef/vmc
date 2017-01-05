@@ -11,8 +11,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../../src/components/navbar';
-    import Tabbar from '../../../src/components/tabbar';
+    import { Navbar, Tabbar } from '../../../src';
 
     export default {
         name: 'root',

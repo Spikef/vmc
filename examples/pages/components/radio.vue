@@ -28,8 +28,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../../src/components/navbar';
-    import Radio from '../../../src/components/radio';
+    import { Navbar, Radio } from '../../../src';
 
     export default {
         components: {

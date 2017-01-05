@@ -1,0 +1,21 @@
+.vmc-nowrap {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.vmc-nowrap(5);
+
+// mixin
+.vmc-nowrap(@n, @i: 1) when (@i =< @n) {
+    .vmc-nowrap-@{i} {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: @i;
+    }
+
+    .vmc-nowrap(@n, (@i + 1));
+}

@@ -1,3 +1,1 @@
-module.exports = {
-    mInput: require('./m-input.vue')
-};
+module.exports = require('./v-input.vue');

@@ -7,7 +7,7 @@
 引用:
 
 ```javascript
-import { vButton } from '../../../src/components/button';
+import vButton from '../../../src/components/button';
 ```
 
 使用:

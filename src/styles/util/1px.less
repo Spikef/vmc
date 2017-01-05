@@ -1,5 +1,3 @@
-@import "variable";
-
 // 使用1px类时，需要注意 如果是absolute定位的，在引入mx-1px后，需要重新写入absolute定位
 .vmc-1px{
     &{
@@ -141,17 +139,17 @@
 
 .vmc-1px-device-fix(@pseudo, @transform) when (@transform = "X") {
     @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
-        &@{pseudo} {
+        &:@{pseudo} {
             transform: scaleX(0.6667);
         }
     }
     @media screen and (-webkit-min-device-pixel-ratio: 2) {
-        &@{pseudo} {
+        &:@{pseudo} {
             transform: scaleX(0.5);
         }
     }
     @media screen and (-webkit-min-device-pixel-ratio: 3) {
-        &@{pseudo} {
+        &:@{pseudo} {
             transform: scaleX(0.333);
         }
     }
@@ -159,17 +157,17 @@
 
 .vmc-1px-device-fix(@pseudo, @transform) when (@transform = "Y") {
     @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
-        &@{pseudo} {
+        &:@{pseudo} {
             transform: scaleY(0.6667);
         }
     }
     @media screen and (-webkit-min-device-pixel-ratio: 2) {
-        &@{pseudo} {
+        &:@{pseudo} {
             transform: scaleY(0.5);
         }
     }
     @media screen and (-webkit-min-device-pixel-ratio: 3) {
-        &@{pseudo} {
+        &:@{pseudo} {
             transform: scaleY(0.333);
         }
     }

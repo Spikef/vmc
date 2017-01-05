@@ -16,7 +16,7 @@
 
 <script type="text/ecmascript-6">
     import Topbar from './topbar.vue';
-    import { env } from '../utils';
+    import { env } from '../../utils';
 
     export default {
         components: {

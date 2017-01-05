@@ -16,7 +16,7 @@ module.exports = {
         extensions: ['', '.js', '.vue'],
         fallback: [path.join(__dirname, '../node_modules')],
         alias: {
-            'vmc': '../src/components'
+            'vmc': '../src'
         }
     },
     resolveLoader: {

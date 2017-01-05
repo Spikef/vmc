@@ -28,6 +28,6 @@ export default configs => {
             }
 
             vm.$refs.alert._show(Object.assign({}, opts, options));
-        }
+        };
     }
 }

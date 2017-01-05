@@ -216,6 +216,8 @@
 
 <style rel="stylesheet/less" lang="less">
     .vmc-dropload {
+        height: 100%;
+        box-sizing: border-box;
         overflow-y: scroll;
 
         .dropload-mask {
@@ -226,7 +228,7 @@
             bottom: 0;
         }
 
-        .dropload-up,.dropload-down{
+        .dropload-up,.dropload-down {
             position: relative;
             height: 0;
             overflow: hidden;
@@ -235,15 +237,15 @@
             -webkit-transform:translateZ(0);
             transform:translateZ(0);
         }
-        .dropload-down{
+        .dropload-down {
             height: 50px;
         }
-        .dropload-refresh,.dropload-update,.dropload-load,.dropload-noData{
+        .dropload-refresh,.dropload-update,.dropload-load,.dropload-noData {
             height: 50px;
             line-height: 50px;
             text-align: center;
         }
-        .dropload-load .loading{
+        .dropload-load .loading {
             display: inline-block;
             height: 15px;
             width: 15px;

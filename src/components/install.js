@@ -1,5 +1,6 @@
 import installAlert from './alert/install';
 import installConfirm from './confirm/install';
+import installToast from './toast/install';
 
 (function (global, factory) {
     if (exports === 'object' && typeof module !== 'undefined') {
@@ -12,7 +13,8 @@ import installConfirm from './confirm/install';
 }(this, function () {
     return function install (Vue, options = {
         alert: true,
-        confirm: true
+        confirm: true,
+        toast: true
     }) {
         var configs = {
             name: 'VMC',
@@ -28,6 +30,10 @@ import installConfirm from './confirm/install';
 
         if (options.confirm) {
             plugins.push(installConfirm(configs));
+        }
+
+        if (options.toast) {
+            plugins.push(installToast(configs));
         }
 
         configs.template = '<div id="vmc">' + configs.template + '</div>';

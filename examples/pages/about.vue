@@ -8,7 +8,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../src/components/navbar';
+    import { Navbar } from '../../src';
 
     export default {
         name: 'about',

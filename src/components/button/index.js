@@ -1,3 +1,1 @@
-module.exports = {
-    vButton: require('./v-button.vue')
-};
+module.exports = require('./v-button.vue');

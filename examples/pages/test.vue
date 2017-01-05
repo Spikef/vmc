@@ -8,11 +8,13 @@
         <spinner color="#b1b1b1" type="fading-circle"></spinner>
 
         <switch></switch>
+
+        <span class="vmc-red-dot">一些有趣的文字</span>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import { Spinner, Switch } from '../../src/components';
+    import { Spinner, Switch } from '../../src';
 
     export default {
         components: {

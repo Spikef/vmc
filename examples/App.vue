@@ -10,7 +10,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Tabbar } from '../src/components/index';
+    import { Tabbar } from '../src';
 
     export default {
         name: 'root',
@@ -81,18 +81,15 @@
 </script>
 
 <style rel="stylesheet/less" lang="less">
-    @import "assets/css/transition.css";
     @import "../src/styles/vmc.less";
+    @import "assets/css/transition.css";
 
     html, body {
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
         border: none;
         font-size: 20px;
         overflow: hidden;
-        background-color: #fff;
     }
 
     #app {
@@ -107,9 +104,7 @@
         right: 0;
         bottom: 0;
         -webkit-overflow-scrolling: touch;
-        -webkit-tap-highlight-color: transparent;
-        user-select:none;
-        font-family: "PingFang SC", "Microsoft YaHei", Helvetica Neue,Helvetica,Arial,sans-serif;
+        font-family: "PingFang SC", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
         font-weight: normal;
         background-color: #fff;
         font-size: 0.8rem;

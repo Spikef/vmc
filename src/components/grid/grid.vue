@@ -1,8 +1,8 @@
 <template>
     <div class="vmc-grid">
-        <div :style="style"><div class="grid-item" v-for="(index, item) in list" :style="itemStyle">
+        <ul :class="{justify: justify}" :style="style"><li :style="itemStyle" v-for="(index, item) in list">
             <slot-item :scope="{index: index, item: item}"></slot-item>
-        </div></div>
+        </li></ul>
     </div>
 </template>
 
@@ -19,17 +19,6 @@
                 return parseInt(val) || 0;
         }
     };
-
-//    const getInt = function (val, min, max) {
-//        val = parseInt(val) || 0;
-//        if (typeof min === 'number') {
-//            val = Math.max(val, parseInt(min));
-//        }
-//        if (typeof max === 'number') {
-//            val = Math.min(val, parseInt(max));
-//        }
-//        return val;
-//    };
 
     export default {
         props: {
@@ -68,7 +57,7 @@
                 }
             },
             itemStyle() {
-                var columns = this.columns != 0 ? this.columns : 1;
+                var columns = this.columns || 1;
                 var gutter = this.gutter > 0 ? this.gutter : 0;
                 var margin = this.margin > 0 ? this.margin : 0;
                 var width = columns > 0 ? (100 / columns) + '%' : null;
@@ -78,6 +67,9 @@
                     width: width,
                     padding: padding
                 }
+            },
+            justify() {
+                return this.columns < 0 && this.gutter < 0;
             }
         }
     }
@@ -85,7 +77,12 @@
 
 <style rel="stylesheet/less" lang="less">
     .vmc-grid {
-        .grid-item {
+        ul.justify {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        li {
             display: inline-block;
             box-sizing: border-box;
         }

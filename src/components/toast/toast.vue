@@ -1,61 +1,66 @@
 <template>
     <div class="vmc-toast" transition="vmc-toast" v-show="show">
         <mask transparent></mask>
-        <div class="block">
+        <div class="block" :class="where" :style="{ 'padding': showIcon ? '20px' : '10px' }">
             <div class="icon" v-if="showIcon">
-                <component :is="toast"></component>
+                <spinner v-if="type == 'loading'" color="#ffffff" size="48" type="0"></spinner>
+                <i :class="icon" v-else></i>
             </div>
-            <span><slot>{{content}}</slot></span>
+            <span class="text" v-show="content" :style="{ 'margin-top': showIcon ? '10px' : '' }">{{content}}</span>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
     import Mask from '../mask';
-    import ToastLoading from './toast/loading.vue';
+    import Spinner from '../spinner';
 
     const TOASTS = [
         'loading',
         'success',
         'error',
-        'warn'
+        'info'
     ];
-
-    const parseToast = function(index) {
-        index = index || 0;
-
-        if (/^\d+$/.test(index)) {
-            if (TOASTS.length <= index) {
-                console.warn(`'${index}' toast not found, use the default toast.`);
-                index = 0;
-            }
-            return TOASTS[index];
-        }
-
-        if (TOASTS.indexOf(index) === -1) {
-            console.warn(`'${index}' toast not found, use the default toast.`);
-            index = TOASTS[0];
-        }
-
-        return index;
-    };
 
     export default {
         components: {
             Mask,
-            ToastLoading
+            Spinner
         },
         props: {
-            type: [Number, String],
+            type: String,
+            show: Boolean,
             content: String,
-            show: Boolean
+            position: String
         },
         computed: {
             showIcon() {
-                return this.type !== undefined;
+                return !!~TOASTS.indexOf(this.type);
             },
-            toast() {
-                return `toast-${parseToast(this.type)}`;
+            where() {
+                return 'block-' + (!!~['top', 'center', 'bottom'].indexOf(this.position) ? this.position : 'center');
+            },
+            icon() {
+                return {
+                    success: 'icono-checkCircle',
+                    error: 'icono-crossCircle',
+                    info: 'icono-exclamationCircle'
+                }[this.type];
+            }
+        },
+        methods: {
+            _show(options) {
+                this.type = options.type;
+                this.content = options.content;
+                this.position = options.position;
+                this.show = true;
+
+                if (typeof options.second === 'number' && options.second > 0) {
+                    setTimeout(() => this._hide(), options.second * 1000);
+                }
+            },
+            _hide() {
+                this.show = false;
             }
         }
     }
@@ -74,6 +79,39 @@
             z-index: 500;
             transition: opacity .3s linear;
             padding: 10px;
+
+            &.block-top {
+                top: 50px;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            &.block-center {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            &.block-bottom {
+                bottom: 50px;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            .icon {
+                font-size: 30px;
+                text-align: center;
+
+                > div {
+                    margin:0 auto
+                }
+            }
+
+            .text {
+                display: block;
+                font-size: 14px;
+                text-align: center;
+            }
         }
     }
 
@@ -81,9 +119,3 @@
         opacity: 0;
     }
 </style>
-
-
-<div class="mint-toast is-placemiddle" style="padding: 20px;">
-    <i class="mint-toast-icon mintui mintui-success"></i>
-    <span class="mint-toast-text" style="padding-top: 10px;">操作成功</span>
-</div>

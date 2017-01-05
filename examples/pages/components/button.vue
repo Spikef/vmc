@@ -32,9 +32,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../../src/components/navbar';
-    import { vButton } from '../../../src/components/button';
-    import Spinner from '../../../src/components/spinner';
+    import { Navbar, vButton, Spinner } from '../../../src';
 
     export default {
         components: {
@@ -63,7 +61,7 @@
             .button-list {
                 padding-top: 10px;
 
-                .vmc-button-v {
+                .vmc-button {
                     margin-bottom: 10px;
 
                     i {

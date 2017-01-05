@@ -4,16 +4,20 @@
         <div class="content">
             <div class="title">表单组件</div>
 
-            <div class="line vmc-1px-top" @click="jump('checkbox')">
+            <div class="line vmc-1px-top-bottom" @click="jump('checkbox')">
                 checkbox
                 <i class="icono-caretRight"></i>
             </div>
-            <div class="line vmc-1px-top-bottom" @click="jump('radio')">
+            <div class="line vmc-1px-bottom" @click="jump('radio')">
                 radio
                 <i class="icono-caretRight"></i>
             </div>
-            <div class="line vmc-1px-top-bottom" @click="jump('button')">
+            <div class="line vmc-1px-bottom" @click="jump('button')">
                 button
+                <i class="icono-caretRight"></i>
+            </div>
+            <div class="line vmc-1px-bottom" @click="jump('submit')">
+                submit
                 <i class="icono-caretRight"></i>
             </div>
 
@@ -22,10 +26,18 @@
                 message
                 <i class="icono-caretRight"></i>
             </div>
+            <div class="line vmc-1px-bottom" @click="jump('toast')">
+                toast
+                <i class="icono-caretRight"></i>
+            </div>
 
             <div class="title">UI组件</div>
             <div class="line vmc-1px-top-bottom" @click="jump('spinner')">
                 spinner
+                <i class="icono-caretRight"></i>
+            </div>
+            <div class="line vmc-1px-bottom" @click="jump('dropload')">
+                dropload
                 <i class="icono-caretRight"></i>
             </div>
 
@@ -34,8 +46,16 @@
                 tabbar
                 <i class="icono-caretRight"></i>
             </div>
-            <div class="line vmc-1px-top-bottom" @click="jump('grid')">
+            <div class="line vmc-1px-bottom" @click="jump('grid')">
                 grid
+                <i class="icono-caretRight"></i>
+            </div>
+            <div class="line vmc-1px-bottom" @click="jump('justify')">
+                justify
+                <i class="icono-caretRight"></i>
+            </div>
+            <div class="line vmc-1px-bottom" @click="jump('tabcontrol')">
+                tabcontrol
                 <i class="icono-caretRight"></i>
             </div>
         </div>
@@ -43,7 +63,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../src/components/navbar';
+    import { Navbar } from '../../src';
 
     export default {
         name: 'index',
@@ -55,7 +75,6 @@
                 this.$router.go('/components/' + path);
             }
         }
-
     }
 </script>
 
@@ -64,6 +83,11 @@
         background-color: #fbf9fe;
 
         .content {
+            height: 100%;
+            padding-bottom: 55px;
+            box-sizing: border-box;
+            overflow: auto;
+
             .title {
                 font-size: 18px;
                 text-align: center;
@@ -81,6 +105,7 @@
                     float: right;
                     margin: 0;
                     color: #666666;
+                    transform: scale(0.8);
                 }
             }
         }

@@ -1,5 +1,5 @@
 <template>
-    <input class="vmc-input-m" type="text" :placeholder="placeholder" v-model="value" @input="_onInput">
+    <input class="vmc-input" type="text" :placeholder="placeholder" v-model="value" @input="_onInput">
 </template>
 
 <script type="text/ecmascript-6">
@@ -20,7 +20,7 @@
                 } else {
                     switch (this.type) {
                         case 'integer':
-                            if (!/^\-?$/.test(val)) {
+                            if (!/^-?$/.test(val)) {
                                 val = parseInt(val);
                                 if (isNaN(val)) val = 0;
 
@@ -34,7 +34,7 @@
 
                             break;
                         case 'number':
-                            if (!/^\-?$/.test(val) && !/\.$/.test(val)) {
+                            if (!/^-?$/.test(val) && !/\.$/.test(val)) {
                                 val = parseFloat(val);
                                 if (isNaN(val)) val = 0;
 
@@ -74,7 +74,7 @@
 </script>
 
 <style rel="stylesheet/less" lang="less">
-    .vmc-input-m {
+    .vmc-input {
         outline: none;
         border: none;
         height: 100%;

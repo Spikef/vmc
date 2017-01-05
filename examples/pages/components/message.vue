@@ -3,22 +3,20 @@
         <navbar>Message Box</navbar>
 
         <div>
-            <div @click="showAlert" class="button">
-                打开alert提示框
-            </div>
-            <div @click="showConfirm" class="button">
-                打开confirm提示框
-            </div>
+            <v-button @click="showAlert">打开alert提示框</v-button>
+
+            <v-button @click="showConfirm">打开confirm提示框</v-button>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import Navbar from '../../../src/components/navbar/navbar.vue'
+    import { Navbar, vButton } from '../../../src'
 
     export default {
         components: {
-            Navbar
+            Navbar,
+            vButton
         },
         methods: {
             showAlert() {
@@ -37,12 +35,8 @@
 
 <style rel="stylesheet/less" lang="less">
     #messages {
-        .button {
-            background-color: #f6f8fa;
-            text-align: center;
-            line-height: 50px;
+        .vmc-button {
             margin-top: 50px;
-            border-radius: 8px;
         }
     }
 </style>

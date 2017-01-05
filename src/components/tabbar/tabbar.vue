@@ -10,8 +10,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import * as utils from '../utils';
-
     export default {
         props: {
             index: {
