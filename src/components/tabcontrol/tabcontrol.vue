@@ -1,40 +1,39 @@
 <template>
-    <div class="vmc-tab-control">
-        <slot name="tab-buttons">
-            <div v-if="showTab" class="tab-buttons" :class="{'vux-tab-no-animate': !animate}">
-                <div class="tab-item" @click="onTabChange($index)" v-for="item in tabList">
-                    <slot-item :scope="{item: item, index: $index}" >
-                        {{item.title}}
-                    </slot-item>
-                </div>
+    <div class="vmc-tab-control" :class="{ 'auto-height': autoHeight }">
+        <div v-if="tabType" class="tab-items" :class="'tab-items-' + tabType" :style="tabStyle">
+            <div class="tab-item"
+                 :class="{ active: tabIndex === $index }"
+                 :style="tabIndex === $index ? itemActiveStyle : itemStyle"
+                 @click="onTabChange($index)"
+                 v-for="item in tabList">
 
-                <div v-if="animate" class="tab-line" :class="lineClass" :style="lineStyle"></div>
+                <slot-item name="tabItem" :scope="{item: item, index: $index}">
+                    {{ item.title }}
+                </slot-item>
             </div>
-        </slot>
 
-        <div class="tab-pages">
+            <div v-if="tabType == 1" class="tab-line" :class="'tab-line-' + direction" :style="lineStyle"></div>
+        </div>
+
+        <div class="tab-pages" :style="{ transform: 'translate(-' + (tabIndex * width) + 'px, 0px)' }">
             <div class="tab-page"
                  v-touch:swipeLeft="onSwipeLeft"
                  v-touch:swipeRight="onSwipeRight"
                  v-touch-options:swipe="{ direction: 'horizontal' }"
-                 :class="tabIndex === $index ? 'active' : ''"
-                 v-if="tabIndex === $index"
-                 v-for="item in tabList"
-                 :transition="direction">
+                 :class="{ active: tabIndex === $index }"
+                 :style="{ transform: 'translate(' + ($index * width) + 'px, 0px)' }"
+                 :transition="direction"
+                 v-for="item in tabList">
+
                 <slot :name="item.name"></slot>
+                <slot-item name="tabPage" :scope="{item: item, index: $index}"></slot-item>
             </div>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-//    import { Tab, TabItem } from 'vux-components/tab';
-
     export default {
-        components: {
-//            Tab,
-//            TabItem
-        },
         methods: {
             onTabChange(index) {
                 if (this.tabIndex === index) return;
@@ -69,42 +68,75 @@
             count() {
                 return this.tabList.length;
             },
-            lineLeft () {
-                return `${this.tabIndex * (100 / this.count)}%`
-            },
-            lineRight () {
-                return `${(this.count - this.tabIndex - 1) * (100 / this.count)}%`
-            },
-            lineStyle () {
+            tabStyle() {
                 return {
-                    left: this.lineLeft,
-                    right: this.lineRight,
-                    display: 'block',
-                    backgroundColor: this.activeColor,
-                    height: this.lineWidth + 'px',
-//                    transition: !this.hasReady ? 'none' : null
+                    borderColor: this.activeColor
                 }
             },
-            lineClass () {
+            itemStyle() {
+                switch (this.tabType) {
+                    case 1:
+                        return {
+                            color: this.defaultColor
+                        };
+                    case 2:
+                        return {
+                            color: this.activeColor,
+                            background: this.defaultColor,
+                            borderColor: this.activeColor
+                        };
+                }
+            },
+            itemActiveStyle() {
+                switch (this.tabType) {
+                    case 1:
+                        return {
+                            color: this.activeColor
+                        };
+                    case 2:
+                        return {
+                            color: this.defaultColor,
+                            background: this.activeColor,
+                            borderColor: this.activeColor
+                        };
+                }
+            },
+            lineStyle() {
+                var left = `${this.tabIndex * (100 / this.count)}%`;
+                var right = `${(this.count - this.tabIndex - 1) * (100 / this.count)}%`;
+
                 return {
-                    'vux-tab-ink-bar-transition-forward': this.direction === 'forward',
-                    'vux-tab-ink-bar-transition-backward': this.direction === 'backward'
+                    left: left,
+                    right: right,
+                    display: 'block',
+                    backgroundColor: this.activeColor,
+                    height: this.lineWidth + 'px'
                 }
             }
         },
         data() {
             return {
+                width: 0,
                 direction: 'none'
             }
         },
+        ready() {
+            this.width = this.width || this.$el.clientWidth;
+        },
         props: {
-            showTab: {
+            tabType: {
+                type: [Number, String],
+                default: 1,
+                coerce: parseInt
+            },
+            autoHeight: {
                 type: Boolean,
-                default: true
+                default: false
             },
             lineWidth: {
-                type: Number,
-                default: 2
+                type: [Number, String],
+                default: 2,
+                coerce: Number
             },
             activeColor: {
                 type: String,
@@ -114,13 +146,10 @@
                 type: String,
                 default: '#b2b2b2'
             },
-            animate: {
-                type: Boolean,
-                default: true
-            },
             tabIndex: {
-                type: Number,
-                default: 0
+                type: [Number, String],
+                default: 0,
+                coerce: parseInt
             },
             tabList: {
                 type: Array,
@@ -133,53 +162,95 @@
 </script>
 
 <style rel="stylesheet/less" lang="less">
+    @easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
+    @effect-duration: .3s;
+    @tab-items-height-1: 44px;
+    @tab-items-height-2: 30px;
+
     .vmc-tab-control {
         height: 100%;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
 
-        .tab-buttons {
+        .tab-items {
             transform: translateZ(0);
+            position: relative;
+            overflow:hidden;
+            display: flex;
+
+            .tab-item {
+                display: block;
+                flex: 1;
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
+                background-size: 100% 1px;
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .tab-line {
+                position: absolute;
+                bottom: 0;
+
+                &-left {
+                    transition: right @effect-duration @easing-in-out,
+                    left @effect-duration @easing-in-out @effect-duration * 0.3;
+                }
+                &-right {
+                    transition: right @effect-duration @easing-in-out @effect-duration * 0.3,
+                    left @effect-duration @easing-in-out;
+                }
+            }
+        }
+
+        .tab-items-1 {
+            height: @tab-items-height-1;
+            background-color: #ffffff;
+
+            .tab-item {
+                line-height: @tab-items-height-1;
+            }
+        }
+
+        .tab-items-2 {
+            height: @tab-items-height-2;
+            border: 2px solid;
+            border-radius: 6px;
+
+            .tab-item {
+                line-height: @tab-items-height-2;
+                border-left: 2px solid;
+
+                &:first-child {
+                    border-left: none;
+                }
+            }
         }
 
         .tab-pages {
-            position: relative;
             flex: 1;
+            position: relative;
+            transition: transform @effect-duration ease;
+
+            .tab-page {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                overflow: auto;
+            }
         }
 
-        .tab-page {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: auto;
-        }
+        &.auto-height {
+            display: block;
 
-        /*转场动画*/
-        .left-transition {
-            transition: all .3s ease;
-        }
-
-        .right-transition {
-            transition: all .3s ease;
-        }
-
-        .left-enter {
-            transform: translate3d(100%, 0, 0);
-        }
-
-        .left-leave {
-            transform: translate3d(-100%, 0, 0);
-        }
-
-        .right-enter {
-            transform: translate3d(-100%, 0, 0);
-        }
-
-        .right-leave {
-            transform: translate3d(100%, 0, 0);
+            .tab-page {
+                overflow: visible;
+            }
         }
     }
 </style>
