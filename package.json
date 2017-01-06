@@ -15,8 +15,7 @@
   ],
   "scripts": {
     "dev": "node build/dev-server.js",
-    "demo": "node build/demo.js",
-    "server": "node build/demo-server.js",
+    "docs": "node build/doc-server.js",
     "build": "node build/build.js"
   },
   "dependencies": {
