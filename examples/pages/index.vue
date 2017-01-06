@@ -40,9 +40,7 @@
                 dropload
                 <i class="icono-caretRight"></i>
             </div>
-
-            <div class="title">布局组件</div>
-            <div class="line vmc-1px-top-bottom" @click="jump('tabbar')">
+            <div class="line vmc-1px-bottom" @click="jump('tabbar')">
                 tabbar
                 <i class="icono-caretRight"></i>
             </div>
@@ -56,6 +54,10 @@
             </div>
             <div class="line vmc-1px-bottom" @click="jump('tabcontrol')">
                 tabcontrol
+                <i class="icono-caretRight"></i>
+            </div>
+            <div class="line vmc-1px-bottom" @click="jump('icons')">
+                icons
                 <i class="icono-caretRight"></i>
             </div>
         </div>

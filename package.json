@@ -1,6 +1,6 @@
 {
   "name": "vmc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Mobile components for vue@1.0.21",
   "main": "index.js",
   "keywords": [
@@ -11,9 +11,14 @@
   ],
   "scripts": {
     "dev": "node build/dev-server.js",
+    "demo": "node build/demo.js",
+    "server": "node build/demo-server.js",
     "build": "node build/build.js"
   },
   "dependencies": {
+    "vue": "^1.0.21",
+    "vue-touch": "^1.1.0",
+    "fastclick": "^1.0.6"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -28,7 +33,6 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
-    "fastclick": "^1.0.6",
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
@@ -39,12 +43,10 @@
     "ora": "^0.2.0",
     "shelljs": "^0.6.0",
     "url-loader": "^0.5.7",
-    "vue": "^1.0.21",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^8.3.0",
     "vue-router": "^0.7.13",
-    "vue-touch": "^1.1.0",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",

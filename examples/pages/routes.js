@@ -88,5 +88,11 @@ module.exports = {
         doc_title: 'tabcontrol',
         component: require('./components/tabcontrol.vue'),
         depth: 20
+    },
+    '/components/icons': {
+        name: 'icons',
+        doc_title: 'icons',
+        component: require('./components/icons.vue'),
+        depth: 20
     }
 };
