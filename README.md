@@ -10,4 +10,4 @@ VMC 包含丰富的 CSS 和 JS 组件，能够满足日常的移动端开发需�
 
 考虑到移动端的性能门槛，VMC 采用 CSS3 处理各种动效，避免浏览器进行不必要的重绘和重排，从而使用户获得流畅顺滑的体验。
 
-[https://spikef.github.io/vmc/](View Docs and Demos)
+[View Docs and Demos](https://spikef.github.io/vmc/)
