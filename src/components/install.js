@@ -1,5 +1,6 @@
 import installAlert from './alert/install';
 import installConfirm from './confirm/install';
+import installPrompt from './prompt/install';
 import installToast from './toast/install';
 import * as filters from '../utils/filter';
 import * as directives from '../utils/directive';
@@ -16,6 +17,7 @@ import * as directives from '../utils/directive';
     return function install(Vue, options = {
         alert: true,
         confirm: true,
+        prompt: true,
         toast: true
     }) {
         // filters and directives
@@ -49,6 +51,10 @@ import * as directives from '../utils/directive';
 
         if (options.confirm) {
             plugins.push(installConfirm(configs));
+        }
+
+        if (options.prompt) {
+            plugins.push(installPrompt(configs));
         }
 
         if (options.toast) {

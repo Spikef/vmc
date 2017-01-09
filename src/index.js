@@ -5,6 +5,7 @@ require('./styles/vmc.less');
 import Alert from './components/alert';
 import Confirm from './components/confirm';
 import Dialog from './components/dialog';
+import Prompt from './components/prompt';
 
 // 表单组件
 import { Checkbox, Checkall } from './components/checkbox';
@@ -27,6 +28,7 @@ module.exports = {
     Alert,
     Confirm,
     Dialog,
+    Prompt,
     Checkbox,
     Checkall,
     vInput,
