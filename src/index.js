@@ -1,3 +1,6 @@
+// 样式
+require('./styles/vmc.less');
+
 // 提示组件
 import Alert from './components/alert';
 import Confirm from './components/confirm';

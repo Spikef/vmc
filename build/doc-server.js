@@ -1,5 +1,5 @@
 /**
- * 启动一个静态服务器, 运行dist下的文件
+ * 启动一个静态服务器, 运行docs下的文件
  */
 
 var config = require('./config');

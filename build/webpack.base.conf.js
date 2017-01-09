@@ -1,7 +1,7 @@
-var path = require('path')
-var config = require('./config')
-var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
+var path = require('path');
+var config = require('./config');
+var utils = require('./utils');
+var projectRoot = path.resolve(__dirname, '../');
 
 module.exports = {
     entry: {
@@ -57,16 +57,6 @@ module.exports = {
                     limit: 10000,
                     name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
                 }
-            },
-            {
-                test: /vux.*?\.js$/,
-                loader: 'babel',
-                exclude: /dist/
-            },
-            {
-                test: /vue-area.*?\.js$/,
-                loader: 'babel',
-                exclude: /dist/
             }
         ]
     },
@@ -76,4 +66,4 @@ module.exports = {
             browsers: ['last 20 versions']
         }
     }
-}
+};

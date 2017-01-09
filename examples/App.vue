@@ -81,7 +81,6 @@
 </script>
 
 <style rel="stylesheet/less" lang="less">
-    @import "../src/styles/vmc.less";
     @import "assets/css/transition.css";
 
     html, body {
