@@ -3,37 +3,40 @@
         <navbar>单选框</navbar>
 
         <div class="content">
-            <div class="check-area">
-                <div class="title">单选框列表</div>
+            <card>
+                <child name="header">单选框列表</child>
+                <child name="content">
+                    <radio :checked.sync="value1" :value="item" v-for="item in list">{{item}}</radio>
+                </child>
+                <child name="footer">
+                    <span>选中的项:</span>
+                    <span> {{ value1 }} </span>
+                </child>
+            </card>
 
-                <radio :checked.sync="value1" :value="item" v-for="item in list">{{item}}</radio>
-            </div>
-            <div class="check-result">
-                <span>选中的项:</span>
-                <span> {{ value1 }} </span>
-            </div>
-
-            <div class="check-area">
-                <div class="title">可禁用的单选框列表</div>
-
-                <radio :checked.sync="value2" :value="item" v-for="item in list">{{item}}</radio>
-                <radio :checked.sync="value2" value="选项D" disabled>选项D</radio>
-            </div>
-            <div class="check-result">
-                <span>选中的项:</span>
-                <span> {{ value2 }} </span>
-            </div>
+            <card>
+                <child name="header">可禁用的单选框列表</child>
+                <child name="content">
+                    <radio :checked.sync="value2" :value="item" v-for="item in list">{{item}}</radio>
+                    <radio :checked.sync="value2" value="选项D" disabled>选项D</radio>
+                </child>
+                <child name="footer">
+                    <span>选中的项:</span>
+                    <span> {{ value2 }} </span>
+                </child>
+            </card>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Radio } from '../../../src';
+    import { Navbar, Radio, Card } from '../../../src';
 
     export default {
         components: {
             Navbar,
-            Radio
+            Radio,
+            Card
         },
         data() {
             return {
@@ -51,24 +54,7 @@
             height: 100%;
             box-sizing: border-box;
             overflow: auto;
-        }
-
-        .check-area {
-            padding: 10px;
-            background-color: #fafafa;
-
-            .title {
-                font-size: 13px;
-                padding: 5px 0;
-            }
-        }
-
-        .check-result {
-            padding: 0 10px;
-            margin: 15px 0;
-            height: 40px;
-            line-height: 40px;
-            background-color: #fafafa;
+            background: #eeeeee;
         }
     }
 </style>
