@@ -46,10 +46,8 @@
                 this.minHeight = header.clientHeight + 'px';
                 this.maxHeight = this.$el.clientHeight + 'px';
 
-                if (this.status === 'collapse') {
-                    this.status = 'expand';
-                    this.toggle();
-                }
+                this.status = this.status === 'collapse' ? 'expand' : 'collapse';
+                this.toggle();
             }
         }
     }
@@ -112,7 +110,6 @@
             height: 45px;
             line-height: 45px;
             font-size: 16px;
-            font-weight: bold;
             padding: 0 12px;
             position: relative;
         }
@@ -123,10 +120,13 @@
         }
 
         .card-footer {
+            color: #5f646e;
             height: 40px;
             line-height: 40px;
             font-size: 13px;
             padding: 0 12px;
+            display: flex;
+            justify-content: space-between;
         }
     }
 </style>
