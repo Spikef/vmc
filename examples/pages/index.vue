@@ -4,73 +4,37 @@
         <div class="content">
             <div class="title">表单组件</div>
 
-            <div class="line vmc-1px-top-bottom" @click="jump('checkbox')">
-                checkbox
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('radio')">
-                radio
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('button')">
-                button
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('submit')">
-                submit
-                <i class="icono-caretRight"></i>
-            </div>
+            <cell @click="jump('checkbox')">checkbox</cell>
+            <cell @click="jump('radio')">radio</cell>
+            <cell @click="jump('button')">button</cell>
+            <cell @click="jump('submit')">submit</cell>
+            <cell @click="jump('rater')">rater</cell>
 
             <div class="title">全局组件</div>
-            <div class="line vmc-1px-top-bottom" @click="jump('message')">
-                message
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('toast')">
-                toast
-                <i class="icono-caretRight"></i>
-            </div>
+            <cell @click="jump('message')">message</cell>
+            <cell @click="jump('toast')">toast</cell>
 
             <div class="title">UI组件</div>
-            <div class="line vmc-1px-top-bottom" @click="jump('spinner')">
-                spinner
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('dropload')">
-                dropload
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('tabbar')">
-                tabbar
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('grid')">
-                grid
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('justify')">
-                justify
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('tabcontrol')">
-                tabcontrol
-                <i class="icono-caretRight"></i>
-            </div>
-            <div class="line vmc-1px-bottom" @click="jump('icons')">
-                icons
-                <i class="icono-caretRight"></i>
-            </div>
+            <cell @click="jump('spinner')">spinner</cell>
+            <cell @click="jump('dropload')">dropload</cell>
+            <cell @click="jump('tabbar')">tabbar</cell>
+            <cell @click="jump('grid')">grid</cell>
+            <cell @click="jump('justify')">justify</cell>
+            <cell @click="jump('tabcontrol')">tabcontrol</cell>
+            <cell @click="jump('icons')">icons</cell>
+            <cell @click="jump('card')">card</cell>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../src';
+    import { Navbar, Cell } from '../../src';
 
     export default {
         name: 'index',
         components: {
-            Navbar
+            Navbar,
+            Cell
         },
         methods: {
             jump(path) {

@@ -8,5 +8,6 @@ test/e2e/reports
 .git/
 .babelrc
 docs/
+dist/
 examples/
 build/

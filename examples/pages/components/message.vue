@@ -41,6 +41,8 @@
                 }, {
                     content: '请输入数字',
                     placeholder: '请输入不大于10的正整数',
+                    btn1: '按钮1',
+                    btn2: '按钮2',
                     validator: /^[1-9]$/
                 });
             },

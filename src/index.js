@@ -1,7 +1,7 @@
 // 样式
 require('./styles/vmc.less');
 
-// 提示组件
+// 全局组件
 import Alert from './components/alert';
 import Confirm from './components/confirm';
 import Dialog from './components/dialog';
@@ -14,6 +14,7 @@ import vInput from './components/input';
 import Switch from './components/switch';
 import vButton from './components/button';
 import Submit from './components/submit';
+import Rater from './components/rater';
 
 // 界面组件
 import { Topbar, Navbar } from './components/navbar';
@@ -23,6 +24,8 @@ import DropLoad from './components/dropload';
 import Grid from './components/grid';
 import Justify from './components/justify';
 import TabControl from './components/tabcontrol';
+import Cell from './components/cell';
+import Card from './components/card';
 
 module.exports = {
     Alert,
@@ -36,6 +39,7 @@ module.exports = {
     Switch,
     vButton,
     Submit,
+    Rater,
     Topbar,
     Navbar,
     Tabbar,
@@ -44,6 +48,8 @@ module.exports = {
     Grid,
     Justify,
     TabControl,
+    Cell,
+    Card,
     VMC: require('./components/install'),
     Utils: require('./utils')
 };

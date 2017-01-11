@@ -1,3 +1,7 @@
-export const spaceText = function (val) {
-    return String(val).split('').join(' ');
-};
+export default function() {
+    return {
+        spaceText(val) {
+            return String(val).split('').join(' ');
+        }
+    };
+}

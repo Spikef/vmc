@@ -2,8 +2,8 @@ import installAlert from './alert/install';
 import installConfirm from './confirm/install';
 import installPrompt from './prompt/install';
 import installToast from './toast/install';
-import * as filters from '../utils/filter';
-import * as directives from '../utils/directive';
+import Filter from '../utils/filter';
+import Directive from '../utils/directive';
 
 (function (global, factory) {
     if (exports === 'object' && typeof module !== 'undefined') {
@@ -21,10 +21,12 @@ import * as directives from '../utils/directive';
         toast: true
     }) {
         // filters and directives
+        var filters = Filter(Vue);
         Object.keys(filters).forEach(name => {
             Vue.filter(name, filters[name]);
         });
 
+        var directives = Directive(Vue);
         Object.keys(directives).forEach(name => {
             let _name = name.replace(/[A-Z](?![A-Z])/g, $0 => '-' + $0.toLowerCase());
             let isEl = directives[name].element;

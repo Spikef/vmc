@@ -15,6 +15,11 @@ Object.defineProperties(env, {
             return /MicroMessenger/i.test(window.navigator.userAgent);
         }
     },
+    isAlipay: {
+        get() {
+            return /Alipay/i.test(window.navigator.userAgent);
+        }
+    },
     isUCBrowser: {
         get() {
             return /UCWEB|UCBrowser/i.test(window.navigator.userAgent);

@@ -94,5 +94,17 @@ module.exports = {
         doc_title: 'icons',
         component: require('./components/icons.vue'),
         depth: 20
+    },
+    '/components/card': {
+        name: 'card',
+        doc_title: 'card',
+        component: require('./components/card.vue'),
+        depth: 20
+    },
+    '/components/rater': {
+        name: 'rater',
+        doc_title: 'rater',
+        component: require('./components/rater.vue'),
+        depth: 20
     }
 };
