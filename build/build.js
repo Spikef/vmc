@@ -37,7 +37,7 @@ webpack(webpackConfig, function (err, stats) {
             content = fs.readFileSync(file, 'utf8');
             if (/\.css$/i.test(file)) {
                 content = content.replace(/\/static\//g, '../')
-            } else if (/\.js/i.test(file)) {
+            } else if (/(\.js|\.html)$/i.test(file)) {
                 content = content.replace(/\/static\//g, 'static/')
             }
 
