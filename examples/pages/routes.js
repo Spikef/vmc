@@ -11,12 +11,6 @@ module.exports = {
         component: require('./about.vue'),
         depth: 10
     },
-    '/test': {
-        name: 'test',
-        doc_title: '测试页',
-        component: require('./test.vue'),
-        depth: 10
-    },
     '/components/message': {
         name: 'message',
         doc_title: '消息框',
@@ -105,6 +99,36 @@ module.exports = {
         name: 'rater',
         doc_title: 'rater',
         component: require('./components/rater.vue'),
+        depth: 20
+    },
+    '/components/reddot': {
+        name: 'reddot',
+        doc_title: 'reddot',
+        component: require('./components/reddot.vue'),
+        depth: 20
+    },
+    '/components/switch': {
+        name: 'switch',
+        doc_title: 'switch',
+        component: require('./components/switch.vue'),
+        depth: 20
+    },
+    '/components/minput': {
+        name: 'minput',
+        doc_title: 'minput',
+        component: require('./components/minput.vue'),
+        depth: 20
+    },
+    '/components/vinput': {
+        name: 'vinput',
+        doc_title: 'vinput',
+        component: require('./components/vinput.vue'),
+        depth: 20
+    },
+    '/components/number': {
+        name: 'number',
+        doc_title: 'number',
+        component: require('./components/number.vue'),
         depth: 20
     }
 };

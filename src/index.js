@@ -10,7 +10,8 @@ import Prompt from './components/prompt';
 // 表单组件
 import { Checkbox, Checkall } from './components/checkbox';
 import Radio from './components/radio';
-import vInput from './components/input';
+import { mInput, vInput } from './components/input';
+import Number from './components/number';
 import Switch from './components/switch';
 import vButton from './components/button';
 import Submit from './components/submit';
@@ -34,7 +35,9 @@ module.exports = {
     Prompt,
     Checkbox,
     Checkall,
+    mInput,
     vInput,
+    Number,
     Radio,
     Switch,
     vButton,

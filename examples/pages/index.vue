@@ -8,6 +8,10 @@
             <cell @click="jump('radio')">radio</cell>
             <cell @click="jump('button')">button</cell>
             <cell @click="jump('submit')">submit</cell>
+            <cell @click="jump('switch')">switch</cell>
+            <cell @click="jump('minput')">input (auto fix)</cell>
+            <cell @click="jump('vinput')">input (prompt)</cell>
+            <cell @click="jump('number')">number</cell>
             <cell @click="jump('rater')">rater</cell>
 
             <div class="title">全局组件</div>
@@ -20,6 +24,7 @@
             <cell @click="jump('tabbar')">tabbar</cell>
             <cell @click="jump('grid')">grid</cell>
             <cell @click="jump('justify')">justify</cell>
+            <cell @click="jump('reddot')">reddot</cell>
             <cell @click="jump('tabcontrol')">tabcontrol</cell>
             <cell @click="jump('icons')">icons</cell>
             <cell @click="jump('card')">card</cell>
