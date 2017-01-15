@@ -3,9 +3,9 @@
         <div class="cell-title">
             <slot>{{title}}</slot>
         </div>
-        <div class="cell-arrow">
+        <div class="cell-arrow" v-if="arrow">
             <slot name="arrow">
-                <i class="icono-caretRight" v-if="arrow"></i>
+                <i class="icono-caretRight"></i>
             </slot>
         </div>
     </div>
@@ -16,8 +16,9 @@
         props: {
             title: String,
             arrow: {
-                type: Boolean,
-                default: true
+                type: [Boolean, String],
+                default: true,
+                coerce: val => !(val === false || val === 'false')
             }
         }
     }
@@ -25,7 +26,7 @@
 
 <style rel="stylesheet/less" lang="less">
     .vmc-cell {
-        padding-left: 12px;
+        padding: 0 12px;
         min-height: 45px;
         display: flex;
         align-items: center;
@@ -45,6 +46,7 @@
         }
 
         .cell-arrow {
+            margin-right: -12px;
 
             .icono-caretRight {
                 color: #cecece;

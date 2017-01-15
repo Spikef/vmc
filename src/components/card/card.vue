@@ -57,6 +57,7 @@
     .vmc-card {
         background: #ffffff;
         overflow-y: hidden;
+        transform: translate3d(0, 0, 0);
         transition-property: height;
         transition-duration: .3s;
         transition-timing-function: cubic-bezier(0, 1, 0.5, 1);

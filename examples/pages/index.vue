@@ -11,6 +11,7 @@
             <cell @click="jump('switch')">switch</cell>
             <cell @click="jump('minput')">input (auto fix)</cell>
             <cell @click="jump('vinput')">input (prompt)</cell>
+            <cell @click="jump('textarea')">textarea</cell>
             <cell @click="jump('number')">number</cell>
             <cell @click="jump('rater')">rater</cell>
 

@@ -32,11 +32,13 @@
         },
         methods: {
             submit() {
-                if (!this.disabled && this.status !== STATUS.DOING) {
-                    this.disabled = true;
-                    this.status = STATUS.DOING;
-                    this.$emit('submit');
-                }
+                this.$nextTick(() => {
+                    if (!this.disabled && this.status !== STATUS.DOING) {
+                        this.disabled = true;
+                        this.status = STATUS.DOING;
+                        this.$emit('submit', this);
+                    }
+                });
             },
             done() {
                 this.disabled = false;

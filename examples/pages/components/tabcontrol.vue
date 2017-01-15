@@ -3,13 +3,13 @@
         <navbar>Tab</navbar>
 
         <div class="content">
-            <tab-control :tab-list="tabList" tab-index="0">
+            <tab-control :tab-list="tabList" tab-index="0" height="200">
                 <div slot="tabPage">
                     <p>{{item.name}} 内容云云</p>
                 </div>
             </tab-control>
 
-            <tab-control :tab-list="tabList" tab-index="2">
+            <tab-control :tab-list="tabList" tab-index="2" height="200">
                 <div slot="tab1">
                     <p>tab1 内容云云</p>
                 </div>
@@ -25,19 +25,19 @@
                 </div>
             </tab-control>
 
-            <tab-control :tab-list="tabList" tab-index="0" tab-type="2" active-color="#007aff" default-color="#ffffff">
+            <tab-control :tab-list="tabList" tab-index="0" tab-type="2" active-color="#007aff" default-color="#ffffff" height="200">
                 <div slot="tabPage">
                     <p>{{item.name}} 内容云云</p>
                 </div>
             </tab-control>
 
-            <tab-control :tab-list="tabList" tab-index="0" auto-height>
+            <tab-control :tab-list="tabList" tab-index="0" height="auto">
                 <div slot="tabPage">
-                    <p v-for="i in 10">tab3 内容云云</p>
+                    <p v-for="i in 10">{{item.name}} 内容云云</p>
                     <hr>
-                    <p v-for="i in 10">tab3 内容云云</p>
+                    <p v-for="i in 10">{{item.name}} 内容云云</p>
                     <hr>
-                    <p v-for="i in 10">tab3 内容云云</p>
+                    <p v-for="i in 10">{{item.name}} 内容云云</p>
                 </div>
             </tab-control>
         </div>
@@ -75,8 +75,8 @@
                 this.tabList.push({
                     title: 'Tab4',
                     name: 'tab4'
-                })
-            }, 3000);
+                });
+            }, 2000);
         }
     }
 </script>
@@ -90,11 +90,7 @@
             overflow: auto;
 
             .vmc-tab-control {
-                height: 200px;
-
-                &.auto-height {
-                    height: auto;
-                }
+                margin-bottom: 20px;
 
                 .tab-page {
                     background-color: #dddddd;

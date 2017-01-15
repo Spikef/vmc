@@ -130,5 +130,11 @@ module.exports = {
         doc_title: 'number',
         component: require('./components/number.vue'),
         depth: 20
+    },
+    '/components/textarea': {
+        name: 'textarea',
+        doc_title: 'textarea',
+        component: require('./components/textarea.vue'),
+        depth: 20
     }
 };

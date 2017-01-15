@@ -26,3 +26,18 @@ Object.defineProperties(env, {
         }
     }
 });
+
+export const getType = function(obj) {
+    if (obj === null || obj === undefined) return String(obj);
+
+    var type = typeof obj;
+    if (type !== 'object') return type;
+
+    type = Object.prototype.toString.call(obj);
+    type = type.substring(8, type.length - 1);
+    return type.toLowerCase();
+};
+
+export const isType = function(obj, type) {
+    return getType(obj) === type;
+};

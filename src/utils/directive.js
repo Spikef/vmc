@@ -27,7 +27,7 @@ export default function(Vue) {
             }
         },
         child: {
-            bind: function () {
+            bind: function() {
                 var name = this.expression;
                 var content = this.vm._childContents && this.vm._childContents[name];
 
@@ -67,6 +67,31 @@ export default function(Vue) {
                     Vue.util.remove(this.el);
                 }
             }
+        },
+        valid: {
+            bind: function() {
+                var vm = this.el.__vue__;
+                var key = this.arg || 'default';
+                var name = this.expression;
+
+                this.vm.__valids__ = this.vm.__valids__ || {};
+                this.vm.__valids__[key] = this.vm.__valids__[key] || {};
+                var valid = this.vm.__valids__[key];
+
+                if (name) {
+                    valid.checks = valid.checks || [];
+                    var checks = valid.checks;
+                    var index = checks.length;
+                    checks.push(vm[name]);
+                    vm.$watch(name, value => {
+                        checks[index] = value;
+                        var disabled = !!~checks.indexOf(false);
+                        valid.button && valid.button.$set('disabled', disabled);
+                    });
+                } else {
+                    valid.button = vm;
+                }
+            }
         }
     }
-}
+};

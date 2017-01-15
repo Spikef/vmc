@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-tab-bar" :style="style">
+    <div class="vmc-tab-bar" :style="style" v-if="show" :transition=" show ? 'vmc-tab-bar-up' : 'vmc-tab-bar-down' ">
         <div class="tab-item" :class="{active: $index == index}" @click="_onItemClick(item, $index)" v-for="($index, item) in items">
             <slot-item :scope="{item: item}">
                 {{{item.icon}}}
@@ -55,8 +55,7 @@
                 return {
                     color: this.color,
                     backgroundColor: this.backColor,
-                    fontSize: this.fontSize,
-                    bottom: this.show ? 0 : '-55px'
+                    fontSize: this.fontSize
                 }
             }
         }
@@ -71,7 +70,6 @@
         height: 55px;
         z-index: 50;
         display: flex;
-        transition: bottom .2s ease;
 
         .tab-item {
             flex: 1;
@@ -83,6 +81,18 @@
             * {
                 display: block;
             }
+        }
+
+        &-up-transition, &-down-transition {
+            transition: transform .2s linear;
+        }
+
+        &-up-enter, &-up-leave {
+            transform: translate3d(0, 100%, 0);
+        }
+
+        &-down-enter, &-down-leave {
+            transform: translate3d(0, -100%, 0);
         }
     }
 </style>

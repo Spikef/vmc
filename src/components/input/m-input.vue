@@ -101,8 +101,9 @@
             border: none;
             height: 100%;
             width: 100%;
-            padding: 3px;
+            padding: 5px;
             box-sizing: border-box;
+            font-size: 14px;
         }
     }
 </style>

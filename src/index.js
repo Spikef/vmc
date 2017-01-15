@@ -11,6 +11,7 @@ import Prompt from './components/prompt';
 import { Checkbox, Checkall } from './components/checkbox';
 import Radio from './components/radio';
 import { mInput, vInput } from './components/input';
+import vTextarea from './components/textarea';
 import Number from './components/number';
 import Switch from './components/switch';
 import vButton from './components/button';
@@ -37,6 +38,7 @@ module.exports = {
     Checkall,
     mInput,
     vInput,
+    vTextarea,
     Number,
     Radio,
     Switch,

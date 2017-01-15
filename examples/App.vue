@@ -88,6 +88,8 @@
         height: 100%;
         border: none;
         font-size: 20px;
+        font-family: "PingFang SC", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-weight: normal;
         overflow: hidden;
     }
 
@@ -103,8 +105,6 @@
         right: 0;
         bottom: 0;
         -webkit-overflow-scrolling: touch;
-        font-family: "PingFang SC", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-weight: normal;
         background-color: #fff;
         font-size: 0.8rem;
         z-index: 0;

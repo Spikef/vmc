@@ -85,14 +85,14 @@
             input {
                 box-sizing: border-box;
                 border: none;
-                padding: 0 5px;
+                padding: 5px;
+                font-size: 14px;
                 height: 40px;
-                line-height: 40px;
                 width: 100%;
                 appearance: none;
                 outline: none;
             }
-            .invalid:before {
+            .invalid {
                 border-color: #ff0000;
             }
         }

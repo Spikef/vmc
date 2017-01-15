@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-tab-control" :class="{ 'auto-height': autoHeight }">
+    <div class="vmc-tab-control" :style="{ height: clientHeight }">
         <div v-if="tabType" class="tab-items" :class="'tab-items-' + tabType" :style="tabStyle">
             <div class="tab-item"
                  :class="{ active: tabIndex === $index }"
@@ -15,18 +15,20 @@
             <div v-if="tabType == 1" class="tab-line" :class="'tab-line-' + direction" :style="lineStyle"></div>
         </div>
 
-        <div class="tab-pages" :style="{ transform: 'translate(-' + (tabIndex * width) + 'px, 0px)' }">
-            <div class="tab-page"
-                 v-touch:swipeLeft="onSwipeLeft"
-                 v-touch:swipeRight="onSwipeRight"
-                 v-touch-options:swipe="{ direction: 'horizontal' }"
-                 :class="{ active: tabIndex === $index }"
-                 :style="{ transform: 'translate(' + ($index * width) + 'px, 0px)' }"
-                 :transition="direction"
-                 v-for="item in tabList">
+        <div class="tab-container">
+            <div class="tab-pages" :style="{ transform: 'translate(-' + (tabIndex * clientWidth) + 'px, 0px)' }">
+                <div class="tab-page"
+                     v-touch:swipeLeft="onSwipeLeft"
+                     v-touch:swipeRight="onSwipeRight"
+                     v-touch-options:swipe="{ direction: 'horizontal' }"
+                     :class="{ active: tabIndex === $index, 'auto-height': height === 'auto' }"
+                     :style="{ transform: 'translate(' + ($index * clientWidth) + 'px, 0px)' }"
+                     :transition="direction"
+                     v-for="item in tabList">
 
-                <slot :name="item.name"></slot>
-                <slot-item name="tabPage" :scope="{item: item, index: $index}"></slot-item>
+                    <slot :name="item.name"></slot>
+                    <slot-item name="tabPage" :scope="{item: item, index: $index}"></slot-item>
+                </div>
             </div>
         </div>
     </div>
@@ -62,6 +64,32 @@
                 this.tabIndex--;
 
                 this.$emit('on-tab-change', this.tabIndex);
+            },
+            getHeight() {
+                var height = this.height;
+                if (height === 'auto') {
+                    if (this.$el) {
+                        var items = this.$el.querySelector('.tab-items');
+                        var slots = this.$el.querySelectorAll('.tab-container .tab-page');
+                        if (slots.length) {
+                            var hs = [];
+                            for (var i=0;i<slots.length;i++) {
+                                hs.push(slots[i].clientHeight);
+                            }
+                            height = Math.max.apply(null, hs);
+                            console.log(height)
+                            console.log(items.clientHeight)
+                            height += items ? items.clientHeight : 0;
+                        }
+                    }
+                }
+
+                if (height && /^[^a-z]+$/i.test(height)) {
+                    height += 'px';
+                }
+
+                console.log(height);
+                return height;
             }
         },
         computed: {
@@ -116,22 +144,21 @@
         },
         data() {
             return {
-                width: 0,
+                clientWidth: 0,
+                clientHeight: this.height,
                 direction: 'none'
             }
         },
         ready() {
-            this.width = this.width || this.$el.clientWidth;
+            this.clientWidth = this.$el.clientWidth;
+            this.clientHeight = this.getHeight();
         },
         props: {
+            height: [Number, String],
             tabType: {
                 type: [Number, String],
                 default: 1,
                 coerce: parseInt
-            },
-            autoHeight: {
-                type: Boolean,
-                default: false
             },
             lineWidth: {
                 type: [Number, String],
@@ -230,26 +257,29 @@
             }
         }
 
-        .tab-pages {
+        .tab-container {
             flex: 1;
-            position: relative;
-            transition: transform @effect-duration ease;
+            overflow-x: hidden;
+            overflow-y: visible;
+            display: flex;
 
-            .tab-page {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                overflow: auto;
-            }
-        }
+            .tab-pages {
+                flex: 1;
+                position: relative;
+                transition: transform @effect-duration ease;
 
-        &.auto-height {
-            display: block;
+                .tab-page {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    overflow: auto;
 
-            .tab-page {
-                overflow: visible;
+                    &.auto-height {
+                        bottom: auto;
+                    }
+                }
             }
         }
     }

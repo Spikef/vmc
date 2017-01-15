@@ -1,6 +1,6 @@
 <template>
     <div id="m-input">
-        <navbar>文本框</navbar>
+        <navbar>输入框1</navbar>
 
         <div class="content">
             <card>

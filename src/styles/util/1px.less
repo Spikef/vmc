@@ -42,19 +42,23 @@
 }
 
 // @mixin
-.vmc-1px(@color: #ccc, @radius: 0) {
-    position: relative;
+.vmc-1px(@color: #ccc) {
+    position    : relative;
+    border-color: @color;
+
     &:before {
         position        : absolute;
         content         : "";
         width           : 100%;
         height          : 100%;
-        border          : 1px solid @color;
-        border-radius   : @radius *2;
         top             : 0;
         left            : 0;
         transform-origin: 0 0;
         box-sizing      : border-box;
+        pointer-events  : none;
+        border          : 1px solid;
+        border-color    : inherit;
+        border-radius   : inherit;
     }
     @media screen and (-webkit-min-device-pixel-ratio:1.5) {
         &:before {
@@ -73,7 +77,9 @@
 }
 
 .vmc-1px-side-base(@pseudo) {
-    position: relative;
+    position    : relative;
+    border-color: @color;
+
     &:@{pseudo} {
         position        : absolute;
         content         : "";
@@ -85,11 +91,12 @@
     .vmc-1px-side-base(@pseudo);
 
     &:@{pseudo} {
-        width     : 100%;
-        height    : 1px;
-        border-top: 1px solid @color;
-        top       : 0;
-        left      : 0;
+        width       : 100%;
+        height      : 1px;
+        top         : 0;
+        left        : 0;
+        border-top  : 1px solid;
+        border-color: inherit;
     }
 
     .vmc-1px-device-fix(@pseudo, "Y");
@@ -102,8 +109,9 @@
         width        : 100%;
         height       : 1px;
         bottom       : -1px;
-        border-bottom: 1px solid @color;
         left         : 0;
+        border-bottom: 1px solid;
+        border-color : inherit;
     }
 
     .vmc-1px-device-fix(@pseudo, "Y");
@@ -113,11 +121,12 @@
     .vmc-1px-side-base(@pseudo);
 
     &:@{pseudo} {
-        width      : 1px;
-        height     : 100%;
-        border-left: 1px solid @color;
-        top        : 0;
-        left       : 0;
+        width       : 1px;
+        height      : 100%;
+        top         : 0;
+        left        : 0;
+        border-left : 1px solid;
+        border-color: inherit;
     }
 
     .vmc-1px-device-fix(@pseudo, "X");
@@ -129,9 +138,10 @@
     &:@{pseudo} {
         width       : 1px;
         height      : 100%;
-        border-right: 1px solid @color;
         top         : 0;
         right       : -1px;
+        border-right: 1px solid;
+        border-color: inherit;
     }
 
     .vmc-1px-device-fix(@pseudo, "X");

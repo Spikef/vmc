@@ -11,7 +11,7 @@ var env = process.env.NODE_ENV === 'testing'
 
 var webpackConfig = merge(baseWebpackConfig, {
     entry: {
-        app: './src/index.js'
+        app: './src/vmc.js'
     },
     module: {
         loaders: utils.styleLoaders({ sourceMap: config.release.productionSourceMap, extract: true })
