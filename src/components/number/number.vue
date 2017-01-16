@@ -8,6 +8,7 @@
 
 <script type="text/ecmascript-6">
     import { mInput } from '../input';
+    import { getCSSSize } from '../../utils';
 
     export default {
         components: {
@@ -40,7 +41,7 @@
             style() {
                 if (this.width) {
                     return {
-                        width: this.width + 'px'
+                        width: getCSSSize(this.width)
                     }
                 }
             }

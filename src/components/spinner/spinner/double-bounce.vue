@@ -5,10 +5,10 @@
 </template>
 
 <script>
-    import common from './common.vue';
+    import spinner from './spinner';
 
     export default {
-        mixins: [common],
+        mixins: [spinner],
         methods: {
             bounceStyle(index) {
                 var style = {

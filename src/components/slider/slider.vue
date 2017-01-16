@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-tab-control" :style="{ height: clientHeight }">
+    <div class="vmc-slider" :style="{ height: clientHeight }">
         <div v-if="tabType" class="tab-items" :class="'tab-items-' + tabType" :style="tabStyle">
             <div class="tab-item"
                  :class="{ active: tabIndex === $index }"
@@ -33,8 +33,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { getCSSSize } from '../../utils';
-
     export default {
         methods: {
             onTabChange(index) {
@@ -112,11 +110,20 @@
                     right: right,
                     display: 'block',
                     backgroundColor: this.activeColor,
-                    height: getCSSSize(this.lineWidth)
+                    height: this.lineWidth + 'px'
                 }
             },
             clientHeight() {
-                return getCSSSize(this.height);
+                var height = this.height;
+                if (height === 'auto') {
+
+                }
+
+                if (height && /^[^a-z]+$/i.test(height)) {
+                    height += 'px';
+                }
+
+                return height;
             }
         },
         data() {
@@ -165,68 +172,11 @@
     @tab-items-height-1: 44px;
     @tab-items-height-2: 30px;
 
-    .vmc-tab-control {
+    .vmc-slider {
         height: 100%;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-
-        .tab-items {
-            transform: translateZ(0);
-            position: relative;
-            overflow:hidden;
-            display: flex;
-
-            .tab-item {
-                display: block;
-                flex: 1;
-                width: 100%;
-                height: 100%;
-                box-sizing: border-box;
-                background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
-                background-size: 100% 1px;
-                font-size: 14px;
-                text-align: center;
-            }
-
-            .tab-line {
-                position: absolute;
-                bottom: 0;
-
-                &-left {
-                    transition: right @effect-duration @easing-in-out,
-                    left @effect-duration @easing-in-out @effect-duration * 0.3;
-                }
-                &-right {
-                    transition: right @effect-duration @easing-in-out @effect-duration * 0.3,
-                    left @effect-duration @easing-in-out;
-                }
-            }
-        }
-
-        .tab-items-1 {
-            height: @tab-items-height-1;
-            background-color: #ffffff;
-
-            .tab-item {
-                line-height: @tab-items-height-1;
-            }
-        }
-
-        .tab-items-2 {
-            height: @tab-items-height-2;
-            border: 2px solid;
-            border-radius: 6px;
-
-            .tab-item {
-                line-height: @tab-items-height-2;
-                border-left: 2px solid;
-
-                &:first-child {
-                    border-left: none;
-                }
-            }
-        }
 
         .tab-pages {
             flex: 1;

@@ -5,7 +5,7 @@
             :transition="direction">
         </router-view>
 
-        <tabbar :index="index" :items="items" :show="showTab" ></tabbar>
+        <tabbar :index="index" :items="items" :show="showTab"></tabbar>
     </div>
 </template>
 
@@ -63,9 +63,6 @@
                 var fd = t.from.depth || 0;
                 var td = t.to.depth || 0;
 
-                this.index = t.to.name === 'about' ? 1 : 0;
-                this.showTab = !!~['index', 'about'].indexOf(t.to.name);
-
                 if (!t.from.path || fd === td) {
                     this.$root.$data.direction = 'null';
                 } else if (fd < td) {
@@ -75,6 +72,13 @@
                 }
 
                 this.$nextTick(() => t.next());
+            });
+
+            this.$router.afterEach(t => {
+                this.$nextTick(() => {
+                    this.index = t.to.name === 'about' ? 1 : 0;
+                    this.showTab = !!~['index', 'about'].indexOf(t.to.name);
+                })
             });
         }
     }

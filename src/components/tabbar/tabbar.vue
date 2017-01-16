@@ -1,10 +1,12 @@
 <template>
-    <div class="vmc-tab-bar" :style="style" v-if="show" :transition=" show ? 'vmc-tab-bar-up' : 'vmc-tab-bar-down' ">
-        <div class="tab-item" :class="{active: $index == index}" @click="_onItemClick(item, $index)" v-for="($index, item) in items">
-            <slot-item :scope="{item: item}">
-                {{{item.icon}}}
-                <span class="tab-text">{{item.text}}</span>
-            </slot-item>
+    <div class="vmc-tab-bar" v-show="show" :transition="'vmc-tab-bar-up'">
+        <div class="tab-bar" :style="style">
+            <div class="tab-item" :class="{active: $index == index}" @click="_onItemClick(item, $index)" v-for="($index, item) in items">
+                <slot-item :scope="{item: item}">
+                    {{{item.icon}}}
+                    <span class="tab-text">{{item.text}}</span>
+                </slot-item>
+            </div>
         </div>
     </div>
 </template>
@@ -67,9 +69,14 @@
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 55px;
         z-index: 50;
-        display: flex;
+        height: 55px;
+
+        .tab-bar {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
 
         .tab-item {
             flex: 1;

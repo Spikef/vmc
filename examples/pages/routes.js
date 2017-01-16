@@ -136,5 +136,11 @@ module.exports = {
         doc_title: 'textarea',
         component: require('./components/textarea.vue'),
         depth: 20
+    },
+    '/components/nowrap': {
+        name: 'nowrap',
+        doc_title: 'nowrap',
+        component: require('./components/nowrap.vue'),
+        depth: 20
     }
 };

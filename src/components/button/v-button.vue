@@ -9,6 +9,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import { getCSSSize } from '../../utils';
+
     const colors = {
         'default': {
             color: '#444444',
@@ -83,23 +85,23 @@
                 };
 
                 if (this.height) {
-                    style.height = this.height + 'px';
+                    style.height = getCSSSize(this.height);
                 }
 
                 if (this.width) {
-                    style.width = this.width + 'px';
+                    style.width = getCSSSize(this.width);
                 }
 
                 if (this.border) {
-                    style.borderWidth = this.border + 'px';
+                    style.borderWidth = getCSSSize(this.border);
                 }
 
                 if (this.radius) {
-                    style.borderRadius = this.radius + 'px';
+                    style.borderRadius = getCSSSize(this.radius);
                 }
 
                 if (this.size) {
-                    style.fontSize = this.size + 'px';
+                    style.fontSize = getCSSSize(this.size);
                 }
 
                 if (this.colors) {

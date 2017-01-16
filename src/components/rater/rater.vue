@@ -1,40 +1,42 @@
 <template>
-    <grid>
-        <span class="vmc-rater-box"
-              v-for="i in max"
-              @click="handleClick(i)"
-              :class="{'is-active':value > i}"
-              :style="{color: colors && colors[i] ? colors[i] : '#ccc',marginRight:margin+'px',fontSize: fontSize + 'px', width: fontSize + 'px', height: fontSize + 'px', lineHeight: fontSize + 'px'}">
+    <div class="vmc-rater" :style="style">
 
-            <span class="vmc-rater-inner">
-                {{star}}
-                <span class="vmc-rater-outer"
-                      :style="{color: activeColor, width: cutPercent + '%'}"
-                      v-if="cutPercent > 0 && cutIndex === i">{{star}}</span>
+
+        <span class="vmc-rater-outer"
+              :style="outStarStyle(i)"
+              v-for="i in max"
+              @click="onClick(i)">
+
+            {{star}}
+
+            <span class="vmc-rater-inner"
+                  :style="{color: activeColor, width: cutPercent + '%'}"
+                  v-if="cutPercent > 0 && cutIndex === i">{{star}}</span>
             </span>
         </span>
-    </grid>
+
+        <!--<span class="vmc-rater-outer">-->
+        <!--{{star}}-->
+
+    </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import Grid from '../grid';
-
     export default {
-        components: {
-            Grid
-        },
-        ready () {
-            this.updateStyle()
-        },
         props: {
             max: {
                 type: [Number, String],
                 default: 5,
                 coerce: parseInt
             },
+            min: {
+                type: [Number, String],
+                default: 1,
+                coerce: parseInt
+            },
             value: {
                 type: Number,
-                default: 0,
+                default: 5,
                 coerce: Number
             },
             disabled: Boolean,
@@ -44,11 +46,11 @@
             },
             activeColor: {
                 type: String,
-                default: '#fc6'
+                default: '#ffcc66'
             },
             gutter: {
                 type: Number,
-                default: 2
+                default: 4
             },
             size: {
                 type: Number,
@@ -56,36 +58,47 @@
             }
         },
         computed: {
-            sliceValue () {
-                const _val = this.value.toString().split('.')
-                return _val.length === 1 ? [_val[0], 0] : _val
+            style() {
+                if (this.gutter) {
+                    return {
+                        margin: `0 -${this.gutter / 2}px`
+                    }
+                }
             },
-            cutIndex () {
-                return this.sliceValue[0] * 1
-            },
-            cutPercent () {
-                return this.sliceValue[1] * 10
-            }
+
+//            sliceValue() {
+//                const _val = this.value.toString().split('.');
+//                return _val.length === 1 ? [_val[0], 0] : _val
+//            },
+//            cutIndex() {
+//                return this.sliceValue[0] * 1
+//            },
+//            cutPercent() {
+//                return this.sliceValue[1] * 10
+//            }
         },
         methods: {
-            handleClick (i, force) {
-                if (!this.disabled || force) {
-                    if (this.value === i + 1) {
-                        this.value = i
-                        this.updateStyle()
-                    } else {
-                        this.value = i + 1
-                    }
+            onClick (i) {
+                if (!this.disabled) {
+                    var value = this.value === i + 1 ? i : i + 1;
+                    if (value < this.min) value = this.min;
+                    this.value = value;
                 }
             },
-            updateStyle () {
-                for (var j = 0; j < this.max; j++) {
-                    if (j <= this.value - 1) {
-                        this.colors.$set(j, this.activeColor)
-                    } else {
-                        this.colors.$set(j, '#ccc')
-                    }
+            outStarStyle(i) {
+                var style = {
+                    fontSize: this.size + 'px'
+                };
+
+                if (this.gutter) {
+                    style.padding = `0 ${this.gutter / 2}px`;
                 }
+
+                if (i < this.value) {
+                    style.color = this.activeColor;
+                }
+
+                return style;
             }
         },
         data () {
@@ -94,16 +107,23 @@
                 cutIndex: -1,
                 cutPercent: 0
             }
-        },
-        watch: {
-            value (val) {
-                this.updateStyle()
-            }
         }
     }
 </script>
 
 <style rel="stylesheet/less" lang="less">
+    .vmc-rater {
+        font-size: 0;
+
+        .vmc-rater-outer {
+            display: inline-block;
+            color: #cccccc;
+        }
+    }
+
+
+
+    /*
     .vmc-rater {
         text-align: left;
         display: inline-block;
@@ -140,5 +160,6 @@
         display: inline-block;
         overflow: hidden;
     }
+    */
 </style>
 

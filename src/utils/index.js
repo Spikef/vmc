@@ -41,3 +41,21 @@ export const getType = function(obj) {
 export const isType = function(obj, type) {
     return getType(obj) === type;
 };
+
+export const isNumeric = function(n) {
+    return !Array.isArray(n) && !isNaN(parseFloat(n)) && isFinite(n);
+};
+
+export const isCSSSize = function(value) {
+    return /[0-9.]+\s*(px|in|cm|mm|em|rem|pt|pc|ex|ch|vw|vh|vmin|vmax|%)\s*$/.test(value);
+};
+
+export const getCSSSize = function(value) {
+    if (isCSSSize(value)) {
+        return value;
+    } else if (isNumeric(value)) {
+        return value + 'px';
+    } else {
+        return value;
+    }
+};

@@ -3,10 +3,10 @@
 </template>
 
 <script>
-    import common from './common.vue';
+    import spinner from './spinner';
 
     export default {
-        mixins: [common],
+        mixins: [spinner],
         computed: {
             spinnerStyle() {
                 var size = Math.ceil(this.spinnerSize / 8);

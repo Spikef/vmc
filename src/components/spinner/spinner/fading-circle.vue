@@ -7,10 +7,10 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import common from './common.vue';
+    import spinner from './spinner';
 
     export default {
-        mixins: [common],
+        mixins: [spinner],
         methods: {
             blockStyle(index) {
                 return {
