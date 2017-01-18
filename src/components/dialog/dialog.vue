@@ -1,5 +1,5 @@
 <template>
-    <div v-show="show">
+    <div v-show="show" class="vmc-dialog-wrapper">
         <mask></mask>
         <div class="vmc-dialog">
             <div class="dialog-head" v-child="header"></div>
@@ -26,7 +26,7 @@
 
 <style rel="stylesheet/less" lang="less">
     .vmc-dialog {
-        position: fixed;
+        position: absolute;
         z-index: 500;
         width: 85%;
         top: 50%;

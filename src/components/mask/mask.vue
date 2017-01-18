@@ -28,7 +28,7 @@
 
 <style rel="stylesheet/less" lang="less">
     .vmc-mask {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;

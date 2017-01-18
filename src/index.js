@@ -30,6 +30,7 @@ import Cell from './components/cell';
 import Card from './components/card';
 import Row from './components/row';
 import Progressbar from './components/progressbar';
+import Popup from './components/popup';
 
 module.exports = {
     Alert,
@@ -59,6 +60,7 @@ module.exports = {
     Card,
     Row,
     Progressbar,
+    Popup,
     VMC: require('./components/install'),
     Utils: require('./utils')
 };

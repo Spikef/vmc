@@ -160,5 +160,11 @@ module.exports = {
         doc_title: 'dialog',
         component: require('./components/dialog.vue'),
         depth: 20
+    },
+    '/components/popup': {
+        name: 'popup',
+        doc_title: 'popup',
+        component: require('./components/popup.vue'),
+        depth: 20
     }
 };

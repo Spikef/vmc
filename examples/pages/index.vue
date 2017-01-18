@@ -21,6 +21,7 @@
 
             <div class="title">UI组件</div>
             <cell @click="jump('dialog')">dialog</cell>
+            <cell @click="jump('popup')">popup</cell>
             <cell @click="jump('spinner')">spinner</cell>
             <cell @click="jump('dropload')">dropload</cell>
             <cell @click="jump('tabbar')">tabbar</cell>

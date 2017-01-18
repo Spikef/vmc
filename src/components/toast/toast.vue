@@ -69,7 +69,7 @@
 <style rel="stylesheet/less" lang="less">
     .vmc-toast {
         .block {
-            position: fixed;
+            position: absolute;
             max-width: 80%;
             border-radius: 5px;
             background: rgba(0, 0, 0, 0.7);
