@@ -1,22 +1,26 @@
 <template>
-    <div class="vmc-alert" v-show="show">
-        <mask></mask>
-        <dialog
-                :title="title"
-                :content="content"
-                :input-value.sync="value"
-                :input-holder="placeholder"
-                :input-invalid="invalid"
-                :input-message="message"
-                show-input>
+    <dialog :show="show" class="vmc-prompt" :class="{'no-content': !content}">
+        <child name="header">
+            <div><p>{{title}}</p></div>
+        </child>
+        <child name="content">
+            {{content}}
+            <div class="prompt-input">
+                <label class="vmc-1px" :class="{ invalid: invalid }">
+                    <input v-model="value" :placeholder="placeholder">
+                </label>
+                <div class="error-message" v-if="!!message">{{message}}</div>
+            </div>
+        </child>
+        <child name="footer">
             <span class="vmc-1px-right" :class="type === 0 ? 'default' : 'primary'" @click.stop="_onCancel">
                 {{btn1}}
             </span>
             <span class="primary" @click.stop="_onConfirm">
                 {{btn2}}
             </span>
-        </dialog>
-    </div>
+        </child>
+    </dialog>
 </template>
 
 <script type="text/ecmascript-6">
@@ -108,3 +112,35 @@
         }
     }
 </script>
+
+<style rel="stylesheet/less" lang="less">
+    .vmc-prompt {
+        .prompt-input{
+            padding-top: 15px;
+
+            .error-message {
+                color: #ff0000;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+
+            label {
+                display: block;
+            }
+
+            input {
+                box-sizing: border-box;
+                border: none;
+                padding: 5px;
+                font-size: 14px;
+                height: 40px;
+                width: 100%;
+                appearance: none;
+                outline: none;
+            }
+            .invalid {
+                border-color: #ff0000;
+            }
+        }
+    }
+</style>

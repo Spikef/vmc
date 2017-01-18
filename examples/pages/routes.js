@@ -142,5 +142,23 @@ module.exports = {
         doc_title: 'nowrap',
         component: require('./components/nowrap.vue'),
         depth: 20
+    },
+    '/components/progressbar': {
+        name: 'progressbar',
+        doc_title: 'progressbar',
+        component: require('./components/progressbar.vue'),
+        depth: 20
+    },
+    '/components/shake': {
+        name: 'shake',
+        doc_title: 'shake',
+        component: require('./components/shake.vue'),
+        depth: 20
+    },
+    '/components/dialog': {
+        name: 'dialog',
+        doc_title: 'dialog',
+        component: require('./components/dialog.vue'),
+        depth: 20
     }
 };

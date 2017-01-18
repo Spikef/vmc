@@ -20,6 +20,7 @@
             <cell @click="jump('toast')">toast</cell>
 
             <div class="title">UI组件</div>
+            <cell @click="jump('dialog')">dialog</cell>
             <cell @click="jump('spinner')">spinner</cell>
             <cell @click="jump('dropload')">dropload</cell>
             <cell @click="jump('tabbar')">tabbar</cell>
@@ -28,8 +29,12 @@
             <cell @click="jump('nowrap')">nowrap</cell>
             <cell @click="jump('reddot')">reddot</cell>
             <cell @click="jump('tabcontrol')">tabcontrol</cell>
+            <cell @click="jump('progressbar')">progressbar</cell>
             <cell @click="jump('icons')">icons</cell>
             <cell @click="jump('card')">card</cell>
+
+            <div class="title">其它功能</div>
+            <cell @click="jump('shake')">shake</cell>
         </div>
     </div>
 </template>

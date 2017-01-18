@@ -3,25 +3,61 @@
         <navbar>评分</navbar>
 
         <div class="content">
-            <div class="vmc-row">
-                <label>普通评分</label>
-                <rater value="4"></rater>
-            </div>
+            <row title="普通评分">
+                <rater :value="point1"></rater>
+            </row>
+            <row title="允许评0分">
+                <rater :value="point1" min="0"></rater>
+            </row>
+            <row title="仅展示评分">
+                <rater :value="point1" disabled></rater>
+            </row>
+            <row :title="'评分为小数(' + point2 + ')'">
+                <rater :value="point2" disabled></rater>
+            </row>
+            <row title="自定义可评分">
+                <rater :value="point1" max="6"></rater>
+            </row>
+            <row title="自定义大小">
+                <rater :value="point1" size="15"></rater>
+            </row>
+            <row title="自定义颜色">
+                <rater :value="point1" active-color="#00C85E"></rater>
+            </row>
+            <row title="自定义间距">
+                <rater :value="point1" gutter="4"></rater>
+            </row>
+            <row title="自定义形状">
+                <rater :value="point1" star="☻"></rater>
+            </row>
+
+            <v-button type="danger" @click="updatePoint">更新评分数</v-button>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Rater } from '../../../src';
+    import { Navbar, Rater, Row, vButton } from '../../../src';
 
     export default {
         components: {
             Navbar,
-            Rater
+            Rater,
+            Row,
+            vButton
         },
         data() {
             return {
-
+                point1: 4,
+                point2: 3.5
+            }
+        },
+        methods: {
+            updatePoint() {
+                var point1 = Math.ceil(Math.random() * 5);
+                var point2 = parseFloat((Math.random() * 5).toFixed(1));
+                this.point1 = point1;
+                this.point2 = point2;
             }
         }
     }
@@ -30,5 +66,9 @@
 <style rel="stylesheet/less" lang="less">
     #rater {
         background: #eeeeee;
+
+        .vmc-button {
+            margin-top: 50px;
+        }
     }
 </style>

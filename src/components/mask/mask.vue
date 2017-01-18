@@ -1,5 +1,10 @@
 <template>
-    <div class="vmc-mask" :class="transparent ? 'transparent' : 'black'" @click.stop="_onClick" @touchmove="_stopDefault" @mousewheel="_stopDefault"></div>
+    <div class="vmc-mask"
+         :class="transparent ? 'transparent' : 'black'"
+         @click.stop="_onClick"
+         @touchmove="_stopDefault"
+         @mousewheel="_stopDefault">
+    </div>
 </template>
 
 <script>

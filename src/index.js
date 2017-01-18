@@ -28,6 +28,8 @@ import Justify from './components/justify';
 import TabControl from './components/tabcontrol';
 import Cell from './components/cell';
 import Card from './components/card';
+import Row from './components/row';
+import Progressbar from './components/progressbar';
 
 module.exports = {
     Alert,
@@ -55,6 +57,8 @@ module.exports = {
     TabControl,
     Cell,
     Card,
+    Row,
+    Progressbar,
     VMC: require('./components/install'),
     Utils: require('./utils')
 };

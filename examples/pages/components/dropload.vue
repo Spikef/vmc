@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, DropLoad } from '../../../src';
+    import { Navbar, DropLoad, Utils } from '../../../src';
 
     export default {
         components: {
@@ -42,6 +42,14 @@
                     this.hasMore = this.count < 30;
                 }, 1000);
             }
+        },
+        ready() {
+            Utils.device.shake(() => {
+                this.$Alert('晃了一晃');
+            });
+        },
+        beforeDestroy() {
+            Utils.device.shake.remove();
         }
     }
 </script>

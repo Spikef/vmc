@@ -1,9 +1,11 @@
 <template>
     <div id="messages">
-        <navbar>Message Box</navbar>
+        <navbar>提示框</navbar>
 
         <div>
             <v-button @click="showAlert">打开alert提示框</v-button>
+
+            <v-button @click="showAlert2">打开alert提示框</v-button>
 
             <v-button @click="showConfirm">打开confirm提示框</v-button>
 
@@ -25,6 +27,11 @@
         methods: {
             showAlert() {
                 this.$Alert('alert提示框');
+            },
+            showAlert2() {
+                this.$Alert('alert提示框', {
+                    content: '带正文提示消息: 该配置可以在提示框中显示更多详细内容'
+                });
             },
             showConfirm() {
                 this.$Confirm('confirm提示框', () => {
@@ -54,7 +61,7 @@
                 }, {
                     content: '请输入数字',
                     placeholder: '请输入不大于10的正整数',
-                    message: '&nbsp;',
+                    message: '',
                     validator(v) {
                         if (/^[1-9]$/.test(v)) {
                             return true;

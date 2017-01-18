@@ -10,14 +10,10 @@
             {{star}}
 
             <span class="vmc-rater-inner"
-                  :style="{color: activeColor, width: cutPercent + '%'}"
-                  v-if="cutPercent > 0 && cutIndex === i">{{star}}</span>
+                  :style="innerStarStyle(i)"
+                  v-if="innerStarStyle(i)">{{star}}</span>
             </span>
         </span>
-
-        <!--<span class="vmc-rater-outer">-->
-        <!--{{star}}-->
-
     </div>
 </template>
 
@@ -35,9 +31,9 @@
                 coerce: parseInt
             },
             value: {
-                type: Number,
-                default: 5,
-                coerce: Number
+                type: [String, Number],
+                coerce: Number,
+                default: 5
             },
             disabled: Boolean,
             star: {
@@ -46,36 +42,18 @@
             },
             activeColor: {
                 type: String,
-                default: '#ffcc66'
+                default: '#FFAD34'
             },
             gutter: {
-                type: Number,
-                default: 4
+                type: [String, Number],
+                coerce: Number,
+                default: 2
             },
             size: {
-                type: Number,
+                type: [String, Number],
+                coerce: Number,
                 default: 25
             }
-        },
-        computed: {
-            style() {
-                if (this.gutter) {
-                    return {
-                        margin: `0 -${this.gutter / 2}px`
-                    }
-                }
-            },
-
-//            sliceValue() {
-//                const _val = this.value.toString().split('.');
-//                return _val.length === 1 ? [_val[0], 0] : _val
-//            },
-//            cutIndex() {
-//                return this.sliceValue[0] * 1
-//            },
-//            cutPercent() {
-//                return this.sliceValue[1] * 10
-//            }
         },
         methods: {
             onClick (i) {
@@ -91,14 +69,29 @@
                 };
 
                 if (this.gutter) {
-                    style.padding = `0 ${this.gutter / 2}px`;
+                    if (i === 0 && i < this.max) {
+                        style.marginRight = `${this.gutter / 2}px`;
+                    } else if (i > 0 && i === this.max - 1) {
+                        style.marginLeft = `${this.gutter / 2}px`;
+                    } else {
+                        style.margin = `0 ${this.gutter / 2}px`;
+                    }
                 }
 
-                if (i < this.value) {
+                if (i <= this.value - 1) {
                     style.color = this.activeColor;
                 }
 
                 return style;
+            },
+            innerStarStyle(i) {
+                var parts = String(this.value).split('.');
+                if (parts.length === 2 && parts[0] == i && parts[1] > 0) {
+                    return {
+                        color: this.activeColor,
+                        width: `${parts[1] * 10}%`
+                    }
+                }
             }
         },
         data () {
@@ -118,6 +111,14 @@
         .vmc-rater-outer {
             display: inline-block;
             color: #cccccc;
+            position: relative;
+
+            .vmc-rater-inner {
+                position: absolute;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+            }
         }
     }
 
