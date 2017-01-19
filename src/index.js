@@ -1,6 +1,3 @@
-// 样式
-require('./styles/vmc.less');
-
 // 全局组件
 import Alert from './components/alert';
 import Confirm from './components/confirm';
@@ -32,6 +29,7 @@ import Row from './components/row';
 import Progressbar from './components/progressbar';
 import Popup from './components/popup';
 import Marquee from './components/marquee';
+import ActionSheet from './components/actionsheet';
 
 module.exports = {
     Alert,
@@ -63,6 +61,7 @@ module.exports = {
     Progressbar,
     Popup,
     Marquee,
+    ActionSheet,
     VMC: require('./components/install'),
     Utils: require('./utils')
 };

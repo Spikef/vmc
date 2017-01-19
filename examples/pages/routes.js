@@ -178,5 +178,11 @@ module.exports = {
         doc_title: 'marquee',
         component: require('./components/marquee.vue'),
         depth: 20
+    },
+    '/components/actionsheet': {
+        name: 'actionsheet',
+        doc_title: 'actionsheet',
+        component: require('./components/actionsheet.vue'),
+        depth: 20
     }
 };
