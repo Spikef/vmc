@@ -166,5 +166,17 @@ module.exports = {
         doc_title: 'popup',
         component: require('./components/popup.vue'),
         depth: 20
+    },
+    '/components/badge': {
+        name: 'badge',
+        doc_title: 'badge',
+        component: require('./components/badge.vue'),
+        depth: 20
+    },
+    '/components/marquee': {
+        name: 'marquee',
+        doc_title: 'marquee',
+        component: require('./components/marquee.vue'),
+        depth: 20
     }
 };

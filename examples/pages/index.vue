@@ -29,10 +29,12 @@
             <cell @click="jump('justify')">justify</cell>
             <cell @click="jump('nowrap')">nowrap</cell>
             <cell @click="jump('reddot')">reddot</cell>
+            <cell @click="jump('badge')">badge</cell>
             <cell @click="jump('tabcontrol')">tabcontrol</cell>
             <cell @click="jump('progressbar')">progressbar</cell>
             <cell @click="jump('icons')">icons</cell>
             <cell @click="jump('card')">card</cell>
+            <cell @click="jump('marquee')">marquee</cell>
 
             <div class="title">其它功能</div>
             <cell @click="jump('shake')">shake</cell>

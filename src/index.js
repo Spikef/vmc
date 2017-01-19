@@ -31,6 +31,7 @@ import Card from './components/card';
 import Row from './components/row';
 import Progressbar from './components/progressbar';
 import Popup from './components/popup';
+import Marquee from './components/marquee';
 
 module.exports = {
     Alert,
@@ -61,6 +62,7 @@ module.exports = {
     Row,
     Progressbar,
     Popup,
+    Marquee,
     VMC: require('./components/install'),
     Utils: require('./utils')
 };
