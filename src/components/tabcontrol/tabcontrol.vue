@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-tab-control" :style="{ height: clientHeight }">
+    <div class="vmc-tab-control" :style="{ height: getHeight }">
         <div v-if="tabType" class="tab-items" :class="'tab-items-' + tabType" :style="tabStyle">
             <div class="tab-item"
                  :class="{ active: tabIndex === $index }"
@@ -115,7 +115,7 @@
                     height: getCSSSize(this.lineWidth)
                 }
             },
-            clientHeight() {
+            getHeight() {
                 return getCSSSize(this.height);
             }
         },
@@ -180,7 +180,7 @@
             .tab-item {
                 display: block;
                 flex: 1;
-                width: 100%;
+                width: 0%;
                 height: 100%;
                 box-sizing: border-box;
                 background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;

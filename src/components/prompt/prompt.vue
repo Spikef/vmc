@@ -4,7 +4,7 @@
             <div><p>{{title}}</p></div>
         </child>
         <child name="content">
-            {{content}}
+            {{{content}}}
             <div class="prompt-input">
                 <label class="vmc-1px" :class="{ invalid: invalid }">
                     <input v-model="value" :placeholder="placeholder">

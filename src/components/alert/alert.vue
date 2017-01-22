@@ -3,7 +3,7 @@
         <child name="header">
             <div><p>{{title}}</p></div>
         </child>
-        <child name="content">{{content}}</child>
+        <child name="content">{{{content}}}</child>
         <child name="footer">
             <span class="primary" @click.stop="_onConfirm">
                 {{button}}

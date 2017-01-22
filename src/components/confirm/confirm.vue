@@ -3,7 +3,7 @@
         <child name="header">
             <div><p>{{title}}</p></div>
         </child>
-        <child name="content" v-show="content">{{content}}</child>
+        <child name="content" v-show="content">{{{content}}}</child>
         <child name="footer">
             <span class="vmc-1px-right" :class="type === 0 ? 'default' : 'primary'" @click.stop="_onCancel">
                 {{btn1}}

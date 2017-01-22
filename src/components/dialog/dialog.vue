@@ -59,6 +59,7 @@
             span {
                 display: block;
                 flex: 1;
+                width: 0%;
 
                 &.primary {
                     color: #ff0000;

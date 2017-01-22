@@ -30,6 +30,7 @@ import Progressbar from './components/progressbar';
 import Popup from './components/popup';
 import Marquee from './components/marquee';
 import ActionSheet from './components/actionsheet';
+import Slider from './components/slider';
 
 module.exports = {
     Alert,
@@ -62,6 +63,7 @@ module.exports = {
     Popup,
     Marquee,
     ActionSheet,
+    Slider,
     VMC: require('./components/install'),
     Utils: require('./utils')
 };

@@ -1,8 +1,6 @@
 <template>
     <popup :show.sync="show" :hide-on-mask="hideOnMask" height="auto" class="vmc-action-sheet">
         <v-button class="vmc-1px-top"
-                  height="45"
-                  :colors="{background: '#ffffff'}"
                   @click="_onItemClick(item, $index)"
                   v-for="item in list">
 
@@ -10,8 +8,6 @@
         </v-button>
 
         <v-button class="vmc-1px-top cancel"
-                  height="45"
-                  :colors="{background: '#ffffff'}"
                   @click="show = false"
                   v-if="cancel">
 
@@ -59,19 +55,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-action-sheet {
-        .vmc-popup {
-            background: #e0e0e0;
-        }
-
-        .vmc-button {
-            background: #ffffff;
-
-            &.cancel {
-                margin-top: 5px;
-            }
-        }
-    }
-</style>

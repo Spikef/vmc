@@ -184,5 +184,11 @@ module.exports = {
         doc_title: 'actionsheet',
         component: require('./components/actionsheet.vue'),
         depth: 20
+    },
+    '/components/slider': {
+        name: 'slider',
+        doc_title: 'slider',
+        component: require('./components/slider.vue'),
+        depth: 20
     }
 };

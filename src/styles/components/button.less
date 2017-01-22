@@ -1,0 +1,73 @@
+.vmc-button {
+    text-align: center;
+    font-size: @ButtonTextSize;
+    height: @ButtonHeight;
+    position: relative;
+
+    &:active:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, .4);
+    }
+
+    .block {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &.disabled {
+        opacity: .65;
+
+        &:active:after {
+            display: none;
+        }
+    }
+
+    &.default {
+        .button-color(Default);
+    }
+
+    &.primary {
+        .button-color(Primary);
+    }
+
+    &.success {
+        .button-color(Success);
+    }
+
+    &.info {
+        .button-color(Info);
+    }
+
+    &.danger {
+        .button-color(Danger);
+    }
+
+    &.warning {
+        .button-color(Warning);
+    }
+
+    .button-color(@type) {
+        @text: "Button@{type}Color";
+        @border: "Button@{type}Border";
+        @back: "Button@{type}BackColor";
+
+        color: @@text;
+        border-color: @@border;
+        background: @@back;
+    }
+
+    [slot="icon-left"] {
+        margin-right: 5px;
+    }
+
+    [slot="icon-right"] {
+        margin-left: 5px;
+    }
+}
