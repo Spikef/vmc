@@ -228,11 +228,10 @@
 
         .slider-list {
             height: 100%;
-            position: relative;
-            transition: transform 0s;
+            position: absolute;
 
             &.transition {
-                transition: transform .3s ease;
+                transition: transform .3s linear;
             }
 
             .slider-item {
@@ -257,6 +256,8 @@
             }
 
             &.auto-height {
+                position: relative;
+
                 &:after {
                     content: "";
                     display: block;
