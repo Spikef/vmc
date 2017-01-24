@@ -15,12 +15,12 @@
             <div v-if="tabType == 1" class="tab-line" :class="'tab-line-' + direction" :style="lineStyle"></div>
         </div>
 
-        <div class="tab-pages">
+        <div class="tab-pages" :class="{ 'auto-height': autoHeight }">
             <div class="tab-page"
                  v-touch:swipeLeft="onSwipeLeft"
                  v-touch:swipeRight="onSwipeRight"
                  v-touch-options:swipe="{ direction: 'horizontal' }"
-                 :class="{ active: tabIndex === $index, 'auto-height': height === 'auto' }"
+                 :class="{ active: tabIndex === $index }"
                  v-show="tabIndex === $index"
                  v-for="item in tabList"
                  :transition="'tab-page-' + direction">
@@ -71,9 +71,13 @@
                 return this.tabList.length;
             },
             tabStyle() {
-                return {
+                var style = {
                     borderColor: this.activeColor
+                };
+                if (this.tabType === 2) {
+                    style.background = this.activeColor;
                 }
+                return style;
             },
             itemStyle() {
                 switch (this.tabType) {
@@ -117,6 +121,9 @@
             },
             getHeight() {
                 return getCSSSize(this.height);
+            },
+            autoHeight() {
+                return this.height === 'auto';
             }
         },
         data() {
@@ -220,10 +227,14 @@
 
             .tab-item {
                 line-height: @tab-items-height-2;
-                border-left: 2px solid;
+                border-left: 1px solid;
+                border-right: 1px solid;
 
                 &:first-child {
                     border-left: none;
+                }
+                &:last-child {
+                    border-right: none;
                 }
             }
         }
@@ -241,10 +252,6 @@
                 bottom: 0;
                 overflow: auto;
 
-                &.auto-height {
-                    bottom: auto;
-                }
-
                 &-left-transition, &-right-transition {
                     transition: all .3s ease;
                 }
@@ -255,6 +262,14 @@
 
                 &-left-leave, &-right-enter {
                     transform: translate3d(-100%, 0, 0);
+                }
+            }
+
+            &.auto-height {
+                .tab-page {
+                    position: relative;
+                    float: left;
+                    width: 100%;
                 }
             }
         }

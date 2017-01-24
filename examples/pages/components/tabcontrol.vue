@@ -92,7 +92,7 @@
             .vmc-tab-control {
                 margin-bottom: 20px;
 
-                .tab-page {
+                .tab-pages {
                     background-color: #dddddd;
                 }
             }
