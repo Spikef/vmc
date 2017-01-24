@@ -9,13 +9,12 @@
                  v-touch:swipeRight="onSwipeRight"
                  v-touch-options:swipe="{ direction: 'horizontal' }"
                  :class="itemClass($index)"
-                 :style="[itemStyle($index), {width: clientWidth + 'px'}]"
+                 :style="itemStyle($index)"
                  v-for="item in shadowList"
                  track-by="$index">
 
                 <slot-item :scope="{item: item, index: $index}">
-                    <img class="slider-image" :src="item.image" @click="onSliderClick(item)" v-if="autoHeight">
-                    <div class="slider-image" :style="{backgroundImage: 'url(' + item.image + ')'}" v-else></div>
+                    <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
                     <p class="slider-title" v-if="item.title">{{item.title}}</p>
                 </slot-item>
             </div>
@@ -106,6 +105,7 @@
             itemStyle(i) {
                 var style = {};
 
+                style.width = this.clientWidth + 'px';
                 if (!this.autoHeight) {
                     style.transform = 'translate(' + (i * this.clientWidth) + 'px, 0px)';
                 }

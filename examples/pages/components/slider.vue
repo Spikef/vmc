@@ -9,8 +9,8 @@
             <div class="label">固定高度为200px</div>
             <slider :list="dataList" height="200"></slider>
 
-            <div class="label">设置高宽比为0.6</div>
-            <slider :list="dataList" ratio="0.6"></slider>
+            <div class="label">设置高宽比为0.55</div>
+            <slider :list="dataList" ratio="0.55"></slider>
 
             <div class="label">自动靠图片尺寸撑开的轮播图(自动轮播)</div>
             <slider :list="list" auto="3"></slider>
@@ -34,37 +34,37 @@
                 list: [],
                 dataList: [
                     {
-                        image: 'http://desk.fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/0D/01/ChMkJlgq0z-IC78PAA1UbwykJUgAAXxIwMAwQcADVSH340.jpg',
+                        image: '/static/image/slider/1.jpg',
                         title: '标题标题一',
                         link: 'http://m.baidu.com'
                     },
                     {
-                        image: 'http://desk.fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/0D/01/ChMkJlgq00OIL0EGABOuIQmyjjQAAXxJAC-UhkAE645592.jpg',
+                        image: '/static/image/slider/2.jpg',
                         title: '标题标题二',
                         link: 'http://m.baidu.com'
                     },
                     {
-                        image: 'http://desk.fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/0D/01/ChMkJ1gq00WIXw_GAA47r_8gjqgAAXxJAH8qOMADjvH566.jpg',
+                        image: '/static/image/slider/3.jpg',
                         title: '标题标题三',
                         link: 'http://m.baidu.com'
                     },
                     {
-                        image: 'http://desk.fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/0D/01/ChMkJlgq00iIbQ0UAAofFdZJHZAAAXxJAM2TcsACh8t156.jpg',
+                        image: '/static/image/slider/4.jpg',
                         title: '标题标题四',
                         link: 'http://m.baidu.com'
                     },
                     {
-                        image: 'http://desk.fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/0D/01/ChMkJ1gq00qId06-AAsq38fHnuEAAXxJQAeiD8ACyr3253.jpg',
+                        image: '/static/image/slider/5.jpg',
                         title: '标题标题五',
                         link: 'http://m.baidu.com'
                     },
                     {
-                        image: 'http://desk.fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/0D/01/ChMkJ1gq00yIWzAOABSTdywNsdgAAXxJQERES8AFJOP451.jpg',
+                        image: '/static/image/slider/6.jpg',
                         title: '标题标题六标题标题六标题标题六',
                         link: 'http://m.baidu.com'
                     },
                     {
-                        image: 'http://desk.fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/0D/01/ChMkJ1gq01qIU0XoAA1P2c04RgIAAXxJwHYy-8ADU_x258.jpg',
+                        image: '/static/image/slider/7.jpg',
                         title: '标题标题七标题标题七',
                         link: 'http://m.baidu.com'
                     }
