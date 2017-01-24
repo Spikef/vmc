@@ -14,7 +14,8 @@
                  track-by="$index">
 
                 <slot-item :scope="{item: item, index: $index}">
-                    <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
+                    <img class="slider-image" :src="item.image" @click="onSliderClick(item)" v-if="autoHeight">
+                    <div class="slider-image" :style="{backgroundImage: 'url(' + item.image + ')'}" v-else></div>
                     <p class="slider-title" v-if="item.title">{{item.title}}</p>
                 </slot-item>
             </div>
@@ -242,6 +243,7 @@
                     display: block;
                     width: 100%;
                     height: 100%;
+                    background-size: 100% 100%;
                 }
 
                 .slider-title {
