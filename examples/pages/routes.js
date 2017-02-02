@@ -190,5 +190,11 @@ module.exports = {
         doc_title: 'slider',
         component: require('./components/slider.vue'),
         depth: 20
+    },
+    '/components/box': {
+        name: 'box',
+        doc_title: 'box',
+        component: require('./components/box.vue'),
+        depth: 20
     }
 };

@@ -26,6 +26,7 @@
             <cell @click="jump('dropload')">dropload</cell>
             <cell @click="jump('tabbar')">tabbar</cell>
             <cell @click="jump('grid')">grid</cell>
+            <cell @click="jump('box')">box</cell>
             <cell @click="jump('justify')">justify</cell>
             <cell @click="jump('nowrap')">nowrap</cell>
             <cell @click="jump('reddot')">reddot</cell>
