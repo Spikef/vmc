@@ -10,9 +10,12 @@
     export default {
         props: {
             ratio: {
-                default: 1
+                default: 1,
+                description: '高宽比'
             },
-            background: null
+            background: {
+                description: '背景图或者背景颜色'
+            }
         },
         computed: {
             style() {
@@ -39,24 +42,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-box {
-        height: 0;
-        position: relative;
-
-        .vmc-box-content {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            background-size: 100% 100%;
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-</style>

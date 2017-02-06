@@ -20,7 +20,7 @@
 
     export default {
         props: {
-            list: {},
+            list: null,
             height: [String, Number],
             backColor: String,
             color: String,

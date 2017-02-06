@@ -29,10 +29,12 @@
 
 <style rel="stylesheet/less" lang="less">
     #box {
-        background: #eeeeee;
-        height: 100%;
-        box-sizing: border-box;
-        overflow: scroll;
+        .content {
+            background: #eeeeee;
+            height: 100%;
+            box-sizing: border-box;
+            overflow: scroll;
+        }
 
         .vmc-box {
             background: #ffffff;

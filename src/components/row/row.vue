@@ -41,10 +41,6 @@
             }
         }
 
-        /*+ .vmc-row:before {*/
-            /*border: none;*/
-        /*}*/
-
         &:first-child:before {
             border: none;
         }

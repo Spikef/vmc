@@ -196,5 +196,11 @@ module.exports = {
         doc_title: 'box',
         component: require('./components/box.vue'),
         depth: 20
+    },
+    '/components/picker': {
+        name: 'picker',
+        doc_title: 'picker',
+        component: require('./components/picker.vue'),
+        depth: 20
     }
 };

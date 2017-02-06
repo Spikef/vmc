@@ -32,6 +32,8 @@ import Marquee from './components/marquee';
 import ActionSheet from './components/actionsheet';
 import Slider from './components/slider';
 import Box from './components/box';
+import Picker from './components/picker';
+import PopupPicker from './components/popup-picker';
 
 module.exports = {
     Alert,
@@ -66,6 +68,8 @@ module.exports = {
     ActionSheet,
     Slider,
     Box,
+    Picker,
+    PopupPicker,
     VMC: require('./components/install'),
     Utils: require('./utils')
 };

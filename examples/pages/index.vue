@@ -38,6 +38,7 @@
             <cell @click="jump('marquee')">marquee</cell>
             <cell @click="jump('actionsheet')">actionsheet</cell>
             <cell @click="jump('slider')">slider</cell>
+            <cell @click="jump('picker')">picker</cell>
 
             <div class="title">其它功能</div>
             <cell @click="jump('shake')">shake</cell>
