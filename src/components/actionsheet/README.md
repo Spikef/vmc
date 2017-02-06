@@ -53,7 +53,7 @@ export default {
 ## Props
 
 | Property | Type | Description | Default |
-| ----- | ----- | ----- |
+| ----- | ----- | ----- | ----- |
 | list | Array | 按钮列表 | 1 |
 | show | Boolean | 是否显示 | false |
 | cancel | Boolean | 是否显示取消按钮 | false |

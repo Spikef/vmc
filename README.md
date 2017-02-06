@@ -47,4 +47,4 @@ Vue.use(VMC);
 
 ### 布局组件
 
-#### [ActionSheet](https://github.com/spikef/vmc)
+#### [ActionSheet](./tree/master/src/components/actionsheet)
