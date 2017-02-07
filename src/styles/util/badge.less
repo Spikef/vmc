@@ -1,13 +1,13 @@
 .vmc-badge {
     display: inline-block;
     text-align: center;
-    background: #f74c31;
-    color: #fff;
-    font-size: 12px;
-    height: 16px;
-    line-height: 16px;
-    min-width: 16px;
-    border-radius: 8px;
-    padding: 0 4px;
+    background: @BadgeBackColor;
+    color: @BadgeTextColor;
+    font-size: @BadgeFontSize;
+    height: @BadgeHeight;
+    line-height: @BadgeHeight;
+    min-width: @BadgeHeight;
+    border-radius: @BadgeHeight / 2;
+    padding: 0 (@BadgeHeight - @BadgeFontSize);
     box-sizing: border-box;
 }
