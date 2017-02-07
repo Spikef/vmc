@@ -39,7 +39,7 @@ Vue.use(VMC);
 
 * [icono图标](https://github.com/saeedalipoor/icono)
 
-* 1px边框
+* [1px边框](./src/styles/util#1px-border)
 
 ### 全局组件
 
