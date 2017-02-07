@@ -23,35 +23,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-cell {
-        padding: 0 12px;
-        min-height: 45px;
-        display: flex;
-        align-items: center;
-        background: #ffffff;
-
-        + .vmc-cell:before {
-            border: none;
-        }
-
-        .cell-icon {
-            margin-right: 15px;
-        }
-
-        .cell-title {
-            flex: 1;
-            font-size: 15px;
-        }
-
-        .cell-arrow {
-            margin-right: -12px;
-
-            .icono-caretRight {
-                color: #cecece;
-                transform: scale(0.8);
-            }
-        }
-    }
-</style>

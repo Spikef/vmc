@@ -74,18 +74,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-grid {
-        ul.justify {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        li {
-            display: inline-block;
-            box-sizing: border-box;
-            vertical-align: middle;
-        }
-    }
-</style>

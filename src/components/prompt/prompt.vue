@@ -112,35 +112,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-prompt {
-        .prompt-input{
-            padding-top: 15px;
-
-            .error-message {
-                color: #ff0000;
-                font-size: 12px;
-                margin-top: 5px;
-            }
-
-            label {
-                display: block;
-            }
-
-            input {
-                box-sizing: border-box;
-                border: none;
-                padding: 5px;
-                font-size: 14px;
-                height: 40px;
-                width: 100%;
-                appearance: none;
-                outline: none;
-            }
-            .invalid {
-                border-color: #ff0000;
-            }
-        }
-    }
-</style>

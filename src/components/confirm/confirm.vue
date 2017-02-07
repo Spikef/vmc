@@ -71,30 +71,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-confirm {
-        &.no-content {
-            .dialog-head {
-                display: flex;
-                align-items: center;
-                min-height: 50px;
-                padding-bottom: 15px;
-
-                div {
-                    flex: 1;
-                    text-align: center;
-                }
-
-                p {
-                    display: inline-block;
-                    text-align: left;
-                }
-            }
-
-            .dialog-body {
-                display: none;
-            }
-        }
-    }
-</style>

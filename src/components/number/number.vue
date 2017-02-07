@@ -80,28 +80,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-number {
-        display: flex;
-        height: 30px;
-        line-height: 28px;
-
-        span {
-            display: block;
-            text-align: center;
-            width: 28px;
-            min-width: 28px;
-            font-size: 12px;
-        }
-
-        input {
-            text-align: center;
-        }
-
-        .vmc-input:before {
-            border-left: none;
-            border-right: none;
-        }
-    }
-</style>

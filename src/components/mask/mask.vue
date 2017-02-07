@@ -25,22 +25,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-mask {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 200;
-
-        &.transparent {
-            background-color: transparent;
-        }
-
-        &.black {
-            background-color: rgba(0, 0, 0, .4);
-        }
-    }
-</style>

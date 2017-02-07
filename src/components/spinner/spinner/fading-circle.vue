@@ -26,30 +26,3 @@
         }
     };
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-spinner-fading-circle {
-        position: relative;
-
-        .block {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-
-            .circle {
-                margin: 0 auto;
-                width: 15%;
-                height: 15%;
-                border-radius: 100%;
-                animation: vmc-spinner-fading-circle 1.2s infinite ease-in-out both;
-            }
-        }
-    }
-
-    @keyframes vmc-spinner-fading-circle {
-        0%, 39%, 100% { opacity: 0 }
-        40% { opacity: 1 }
-    }
-</style>

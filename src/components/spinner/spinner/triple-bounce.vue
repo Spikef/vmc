@@ -39,24 +39,3 @@
         }
     };
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-spinner-triple-bounce {
-        font-size: 0;
-
-        .bounce {
-            border-radius: 100%;
-            display: inline-block;
-            animation: vmc-spinner-triple-bounce 1.4s infinite ease-in-out both;
-        }
-    }
-
-    @keyframes vmc-spinner-triple-bounce {
-        0%, 80%, 100% {
-            transform: scale(0);
-        }
-        40% {
-            transform: scale(1.0);
-        }
-    }
-</style>

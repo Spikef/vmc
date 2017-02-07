@@ -1,0 +1,50 @@
+.vmc-marquee {
+    height: 30px;
+    background: #efefef;
+    color: #ff0000;
+    position: relative;
+    overflow-y: hidden;
+
+    .marquee-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+
+        [class*="icono-"] {
+            transform: scale(0.6);
+        }
+
+        > p, > i {
+            display: block;
+        }
+
+        &.left {
+            justify-content: flex-start;
+        }
+
+        &.center {
+            justify-content: center;
+        }
+
+        &.right {
+            justify-content: flex-end;
+        }
+    }
+
+    &-up-transition, &-down-transition {
+        transition: all .2s ease;
+    }
+
+    &-up-enter, &-down-leave {
+        transform: translate3d(0, 100%, 0);
+    }
+
+    &-up-leave, &-down-enter {
+        transform: translate3d(0, -100%, 0);
+    }
+}

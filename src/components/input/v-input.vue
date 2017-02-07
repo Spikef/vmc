@@ -100,39 +100,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-input-area {
-        position: relative;
-
-        &.invalid label {
-            border-color: #ff0000;
-        }
-
-        .vmc-input-message {
-            position: absolute;
-            width: 70%;
-            left: 3%;
-            border-radius: 5px;
-            margin-top: 5px;
-            font-size: 12px;
-            font-weight: 200;
-            padding: 5px;
-            background: #363636;
-            color: #ffffff;
-            z-index: 1;
-
-            &:before {
-                content: " ";
-                background: #363636;
-                display: block;
-                height: 8px;
-                width: 8px;
-                position: absolute;
-                left: 20px;
-                top: -4px;
-                transform: rotate(45deg);
-            }
-        }
-    }
-</style>

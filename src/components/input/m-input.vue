@@ -89,21 +89,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-input {
-        display: block;
-        height: 100%;
-        width: 100%;
-
-        input {
-            outline: none;
-            border: none;
-            height: 100%;
-            width: 100%;
-            padding: 5px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-    }
-</style>

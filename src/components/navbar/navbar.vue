@@ -58,28 +58,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    @width: 50px;
-
-    .vmc-navbar {
-        .left {
-            width: @width;
-            padding: 8px 0;
-        }
-
-        .center {
-            flex: 1;
-            text-align: center;
-        }
-
-        .right {
-            width: @width;
-            height: 100%;
-        }
-
-        +div {
-            padding-top: 50px !important;
-        }
-    }
-</style>

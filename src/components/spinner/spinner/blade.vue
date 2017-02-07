@@ -28,32 +28,3 @@
         }
     };
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-spinner-blade {
-        position: relative;
-
-        .blade {
-            position: absolute;
-            left: 44.5%;
-            top: 37%;
-            width: 10%;
-            height: 25%;
-            border-radius: ~'50% / 20%';
-            animation: vmc-spinner-blade 1s linear infinite;
-            animation-play-state: running;
-        }
-    }
-
-    @keyframes vmc-spinner-blade {
-        0% {
-            opacity: 0.85;
-        }
-        50% {
-            opacity: 0.25;
-        }
-        100% {
-            opacity: 0.25;
-        }
-    }
-</style>

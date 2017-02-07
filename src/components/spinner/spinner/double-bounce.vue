@@ -24,29 +24,3 @@
         }
     };
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-spinner-double-bounce {
-        position: relative;
-
-        .bounce {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            opacity: 0.6;
-            position: absolute;
-            top: 0;
-            left: 0;
-            animation: vmc-spinner-double-bounce 2.0s infinite ease-in-out;
-        }
-    }
-
-    @keyframes vmc-spinner-double-bounce {
-        0%, 100% {
-            transform: scale(0.0);
-        }
-        50% {
-            transform: scale(1.0);
-        }
-    }
-</style>

@@ -23,31 +23,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-row {
-        padding: 0 12px;
-        min-height: 45px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #ffffff;
-
-        &.left {
-            justify-content: flex-start;
-
-            > div {
-                flex: 1;
-            }
-        }
-
-        &:first-child:before {
-            border: none;
-        }
-
-        label {
-            display: block;
-            min-width: 80px;
-        }
-    }
-</style>

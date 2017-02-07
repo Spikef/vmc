@@ -1,0 +1,107 @@
+@easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
+@effect-duration: .3s;
+@tab-items-height-1: 44px;
+@tab-items-height-2: 30px;
+
+.vmc-tab-control {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    .tab-items {
+        transform: translateZ(0);
+        position: relative;
+        overflow:hidden;
+        display: flex;
+
+        .tab-item {
+            display: block;
+            flex: 1;
+            width: 0%;
+            height: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
+            background-size: 100% 1px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .tab-line {
+            position: absolute;
+            bottom: 0;
+
+            &-left {
+                transition: right @effect-duration @easing-in-out,
+                left @effect-duration @easing-in-out @effect-duration * 0.3;
+            }
+            &-right {
+                transition: right @effect-duration @easing-in-out @effect-duration * 0.3,
+                left @effect-duration @easing-in-out;
+            }
+        }
+    }
+
+    .tab-items-1 {
+        height: @tab-items-height-1;
+        background-color: #ffffff;
+
+        .tab-item {
+            line-height: @tab-items-height-1;
+        }
+    }
+
+    .tab-items-2 {
+        height: @tab-items-height-2;
+        border: 2px solid;
+        border-radius: 6px;
+
+        .tab-item {
+            line-height: @tab-items-height-2;
+            border-left: 1px solid;
+            border-right: 1px solid;
+
+            &:first-child {
+                border-left: none;
+            }
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    .tab-pages {
+        flex: 1;
+        position: relative;
+        transition: transform @effect-duration ease;
+
+        .tab-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: auto;
+
+            &-left-transition, &-right-transition {
+                transition: all .3s ease;
+            }
+
+            &-left-enter, &-right-leave {
+                transform: translate3d(100%, 0, 0);
+            }
+
+            &-left-leave, &-right-enter {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        &.auto-height {
+            .tab-page {
+                position: relative;
+                float: left;
+                width: 100%;
+            }
+        }
+    }
+}

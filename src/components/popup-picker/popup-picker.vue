@@ -80,26 +80,3 @@
         }
     }
 </script>
-
-<style rel="stylesheet/less" lang="less">
-    .vmc-popup-picker{
-        .header{
-            background-color: #d5d5d6;
-            height: 44px;
-            line-height: 44px;
-            overflow: hidden;
-            text-align: center;
-            font-size: 16px;
-            display: flex;
-
-            .left, .right{
-                padding: 0 20px;
-                color: #777777;
-            }
-            .title{
-                width: 0;
-                flex: 1;
-            }
-        }
-    }
-</style>
