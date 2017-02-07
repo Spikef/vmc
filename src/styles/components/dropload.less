@@ -15,17 +15,15 @@
         position: relative;
         height: 0;
         overflow: hidden;
-        font-size: 12px;
-        /* 开启硬件加速 */
-        -webkit-transform:translateZ(0);
-        transform:translateZ(0);
+        font-size: @DropLoadTipTextSize;
+        transform:translateZ(0);    // 开启硬件加速
     }
     .dropload-down {
-        height: 50px;
+        height: @DropLoadDownHeight;
     }
     .dropload-refresh,.dropload-update,.dropload-load,.dropload-noData {
-        height: 50px;
-        line-height: 50px;
+        height: @DropLoadDownHeight;
+        line-height: @DropLoadDownHeight;
         text-align: center;
     }
     .dropload-load .loading {

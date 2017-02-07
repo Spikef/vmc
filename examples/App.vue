@@ -116,8 +116,4 @@
         font-size: 0.8rem;
         z-index: 0;
     }
-
-    .vmc-tab-bar .active {
-        color: #ffffff;
-    }
 </style>

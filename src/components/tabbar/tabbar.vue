@@ -26,18 +26,9 @@
                 type: Array,
                 default: () => []
             },
-            color: {
-                type: String,
-                default: '#5e5e5e'
-            },
-            backColor: {
-                type: String,
-                default: '#000000'
-            },
-            fontSize: {
-                type: String,
-                default: '13px'
-            }
+            color: String,
+            backColor: String,
+            fontSize: String
         },
         methods: {
             _onItemClick(item, index) {

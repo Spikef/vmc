@@ -1,13 +1,13 @@
 .vmc-card {
-    background: #ffffff;
+    background: @CardBackColor;
     overflow-y: hidden;
     transform: translate3d(0, 0, 0);
     transition-property: height;
-    transition-duration: .3s;
+    transition-duration: @CardTransitionDuration;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
     + .vmc-card {
-        margin-top: 15px;
+        margin-top: @CardCardSpace;
     }
 
     .no-border {
@@ -36,7 +36,7 @@
             position: absolute;
             top: 50%;
             right: 15px;
-            transition: transform .3s linear;
+            transition: transform @CardTransitionDuration linear;
             transform-origin: center center;
         }
     }
@@ -52,24 +52,24 @@
     }
 
     .card-header {
-        height: 45px;
-        line-height: 45px;
-        font-size: 16px;
-        padding: 0 12px;
+        height: @CardHeaderHeight;
+        line-height: @CardHeaderHeight;
+        font-size: @CardHeaderTextSize;
+        padding: 0 @CardHorizontalPadding;
         position: relative;
     }
 
     .card-content {
-        font-size: 15px;
-        padding: 10px 12px;
+        font-size: @CardContentTextSize;
+        padding: @CardVerticalPadding @CardHorizontalPadding;
     }
 
     .card-footer {
-        color: #5f646e;
-        height: 40px;
-        line-height: 40px;
-        font-size: 13px;
-        padding: 0 12px;
+        color: @CardFooterTextColor;
+        height: @CardFooterHeight;
+        line-height: @CardFooterHeight;
+        font-size: @CardFooterTextSize;
+        padding: 0 @CardHorizontalPadding;
         display: flex;
         justify-content: space-between;
     }

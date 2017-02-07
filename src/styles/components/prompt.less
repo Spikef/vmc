@@ -1,11 +1,11 @@
 .vmc-prompt {
     .prompt-input{
-        padding-top: 15px;
+        padding-top: @PromptInputPadding;
 
         .error-message {
-            color: #ff0000;
-            font-size: 12px;
-            margin-top: 5px;
+            color: @PromptMessageTextColor;
+            font-size: @PromptMessageTextSize;
+            margin-top: @PromptMessageInputSpace;
         }
 
         label {
@@ -15,15 +15,15 @@
         input {
             box-sizing: border-box;
             border: none;
-            padding: 5px;
-            font-size: 14px;
-            height: 40px;
+            padding: @PromptInputPadding;
+            font-size: @PromptInputTextSize;
+            height: @PromptInputHeight;
             width: 100%;
             appearance: none;
             outline: none;
         }
         .invalid {
-            border-color: #ff0000;
+            border-color: @PromptInputInvalidColor;
         }
     }
 }

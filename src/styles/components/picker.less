@@ -2,7 +2,7 @@
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
-    height: 245px;
+    height: @PickerLineHeight * 7;
     display: flex;
 
     background: #fff linear-gradient(
@@ -27,30 +27,29 @@
             }
 
             li {
-                line-height: 35px;
-                height: 35px;
+                line-height: @PickerLineHeight;
+                height: @PickerLineHeight;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                font-size: 14px;
 
                 &.current{
-                    font-size: 16px;
+                    font-size: @PickerTextSize;
                     font-weight: bold;
                 }
 
                 &.node1{
-                    font-size: 15px;
+                    font-size: @PickerTextSize - 1px;
                     opacity: .7;
                 }
 
                 &.node2{
-                    font-size: 14px;
+                    font-size: @PickerTextSize - 2px;
                     opacity: .5;
                 }
 
                 &.node3{
-                    font-size: 12px;
+                    font-size: @PickerTextSize - 4px;
                     opacity: .3;
                 }
             }
@@ -66,12 +65,12 @@
     }
 
     .split-line-top {
-        border-top: 1px solid #eee;
-        bottom: 105px;
+        border-top: 1px solid @PickerSplitColor;
+        bottom: @PickerLineHeight * 3;
     }
 
     .split-line-bottom {
-        border-top: 1px solid #eee;
-        bottom: 140px;
+        border-top: 1px solid @PickerSplitColor;
+        bottom: @PickerLineHeight * 4;
     }
 }

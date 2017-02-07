@@ -1,18 +1,21 @@
 .vmc-number {
     display: flex;
-    height: 30px;
-    line-height: 28px;
+    height: @NumberHeight;
+    line-height: @NumberHeight;
 
     span {
         display: block;
         text-align: center;
-        width: 28px;
-        min-width: 28px;
+        min-width: @NumberWidth;
         font-size: 12px;
     }
 
     input {
         text-align: center;
+    }
+
+    label {
+        width: @NumberWidth;
     }
 
     .vmc-input:before {

@@ -102,7 +102,7 @@
                     that._scrollHeight = that.$el.scrollHeight;
                     that._offsetHeight = that.$el.offsetHeight;
 
-                    var domDown = document.querySelector('.dropload-down');
+                    var domDown = that.$el.querySelector('.dropload-down');
                     if (domDown.offsetTop < that._offsetHeight) {
                         if (that.hasMore && that.loadMore && !error) {
                             that._direction = 'up';

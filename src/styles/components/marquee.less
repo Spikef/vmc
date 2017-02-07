@@ -1,7 +1,7 @@
 .vmc-marquee {
-    height: 30px;
-    background: #efefef;
-    color: #ff0000;
+    height: @MarqueeHeight;
+    background: @MarqueeBackColor;
+    color: @MarqueeTextColor;
     position: relative;
     overflow-y: hidden;
 
@@ -13,10 +13,10 @@
         bottom: 0;
         display: flex;
         align-items: center;
-        font-size: 14px;
+        font-size: @MarqueeTextSize;
 
         [class*="icono-"] {
-            transform: scale(0.6);
+            transform: scale(@MarqueeIconScale);
         }
 
         > p, > i {
@@ -37,7 +37,7 @@
     }
 
     &-up-transition, &-down-transition {
-        transition: all .2s ease;
+        transition: all @MarqueeTransitionDuration ease;
     }
 
     &-up-enter, &-down-leave {

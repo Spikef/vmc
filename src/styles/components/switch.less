@@ -1,5 +1,3 @@
-@SwitchHeight: 32px;
-
 .vmc-switch {
     font-size: 0;
     display: flex;
@@ -11,9 +9,9 @@
         position: relative;
         height: @SwitchHeight;
         line-height: @SwitchHeight;
-        font-size: 16px;
-        color: #243441;
-        margin-left: 5px;
+        font-size: @SwitchTextSize;
+        color: @SwitchTextColor;
+        margin-left: @SwitchTextSpace;
         font-weight: normal;
     }
 
@@ -21,13 +19,13 @@
         display: inline-block;
         appearance: none;
         position: relative;
-        width: 52px;
-        height: @SwitchHeight;
-        border: 1px solid #DFDFDF;
+        width: @SwitchWidth + 2px;
+        height: @SwitchHeight + 2px;
+        border-radius: (@SwitchHeight + 2px) / 2;
+        border: 1px solid @SwitchBorderColor;
+        background: @SwitchBorderColor;
         outline: 0;
-        border-radius: 16px;
         box-sizing: border-box;
-        background: #DFDFDF;
         margin: 0;
         padding: 0;
 
@@ -36,10 +34,10 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 50px;
-            height: @SwitchHeight - 2;
-            border-radius: 15px;
-            background-color: #FDFDFD;
+            width: @SwitchWidth;
+            height: @SwitchHeight;
+            border-radius: @SwitchHeight / 2;
+            background-color: @SwitchBackColor;
             transition: transform .3s;
         }
         &:after{
@@ -47,23 +45,23 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: @SwitchHeight - 2;
-            height: @SwitchHeight - 2;
-            border-radius: 15px;
-            background-color: #FFFFFF;
+            width: @SwitchHeight;
+            height: @SwitchHeight;
+            border-radius: @SwitchHeight / 2;
+            background-color: @SwitchColor;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
             transition: transform .3s;
         }
 
         &:checked{
-            border-color: #04BE02;
-            background-color: #04BE02;
+            border-color: @SwitchCheckedColor;
+            background-color: @SwitchCheckedColor;
 
             &:before{
                 transform: scale(0);
             }
             &:after{
-                transform: translateX(20px);
+                transform: translateX(@SwitchWidth - @SwitchHeight);
             }
         }
     }

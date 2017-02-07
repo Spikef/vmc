@@ -1,19 +1,18 @@
 .vmc-popup-picker{
     .header{
-        background-color: #d5d5d6;
-        height: 44px;
-        line-height: 44px;
+        background-color: @PopupPickerHeaderBackColor;
+        height: @PopupPickerHeaderHeight;
+        line-height: @PopupPickerHeaderHeight;
         overflow: hidden;
         text-align: center;
-        font-size: 16px;
+        font-size: @PopupPickerHeaderTextSize;
         display: flex;
 
         .left, .right{
-            padding: 0 20px;
-            color: #777777;
+            padding: 0 @PopupPickerHeaderButtonPadding;
+            color: @PopupPickerHeaderButtonTextColor;
         }
         .title{
-            width: 0;
             flex: 1;
         }
     }

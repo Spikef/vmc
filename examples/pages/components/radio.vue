@@ -42,7 +42,7 @@
             return {
                 list: ['选项A', '选项B', '选项C'],
                 value1: '选项A',
-                value2: '选项A'
+                value2: '选项D'
             }
         }
     }

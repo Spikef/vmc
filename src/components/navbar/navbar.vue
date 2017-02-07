@@ -9,7 +9,7 @@
                 <slot></slot>
             </div>
 
-            <div class="right"></div>
+            <div class="right" @click="_onMenu"></div>
         </slot>
     </topbar>
 </template>
@@ -23,23 +23,17 @@
             Topbar
         },
         props: {
-            color: {
-                type: String,
-                default: '#ffffff'
-            },
-            backColor: {
-                type: String,
-                default: '#000000'
-            },
-            fontSize: {
-                type: String,
-                default: '18px'
-            }
+            color: String,
+            backColor: String,
+            fontSize: String
         },
         methods: {
             _onBack() {
                 window.history.back();
                 this.$emit('on-back');
+            },
+            _onMenu() {
+                this.$emit('on-menu');
             }
         },
         computed: {

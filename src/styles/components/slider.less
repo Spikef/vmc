@@ -24,13 +24,13 @@
             }
 
             .slider-title {
-                background-color: rgba(0,0,0,.7);
                 position: absolute;
                 bottom: 0;
-                padding: 10px;
                 width: 100%;
-                color: #fff;
-                font-size: 14px;
+                padding: @SliderTitlePadding;
+                color: @SliderTitleTextColor;
+                font-size: @SliderTitleTextSize;
+                background-color: @SliderTitleBackColor;
             }
 
             .slider-group-item {
@@ -65,24 +65,24 @@
         font-size: 0;
 
         &.top {
-            top: 0;
+            top: @SliderDotsDistance;
         }
 
         &.bottom {
-            bottom: 0;
+            bottom: @SliderDotsDistance;
         }
 
         i {
             display: inline-block;
             border-radius: 50%;
-            width: 6px;
-            height: 6px;
-            margin: 8px 3px;
-            background: #d0cdd1;
+            width: @SliderDotSize;
+            height: @SliderDotSize;
+            margin: 0 @SliderDotSize / 2;
+            background: @SliderDotColor;
             vertical-align: middle;
 
             &.active {
-                background: #323232;
+                background: @SliderDotActiveColor;
             }
         }
     }

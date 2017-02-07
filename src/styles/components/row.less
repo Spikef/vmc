@@ -1,10 +1,11 @@
 .vmc-row {
-    padding: 0 12px;
-    min-height: 45px;
+    padding: 0 @RowHorizontalPadding;
+    background: @RowBackColor;
+    min-height: @RowMinHeight;
+    font-size: @RowTextSize;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #ffffff;
 
     &.left {
         justify-content: flex-start;
@@ -20,6 +21,6 @@
 
     label {
         display: block;
-        min-width: 80px;
+        min-width: @RowTitleWidth;
     }
 }

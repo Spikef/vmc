@@ -1,8 +1,11 @@
 // 全局变量
+@DefaultColor: #b3b3b3;
 @PrimaryColor: #ff0000;
-//@SecondaryColor: #00ff00;
+@SecondaryColor: #04be02;
 @BarBackColor: #000000;
-@BarTextColor: #ffffff;
+@BarTextColor: #fff;
+@HorizontalPadding: 12px;
+@VerticalPadding: 10px;
 
 // 1像素边框颜色
 @BorderColor: #ccc;
@@ -10,7 +13,7 @@
 // 徽标
 @BadgeTextColor: #fff;
 @BadgeBackColor: #f74c31;
-@BadgeFontSize: 12px;
+@BadgeTextSize: 12px;
 @BadgeHeight: 16px;
 
 // 小红点儿
@@ -20,7 +23,7 @@
 // Action Sheet
 @ActionSheetBackColor: #e0e0e0;
 @ActionSheetButtonHeight: @ButtonHeight;
-@ActionSheetButtonBackColor: #ffffff;
+@ActionSheetButtonBackColor: #fff;
 
 // Alert
 @AlertTitleHeight: 50px;
@@ -31,73 +34,212 @@
 // Button
 @ButtonHeight: 40px;
 @ButtonTextSize: 14px;
-@ButtonDefaultColor: #444444;
-@ButtonDefaultBorder: #dddddd;
+@ButtonDefaultColor: #444;
+@ButtonDefaultBorder: #ddd;
 @ButtonDefaultBackColor: #f4f4f4;
-@ButtonPrimaryColor: #ffffff;
+@ButtonPrimaryColor: #fff;
 @ButtonPrimaryBorder: #367fa9;
 @ButtonPrimaryBackColor: #3c8dbc;
-@ButtonSuccessColor: #ffffff;
+@ButtonSuccessColor: #fff;
 @ButtonSuccessBorder: #008d4c;
 @ButtonSuccessBackColor: #00a65a;
-@ButtonInfoColor: #ffffff;
+@ButtonInfoColor: #fff;
 @ButtonInfoBorder: #00acd6;
 @ButtonInfoBackColor: #00c0ef;
-@ButtonDangerColor: #ffffff;
+@ButtonDangerColor: #fff;
 @ButtonDangerBorder: #d73925;
 @ButtonDangerBackColor: #e40013;
-@ButtonWarningColor: #ffffff;
+@ButtonWarningColor: #fff;
 @ButtonWarningBorder: #e08e0b;
 @ButtonWarningBackColor: #f39c12;
 
 // Card
+@CardBackColor: #fff;
+@CardTransitionDuration: .3s;
+@CardCardSpace: 15px;
+@CardHorizontalPadding: @HorizontalPadding;
+@CardVerticalPadding: 10px;
+@CardHeaderHeight: 45px;
+@CardHeaderTextSize: 16px;
+@CardContentTextSize: 15px;
+@CardFooterHeight: 40px;
+@CardFooterTextSize: 13px;
+@CardFooterTextColor: #5f646e;
 
 // Cell
+@CellBackColor: #fff;
+@CellMinHeight: 45px;
+@CellHorizontalPadding: @HorizontalPadding;
+@CellIconTextSpace: 15px;
+@CellArrowColor: #cecece;
+@CellArrowScale: 0.8;
+@CellTextSize: 15px;
 
 // Checkbox
+@CheckBoxHeight: 20px;
+@CheckBoxRadius: 2px;
+@CheckBoxSpace: 10px;
+@CheckBoxTextColor: #243441;
+@CheckBoxBackColor: #fff;
+@CheckBoxBorderColor: #c1caca;
+@CheckBoxCheckColor: #fff;
+@CheckBoxDisabledBackColor: #e6e6e6;
+@CheckBoxDisabledBorderColor: @CheckBoxBorderColor;
+@CheckBoxDisabledCheckColor: #b1b1b1;
+@CheckBoxCheckedCheckColor: @CheckBoxCheckColor;
+@CheckBoxCheckedBackColor: @PrimaryColor;
+@CheckBoxCheckedBorderColor: @PrimaryColor;
+@CheckBoxDisabledCheckedBackColor: @CheckBoxDisabledBackColor;
+@CheckBoxDisabledCheckedBorderColor: @CheckBoxBorderColor;
+@CheckBoxDisabledCheckedCheckColor: @CheckBoxDisabledCheckColor;
 
 // Confirm
+@ConfirmTitleHeight: @AlertTitleHeight;
+@ConfirmTitlePadding: @AlertTitlePadding;
 
 // Dialog
+@DialogWidth: 85%;
+@DialogBackColor: #fafafc;
+@DialogRadius: 5px;
+@DialogHeaderPadding: 15px 20px 10px;
+@DialogHeaderTextSize: 17px;
+@DialogContentPadding: 20px;
+@DialogContentTextSize: 15px;
+@DialogFooterHeight: 42px;
+@DialogFooterTextSize: @DialogHeaderTextSize;
+@DialogPrimaryColor: @PrimaryColor;
+@DialogDefaultColor: @DefaultColor;
 
 // Dropload
+@DropLoadTipTextSize: 12px;
+@DropLoadDownHeight: 50px;
 
 // Grid
 
 // Input
+@InputPadding: 5px;
+@InputTextSize: 14px;
+@InputInvalidColor: @PrimaryColor;
+@InputMessageWidth: 70%;
+@InputMessageTextSize: 12px;
+@InputMessageTextColor: #fff;
+@InputMessageBackColor: #363636;
 
 // Justify
 
 // Marquee
+@MarqueeTransitionDuration: .2s;
+@MarqueeHeight: 30px;
+@MarqueeBackColor: #efefef;
+@MarqueeTextColor: @PrimaryColor;
+@MarqueeTextSize: 14px;
+@MarqueeIconScale: 0.6;
 
 // Mask
+@MaskBackColor: rgba(0, 0, 0, .4);
 
 // Navbar
+@NavbarHeight: 50px;
+@NavbarIconWidth: 50px;
+@NavbarBackColor: @BarBackColor;
+@NavbarTextColor: @BarTextColor;
+@NavbarTextSize: 18px;
 
 // Number
+@NumberWidth: 28px;
+@NumberHeight: @NumberWidth;
+
+// Picker
+@PickerLineHeight: 35px;
+@PickerSplitColor: #eee;
+@PickerTextSize: 16px;
 
 // Popup
+@PopupBackColor: #fff;
+@PopupTopHeight: 50px;
+@PopupTopTextColor: #fff;
+@PopupTopBackColor: rgba(0, 0, 0, .7);
+
+// Popup Picker
+@PopupPickerHeaderHeight: 44px;
+@PopupPickerHeaderBackColor: #d5d5d6;
+@PopupPickerHeaderTextSize: 16px;
+@PopupPickerHeaderButtonPadding: 20px;
+@PopupPickerHeaderButtonTextColor: #777;
 
 // Progressbar
+@ProgressbarHeight: 8px;
+@ProgressbarBackColor: #b3b3b3;
+@ProgressbarColor: #2db7f5;
 
 // Prompt
+@PromptInputHeight: 40px;
+@PromptInputPadding: 15px;
+@PromptInputPadding: @InputPadding;
+@PromptInputTextSize: @InputTextSize;
+@PromptInputInvalidColor: @InputInvalidColor;
+@PromptMessageTextSize: @InputMessageTextSize;
+@PromptMessageTextColor: @InputInvalidColor;
+@PromptMessageInputSpace: 5px;
 
 // Radio
+@RadioHeight: @CheckBoxHeight;
+@RadioSpace: @CheckBoxSpace;
+@RadioTextColor: @CheckBoxTextColor;
+@RadioBackColor: @CheckBoxBackColor;
+@RadioBorderColor: @CheckBoxBorderColor;
+@RadioCheckColor: @CheckBoxCheckColor;
+@RadioDisabledBackColor: @CheckBoxDisabledBackColor;
+@RadioDisabledBorderColor: @CheckBoxDisabledBorderColor;
+@RadioDisabledCheckColor: @CheckBoxDisabledCheckColor;
+@RadioCheckedCheckColor: @CheckBoxCheckedCheckColor;
+@RadioCheckedBackColor: @CheckBoxCheckedBackColor;
+@RadioCheckedBorderColor: @CheckBoxCheckedBorderColor;
+@RadioDisabledCheckedBackColor: @CheckBoxDisabledCheckedBackColor;
+@RadioDisabledCheckedBorderColor: @CheckBoxDisabledCheckedBorderColor;
+@RadioDisabledCheckedCheckColor: @CheckBoxDisabledCheckedCheckColor;
 
 // Rater
+@RaterColor: #ccc;
 
 // Row
+@RowHorizontalPadding: @HorizontalPadding;
+@RowBackColor: #fff;
+@RowMinHeight: 45px;
+@RowTextSize: 15px;
+@RowTitleWidth: 80px;
 
 // Slider
+@SliderTitlePadding: 10px;
+@SliderTitleBackColor: rgba(0,0,0,.7);
+@SliderTitleTextColor: #fff;
+@SliderTitleTextSize: 14px;
+@SliderDotsDistance: 8px;
+@SliderDotSize: 6px;
+@SliderDotColor: #d0cdd1;
+@SliderDotActiveColor: #323232;
 
 // Spinner
 
 // Submit
 
 // Switch
+@SwitchWidth: 50px;
+@SwitchHeight: @SwitchWidth * 0.6;
+@SwitchTextSize: @SwitchHeight / 2;
+@SwitchTextSpace: 5px;
+@SwitchTextColor: #243441;
+@SwitchBorderColor: #dfdfdf;
+@SwitchBackColor: #fdfdfd;
+@SwitchColor: #fff;
+@SwitchCheckedColor: @SecondaryColor;
 
 // Tabbar
 @TabbarHeight: 55px;
+@TabbarBackColor: @BarBackColor;
+@TabbarTextColor: #5e5e5e;
+@TabbarTextSize: 13px;
+@TabbarTextActiveColor: @BarTextColor;
 
 // TabControl
 

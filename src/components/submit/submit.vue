@@ -1,5 +1,5 @@
 <template>
-    <span class="vmc-button" :class="{disabled: disabled}" :style="style" @click="submit">
+    <span class="vmc-button" :class="[type, {disabled: disabled}]" :style="style" @click="submit">
         <div class="block">
             <slot name="icon-left"></slot>
             <slot>{{text}}</slot>

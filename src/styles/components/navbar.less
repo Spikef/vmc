@@ -2,19 +2,21 @@
     position: absolute;
     top: 0;
     width: 100%;
-    height: 50px;
+    height: @NavbarHeight;
     z-index: 50;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@width: 50px;
-
 .vmc-navbar {
+    color: @NavbarTextColor;
+    background-color: @NavbarBackColor;
+    font-size: @NavbarTextSize;
+
     .left {
-        width: @width;
-        padding: 8px 0;
+        width: @NavbarIconWidth;
+        padding: (@NavbarHeight - 32px) / 2 0;
     }
 
     .center {
@@ -23,11 +25,11 @@
     }
 
     .right {
-        width: @width;
+        width: @NavbarIconWidth;
         height: 100%;
     }
 
     +div {
-        padding-top: 50px !important;
+        padding-top: @NavbarHeight !important;
     }
 }

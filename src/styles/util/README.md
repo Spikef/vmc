@@ -42,7 +42,7 @@
 | ----- | ----- | ----- |
 | @BadgeTextColor | 文字颜色 | \#ffffff |
 | @BadgeBackColor | 背景颜色 | \#f74c31 |
-| @BadgeFontSize | 文字大小 | 12px |
+| @BadgeTextSize | 文字大小 | 12px |
 | @BadgeHeight | 高度 | 16px |
 
 ## justify

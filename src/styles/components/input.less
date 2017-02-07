@@ -9,9 +9,9 @@
         border: none;
         height: 100%;
         width: 100%;
-        padding: 5px;
+        padding: @InputPadding;
         box-sizing: border-box;
-        font-size: 14px;
+        font-size: @InputTextSize;
     }
 }
 
@@ -20,25 +20,25 @@
     position: relative;
 
     &.invalid label {
-        border-color: #ff0000;
+        border-color: @InputInvalidColor;
     }
 
     .vmc-input-message {
         position: absolute;
-        width: 70%;
+        width: @InputMessageWidth;
         left: 3%;
         border-radius: 5px;
         margin-top: 5px;
-        font-size: 12px;
+        font-size: @InputMessageTextSize;
         font-weight: 200;
         padding: 5px;
-        background: #363636;
-        color: #ffffff;
+        background: @InputMessageBackColor;
+        color: @InputMessageTextColor;
         z-index: 1;
 
         &:before {
             content: " ";
-            background: #363636;
+            background: @InputMessageBackColor;
             display: block;
             height: 8px;
             width: 8px;

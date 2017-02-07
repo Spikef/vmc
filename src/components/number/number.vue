@@ -17,10 +17,7 @@
         props: {
             decimal: Boolean,
             value: [String, Number],
-            width: {
-                type: [String, Number],
-                default: 30
-            },
+            width: [String, Number],
             min: {
                 type: [Number, String],
                 coerce: Number,
