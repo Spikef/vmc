@@ -22,11 +22,6 @@
 
 ```javascript
 export default {
-    components: {
-        Navbar,
-        vButton,
-        ActionSheet
-    },
     data() {
         return {
             showAction1: false,

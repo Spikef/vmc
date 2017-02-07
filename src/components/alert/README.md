@@ -1,20 +1,32 @@
-# alert
+# Alert
 
-弹框提示组件。
+## Overview
 
-## 使用方式
+弹出提示框，显示指定内容。
 
-`Alert`为全局组件, 需要作为vue插件全局安装。
+是否全局组件：是。
 
-```javascript
-import Vue from 'vue';
-import { VMC } from '../src/components/index';
-
-Vue.use(VMC);
-```
-
-在需要使用`Alert`弹框时:
+## Usage
 
 ```javascript
-this.$Alert('请点击确定', () => {});
+export default {
+    ready() {
+        this.$Alert('请点击确定', () => {});
+    }
+}
 ```
+
+## Arguments
+
+| Name | Type | Description | Default |
+| ----- | ----- | ----- | ----- |
+| title | String | 弹框提示内容(可省) | "" |
+| callback | Function | 点击确定时的回调函数(可省) | null |
+| options | Object | 其它配置参数 | {title: "", content: "", callback: null, button: "确定", content: undefined} |
+
+## LESS
+
+| Name | Description | Default |
+| ----- | ----- | ----- |
+| @AlertTitleHeight | 标题栏最小高度 | 50px |
+| @AlertTitlePadding | 标题底边距 | 15px |
