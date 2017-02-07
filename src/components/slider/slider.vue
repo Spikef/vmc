@@ -13,15 +13,21 @@
                  v-for="item in shadowList"
                  track-by="$index">
 
-                <slot-item :scope="{item: item, index: $index}">
+                <div :style="groupStyle" v-if="multiple"><div class="slider-group-item" :style="groupItemStyle" v-for="_item in item">
+                    <slot-item :scope="{index: index, item: _item}">
+                        <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
+                    </slot-item>
+                </div></div>
+
+                <slot-item :scope="{item: item, index: $index}" v-else>
                     <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
                     <p class="slider-title" v-if="item.title">{{item.title}}</p>
                 </slot-item>
             </div>
         </div>
 
-        <div class="slider-dots">
-            <i :class="{ active: sliderIndex === $index + 1 }" v-for="item in list"></i>
+        <div class="slider-dots" :class="dots" v-if="dots !== 'false'">
+            <i :class="{ active: sliderIndex === $index + 1 }" v-for="i in count"></i>
         </div>
     </div>
 </template>
@@ -56,6 +62,10 @@
                 default() {
                     return []
                 }
+            },
+            dots: {
+                default: 'bottom',
+                coerce: String
             }
         },
         methods: {
@@ -143,7 +153,10 @@
         },
         computed: {
             count() {
-                return this.list.length;
+                return Math.ceil(this.list.length / this.perPage);
+            },
+            multiple() {
+                return this.perPage > 1;
             },
             getHeight() {
                 return getCSSSize(this.height);
@@ -154,7 +167,27 @@
             shadowList() {
                 var list = this.list;
                 if (list.length) {
-                    return [].concat(list[list.length - 1], list, list[0]);
+                    if (this.multiple) {
+                        var array = [];
+                        var size = this.perPage;
+                        var page = Math.ceil(list.length / size);
+                        for (let i=0;i<page;i++) {
+                            let items = [];
+                            for (let j=0;j<size;j++) {
+                                let k = i * size + j;
+                                if (k === list.length) break;
+                                items.push(list[k]);
+                            }
+                            array.push(items);
+                        }
+
+                        array.unshift(array[array.length - 1]);
+                        array.push(array[1]);
+
+                        return array;
+                    } else {
+                        return [].concat(list[list.length - 1], list, list[0]);
+                    }
                 } else {
                     return [];
                 }
@@ -165,6 +198,22 @@
                 style.transform = 'translate(-' + (this.sliderIndex * this.clientWidth) + 'px, 0px)';
 
                 return style;
+            },
+            groupStyle() {
+                if (this.gutter > 0) {
+                    return {
+                        margin: `0 -${this.gutter / 2}px`
+                    }
+                }
+            },
+            groupItemStyle() {
+                if (this.gutter > 0) {
+                    var width = this.perPage > 0 ? (100 / this.perPage) + '%' : null;
+                    return {
+                        width: width,
+                        padding: `0 ${this.gutter / 2}px`
+                    }
+                }
             }
         },
         data() {
@@ -255,6 +304,12 @@
                     color: #fff;
                     font-size: 14px;
                 }
+
+                .slider-group-item {
+                    display: inline-block;
+                    box-sizing: border-box;
+                    vertical-align: middle;
+                }
             }
 
             &.auto-height {
@@ -277,10 +332,17 @@
 
         .slider-dots {
             position: absolute;
-            top: 0;
             left: 50%;
             transform: translate(-50%, 0);
             font-size: 0;
+
+            &.top {
+                top: 0;
+            }
+
+            &.bottom {
+                bottom: 0;
+            }
 
             i {
                 display: inline-block;

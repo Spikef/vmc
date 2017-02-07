@@ -17,6 +17,19 @@
 
             <div class="label">固定高度为200px(自动轮播)</div>
             <slider :list="dataList" height="200" auto="3"></slider>
+
+            <div class="label">一页显示多张图片</div>
+            <slider :list="imageList" height="auto" per-page="3" gutter="6"></slider>
+
+            <div class="label">自定义显示的内容</div>
+            <slider :list="list" height="200">
+                <img class="slider-image" :src="item.image" :alt="item.image">
+            </slider>
+
+            <div class="label">自定义显示的内容</div>
+            <slider :list="imageList" height="auto" per-page="3" gutter="6" dots="false">
+                <img class="slider-image" :src="item.image" :alt="item.image">
+            </slider>
         </div>
     </div>
 </template>
@@ -67,6 +80,53 @@
                         image: '/static/image/slider/7.jpg',
                         title: '标题标题七标题标题七',
                         link: 'http://m.baidu.com'
+                    }
+                ],
+                imageList: [
+                    {
+                        image: '/static/image/slider/11.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/12.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/13.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/14.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/15.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/16.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/17.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/18.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/19.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/20.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/21.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/22.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/23.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/24.jpg'
+                    },
+                    {
+                        image: '/static/image/slider/25.jpg'
                     }
                 ]
             }

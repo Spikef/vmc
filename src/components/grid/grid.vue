@@ -85,6 +85,7 @@
         li {
             display: inline-block;
             box-sizing: border-box;
+            vertical-align: middle;
         }
     }
 </style>
