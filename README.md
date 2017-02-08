@@ -73,46 +73,54 @@ Vue.use(VMC);
 
 * [Grid](./src/components/grid)
 
-<!--
+* [](./src/components/input)
 
+* [Justify](./src/components/justify)
 
-* [](./src/components/)
+* [Marquee](./src/components/marquee)
 
-* [](./src/components/)
+* [](./src/components/mask)
 
-* [](./src/components/)
+* [](./src/components/navbar)
 
-* [](./src/components/)
+* [](./src/components/number)
 
-* [](./src/components/)
+* [](./src/components/picker)
 
-* [](./src/components/)
+* [](./src/components/popup)
 
-* [](./src/components/)
+* [](./src/components/popup-picker)
 
-* [](./src/components/)
+* [](./src/components/progressbar)
 
-* [](./src/components/)
+* [](./src/components/prompt)
 
-* [](./src/components/)
+* [Radio](./src/components/radio)
 
-* [](./src/components/)
+* [](./src/components/rater)
 
-* [](./src/components/)
+* [](./src/components/row)
 
-* [](./src/components/)
+* [](./src/components/slider)
 
-* [](./src/components/)
+* [](./src/components/spinner)
 
-* [](./src/components/)
+* [](./src/components/submit)
 
-* [](./src/components/)
+* [](./src/components/switch)
 
-* [](./src/components/)
+* [](./src/components/tabbar)
 
-* [](./src/components/)
+* [](./src/components/tabcontrol)
 
-* [](./src/components/)
+* [](./src/components/textarea)
 
-* [](./src/components/)
--->
+* [](./src/components/toast#loading)
+
+* [](./src/components/toast#success)
+
+* [](./src/components/toast#error)
+
+* [](./src/components/toast#info)
+
+* [](./src/components/toast#toast)

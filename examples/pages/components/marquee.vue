@@ -36,8 +36,7 @@
                         text: '科技为音乐教育插上翅膀(深观察)',
                         link: 'http://paper.people.com.cn/rmrb/html/2017-01/19/nw.D110000renmrb_20170119_5-17.htm'
                     }
-                ],
-                index: 0
+                ]
             }
         }
     }

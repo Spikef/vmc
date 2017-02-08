@@ -24,7 +24,7 @@
             height: [String, Number],
             backColor: String,
             color: String,
-            align: String,
+            align: String,  // left, center, right
             autoLink: {
                 type: Boolean,
                 default: true
@@ -34,6 +34,7 @@
                 coerce: Number,
                 default: 3
             },
+            // up, down
             direction: {
                 type: String,
                 default: 'up'
@@ -81,7 +82,7 @@
                 if (this.autoLink && note && note.link && typeof note.link === 'string') {
                     window.location.href = note.link;
                 } else {
-                    this.$emit('on-click', note);
+                    this.$emit('on-item-click', note);
                 }
             },
             _getText(note) {

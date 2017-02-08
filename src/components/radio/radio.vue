@@ -17,7 +17,7 @@
                 }
             },
             value: [String, Number, Boolean],
-            checked: [Boolean, Array],
+            checked: [String, Number, Boolean],
             disabled: Boolean
         }
     }
