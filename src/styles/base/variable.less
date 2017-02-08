@@ -1,274 +1,277 @@
 // 全局变量
-@DefaultColor: #b3b3b3;
-@PrimaryColor: #ff0000;
-@SecondaryColor: #04be02;
-@BarBackColor: #000000;
-@BarTextColor: #fff;
-@HorizontalPadding: 12px;
-@VerticalPadding: 10px;
-@TransitionDuration: .3s;
+@DefaultTextSize: 14px;     // 主文字大小
+@SmallTextSize: 12px;       // 小号文字大小
+@DefaultColor: #b3b3b3;     // 默认文字颜色
+@PrimaryColor: #ff0000;     // 默认主颜色
+@SecondaryColor: #04be02;   // 默认次颜色
+@BarBackColor: #000000;     // 工具栏背景色
+@BarTextColor: #fff;        // 工具栏文字颜色
+@HorizontalPadding: 12px;   // 区块水平内边距
+@VerticalPadding: 10px;     // 区域垂直内边距
+@TransitionDuration: .3s;   // 默认动画过渡时间
 
 // 1像素边框颜色
-@BorderColor: #ccc;
+@BorderColor: #ccc;         // 边框颜色
 
 // 徽标
-@BadgeTextColor: #fff;
-@BadgeBackColor: #f74c31;
-@BadgeTextSize: 12px;
-@BadgeHeight: 16px;
+@BadgeTextColor: #fff;          // 文字颜色
+@BadgeBackColor: #f74c31;       // 背景颜色
+@BadgeTextSize: @SmallTextSize; // 文字大小
+@BadgeHeight: 16px;             // 高度
 
 // 小红点儿
-@RedDotColor: @PrimaryColor;
-@RedDotSize: 6px;
+@RedDotColor: @PrimaryColor;    // 颜色
+@RedDotSize: 6px;               // 大小
 
 // Action Sheet
-@ActionSheetBackColor: #e0e0e0;
-@ActionSheetButtonHeight: @ButtonHeight;
-@ActionSheetButtonBackColor: #fff;
+@ActionSheetBackColor: #e0e0e0;             // 背景色
+@ActionSheetButtonHeight: @ButtonHeight;    // 按钮高度
+@ActionSheetButtonBackColor: #fff;          // 按钮背景色
 
 // Alert
-@AlertTitleHeight: 50px;
-@AlertTitlePadding: 15px;
+@AlertTitleHeight: 50px;                // 标题栏最小高度
+@AlertTitlePadding: 15px;               // 标题底边距
 
 // Box
 
 // Button
-@ButtonHeight: 40px;
-@ButtonTextSize: 14px;
-@ButtonDefaultColor: #444;
-@ButtonDefaultBorder: #ddd;
-@ButtonDefaultBackColor: #f4f4f4;
-@ButtonPrimaryColor: #fff;
-@ButtonPrimaryBorder: #367fa9;
-@ButtonPrimaryBackColor: #3c8dbc;
-@ButtonSuccessColor: #fff;
-@ButtonSuccessBorder: #008d4c;
-@ButtonSuccessBackColor: #00a65a;
-@ButtonInfoColor: #fff;
-@ButtonInfoBorder: #00acd6;
-@ButtonInfoBackColor: #00c0ef;
-@ButtonDangerColor: #fff;
-@ButtonDangerBorder: #d73925;
-@ButtonDangerBackColor: #e40013;
-@ButtonWarningColor: #fff;
-@ButtonWarningBorder: #e08e0b;
-@ButtonWarningBackColor: #f39c12;
+@ButtonHeight: 40px;                    // 按钮默认高度
+@ButtonTextSize: @DefaultTextSize;      // 按钮默认文字大小
+@ButtonDefaultColor: #444;              // 按钮文字颜色
+@ButtonDefaultBorder: #ddd;             // 按钮边框颜色
+@ButtonDefaultBackColor: #f4f4f4;       // 按钮背景色
+@ButtonPrimaryColor: #fff;              // 按钮文字颜色
+@ButtonPrimaryBorder: #367fa9;          // 按钮边框颜色
+@ButtonPrimaryBackColor: #3c8dbc;       // 按钮背景色
+@ButtonSuccessColor: #fff;              // 按钮文字颜色
+@ButtonSuccessBorder: #008d4c;          // 按钮边框颜色
+@ButtonSuccessBackColor: #00a65a;       // 按钮背景色
+@ButtonInfoColor: #fff;                 // 按钮文字颜色
+@ButtonInfoBorder: #00acd6;             // 按钮边框颜色
+@ButtonInfoBackColor: #00c0ef;          // 按钮背景色
+@ButtonDangerColor: #fff;               // 按钮文字颜色
+@ButtonDangerBorder: #d73925;           // 按钮边框颜色
+@ButtonDangerBackColor: #e40013;        // 按钮背景色
+@ButtonWarningColor: #fff;              // 按钮文字颜色
+@ButtonWarningBorder: #e08e0b;          // 按钮边框颜色
+@ButtonWarningBackColor: #f39c12;       // 按钮背景色
 
 // Card
-@CardBackColor: #fff;
-@CardTransitionDuration: @TransitionDuration;
-@CardCardSpace: 15px;
-@CardHorizontalPadding: @HorizontalPadding;
-@CardVerticalPadding: 10px;
-@CardHeaderHeight: 45px;
-@CardHeaderTextSize: 16px;
-@CardContentTextSize: 15px;
-@CardFooterHeight: 40px;
-@CardFooterTextSize: 13px;
-@CardFooterTextColor: #5f646e;
+@CardBackColor: #fff;                               // 卡片背景颜色
+@CardTransitionDuration: @TransitionDuration;       // 收缩动画过渡时间
+@CardCardSpace: 15px;                               // 上下两个卡片之间的间距
+@CardHorizontalPadding: @HorizontalPadding;         // 卡片水平内边距
+@CardVerticalPadding: 10px;                         // 卡片内容区垂直内边距
+@CardHeaderHeight: 45px;                            // 卡片头高度
+@CardHeaderTextSize: 16px;                          // 卡片头文字大小
+@CardContentTextSize: 15px;                         // 卡片内容区文字大小
+@CardFooterHeight: 40px;                            // 卡片尾高度
+@CardFooterTextSize: 13px;                          // 卡片尾文字大小
+@CardFooterTextColor: #5f646e;                      // 卡片尾文字颜色
 
 // Cell
-@CellBackColor: #fff;
-@CellMinHeight: 45px;
-@CellHorizontalPadding: @HorizontalPadding;
-@CellIconTextSpace: 15px;
-@CellArrowColor: #cecece;
-@CellArrowScale: 0.8;
-@CellTextSize: 15px;
+@CellBackColor: #fff;                           // 背景颜色
+@CellMinHeight: 45px;                           // 最小高度
+@CellHorizontalPadding: @HorizontalPadding;     // 水平内边距
+@CellIconTextSpace: 15px;                       // 左图标与文字之间的距离
+@CellArrowColor: #cecece;                       // 右箭头的颜色
+@CellArrowScale: 0.8;                           // 右箭头的缩放比例
+@CellTextSize: 15px;                            // 文字大小
 
 // Checkbox
-@CheckBoxHeight: 20px;
-@CheckBoxRadius: 2px;
-@CheckBoxSpace: 10px;
-@CheckBoxTextColor: #243441;
-@CheckBoxBackColor: #fff;
-@CheckBoxBorderColor: #c1caca;
-@CheckBoxCheckColor: #fff;
-@CheckBoxDisabledBackColor: #e6e6e6;
-@CheckBoxDisabledBorderColor: @CheckBoxBorderColor;
-@CheckBoxDisabledCheckColor: #b1b1b1;
-@CheckBoxCheckedCheckColor: @CheckBoxCheckColor;
-@CheckBoxCheckedBackColor: @PrimaryColor;
-@CheckBoxCheckedBorderColor: @PrimaryColor;
-@CheckBoxDisabledCheckedBackColor: @CheckBoxDisabledBackColor;
-@CheckBoxDisabledCheckedBorderColor: @CheckBoxBorderColor;
-@CheckBoxDisabledCheckedCheckColor: @CheckBoxDisabledCheckColor;
+@CheckBoxHeight: 20px;                                              // 复选框高度
+@CheckBoxRadius: 2px;                                               // 勾选框的圆角半径
+@CheckBoxSpace: 10px;                                               // 勾选框与文字之间的距离
+@CheckBoxTextColor: #243441;                                        // 文字颜色
+@CheckBoxBackColor: #fff;                                           // 勾选框背景色
+@CheckBoxBorderColor: #c1caca;                                      // 勾选框边框颜色
+@CheckBoxCheckColor: #fff;                                          // 勾的颜色
+@CheckBoxDisabledBackColor: #e6e6e6;                                // 禁用状态下勾选框背景色
+@CheckBoxDisabledBorderColor: @CheckBoxBorderColor;                 // 禁用状态下勾选框边框颜色
+@CheckBoxDisabledCheckColor: #b1b1b1;                               // 禁用状态下勾的颜色
+@CheckBoxCheckedBackColor: @PrimaryColor;                           // 选中状态下勾选框背景色
+@CheckBoxCheckedBorderColor: @PrimaryColor;                         // 选中状态下勾选框边框颜色
+@CheckBoxCheckedCheckColor: @CheckBoxCheckColor;                    // 选中状态下勾的颜色
+@CheckBoxDisabledCheckedBackColor: @CheckBoxDisabledBackColor;      // 禁用并选中状态下勾选框背景色
+@CheckBoxDisabledCheckedBorderColor: @CheckBoxBorderColor;          // 禁用并选中状态下勾选框边框颜色
+@CheckBoxDisabledCheckedCheckColor: @CheckBoxDisabledCheckColor;    // 禁用并选中状态下勾的颜色
 
 // Confirm
-@ConfirmTitleHeight: @AlertTitleHeight;
-@ConfirmTitlePadding: @AlertTitlePadding;
+@ConfirmTitleHeight: @AlertTitleHeight;         // 标题栏最小高度
+@ConfirmTitlePadding: @AlertTitlePadding;       // 标题底边距
 
 // Dialog
-@DialogWidth: 85%;
-@DialogBackColor: #fafafc;
-@DialogRadius: 5px;
-@DialogHeaderPadding: 15px 20px 10px;
-@DialogHeaderTextSize: 17px;
-@DialogContentPadding: 20px;
-@DialogContentTextSize: 15px;
-@DialogFooterHeight: 42px;
-@DialogFooterTextSize: @DialogHeaderTextSize;
-@DialogPrimaryColor: @PrimaryColor;
-@DialogDefaultColor: @DefaultColor;
+@DialogWidth: 85%;                              // 对话框宽度
+@DialogBackColor: #fafafc;                      // 对话框背景颜色
+@DialogRadius: 5px;                             // 对话框圆角半径
+@DialogHeaderPadding: 15px 20px 10px;           // 标题栏内边距
+@DialogHeaderTextSize: 17px;                    // 标题栏文字大小
+@DialogContentPadding: 20px;                    // 内容区内边距
+@DialogContentTextSize: 15px;                   // 内容区文字大小
+@DialogFooterHeight: 42px;                      // 尾部高度
+@DialogFooterTextSize: @DialogHeaderTextSize;   // 尾部文字大小
+@DialogPrimaryColor: @PrimaryColor;             // 底部按钮主颜色
+@DialogDefaultColor: @DefaultColor;             // 底部按钮默认色
 
-// Dropload
-@DropLoadTipTextSize: 12px;
-@DropLoadDownHeight: 50px;
+// Drop Load
+@DropLoadTipTextSize: @SmallTextSize;   // 提示文字大小
+@DropLoadDownHeight: 50px;              // 提示区域高度
 
 // Grid
 
 // Input
-@InputPadding: 5px;
-@InputTextSize: 14px;
-@InputInvalidColor: @PrimaryColor;
-@InputMessageWidth: 70%;
-@InputMessageTextSize: 12px;
-@InputMessageTextColor: #fff;
-@InputMessageBackColor: #363636;
+@InputPadding: 5px;                     // 输入框内边距
+@InputTextSize: @DefaultTextSize;       // 输入框文字大小
+@InputInvalidColor: @PrimaryColor;      // 输入错误时的边框提示颜色
+@InputMessageWidth: 70%;                // 输入错误提示信息的宽度
+@InputMessageTextSize: @SmallTextSize;  // 输入错误提示信息的文字大小
+@InputMessageTextColor: #fff;           // 输入错误提示信息的文字颜色
+@InputMessageBackColor: #363636;        // 输入错误提示信息的背景色
 
 // Justify
 
 // Marquee
-@MarqueeTransitionDuration: .2s;
-@MarqueeHeight: 30px;
-@MarqueeBackColor: #efefef;
-@MarqueeTextColor: @PrimaryColor;
-@MarqueeTextSize: 14px;
-@MarqueeIconScale: 0.6;
+@MarqueeTransitionDuration: .2s;    // 切换动画过渡时间
+@MarqueeHeight: 30px;               // 高度
+@MarqueeBackColor: #efefef;         // 背景色
+@MarqueeTextColor: @PrimaryColor;   // 文字颜色
+@MarqueeTextSize: @DefaultTextSize; // 文字大小
+@MarqueeIconScale: 0.6;             // 图标缩放比例
 
 // Mask
-@MaskBackColor: rgba(0, 0, 0, .4);
+@MaskBackColor: rgba(0, 0, 0, .4);  // 背景色
 
 // Navbar
-@NavbarHeight: 50px;
-@NavbarIconWidth: 50px;
-@NavbarBackColor: @BarBackColor;
-@NavbarTextColor: @BarTextColor;
-@NavbarTextSize: 18px;
+@NavbarHeight: 50px;                // 高度
+@NavbarIconWidth: 50px;             // 左右图标栏宽度
+@NavbarBackColor: @BarBackColor;    // 背景色
+@NavbarTextColor: @BarTextColor;    // 文字颜色
+@NavbarTextSize: 18px;              // 文字大小
 
 // Number
-@NumberWidth: 28px;
-@NumberHeight: @NumberWidth;
+@NumberWidth: 30px;                 // 输入框宽度
+@NumberHeight: @NumberWidth;        // 高度
 
 // Picker
-@PickerLineHeight: 35px;
-@PickerSplitColor: #eee;
-@PickerTextSize: 16px;
+@PickerLineHeight: 35px;        // 单行元素高度
+@PickerSplitColor: #eee;        // 分割线颜色
+@PickerTextSize: 16px;          // 元素文字主大小
 
 // Popup
-@PopupBackColor: #fff;
-@PopupTopHeight: 50px;
-@PopupTopTextColor: #fff;
-@PopupTopBackColor: rgba(0, 0, 0, .7);
+@PopupBackColor: #fff;                  // 弹出层背景色
+@PopupTopHeight: 50px;                  // 上弹出层最小高度
+@PopupTopTextColor: #fff;               // 上弹出层文字颜色
+@PopupTopBackColor: rgba(0, 0, 0, .7);  // 上弹出层背景色
 
 // Popup Picker
-@PopupPickerHeaderHeight: 44px;
-@PopupPickerHeaderBackColor: #d5d5d6;
-@PopupPickerHeaderTextSize: 16px;
-@PopupPickerHeaderButtonPadding: 20px;
-@PopupPickerHeaderButtonTextColor: #777;
+@PopupPickerHeaderHeight: 44px;             // 标题栏高度
+@PopupPickerHeaderBackColor: #d5d5d6;       // 标题栏背景色
+@PopupPickerHeaderTextSize: 16px;           // 标题栏文字大小
+@PopupPickerHeaderButtonPadding: 20px;      // 标题栏按钮左右内边距
+@PopupPickerHeaderButtonTextColor: #777;    // 标题栏按钮文字颜色
 
 // Progressbar
-@ProgressbarHeight: 8px;
-@ProgressbarBackColor: #b3b3b3;
-@ProgressbarColor: #2db7f5;
+@ProgressbarHeight: 8px;            // 进度条高度
+@ProgressbarBackColor: #b3b3b3;     // 进度条背景色
+@ProgressbarColor: #2db7f5;         // 进度条颜色
 
 // Prompt
-@PromptInputHeight: 40px;
-@PromptInputPadding: 15px;
-@PromptInputPadding: @InputPadding;
-@PromptInputTextSize: @InputTextSize;
-@PromptInputInvalidColor: @InputInvalidColor;
-@PromptMessageTextSize: @InputMessageTextSize;
-@PromptMessageTextColor: @InputInvalidColor;
-@PromptMessageInputSpace: 5px;
+@PromptInputHeight: 40px;                       // 输入框高度
+@PromptInputPadding: @InputPadding;             // 输入框内边距
+@PromptInputTextSize: @InputTextSize;           // 输入框文字大小
+@PromptInputInvalidColor: @InputInvalidColor;   // 输入错误时的边框提示颜色
+@PromptMessageTextSize: @InputMessageTextSize;  // 输入错误提示信息的文字大小
+@PromptMessageTextColor: @InputInvalidColor;    // 输入错误提示信息的文字颜色
+@PromptMessageInputSpace: 5px;                  // 输入错误提示信息与输入框边距
 
 // Radio
-@RadioHeight: @CheckBoxHeight;
-@RadioSpace: @CheckBoxSpace;
-@RadioTextColor: @CheckBoxTextColor;
-@RadioBackColor: @CheckBoxBackColor;
-@RadioBorderColor: @CheckBoxBorderColor;
-@RadioCheckColor: @CheckBoxCheckColor;
-@RadioDisabledBackColor: @CheckBoxDisabledBackColor;
-@RadioDisabledBorderColor: @CheckBoxDisabledBorderColor;
-@RadioDisabledCheckColor: @CheckBoxDisabledCheckColor;
-@RadioCheckedCheckColor: @CheckBoxCheckedCheckColor;
-@RadioCheckedBackColor: @CheckBoxCheckedBackColor;
-@RadioCheckedBorderColor: @CheckBoxCheckedBorderColor;
-@RadioDisabledCheckedBackColor: @CheckBoxDisabledCheckedBackColor;
-@RadioDisabledCheckedBorderColor: @CheckBoxDisabledCheckedBorderColor;
-@RadioDisabledCheckedCheckColor: @CheckBoxDisabledCheckedCheckColor;
+@RadioHeight: @CheckBoxHeight;                                          // 单选框高度
+@RadioSpace: @CheckBoxSpace;                                            // 勾选框与文字之间的距离
+@RadioTextColor: @CheckBoxTextColor;                                    // 文字颜色
+@RadioBackColor: @CheckBoxBackColor;                                    // 勾选框背景色
+@RadioBorderColor: @CheckBoxBorderColor;                                // 勾选框边框颜色
+@RadioCheckColor: @CheckBoxCheckColor;                                  // 勾的颜色
+@RadioDisabledBackColor: @CheckBoxDisabledBackColor;                    // 禁用状态下勾选框背景色
+@RadioDisabledBorderColor: @CheckBoxDisabledBorderColor;                // 禁用状态下勾选框边框颜色
+@RadioDisabledCheckColor: @CheckBoxDisabledCheckColor;                  // 禁用状态下勾的颜色
+@RadioCheckedBackColor: @CheckBoxCheckedBackColor;                      // 选中状态下勾选框背景色
+@RadioCheckedBorderColor: @CheckBoxCheckedBorderColor;                  // 选中状态下勾选框边框颜色
+@RadioCheckedCheckColor: @CheckBoxCheckedCheckColor;                    // 选中状态下勾的颜色
+@RadioDisabledCheckedBackColor: @CheckBoxDisabledCheckedBackColor;      // 禁用并选中状态下勾选框背景色
+@RadioDisabledCheckedBorderColor: @CheckBoxDisabledCheckedBorderColor;  // 禁用并选中状态下勾选框边框颜色
+@RadioDisabledCheckedCheckColor: @CheckBoxDisabledCheckedCheckColor;    // 禁用并选中状态下勾的颜色
 
 // Rater
-@RaterColor: #ccc;
+@RaterColor: #ccc;      // 未选中状态的默认颜色
 
 // Row
-@RowHorizontalPadding: @HorizontalPadding;
-@RowBackColor: #fff;
-@RowMinHeight: 45px;
-@RowTextSize: 15px;
-@RowTitleWidth: 80px;
+@RowHorizontalPadding: @HorizontalPadding;  // 水平内边距
+@RowBackColor: #fff;                        // 背景色
+@RowMinHeight: 45px;                        // 最小高度
+@RowTextSize: 15px;                         // 文字大小
+@RowTitleWidth: 80px;                       // 标题栏最小宽度
 
 // Slider
-@SliderTitlePadding: 10px;
-@SliderTitleBackColor: rgba(0,0,0,.7);
-@SliderTitleTextColor: #fff;
-@SliderTitleTextSize: 14px;
-@SliderDotsDistance: 8px;
-@SliderDotSize: 6px;
-@SliderDotColor: #d0cdd1;
-@SliderDotActiveColor: #323232;
+@SliderTitlePadding: 10px;                  // 标题栏内边距
+@SliderTitleBackColor: rgba(0,0,0,.7);      // 标题栏背景颜色
+@SliderTitleTextColor: #fff;                // 标题栏文字颜色
+@SliderTitleTextSize: @DefaultTextSize;     // 标题栏文字大小
+@SliderDotsDistance: 8px;                   // 点的上或下边距
+@SliderDotSize: 6px;                        // 点的大小
+@SliderDotColor: #d0cdd1;                   // 点的默认颜色
+@SliderDotActiveColor: #323232;             // 点的当前颜色
 
 // Spinner
 
 // Submit
 
 // Switch
-@SwitchWidth: 50px;
-@SwitchHeight: @SwitchWidth * 0.6;
-@SwitchTextSize: @SwitchHeight / 2;
-@SwitchTextSpace: 5px;
-@SwitchTextColor: #243441;
-@SwitchBorderColor: #dfdfdf;
-@SwitchBackColor: #fdfdfd;
-@SwitchColor: #fff;
-@SwitchCheckedColor: @SecondaryColor;
+@SwitchWidth: 50px;                     // 宽度
+@SwitchHeight: @SwitchWidth * 0.6;      // 高度
+@SwitchTextSize: @SwitchHeight / 2;     // 文字大小
+@SwitchTextSpace: 5px;                  // 与提示文字之间的距离
+@SwitchTextColor: #243441;              // 文字颜色
+@SwitchBorderColor: #dfdfdf;            // 边框颜色
+@SwitchBackColor: #fdfdfd;              // 背景颜色
+@SwitchColor: #fff;                     // 默认颜色
+@SwitchCheckedColor: @SecondaryColor;   // 选中颜色
 
 // Tabbar
-@TabbarHeight: 55px;
-@TabbarBackColor: @BarBackColor;
-@TabbarTextColor: #5e5e5e;
-@TabbarTextSize: 13px;
-@TabbarTextActiveColor: @BarTextColor;
+@TabbarHeight: 55px;                    // 高度
+@TabbarBackColor: @BarBackColor;        // 背景色
+@TabbarTextColor: #5e5e5e;              // 文字颜色
+@TabbarTextSize: 13px;                  // 文字大小
+@TabbarTextActiveColor: @BarTextColor;  // 当前文字颜色
 
 // TabControl
-@TabControlTransitionDuration: @TransitionDuration;
-@TabControlTransitionTiming: cubic-bezier(0.35, 0, 0.25, 1);
-@TabControlTabTextSize1: 14px;
-@TabControlTabHeight1: 44px;
-@TabControlTabLineWidth: 2px;
-@TabControlTabDefaultColor1: #b2b2b2;
-@TabControlTabActiveColor1: #000;
-@TabControlTabBackColor1: #fff;
-@TabControlTabTextSize2: @TabControlTabTextSize1;
-@TabControlTabHeight2: 30px;
-@TabControlTabDefaultColor2: #fff;
-@TabControlTabActiveColor2: #007aff;
-@TabControlTabBackColor2: #fff;
-@TabControlTabBorderWidth: 2px;
-@TabControlTabBorderRadius: 6px;
+@TabControlTransitionDuration: @TransitionDuration;             // 过渡动画时间
+@TabControlTransitionTiming: cubic-bezier(0.35, 0, 0.25, 1);    // 横线过渡动画效果
+@TabControlTabTextSize1: @DefaultTextSize;                      // 当type=1时的Tab文字大小
+@TabControlTabHeight1: 44px;                                    // 当type=1时的Tab高度
+@TabControlTabLineWidth: 2px;                                   // 当type=1时的横线宽度
+@TabControlTabDefaultColor1: #b2b2b2;                           // 当type=1时的Tab默认颜色
+@TabControlTabActiveColor1: #000;                               // 当type=1时的Tab高亮颜色
+@TabControlTabBackColor1: #fff;                                 // 当type=1时的Tab背景颜色
+@TabControlTabTextSize2: @TabControlTabTextSize1;               // 当type=2时的Tab文字大小
+@TabControlTabHeight2: 30px;                                    // 当type=2时的Tab高度
+@TabControlTabDefaultColor2: #fff;                              // 当type=2时的Tab默认颜色
+@TabControlTabActiveColor2: #007aff;                            // 当type=2时的Tab高亮颜色
+@TabControlTabBackColor2: #fff;                                 // 当type=2时的Tab背景颜色
+@TabControlTabBorderWidth: 2px;                                 // 当type=2时的边框宽度
+@TabControlTabBorderRadius: 6px;                                // 当type=2时的圆角半径
 
 // TextArea
-@TextAreaTipTextSize: 12px;
-@TextAreaTipTextColor: #e0e0e0;
+@TextAreaPadding: @InputPadding;                // 文本框内边距
+@TextAreaTextSize: @InputTextSize;              // 文本框文字大小
+@TextAreaTipTextSize: @InputMessageTextSize;    // 文本框提示区文字大小
+@TextAreaTipTextColor: #e0e0e0;                 // 文本框提示区文字颜色
 
 // Toast
-@ToastMaxWidth: 80%;
-@ToastRadius: 5px;
-@ToastPadding: 10px;
-@ToastBackColor: rgba(0, 0, 0, 0.7);
-@ToastTextColor: #fff;
-@ToastTextSize: 14px;
-@ToastIconSize: 30px;
-@ToastTransitionDuration: @TransitionDuration;
+@ToastMaxWidth: 80%;                                // 提示框最大宽度
+@ToastRadius: 5px;                                  // 提示框圆角半径
+@ToastPadding: 10px;                                // 提示框内边距
+@ToastBackColor: rgba(0, 0, 0, 0.7);                // 提示框背景色
+@ToastTextColor: #fff;                              // 提示框文字颜色
+@ToastTextSize: @DefaultTextSize;                   // 提示框文字大小
+@ToastIconSize: 30px;                               // 提示框图标大小
+@ToastTransitionDuration: @TransitionDuration;      // 提示框动画过渡时间

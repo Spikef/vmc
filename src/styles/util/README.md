@@ -40,9 +40,9 @@
 
 | Name | Description | Default |
 | ----- | ----- | ----- |
-| @BadgeTextColor | 文字颜色 | \#ffffff |
+| @BadgeTextColor | 文字颜色 | \#fff |
 | @BadgeBackColor | 背景颜色 | \#f74c31 |
-| @BadgeTextSize | 文字大小 | 12px |
+| @BadgeTextSize | 文字大小 | @SmallTextSize |
 | @BadgeHeight | 高度 | 16px |
 
 ## justify
