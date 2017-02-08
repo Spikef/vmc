@@ -29,6 +29,6 @@
 ## Props
 
 | Property | Type | Description | Default |
-| ----- | ----- | ----- |
+| ----- | ----- | ----- | ----- |
 | ratio | Number, String | 高宽比 | 1 |
 | background | String | 背景图或者背景颜色 | undefined |

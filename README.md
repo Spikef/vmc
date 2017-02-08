@@ -49,28 +49,68 @@ Vue.use(VMC);
 
 * [小红点](./src/styles/util#red-dot)
 
-### 全局组件
-
-#### [](./src/components/)
-
-#### [](./src/components/)
-
-#### [](./src/components/)
-
-#### [](./src/components/)
-
-### 表单组件
-
-#### [](./src/components/)
-
-#### [](./src/components/)
-
-#### [](./src/components/)
-
-#### [](./src/components/)
-
-#### [](./src/components/)
-
-### 布局组件
+### JS组件
 
 #### [ActionSheet](./src/components/actionsheet)
+
+#### [Alert](./src/components/alert)
+
+#### [Box](./src/components/box)
+
+#### [Button](./src/components/button)
+
+#### [Card](./src/components/card)
+
+#### [Cell](./src/components/cell)
+
+#### [CheckBox](./src/components/checkbox)
+
+#### [Confirm](./src/components/confirm)
+
+<!--
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+
+#### [](./src/components/)
+-->

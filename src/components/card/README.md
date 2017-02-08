@@ -61,7 +61,7 @@ export default {
 `Child`是一种类似于`Slot`的自定义组件，与`Slot`不同的是，`Child`没有默认值，而是将`<child>`中的内容与预定义标签进行合并(class、events)。如果未定义某个`Child`，则该块被整体移除。
 
 | Name | Description |
-| ----- | ----- | ----- |
+| ----- | ----- |
 | header | 卡头 |
 | content | 主内容区 |
 | footer | 卡尾 |
@@ -69,7 +69,7 @@ export default {
 ## Props
 
 | Property | Type | Description | Default |
-| ----- | ----- | ----- |
+| ----- | ----- | ----- | ----- |
 | status | String | 卡片是否折叠(null, collapse, expand) | null |
 
 ## LESS

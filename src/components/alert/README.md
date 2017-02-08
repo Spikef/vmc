@@ -22,7 +22,7 @@ export default {
 | ----- | ----- | ----- | ----- |
 | title | String | 弹框提示内容(可省) | "" |
 | callback | Function | 点击确定时的回调函数(可省) | null |
-| options | Object | 其它配置参数 | {title: "", content: "", callback: null, button: "确定", content: undefined} |
+| options | Object | 其它配置参数 | {title: "", content: "", callback: null, button: "确定"} |
 
 ## LESS
 

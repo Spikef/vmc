@@ -57,7 +57,7 @@ export default {
 ## Props
 
 | Property | Type | Description | Default |
-| ----- | ----- | ----- |
+| ----- | ----- | ----- | ----- |
 | inline | Boolean | 是否行内按钮 | false |
 | radius | Number, String | 按钮圆角半径 | 0 |
 | height | Number, String | 按钮高度 | undefined，由LESS变量定义 |

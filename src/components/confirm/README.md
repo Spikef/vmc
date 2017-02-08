@@ -1,27 +1,37 @@
-# confirm
+# Confirm
 
- 确认框提示组件
+## Overview
 
-## 使用方式
+弹出确认框，显示指定内容。
 
- `confirm`为全局组件, 需要作为vue插件全局安装。
+是否全局组件：是。
 
-```
- javascript
- import Vue from 'vue';
- import { VMC } from '../src/components/index';
+## Usage
 
- Vue.use(VMC);
-```
-
- 在需要使用`Confirm`弹框时：
-```
- javascript
-       this.$Confirm('confirm提示框', () => {
-                         this.$Alert('你点击了确定按钮');
-                     }, () => {
-                         this.$Alert('你点击了取消按钮');
-                     });
-
+```javascript
+export default {
+    ready() {
+        this.$Confirm('confirm提示框', () => {
+            this.$Alert('你点击了确定按钮');
+        }, () => {
+            this.$Alert('你点击了取消按钮');
+        });
+    }
+}
 ```
 
+## Arguments
+
+| Name | Type | Description | Default |
+| ----- | ----- | ----- | ----- |
+| title | String | 弹框提示内容(可省) | "" |
+| confirm | Function | 点击确定时的回调函数(可省) | null |
+| cancel | Function | 点击取消时的回调函数(可省) | null |
+| options | Object | 其它配置参数 | {title: "", content: "", confirm: null, cancel: null, btn1: "取消", btn2: "确定"} |
+
+## LESS
+
+| Name | Description | Default |
+| ----- | ----- | ----- |
+| @ConfirmTitleHeight | 标题栏最小高度 | @AlertTitleHeight |
+| @ConfirmTitlePadding | 标题底边距 | @AlertTitlePadding |
