@@ -51,66 +51,68 @@ Vue.use(VMC);
 
 ### JS组件
 
-#### [ActionSheet](./src/components/actionsheet)
+* [ActionSheet](./src/components/actionsheet)
 
-#### [Alert](./src/components/alert)
+* [Alert](./src/components/alert)
 
-#### [Box](./src/components/box)
+* [Box](./src/components/box)
 
-#### [Button](./src/components/button)
+* [Button](./src/components/button)
 
-#### [Card](./src/components/card)
+* [Card](./src/components/card)
 
-#### [Cell](./src/components/cell)
+* [Cell](./src/components/cell)
 
-#### [CheckBox](./src/components/checkbox)
+* [CheckBox](./src/components/checkbox)
 
-#### [Confirm](./src/components/confirm)
+* [Confirm](./src/components/confirm)
+
+* [Dialog](./src/components/dialog)
+
+* [](./src/components/dropload)
+
+* [Grid](./src/components/grid)
 
 <!--
-#### [](./src/components/)
 
-#### [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
+* [](./src/components/)
 
-#### [](./src/components/)
-
-#### [](./src/components/)
+* [](./src/components/)
 -->

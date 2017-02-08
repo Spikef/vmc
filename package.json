@@ -19,11 +19,6 @@
     "build": "node build/build.js",
     "release": "node build/release.js"
   },
-  "dependencies": {
-    "vue": "^1.0.21",
-    "vue-touch": "^1.1.0",
-    "fastclick": "^1.0.6"
-  },
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
@@ -37,6 +32,7 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
+    "fastclick": "^1.0.6"
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
@@ -47,6 +43,8 @@
     "ora": "^0.2.0",
     "shelljs": "^0.6.0",
     "url-loader": "^0.5.7",
+    "vue": "^1.0.21",
+    "vue-touch": "^1.1.0",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^8.3.0",
