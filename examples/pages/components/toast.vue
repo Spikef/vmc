@@ -22,14 +22,6 @@
             Navbar,
             vButton
         },
-        data() {
-            return {
-                customColors: {
-                    font: '#ffffff',
-                    background: '#605ca8'
-                }
-            }
-        },
         methods: {
             loading() {
                 this.$Loading();

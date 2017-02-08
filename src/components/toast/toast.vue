@@ -31,7 +31,7 @@
             type: String,
             show: Boolean,
             content: String,
-            position: String
+            position: String    // top, center, bottom
         },
         computed: {
             showIcon() {
