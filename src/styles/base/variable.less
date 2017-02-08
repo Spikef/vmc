@@ -6,6 +6,7 @@
 @BarTextColor: #fff;
 @HorizontalPadding: 12px;
 @VerticalPadding: 10px;
+@TransitionDuration: .3s;
 
 // 1像素边框颜色
 @BorderColor: #ccc;
@@ -55,7 +56,7 @@
 
 // Card
 @CardBackColor: #fff;
-@CardTransitionDuration: .3s;
+@CardTransitionDuration: @TransitionDuration;
 @CardCardSpace: 15px;
 @CardHorizontalPadding: @HorizontalPadding;
 @CardVerticalPadding: 10px;
@@ -242,7 +243,7 @@
 @TabbarTextActiveColor: @BarTextColor;
 
 // TabControl
-@TabControlTransitionDuration: .3s;
+@TabControlTransitionDuration: @TransitionDuration;
 @TabControlTransitionTiming: cubic-bezier(0.35, 0, 0.25, 1);
 @TabControlTabTextSize1: 14px;
 @TabControlTabHeight1: 44px;
@@ -259,6 +260,15 @@
 @TabControlTabBorderRadius: 6px;
 
 // TextArea
-
+@TextAreaTipTextSize: 12px;
+@TextAreaTipTextColor: #e0e0e0;
 
 // Toast
+@ToastMaxWidth: 80%;
+@ToastRadius: 5px;
+@ToastPadding: 10px;
+@ToastBackColor: rgba(0, 0, 0, 0.7);
+@ToastTextColor: #fff;
+@ToastTextSize: 14px;
+@ToastIconSize: 30px;
+@ToastTransitionDuration: @TransitionDuration;
