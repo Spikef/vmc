@@ -36,6 +36,35 @@
     import { getCSSSize } from '../../utils';
 
     export default {
+        props: {
+            height: [Number, String],
+            tabType: {
+                type: [Number, String],
+                default: 1,
+                coerce: parseInt
+            },
+            lineWidth: {
+                type: [Number, String],
+                coerce: Number
+            },
+            activeColor: {
+                type: String
+            },
+            defaultColor: {
+                type: String
+            },
+            tabIndex: {
+                type: [Number, String],
+                default: 0,
+                coerce: parseInt
+            },
+            tabList: {
+                type: Array,
+                default() {
+                    return []
+                }
+            }
+        },
         methods: {
             onTabChange(index) {
                 if (this.tabIndex === index) return;
@@ -71,13 +100,13 @@
                 return this.tabList.length;
             },
             tabStyle() {
-                var style = {
-                    borderColor: this.activeColor
-                };
-                if (this.tabType === 2) {
-                    style.background = this.activeColor;
+                switch (this.tabType) {
+                    case 2:
+                        return {
+                            borderColor: this.activeColor,
+                            background: this.activeColor
+                        }
                 }
-                return style;
             },
             itemStyle() {
                 switch (this.tabType) {
@@ -114,7 +143,6 @@
                 return {
                     left: left,
                     right: right,
-                    display: 'block',
                     backgroundColor: this.activeColor,
                     height: getCSSSize(this.lineWidth)
                 }
@@ -129,38 +157,6 @@
         data() {
             return {
                 direction: 'none'
-            }
-        },
-        props: {
-            height: [Number, String],
-            tabType: {
-                type: [Number, String],
-                default: 1,
-                coerce: parseInt
-            },
-            lineWidth: {
-                type: [Number, String],
-                default: 2,
-                coerce: Number
-            },
-            activeColor: {
-                type: String,
-                default: '#000000'
-            },
-            defaultColor: {
-                type: String,
-                default: '#b2b2b2'
-            },
-            tabIndex: {
-                type: [Number, String],
-                default: 0,
-                coerce: parseInt
-            },
-            tabList: {
-                type: Array,
-                default() {
-                    return []
-                }
             }
         }
     }

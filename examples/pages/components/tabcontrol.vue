@@ -25,7 +25,7 @@
                 </div>
             </tab-control>
 
-            <tab-control :tab-list="tabList" tab-index="0" tab-type="2" active-color="#007aff" default-color="#ffffff" height="200">
+            <tab-control :tab-list="tabList" tab-index="0" tab-type="2" height="200">
                 <div slot="tabPage">
                     <p>{{item.name}} 内容云云</p>
                 </div>
