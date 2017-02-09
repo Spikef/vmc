@@ -97,7 +97,7 @@ Vue.use(VMC);
 
 * [](./src/components/progressbar)
 
-* [](./src/components/prompt)
+* [Prompt](./src/components/prompt)
 
 * [Radio](./src/components/radio)
 
