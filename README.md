@@ -111,7 +111,7 @@ Vue.use(VMC);
 
 * [](./src/components/tabbar)
 
-* [](./src/components/tabcontrol)
+* [TabControl](./src/components/tabcontrol)
 
 * [TextArea](./src/components/textarea)
 

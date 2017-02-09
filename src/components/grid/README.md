@@ -58,7 +58,7 @@ export default {
 
 | Name | Description | Default |
 | ----- | ----- | ----- |
-| default | 每个元素显示的样式 | undefined |
+| default | 每个元素显示的内容 | undefined |
 
 ## Props
 
