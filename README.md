@@ -91,7 +91,7 @@ Vue.use(VMC);
 
 * [](./src/components/picker)
 
-* [](./src/components/popup)
+* [Popup](./src/components/popup)
 
 * [](./src/components/popup-picker)
 

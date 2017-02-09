@@ -31,7 +31,7 @@
             },
             position: {
                 type: String,
-                default: 'bottom'
+                default: 'bottom'       // top, left, right, bottom
             }
         },
         computed: {
