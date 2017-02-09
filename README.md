@@ -115,12 +115,12 @@ Vue.use(VMC);
 
 * [](./src/components/textarea)
 
-* [](./src/components/toast#loading)
+* [Loading](./src/components/toast#loading)
 
-* [](./src/components/toast#success)
+* [Success](./src/components/toast#success)
 
-* [](./src/components/toast#error)
+* [Error](./src/components/toast#error)
 
-* [](./src/components/toast#info)
+* [Info](./src/components/toast#info)
 
-* [](./src/components/toast#toast)
+* [Toast](./src/components/toast#toast)
