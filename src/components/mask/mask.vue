@@ -10,10 +10,7 @@
 <script>
     export default {
         props: {
-            transparent: {
-                type: Boolean,
-                default: false
-            }
+            transparent: Boolean
         },
         methods: {
             _onClick() {

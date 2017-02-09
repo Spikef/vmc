@@ -65,7 +65,7 @@ Vue.use(VMC);
 
 * [CheckBox](./src/components/checkbox#checkbox)
 
-* [CheckAll](./src/components/checkbox#checkall)
+* [CheckAll](./src/components/checkbox#check-all)
 
 * [Confirm](./src/components/confirm)
 
@@ -83,7 +83,7 @@ Vue.use(VMC);
 
 * [Marquee](./src/components/marquee)
 
-* [](./src/components/mask)
+* [Mask](./src/components/mask)
 
 * [](./src/components/navbar)
 
