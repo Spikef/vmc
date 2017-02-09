@@ -95,7 +95,7 @@ Vue.use(VMC);
 
 * [](./src/components/popup-picker)
 
-* [](./src/components/progressbar)
+* [Progressbar](./src/components/progressbar)
 
 * [Prompt](./src/components/prompt)
 
@@ -113,7 +113,7 @@ Vue.use(VMC);
 
 * [Switch](./src/components/switch)
 
-* [](./src/components/tabbar)
+* [Tabbar](./src/components/tabbar)
 
 * [TabControl](./src/components/tabcontrol)
 
