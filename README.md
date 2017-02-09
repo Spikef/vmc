@@ -4,15 +4,23 @@
 
 ## 特性介绍
 
-`VMC`包含丰富的`CSS`和`JS`组件，能够满足日常的移动端开发需要。通过它，可以快速构建出风格统一的页面，提升开发效率。
+`VMC`是一套针对移动端开发的组件库，适用于`vue@1.0.21+`。
 
-[View Docs and Demos](https://spikef.github.io/vmc/)
++ 将使用频度高的组件全局化，直接注册到Vue实例化对象上；
++ 全部样式基于LESS，并允许通过覆盖LESS变量的方式快速初始化组件样式；
++ 可以通过属性来单独定义每个组件的样式(写到style上，这样便能覆盖在LESS中定义的全局样式)；
++ 自定义的`Child`元素，可以实现按需插入元素，同时给予预定义样式；
++ 自定义的`SlotItem`元素，可以方便地自定义循环型组件（如轮播图）中显示的内容。
+
+[View Demos](https://spikef.github.io/vmc/)
 
 ## 如何引用
 
 ```bash
 $ npm install vmc --save
 ```
+
+`VMC`中部分组件使用了`vue-touch`，请确保您已经安装并使用了此插件。
 
 ### 注册全局组件
 
@@ -37,94 +45,98 @@ Vue.use(VMC);
 
 ### CSS组件
 
-* [icono图标](https://github.com/saeedalipoor/icono)
+* [icono图标 (ICON)](https://github.com/saeedalipoor/icono)
 
-* [1px边框](./src/styles/util#1px-border)
+* [1px边框 (1px border)](./src/styles/util#1px-border)
 
-* [徽标](./src/styles/util#badge)
+* [徽标 (Badge)](./src/styles/util#badge)
 
-* [两端对齐](./src/styles/util#justify)
+* [两端对齐 (Justify)](./src/styles/util#justify)
 
-* [文本省略](./src/styles/util#nowrap)
+* [文本省略 (NoWrap)](./src/styles/util#nowrap)
 
-* [小红点](./src/styles/util#red-dot)
+* [小红点 (Red dot)](./src/styles/util#red-dot)
 
 ### JS组件
 
-* [ActionSheet](./src/components/actionsheet)
+* [操作按钮列表 (ActionSheet)](./src/components/actionsheet)
 
-* [Alert](./src/components/alert)
+* [警告框 (Alert)](./src/components/alert)
 
-* [Box](./src/components/box)
+* [占位盒 (Box)](./src/components/box)
 
-* [Button](./src/components/button)
+* [按钮 (Button)](./src/components/button)
 
-* [Card](./src/components/card)
+* [卡片 (Card)](./src/components/card)
 
-* [Cell](./src/components/cell)
+* [单栏 (Cell)](./src/components/cell)
 
-* [CheckBox](./src/components/checkbox#checkbox)
+* [复选框 (CheckBox)](./src/components/checkbox#checkbox)
 
-* [CheckAll](./src/components/checkbox#check-all)
+* [全选 (CheckAll)](./src/components/checkbox#check-all)
 
-* [Confirm](./src/components/confirm)
+* [确认框 (Confirm)](./src/components/confirm)
 
-* [Dialog](./src/components/dialog)
+* [对话框 (Dialog)](./src/components/dialog)
 
-* [DropLoad](./src/components/dropload)
+* [分页刷新 (DropLoad)](./src/components/dropload)
 
-* [Grid](./src/components/grid)
+* [网格 (Grid)](./src/components/grid)
 
-* [mInput](./src/components/input#minput)
+* [强制型输入框 (mInput)](./src/components/input#minput)
 
-* [vInput](./src/components/input#vinput)
+* [提示型输入框 (vInput)](./src/components/input#vinput)
 
-* [Justify](./src/components/justify)
+* [两端对齐 (Justify)](./src/components/justify)
 
-* [Marquee](./src/components/marquee)
+* [滚动公告 (Marquee)](./src/components/marquee)
 
-* [Mask](./src/components/mask)
+* [遮罩层 (Mask)](./src/components/mask)
 
-* [Navbar](./src/components/navbar)
+* [导航栏 (Navbar)](./src/components/navbar)
 
-* [Number](./src/components/number)
+* [数字输入 (Number)](./src/components/number)
 
-* [](./src/components/picker)
+* [选择器 (Picker)](./src/components/picker)
 
-* [Popup](./src/components/popup)
+* [弹出层 (Popup)](./src/components/popup)
 
-* [](./src/components/popup-picker)
+* [弹出式选择器 (Popup Picker)](./src/components/popup-picker)
 
-* [Progressbar](./src/components/progressbar)
+* [进度条 (Progressbar)](./src/components/progressbar)
 
-* [Prompt](./src/components/prompt)
+* [提示输入框 (Prompt)](./src/components/prompt)
 
-* [Radio](./src/components/radio)
+* [单选框 (Radio)](./src/components/radio)
 
-* [Rater](./src/components/rater)
+* [评分 (Rater)](./src/components/rater)
 
-* [Row](./src/components/row)
+* [标题行 (Row)](./src/components/row)
 
-* [Slider](./src/components/slider)
+* [轮播图 (Slider)](./src/components/slider)
 
-* [Spinner](./src/components/spinner)
+* [动态指示器 (Spinner)](./src/components/spinner)
 
-* [Submit](./src/components/submit)
+* [提交按钮 (Submit)](./src/components/submit)
 
-* [Switch](./src/components/switch)
+* [开关 (Switch)](./src/components/switch)
 
-* [Tabbar](./src/components/tabbar)
+* [导航栏 (Tabbar)](./src/components/tabbar)
 
-* [TabControl](./src/components/tabcontrol)
+* [选项卡 (TabControl)](./src/components/tabcontrol)
 
-* [TextArea](./src/components/textarea)
+* [文本框 (TextArea)](./src/components/textarea)
 
-* [Loading](./src/components/toast#loading)
+* [加载提示 (Loading)](./src/components/toast#loading)
 
-* [Success](./src/components/toast#success)
+* [成功提示 (Success)](./src/components/toast#success)
 
-* [Error](./src/components/toast#error)
+* [错误提示 (Error)](./src/components/toast#error)
 
-* [Info](./src/components/toast#info)
+* [信息提示 (Info)](./src/components/toast#info)
 
-* [Toast](./src/components/toast#toast)
+* [文字提示 (Toast)](./src/components/toast#toast)
+
+## License
+
+MIT
