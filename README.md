@@ -73,7 +73,9 @@ Vue.use(VMC);
 
 * [Grid](./src/components/grid)
 
-* [](./src/components/input)
+* [mInput](./src/components/input#minput)
+
+* [vInput](./src/components/input#vinput)
 
 * [Justify](./src/components/justify)
 
