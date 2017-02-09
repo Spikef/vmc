@@ -19,7 +19,7 @@
             <slider :list="dataList" height="200" auto="3"></slider>
 
             <div class="label">一页显示多张图片</div>
-            <slider :list="imageList" height="auto" per-page="3" gutter="6"></slider>
+            <slider :list="imageList" height="auto" per-page="3"></slider>
 
             <div class="label">自定义显示的内容</div>
             <slider :list="list" height="200">

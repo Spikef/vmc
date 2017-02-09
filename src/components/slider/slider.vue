@@ -13,7 +13,7 @@
                  v-for="item in shadowList"
                  track-by="$index">
 
-                <div :style="groupStyle" v-if="multiple"><div class="slider-group-item" :style="groupItemStyle" v-for="_item in item">
+                <div class="slider-group" :style="groupStyle" v-if="multiple"><div class="slider-group-item" :style="groupItemStyle" v-for="_item in item">
                     <slot-item :scope="{index: index, item: _item}">
                         <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
                     </slot-item>
@@ -40,13 +40,12 @@
             auto: null,
             ratio: null,
             perPage: {
-                type: [String, Number],
+                type: [Number, String],
                 default: 1,
                 coerce: parseInt
             },
             gutter: {
-                type: [String, Number],
-                default: 2
+                type: [Number, String]
             },
             height: {
                 type: [Number, String],
@@ -64,7 +63,7 @@
                 }
             },
             dots: {
-                default: 'bottom',
+                default: 'bottom',  // top or bottom or false
                 coerce: String
             }
         },
@@ -200,20 +199,21 @@
                 return style;
             },
             groupStyle() {
-                if (this.gutter > 0) {
+                if (this.gutter) {
                     return {
                         margin: `0 -${this.gutter / 2}px`
                     }
                 }
             },
             groupItemStyle() {
-                if (this.gutter > 0) {
-                    var width = this.perPage > 0 ? (100 / this.perPage) + '%' : null;
-                    return {
-                        width: width,
-                        padding: `0 ${this.gutter / 2}px`
-                    }
+                var width = this.perPage > 0 ? (100 / this.perPage) + '%' : null;
+                var style = { width };
+
+                if (this.gutter) {
+                    style.padding = `0 ${this.gutter / 2}px`;
                 }
+
+                return style;
             }
         },
         data() {

@@ -259,7 +259,7 @@
 | Name | Description | Default |
 | ----- | ----- | ----- |
 | @RaterColor | 未选中状态的默认颜色 | \#ccc |
-| @RaterActiveColor | 选中状态的颜色 | \#FFAD34 |
+| @RaterActiveColor | 选中状态的颜色 | \#ffad34 |
 | @RaterGutter | 星与星之间的间距 | 2px |
 | @RaterStarSize | 星的大小 | 25px |
 
@@ -283,6 +283,7 @@
 | @SliderDotSize | 点的大小 | 6px |
 | @SliderDotColor | 点的默认颜色 | \#d0cdd1 |
 | @SliderDotActiveColor | 点的当前颜色 | \#323232 |
+| @SliderGutter | 多张图片时，图片之间的间距 | 0 |
 
 ## Spinner
 | Name | Description | Default |

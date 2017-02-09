@@ -101,11 +101,11 @@ Vue.use(VMC);
 
 * [Radio](./src/components/radio)
 
-* [](./src/components/rater)
+* [Rater](./src/components/rater)
 
 * [](./src/components/row)
 
-* [](./src/components/slider)
+* [Slider](./src/components/slider)
 
 * [](./src/components/spinner)
 
