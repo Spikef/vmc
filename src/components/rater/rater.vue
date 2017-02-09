@@ -1,9 +1,8 @@
 <template>
-    <div class="vmc-rater" :style="style">
-
-
+    <div class="vmc-rater">
         <span class="vmc-rater-outer"
               :style="outStarStyle(i)"
+              :class="outStarClass(i)"
               v-for="i in max"
               @click="onClick(i)">
 
@@ -11,8 +10,8 @@
 
             <span class="vmc-rater-inner"
                   :style="innerStarStyle(i)"
+                  :class="innerStarClass(i)"
                   v-if="innerStarStyle(i)">{{star}}</span>
-            </span>
         </span>
     </div>
 </template>
@@ -20,14 +19,14 @@
 <script type="text/ecmascript-6">
     export default {
         props: {
-            max: {
-                type: [Number, String],
-                default: 5,
-                coerce: parseInt
-            },
             min: {
                 type: [Number, String],
                 default: 1,
+                coerce: parseInt
+            },
+            max: {
+                type: [Number, String],
+                default: 5,
                 coerce: parseInt
             },
             value: {
@@ -40,19 +39,15 @@
                 type: String,
                 default: '★'
             },
-            activeColor: {
-                type: String,
-                default: '#FFAD34'
-            },
+            defaultColor: String,
+            activeColor: String,
             gutter: {
                 type: [String, Number],
                 coerce: Number,
-                default: 2
             },
             size: {
                 type: [String, Number],
                 coerce: Number,
-                default: 25
             }
         },
         methods: {
@@ -80,6 +75,8 @@
 
                 if (i <= this.value - 1) {
                     style.color = this.activeColor;
+                } else {
+                    style.color = this.defaultColor;
                 }
 
                 return style;
@@ -92,9 +89,20 @@
                         width: `${parts[1] * 10}%`
                     }
                 }
+            },
+            outStarClass(i) {
+                if (i <= this.value - 1) {
+                    return 'active';
+                }
+            },
+            innerStarClass(i) {
+                var parts = String(this.value).split('.');
+                if (parts.length === 2 && parts[0] == i && parts[1] > 0) {
+                    return 'active';
+                }
             }
         },
-        data () {
+        data() {
             return {
                 colors: [],
                 cutIndex: -1,

@@ -259,6 +259,9 @@
 | Name | Description | Default |
 | ----- | ----- | ----- |
 | @RaterColor | 未选中状态的默认颜色 | \#ccc |
+| @RaterActiveColor | 选中状态的颜色 | \#FFAD34 |
+| @RaterGutter | 星与星之间的间距 | 2px |
+| @RaterStarSize | 星的大小 | 25px |
 
 ## Row
 | Name | Description | Default |

@@ -3,14 +3,31 @@
 
     .vmc-rater-outer {
         display: inline-block;
-        color: @RaterColor;
         position: relative;
+        color: @RaterColor;
+        font-size: @RaterStarSize;
+
+        &:not(:first-child) {
+            margin-left: @RaterGutter / 2;
+        }
+
+        &:not(:last-child) {
+            margin-right: @RaterGutter / 2;
+        }
+
+        &.active {
+            color: @RaterActiveColor;
+        }
 
         .vmc-rater-inner {
             position: absolute;
             left: 0;
             top: 0;
             overflow: hidden;
+
+            &.active {
+                color: @RaterActiveColor;
+            }
         }
     }
 }
