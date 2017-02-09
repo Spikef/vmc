@@ -20,14 +20,6 @@
             Navbar,
             Card,
             vTextarea
-        },
-        methods: {
-            submit(submit) {
-                setTimeout(() => {
-                    this.$Toast('提交成功!');
-                    submit.done();
-                }, 2000);
-            }
         }
     }
 </script>

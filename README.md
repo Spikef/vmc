@@ -113,7 +113,7 @@ Vue.use(VMC);
 
 * [](./src/components/tabcontrol)
 
-* [](./src/components/textarea)
+* [TextArea](./src/components/textarea)
 
 * [Loading](./src/components/toast#loading)
 
