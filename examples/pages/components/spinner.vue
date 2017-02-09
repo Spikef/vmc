@@ -5,23 +5,44 @@
         <div>
             <div class="line vmc-1px-bottom">
                 <span class="label">blade</span>
-                <spinner color="#3c78d8" type="blade"></spinner>
+                <spinner type="blade"></spinner>
             </div>
             <div class="line vmc-1px-bottom">
                 <span class="label">snake</span>
-                <spinner color="#3c78d8" type="snake"></spinner>
+                <spinner type="snake"></spinner>
             </div>
             <div class="line vmc-1px-bottom">
                 <span class="label">double-bounce</span>
-                <spinner color="#3c78d8" type="double-bounce"></spinner>
+                <spinner type="double-bounce"></spinner>
             </div>
             <div class="line vmc-1px-bottom">
                 <span class="label">triple-bounce</span>
-                <spinner color="#3c78d8" type="triple-bounce"></spinner>
+                <spinner type="triple-bounce"></spinner>
             </div>
             <div class="line vmc-1px-bottom">
                 <span class="label">fading-circle</span>
-                <spinner color="#3c78d8" type="fading-circle"></spinner>
+                <spinner type="fading-circle"></spinner>
+            </div>
+
+            <div class="line vmc-1px-bottom">
+                <span class="label">blade</span>
+                <spinner color="#3c78d8" size="16" type="blade"></spinner>
+            </div>
+            <div class="line vmc-1px-bottom">
+                <span class="label">snake</span>
+                <spinner color="#3c78d8" size="16" type="snake"></spinner>
+            </div>
+            <div class="line vmc-1px-bottom">
+                <span class="label">double-bounce</span>
+                <spinner color="#3c78d8" size="16" type="double-bounce"></spinner>
+            </div>
+            <div class="line vmc-1px-bottom">
+                <span class="label">triple-bounce</span>
+                <spinner color="#3c78d8" size="16" type="triple-bounce"></spinner>
+            </div>
+            <div class="line vmc-1px-bottom">
+                <span class="label">fading-circle</span>
+                <spinner color="#3c78d8" size="16" type="fading-circle"></spinner>
             </div>
         </div>
     </div>

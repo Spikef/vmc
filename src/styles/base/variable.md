@@ -288,6 +288,8 @@
 ## Spinner
 | Name | Description | Default |
 | ----- | ----- | ----- |
+| @SpinnerSize | 指示器默认大小 | 28px |
+| @SpinnerColor | 指示器默认颜色 | \#ccc |
 
 ## Submit
 | Name | Description | Default |

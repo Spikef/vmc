@@ -1,6 +1,8 @@
 // for blade spinner
 .vmc-spinner-blade {
     position: relative;
+    height: @SpinnerSize;
+    width: @SpinnerSize;
 
     .blade {
         position: absolute;
@@ -11,6 +13,19 @@
         border-radius: ~'50% / 20%';
         animation: vmc-spinner-blade 1s linear infinite;
         animation-play-state: running;
+        background-color: @SpinnerColor;
+    }
+
+    .blade(11);
+
+    // mixin
+    .blade(@n, @i: 0) when (@i =< @n) {
+        .blade-@{i} {
+            transform: rotate(unit((@i + 1) * 30, deg)) translate(0, -150%);
+            animation-delay: unit(-(20 - @i) / 12, s);
+        }
+
+        .blade(@n, (@i + 1));
     }
 }
 
@@ -29,6 +44,8 @@
 // for double bounce spinner
 .vmc-spinner-double-bounce {
     position: relative;
+    height: @SpinnerSize;
+    width: @SpinnerSize;
 
     .bounce {
         width: 100%;
@@ -39,6 +56,11 @@
         top: 0;
         left: 0;
         animation: vmc-spinner-double-bounce 2.0s infinite ease-in-out;
+        background-color: @SpinnerColor;
+    }
+
+    .bounce-1 {
+        animation-delay: -1s;
     }
 }
 
@@ -52,13 +74,27 @@
 }
 
 // for triple bounce spinner
+@unitSize: round(@SpinnerSize / 6) * 2;
 .vmc-spinner-triple-bounce {
     font-size: 0;
+    padding: (@SpinnerSize - @unitSize) / 2 0;
 
     .bounce {
         border-radius: 100%;
         display: inline-block;
         animation: vmc-spinner-triple-bounce 1.4s infinite ease-in-out both;
+        background-color: @SpinnerColor;
+        width: @unitSize;
+        height: @unitSize;
+    }
+
+    .bounce-0 {
+        animation-delay: -0.32s;
+    }
+
+    .bounce-1 {
+        animation-delay: -0.16s;
+        margin: 0 round(@unitSize * 0.4);
     }
 }
 
@@ -74,6 +110,8 @@
 // for fading circle spinner
 .vmc-spinner-fading-circle {
     position: relative;
+    height: @SpinnerSize;
+    width: @SpinnerSize;
 
     .block {
         position: absolute;
@@ -88,7 +126,23 @@
             height: 15%;
             border-radius: 100%;
             animation: vmc-spinner-fading-circle 1.2s infinite ease-in-out both;
+            background-color: @SpinnerColor;
         }
+    }
+
+    .block(11);
+
+    // mixin
+    .block(@n, @i: 0) when (@i =< @n) {
+        .block-@{i} {
+            transform: rotate(unit(@i * 30, deg));
+
+            .circle-@{i} {
+                animation-delay: unit(1.2 / 12 * @i - 1.2, s);
+            }
+        }
+
+        .block(@n, (@i + 1));
     }
 }
 
@@ -104,6 +158,12 @@
     border-color: transparent;
     border-radius: 50%;
     box-sizing: border-box;
+    height: @SpinnerSize;
+    width: @SpinnerSize;
+    border-width: ceil(@SpinnerSize / 8);
+    border-top-color: @SpinnerColor;
+    border-left-color: @SpinnerColor;
+    border-bottom-color: @SpinnerColor;
 }
 
 @keyframes vmc-spinner-snake {

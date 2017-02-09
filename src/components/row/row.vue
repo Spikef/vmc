@@ -11,8 +11,8 @@
     export default {
         props: {
             title: String,
-            width: [String, Number],
-            align: String
+            width: [Number, String],
+            align: String   // left, default is space between
         },
         computed: {
             style() {

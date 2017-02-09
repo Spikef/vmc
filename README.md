@@ -103,15 +103,15 @@ Vue.use(VMC);
 
 * [Rater](./src/components/rater)
 
-* [](./src/components/row)
+* [Row](./src/components/row)
 
 * [Slider](./src/components/slider)
 
-* [](./src/components/spinner)
+* [Spinner](./src/components/spinner)
 
 * [Submit](./src/components/submit)
 
-* [](./src/components/switch)
+* [Switch](./src/components/switch)
 
 * [](./src/components/tabbar)
 

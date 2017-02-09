@@ -9,16 +9,23 @@
         mixins: [spinner],
         computed: {
             spinnerStyle() {
-                var size = Math.ceil(this.spinnerSize / 8);
+                var style = {};
 
-                return {
-                    borderWidth: size + 'px',
-                    borderTopColor: this.spinnerColor,
-                    borderLeftColor: this.spinnerColor,
-                    borderBottomColor: this.spinnerColor,
-                    height: this.spinnerSize + 'px',
-                    width: this.spinnerSize + 'px'
+                if (this.size) {
+                    var size = Math.ceil(this.size / 8);
+
+                    style.height = this.size + 'px';
+                    style.width = this.size + 'px';
+                    style.borderWidth = size + 'px';
                 }
+
+                if (this.color) {
+                    style.borderTopColor = this.color;
+                    style.borderLeftColor = this.color;
+                    style.borderBottomColor = this.color;
+                }
+
+                return style;
             }
         }
     };

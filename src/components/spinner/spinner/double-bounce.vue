@@ -1,6 +1,6 @@
 <template>
     <div class="vmc-spinner-double-bounce" :style="spinnerStyle">
-        <div class="bounce" :style="bounceStyle(i)" v-for="i in 2"></div>
+        <div class="bounce" :class="'bounce-' + i" :style="bounceStyle" v-for="i in 2"></div>
     </div>
 </template>
 
@@ -9,17 +9,13 @@
 
     export default {
         mixins: [spinner],
-        methods: {
-            bounceStyle(index) {
-                var style = {
-                    backgroundColor: this.spinnerColor
-                };
-
-                if (index === 1) {
-                    style.animationDelay = '-1.0s';
+        computed: {
+            bounceStyle() {
+                if (this.color) {
+                    return {
+                        backgroundColor: this.color
+                    };
                 }
-
-                return style;
             }
         }
     };
