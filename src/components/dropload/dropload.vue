@@ -32,10 +32,7 @@
     export default {
         props: {
             // 自动加载
-            autoLoad: {
-                type: Boolean,
-                default: false
-            },
+            autoLoad: Boolean,
             // 上方距离
             distance: {
                 type: Number,
@@ -51,15 +48,9 @@
             // 加载方法
             loadMore: Function,
             // 是否更多
-            hasMore: {
-                type: Boolean,
-                default: false
-            },
+            hasMore: Boolean,
             // 是否遮挡
-            useMask: {
-                type: Boolean,
-                default: false
-            },
+            useMask: Boolean,
             // 其它配置
             options: {
                 type: Object,

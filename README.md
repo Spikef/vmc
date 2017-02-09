@@ -69,7 +69,7 @@ Vue.use(VMC);
 
 * [Dialog](./src/components/dialog)
 
-* [](./src/components/dropload)
+* [DropLoad](./src/components/dropload)
 
 * [Grid](./src/components/grid)
 
