@@ -109,7 +109,7 @@ Vue.use(VMC);
 
 * [](./src/components/spinner)
 
-* [](./src/components/submit)
+* [Submit](./src/components/submit)
 
 * [](./src/components/switch)
 

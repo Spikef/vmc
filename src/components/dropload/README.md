@@ -57,6 +57,16 @@ export default {
 | useMask | Boolean | 是否在加载数据时使用遮罩层，以禁用用户操作 | false |
 | options | Object | 其它配置 | {tips: {upPull: '↓ 继续下拉刷新', upRelease: '↑ 释放更新列表', upLoading: '正在刷新...', downPull: '↑上拉加载更多', downLoading: '正在加载下一页数据...', downEnd: '没有更多数据了' }} |
 
+## Methods
+
+### done
+
+刷新或者加载完毕时必需手动执行此方法。
+
+| Name | Description | Default |
+| ----- | ----- | ----- |
+| error | 刷新或者加载数据是否出错 | false |
+
 ## LESS
 
 | Name | Description | Default |
