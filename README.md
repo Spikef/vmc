@@ -85,9 +85,9 @@ Vue.use(VMC);
 
 * [Mask](./src/components/mask)
 
-* [](./src/components/navbar)
+* [Navbar](./src/components/navbar)
 
-* [](./src/components/number)
+* [Number](./src/components/number)
 
 * [](./src/components/picker)
 
