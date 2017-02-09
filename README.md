@@ -63,7 +63,9 @@ Vue.use(VMC);
 
 * [Cell](./src/components/cell)
 
-* [CheckBox](./src/components/checkbox)
+* [CheckBox](./src/components/checkbox#checkbox)
+
+* [CheckAll](./src/components/checkbox#checkall)
 
 * [Confirm](./src/components/confirm)
 
