@@ -1,4 +1,1 @@
-module.exports = {
-    Checkbox: require('./checkbox.vue'),
-    Checkall: require('./checkall.vue')
-};
+module.exports = require('./checkbox.vue');

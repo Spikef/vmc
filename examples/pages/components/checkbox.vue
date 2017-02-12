@@ -4,9 +4,42 @@
 
         <div class="content">
             <card>
-                <child name="header">复选框列表</child>
+                <child name="header">单个复选框</child>
                 <child name="content">
-                    <checkbox :checked.sync="list1" :value="item" v-for="item in list">{{item}}</checkbox>
+                    <checkbox :checked.sync="checked1">同意 <a href="http://www.baidu.com" slot="extra">用户注册协议</a></checkbox>
+                </child>
+                <child name="footer">
+                    <span>选择值:</span>
+                    <span> {{ checked1 }} </span>
+                </child>
+            </card>
+
+            <card>
+                <child name="header">单个复选框，默认选中</child>
+                <child name="content">
+                    <checkbox :checked.sync="checked2">同意用户注册协议</checkbox>
+                </child>
+                <child name="footer">
+                    <span>选择值:</span>
+                    <span> {{ checked2 }} </span>
+                </child>
+            </card>
+
+            <card>
+                <child name="header">单个复选框，指定选择结果</child>
+                <child name="content">
+                    <checkbox :checked.sync="checked3" :values="[1, 0]">同意用户注册协议</checkbox>
+                </child>
+                <child name="footer">
+                    <span>选择值:</span>
+                    <span> {{ checked3 }} </span>
+                </child>
+            </card>
+
+            <card>
+                <child name="header">复选框列表，显示在一行</child>
+                <child name="content">
+                    <checkbox :checked.sync="list1" :value="item" v-for="item in listA" inline>{{item}}</checkbox>
                 </child>
                 <child name="footer">
                     <span>选中的项:</span>
@@ -15,10 +48,9 @@
             </card>
 
             <card>
-                <child name="header">支持全选的复选框列表</child>
+                <child name="header">复选框列表，最多只允许选择两项</child>
                 <child name="content">
-                    <checkbox :checked.sync="list2" :value="item" v-for="item in list">{{item}}</checkbox>
-                    <checkall :checked.sync="list2" :values="list">全选</checkall>
+                    <checkbox :checked.sync="list2" :value="item" v-for="item in listB" max="2">{{item}}</checkbox>
                 </child>
                 <child name="footer">
                     <span>选中的项:</span>
@@ -39,6 +71,35 @@
                     <span> {{ list3 | json }} </span>
                 </child>
             </card>
+
+            <card>
+                <child name="header">支持全选的复选框列表</child>
+                <child name="content">
+                    <checkbox :checked.sync="list4" :value="item" v-for="item in listA">{{item}}</checkbox>
+                    <checkbox :checked="true" :child-values="listA" :child-checked.sync="list4">全选</checkbox>
+                </child>
+                <child name="footer">
+                    <span>选中的项:</span>
+                    <span> {{ list4 | json }} </span>
+                </child>
+            </card>
+
+            <card>
+                <child name="header">支持分组全选的复选框列表</child>
+                <child name="content" class="group-box">
+                    <checkbox :checked.sync="list7" value="A" :child-values="listA" :child-checked.sync="list5" max="1">选择分组A</checkbox>
+                    <checkbox :checked.sync="list5" :value="item" v-for="item in listA" class="box-item">{{item}}</checkbox>
+
+                    <div class="separator"></div>
+
+                    <checkbox :checked.sync="list7" value="B" :child-values="listB" :child-checked.sync="list6" max="1">选择分组B</checkbox>
+                    <checkbox :checked.sync="list6" :value="item" v-for="item in listB" class="box-item">{{item}}</checkbox>
+                </child>
+                <child name="footer">
+                    <span>选中的项:</span>
+                    <span> {{ list7 | json }} </span>
+                </child>
+            </card>
         </div>
     </div>
 </template>
@@ -55,10 +116,18 @@
         },
         data() {
             return {
-                list: ['选项A', '选项B', '选项C'],
+                listA: ['选项A', '选项B', '选项C'],
+                listB: ['选项1', '选项2', '选项3', '选项4'],
                 list1: [],
                 list2: [],
-                list3: ['选项B']
+                list3: ['选项B'],
+                list4: [],
+                list5: [],
+                list6: [],
+                list7: ['A'],
+                checked1: false,
+                checked2: true,
+                checked3: 0
             }
         }
     }
@@ -71,6 +140,16 @@
           box-sizing: border-box;
           overflow: auto;
           background: #eeeeee;
+
+          .group-box {
+              .box-item {
+                  margin-left: 10px;
+              }
+
+              .separator {
+                  height: 15px;
+              }
+          }
       }
   }
 </style>

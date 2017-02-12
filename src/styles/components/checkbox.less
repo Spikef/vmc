@@ -1,17 +1,24 @@
 .vmc-checkbox {
+    font-size: @CheckBoxHeight - 6px;
+    color: @CheckBoxTextColor;
+    height: @CheckBoxHeight;
+    line-height: @CheckBoxHeight;
+    display: block;
+
+    &.inline-block {
+        display: inline;
+        margin-right: @CheckBoxSpace * 2;
+    }
+
     input {
         display: none;
     }
 
     label {
         display: inline-block;
+        vertical-align: top;
         position: relative;
-        height: @CheckBoxHeight;
-        line-height: @CheckBoxHeight;
-        font-size: @CheckBoxHeight - 6px;
-        color: @CheckBoxTextColor;
         padding-left: @CheckBoxHeight - 6px + @CheckBoxSpace;
-        width: 100%;
         box-sizing: border-box;
 
         &:before {

@@ -5,7 +5,7 @@ import Dialog from './components/dialog';
 import Prompt from './components/prompt';
 
 // 表单组件
-import { Checkbox, Checkall } from './components/checkbox';
+import Checkbox from './components/checkbox';
 import Radio from './components/radio';
 import { mInput, vInput } from './components/input';
 import vTextarea from './components/textarea';
@@ -41,7 +41,6 @@ module.exports = {
     Dialog,
     Prompt,
     Checkbox,
-    Checkall,
     mInput,
     vInput,
     vTextarea,

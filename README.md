@@ -71,9 +71,7 @@ Vue.use(VMC);
 
 * [单栏 (Cell)](./src/components/cell)
 
-* [复选框 (CheckBox)](./src/components/checkbox#checkbox)
-
-* [全选 (CheckAll)](./src/components/checkbox#check-all)
+* [复选框 (CheckBox)](./src/components/checkbox)
 
 * [确认框 (Confirm)](./src/components/confirm)
 
