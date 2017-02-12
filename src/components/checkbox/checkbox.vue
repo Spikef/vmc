@@ -1,5 +1,5 @@
 <template>
-    <span class="vmc-checkbox" :class="{ 'inline-block': inline }">
+    <span class="vmc-checkbox" :class="{ inline: inline }">
         <input type="checkbox" :id="id" :value="value" :disabled="disabled" v-model="checkedValue">
         <label :for="id" :class="{disabled: disabled}">
             <slot></slot>
@@ -21,11 +21,11 @@
             values: Array,
             checked: [Boolean, Array],
             disabled: Boolean,
+            inline: Boolean,
             max: {
                 type: [Number, String],
                 coerce: parseInt
             },
-            inline: Boolean,
             childValues: Array,
             childChecked: Array
         },
@@ -39,7 +39,7 @@
                     } else if (Array.isArray(this.values)) {
                         return this.checked === this.values[0];
                     } else {
-                        return this.checked !== undefined;
+                        return !!this.checked;
                     }
                 },
                 set(checked) {
@@ -58,7 +58,7 @@
                     } else if (Array.isArray(this.values)) {
                         this.checked = checked ? this.values[0] : this.values[1];
                     } else {
-                        this.checked = checked ? this.value : undefined;
+                        this.checked = checked;
                     }
                 }
             },

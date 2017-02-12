@@ -100,24 +100,42 @@
                     <span> {{ list7 | json }} </span>
                 </child>
             </card>
+
+            <card>
+                <child name="header">支持多级分组全选的复选框列表</child>
+                <child name="content" class="group-box">
+                    <checkbox :checked.sync="list10" value="A" :child-values="listA" :child-checked.sync="list8">选择分组A</checkbox>
+                    <checkbox :checked.sync="list8" :value="item" v-for="item in listA" class="box-item">{{item}}</checkbox>
+
+                    <div class="separator"></div>
+
+                    <checkbox :checked.sync="list10" value="B" :child-values="listB" :child-checked.sync="list9">选择分组B</checkbox>
+                    <checkbox :checked.sync="list9" :value="item" v-for="item in listB" class="box-item">{{item}}</checkbox>
+                </child>
+                <child name="footer">
+                    <span>
+                        <checkbox :child-values="listC" :child-checked.sync="list10" class="inline-block">全选</checkbox>
+                    </span>
+                </child>
+            </card>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Checkbox, Checkall, Card } from '../../../src';
+    import { Navbar, Checkbox, Card } from '../../../src';
 
     export default {
         components: {
             Navbar,
             Checkbox,
-            Checkall,
             Card
         },
         data() {
             return {
                 listA: ['选项A', '选项B', '选项C'],
                 listB: ['选项1', '选项2', '选项3', '选项4'],
+                listC: ['A', 'B'],
                 list1: [],
                 list2: [],
                 list3: ['选项B'],
@@ -125,6 +143,9 @@
                 list5: [],
                 list6: [],
                 list7: ['A'],
+                list8: [],
+                list9: [],
+                list10: [],
                 checked1: false,
                 checked2: true,
                 checked3: 0
@@ -149,6 +170,10 @@
               .separator {
                   height: 15px;
               }
+          }
+
+          .inline-block {
+              display: inline-block;
           }
       }
   }

@@ -134,6 +134,7 @@ export default {
 | Name | Description | Default |
 | ----- | ----- | ----- |
 | default | 显示的文本内容 | undefined |
+| extra | 额外显示的文本内容 | undefined |
 
 ## Props
 

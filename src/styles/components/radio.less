@@ -1,17 +1,24 @@
 .vmc-radio {
+    font-size: @RadioHeight - 6px;
+    color: @RadioTextColor;
+    height: @RadioHeight;
+    line-height: @RadioHeight;
+    display: block;
+
+    &.inline {
+        display: inline;
+        margin-right: @RadioSpace * 2;
+    }
+    
     input {
         display: none;
     }
 
     label {
         display: inline-block;
+        vertical-align: top;
         position: relative;
-        height: @RadioHeight;
-        line-height: @RadioHeight;
-        font-size: @RadioHeight - 6px;
-        color: @RadioTextColor;
         padding-left: @RadioHeight - 6px + @RadioSpace;
-        width: 100%;
         box-sizing: border-box;
 
         &:before {
@@ -31,6 +38,7 @@
         &:after {
             content: '';
             position: absolute;
+            top: 0;
             left: 2px;
         }
 
