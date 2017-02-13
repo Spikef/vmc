@@ -166,6 +166,40 @@ Vue.use(VMC);
 
 * [文字提示 (Toast)](./src/components/toast#toast)
 
+## 开发与编译
+
+### 开发
+
+```
+$ npm run dev
+```
+
+命令执行之后会自动跑`examples`目录下的文件，用于开发调试。
+
+### 发布
+
+```
+$ npm run release
+```
+
+命令执行之后会将`vmc`发布到`dist`目录下。
+
+### 编译
+
+```
+$ npm run build
+```
+
+命令执行之后会自动将`examples`目录下的文件打包到`docs`目录下。
+
+### 预览
+
+```
+$ npm run docs
+```
+
+命令执行之后会将`docs`目录作为一个静态的文档服务器资源，可以从浏览器直接访问。
+
 ## License
 
 MIT
