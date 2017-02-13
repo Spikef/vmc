@@ -47,7 +47,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Card, Radio, Checkbox } from '../../../src';
+    import { Navbar, Card, Radio, Checkbox } from 'vmc';
 
     export default {
         components: {

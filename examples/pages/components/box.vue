@@ -17,7 +17,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Box } from '../../../src';
+    import { Navbar, Box } from 'vmc';
 
     export default {
         components: {

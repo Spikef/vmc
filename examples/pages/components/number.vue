@@ -40,7 +40,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Number, Card } from '../../../src';
+    import { Navbar, Number, Card } from 'vmc';
 
     export default {
         components: {

@@ -45,7 +45,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, TabControl } from '../../../src';
+    import { Navbar, TabControl } from 'vmc';
 
     export default {
         components: {

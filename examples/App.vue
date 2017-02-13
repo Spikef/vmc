@@ -10,7 +10,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Tabbar } from '../src';
+    import { Tabbar } from 'vmc';
 
     export default {
         name: 'root',

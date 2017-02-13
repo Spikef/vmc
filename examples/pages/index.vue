@@ -47,7 +47,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Cell } from '../../src';
+    import { Navbar, Cell } from 'vmc';
 
     export default {
         name: 'index',

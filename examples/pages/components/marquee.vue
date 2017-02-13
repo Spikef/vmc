@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Marquee,vButton } from '../../../src';
+    import { Navbar, Marquee,vButton } from 'vmc';
 
     export default {
         components: {

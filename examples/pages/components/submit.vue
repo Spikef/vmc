@@ -12,7 +12,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Submit } from '../../../src';
+    import { Navbar, Submit } from 'vmc';
 
     export default {
         components: {

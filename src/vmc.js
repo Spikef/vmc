@@ -17,6 +17,8 @@ require('./styles/vmc.less');
             })
     }
 
+    vmc.version = process.env.VERSION;
+
     if (exports === 'object' && typeof module !== 'undefined') {
         module.exports = vmc;
     } else {

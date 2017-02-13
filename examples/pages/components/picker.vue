@@ -15,7 +15,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, vButton, PopupPicker, Row } from '../../../src';
+    import { Navbar, vButton, PopupPicker, Row } from 'vmc';
 
     export default {
         components: {

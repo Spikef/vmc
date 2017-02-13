@@ -37,7 +37,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Rater, Row, vButton } from '../../../src';
+    import { Navbar, Rater, Row, vButton } from 'vmc';
 
     export default {
         components: {

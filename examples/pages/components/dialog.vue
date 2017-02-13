@@ -25,7 +25,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, vButton, Dialog } from '../../../src';
+    import { Navbar, vButton, Dialog } from 'vmc';
 
     export default {
         components: {

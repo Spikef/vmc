@@ -49,7 +49,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Spinner } from '../../../src';
+    import { Navbar, Spinner } from 'vmc';
 
     export default {
         components: {

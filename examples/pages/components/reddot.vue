@@ -9,7 +9,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar } from '../../../src';
+    import { Navbar } from 'vmc';
 
     export default {
         components: {

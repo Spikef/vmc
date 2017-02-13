@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, DropLoad } from '../../../src';
+    import { Navbar, DropLoad } from 'vmc';
 
     export default {
         components: {

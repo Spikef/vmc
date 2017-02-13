@@ -37,7 +37,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Switch, Card } from '../../../src';
+    import { Navbar, Switch, Card } from 'vmc';
 
     export default {
         components: {

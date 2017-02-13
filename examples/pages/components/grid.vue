@@ -19,7 +19,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, vButton, Grid } from '../../../src';
+    import { Navbar, vButton, Grid } from 'vmc';
 
     export default {
         components: {

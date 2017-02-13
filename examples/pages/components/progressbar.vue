@@ -25,7 +25,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Row, Progressbar } from '../../../src';
+    import { Navbar, Row, Progressbar } from 'vmc';
 
     export default {
         components: {

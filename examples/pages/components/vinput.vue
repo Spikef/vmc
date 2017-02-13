@@ -21,7 +21,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, vInput, Cell, Submit } from '../../../src';
+    import { Navbar, vInput, Cell, Submit } from 'vmc';
 
     export default {
         components: {

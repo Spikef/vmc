@@ -1,4 +1,4 @@
-# vmc
+# VMC
 
 > Mobile components for vue@1.0.21+.
 
@@ -31,7 +31,7 @@ $ npm install vmc --save
 在入口文件中添加以下内容：
 
 ```javascript
-import VMC from 'vmc';
+import VMC from 'vmc/install';
 
 Vue.use(VMC);
 ```
@@ -41,8 +41,14 @@ Vue.use(VMC);
 通过LESS变量覆盖，可以自定义组件的一些初始样式，因此，需要手动引入LESS文件。
 
 ```css
-@import "../src/styles/vmc.less";
+@import "vmc/src/styles/vmc.less";
 @import "assets/less/vmc.custom.less";      // 自定义变量覆盖，参考styles/base/variable.less
+```
+
+#### 引用组件
+
+```javascript
+import { Navbar } from 'vmc';
 ```
 
 ### 普通标签方式引用

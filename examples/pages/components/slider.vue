@@ -35,7 +35,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Slider } from '../../../src';
+    import { Navbar, Slider } from 'vmc';
 
     export default {
         components: {

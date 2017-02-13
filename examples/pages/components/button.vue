@@ -32,7 +32,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, vButton, Spinner } from '../../../src';
+    import { Navbar, vButton, Spinner } from 'vmc';
 
     export default {
         components: {

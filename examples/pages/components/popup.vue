@@ -47,7 +47,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, vButton, Popup } from '../../../src';
+    import { Navbar, vButton, Popup } from 'vmc';
 
     export default {
         components: {

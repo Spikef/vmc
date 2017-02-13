@@ -28,7 +28,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Card } from '../../../src';
+    import { Navbar, Card } from 'vmc';
 
     export default {
         components: {

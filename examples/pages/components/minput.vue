@@ -46,7 +46,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, mInput, Card } from '../../../src';
+    import { Navbar, mInput, Card } from 'vmc';
 
     export default {
         components: {

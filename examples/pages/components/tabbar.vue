@@ -11,7 +11,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Tabbar } from '../../../src';
+    import { Navbar, Tabbar } from 'vmc';
 
     export default {
         name: 'root',

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App';
 import Touch from 'vue-touch';
 import Router from 'vue-router';
-import VMC from '../src/components/install';
+import VMC from 'vmc/install';
 
 if (process.env.NODE_ENV === 'development') {
     Vue.config.debug = true;    // 开启调试模式

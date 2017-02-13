@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, Card, vTextarea } from '../../../src';
+    import { Navbar, Card, vTextarea } from 'vmc';
 
     export default {
         components: {
