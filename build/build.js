@@ -8,6 +8,7 @@ var config = require('./config');
 var ora = require('ora');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.prod.conf');
+var after = require('./after-build');
 
 console.log(
     '  Tip:\n' +
@@ -29,20 +30,9 @@ webpack(webpackConfig, function (err, stats) {
     if (err) throw err;
 
     // --> 后处理
-    var content;
     var root = config.build.assetsRoot;
-    Object.keys(stats.compilation.assets)
-        .forEach(function (file) {
-            file = path.resolve(root, file);
-            content = fs.readFileSync(file, 'utf8');
-            if (/\.css$/i.test(file)) {
-                content = content.replace(/\/static\//g, '../')
-            } else if (/(\.js|\.html)$/i.test(file)) {
-                content = content.replace(/\/static\//g, 'static/')
-            }
-
-            fs.writeFileSync(file, content);
-        });
+    var assets = stats.compilation.assets;
+    after(root, assets);
 
     process.stdout.write(stats.toString({
             colors: true,

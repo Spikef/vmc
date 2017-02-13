@@ -8,6 +8,7 @@ var config = require('./config');
 var ora = require('ora');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.rel.conf');
+var utils = require('./utils');
 
 console.log(
     '  Tip:\n' +
@@ -25,6 +26,18 @@ mkdir('-p', assetsPath);
 webpack(webpackConfig, function (err, stats) {
     spinner.stop();
     if (err) throw err;
+
+    // 将打包好的文件拷到examples下
+    var source, target, root;
+    root = path.resolve(__dirname, '../examples/static');
+
+    source = path.resolve(assetsPath, 'vmc.js');
+    target = path.resolve(root, 'demo-js/vmc.min.js');
+    utils.copyFile(source, target);
+
+    source = path.resolve(assetsPath, 'vmc.css');
+    target = path.resolve(root, 'demo-css/vmc.min.css');
+    utils.copyFile(source, target);
 
     process.stdout.write(stats.toString({
             colors: true,

@@ -1,3 +1,4 @@
+var fs = require('fs');
 var path = require('path');
 var config = require('./config');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -54,4 +55,9 @@ exports.styleLoaders = function (options) {
         })
     }
     return output;
+};
+
+exports.copyFile = function(source, target) {
+    var content = fs.readFileSync(source);
+    fs.writeFileSync(target, content);
 };

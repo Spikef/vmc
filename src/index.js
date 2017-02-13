@@ -69,6 +69,5 @@ module.exports = {
     Box,
     Picker,
     PopupPicker,
-    VMC: require('./components/install'),
     Utils: require('./utils')
 };

@@ -3,8 +3,19 @@ require('./styles/vmc.less');
 
 (function() {
     var vmc = require('./index');
-    vmc.Install = vmc.VMC;
-    delete vmc.VMC;
+    var install = require('./components/install');
+
+    if (window.Vue) {
+        var Vue = window.Vue;
+        Vue.use(install);
+
+        Object.keys(vmc)
+            .forEach(key => {
+                if (key !== 'Utils') {
+                    Vue.component(key, vmc[key]);
+                }
+            })
+    }
 
     if (exports === 'object' && typeof module !== 'undefined') {
         module.exports = vmc;

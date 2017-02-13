@@ -1,8 +1,8 @@
 {
   "name": "vmc",
-  "version": "0.1.15",
+  "version": "0.2.15",
   "description": "Mobile components for vue@1.0.21+",
-  "main": "dist/vmc.js",
+  "main": "src/components/install.js",
   "repository": {
     "type" : "git",
     "url" : "https://github.com/Spikef/vmc"

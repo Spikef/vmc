@@ -2,6 +2,8 @@
 
 > Mobile components for vue@1.0.21+.
 
+[View Demos](https://spikef.github.io/vmc/)
+
 ## 特性介绍
 
 `VMC`是一套针对移动端开发的组件库，适用于`vue@1.0.21+`。
@@ -12,9 +14,11 @@
 + 自定义的`Child`元素，可以实现按需插入元素，同时给予预定义样式；
 + 自定义的`SlotItem`元素，可以方便地自定义循环型组件（如轮播图）中显示的内容。
 
-[View Demos](https://spikef.github.io/vmc/)
-
 ## 如何引用
+
+### 基于webpack的SPA模式
+
+#### 安装与引用
 
 ```bash
 $ npm install vmc --save
@@ -22,17 +26,17 @@ $ npm install vmc --save
 
 `VMC`中部分组件使用了`vue-touch`，请确保您已经安装并使用了此插件。
 
-### 注册全局组件
+#### 注册全局组件
 
 在入口文件中添加以下内容：
 
 ```javascript
-import { VMC } from 'vmc/src';
+import VMC from 'vmc';
 
 Vue.use(VMC);
 ```
 
-### 引入组件样式
+#### 引入组件样式
 
 通过LESS变量覆盖，可以自定义组件的一些初始样式，因此，需要手动引入LESS文件。
 
@@ -40,6 +44,33 @@ Vue.use(VMC);
 @import "../src/styles/vmc.less";
 @import "assets/less/vmc.custom.less";      // 自定义变量覆盖，参考styles/base/variable.less
 ```
+
+### 普通标签方式引用
+
+#### 安装与引用
+
+直接下载`dist`目录下的`vmc.css`和`vmc.js`两个文件。
+
+```html
+<link rel="stylesheet" href="vmc.css">
+
+<div id="app">
+    <v-button type="success" @click="$Alert('Hello world!')">按钮</v-button>
+</div>
+
+<script src="vue.js"></script>
+<script src="vmc.js"></script>
+
+<script>
+    new Vue({
+        el: '#app'
+    });
+</script>
+```
+
+#### 注册全局组件
+
+这种方式会自动注册全局组件，同时自动注册所有组件，无需额外操作。
 
 ## 组件列表
 
