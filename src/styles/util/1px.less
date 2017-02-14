@@ -76,7 +76,7 @@
     }
 }
 
-.vmc-1px-side-base(@pseudo) {
+.vmc-1px-side-base(@color, @pseudo) {
     position    : relative;
     border-color: @color;
 
@@ -88,7 +88,7 @@
 }
 
 .vmc-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = top) {
-    .vmc-1px-side-base(@pseudo);
+    .vmc-1px-side-base(@color, @pseudo);
 
     &:@{pseudo} {
         width       : 100%;
@@ -103,7 +103,7 @@
 }
 
 .vmc-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = bottom) {
-    .vmc-1px-side-base(@pseudo);
+    .vmc-1px-side-base(@color, @pseudo);
 
     &:@{pseudo} {
         width        : 100%;
@@ -118,7 +118,7 @@
 }
 
 .vmc-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = left) {
-    .vmc-1px-side-base(@pseudo);
+    .vmc-1px-side-base(@color, @pseudo);
 
     &:@{pseudo} {
         width       : 1px;
@@ -133,7 +133,7 @@
 }
 
 .vmc-1px-side(@color: #ccc, @direction: top, @pseudo: before) when (@direction = right) {
-    .vmc-1px-side-base(@pseudo);
+    .vmc-1px-side-base(@color, @pseudo);
 
     &:@{pseudo} {
         width       : 1px;
