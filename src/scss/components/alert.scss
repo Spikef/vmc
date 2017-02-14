@@ -1,0 +1,24 @@
+.vmc-alert {
+    &.no-content {
+        .dialog-head {
+            display: flex;
+            align-items: center;
+            min-height: $AlertTitleHeight;
+            padding-bottom: $AlertTitlePadding;
+
+            div {
+                flex: 1;
+                text-align: center;
+            }
+
+            p {
+                display: inline-block;
+                text-align: left;
+            }
+        }
+
+        .dialog-body {
+            display: none;
+        }
+    }
+}

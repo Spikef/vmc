@@ -85,8 +85,12 @@
 </script>
 
 <style rel="stylesheet/less" lang="less">
+    // 基于less与sass对变量覆盖的处理不同，自定义变量值的引入先后方式不一样
     @import "../src/styles/vmc.less";
-    @import "assets/less/vmc.less";
+    /*@import "assets/vmc.custom.less";*/
+
+    /*@import "assets/vmc.custom.scss";*/
+    /*@import "../src/scss/vmc.scss";*/
 
     @import "assets/css/transition.css";
 

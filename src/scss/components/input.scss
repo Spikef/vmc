@@ -1,0 +1,51 @@
+// for both m-input and v-input
+.vmc-input {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    input {
+        outline: none;
+        border: none;
+        height: 100%;
+        width: 100%;
+        padding: $InputPadding;
+        box-sizing: border-box;
+        font-size: $InputTextSize;
+    }
+}
+
+// for v-input only
+.vmc-input-area {
+    position: relative;
+
+    &.invalid label {
+        border-color: $InputInvalidColor;
+    }
+
+    .vmc-input-message {
+        position: absolute;
+        width: $InputMessageWidth;
+        left: 3%;
+        border-radius: 5px;
+        margin-top: 5px;
+        font-size: $InputMessageTextSize;
+        font-weight: 200;
+        padding: 5px;
+        background: $InputMessageBackColor;
+        color: $InputMessageTextColor;
+        z-index: 1;
+
+        &:before {
+            content: " ";
+            background: $InputMessageBackColor;
+            display: block;
+            height: 8px;
+            width: 8px;
+            position: absolute;
+            left: 20px;
+            top: -4px;
+            transform: rotate(45deg);
+        }
+    }
+}

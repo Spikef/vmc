@@ -1,0 +1,15 @@
+.vmc-red-dot {
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        height: $RedDotSize;
+        width: $RedDotSize;
+        border-radius: 50%;
+        background-color: $RedDotColor;
+        position: absolute;
+        top: 0;
+        right: -$RedDotSize;
+    }
+}

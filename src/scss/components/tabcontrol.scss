@@ -1,0 +1,119 @@
+.vmc-tab-control {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    .tab-items {
+        transform: translateZ(0);
+        position: relative;
+        overflow:hidden;
+        display: flex;
+
+        .tab-item {
+            display: block;
+            flex: 1;
+            width: 0%;
+            height: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
+            background-size: 100% 1px;
+            text-align: center;
+        }
+
+        .tab-line {
+            position: absolute;
+            bottom: 0;
+            background-color: $TabControlTabActiveColor1;
+            height: $TabControlTabLineWidth;
+
+            &-left {
+                transition: right $TabControlTransitionDuration $TabControlTransitionTiming,
+                left $TabControlTransitionDuration $TabControlTransitionTiming $TabControlTransitionDuration * 0.3;
+            }
+            &-right {
+                transition: right $TabControlTransitionDuration $TabControlTransitionTiming $TabControlTransitionDuration * 0.3,
+                left $TabControlTransitionDuration $TabControlTransitionTiming;
+            }
+        }
+    }
+
+    .tab-items-1 {
+        height: $TabControlTabHeight1;
+        background-color: $TabControlTabBackColor1;
+        font-size: $TabControlTabTextSize1;
+
+        .tab-item {
+            line-height: $TabControlTabHeight1;
+            color: $TabControlTabDefaultColor1;
+
+            &.active {
+                color: $TabControlTabActiveColor1;
+            }
+        }
+    }
+
+    .tab-items-2 {
+        height: $TabControlTabHeight2;
+        border: $TabControlTabBorderWidth solid $TabControlTabActiveColor2;
+        border-radius: $TabControlTabBorderRadius;
+        font-size: $TabControlTabTextSize2;
+
+        .tab-item {
+            line-height: $TabControlTabHeight2;
+            border-left: 1px solid;
+            border-right: 1px solid;
+            color: $TabControlTabActiveColor2;
+            background: $TabControlTabBackColor2;
+            border-color: $TabControlTabActiveColor2;
+
+            &.active {
+                color: $TabControlTabDefaultColor2;
+                background: $TabControlTabActiveColor2;
+                border-color: $TabControlTabActiveColor2;
+            }
+
+            &:first-child {
+                border-left: none;
+            }
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    .tab-pages {
+        flex: 1;
+        position: relative;
+        transition: transform $TabControlTransitionDuration ease;
+
+        .tab-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: auto;
+
+            &-left-transition, &-right-transition {
+                transition: all $TabControlTransitionDuration ease;
+            }
+
+            &-left-enter, &-right-leave {
+                transform: translate3d(100%, 0, 0);
+            }
+
+            &-left-leave, &-right-enter {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        &.auto-height {
+            .tab-page {
+                position: relative;
+                float: left;
+                width: 100%;
+            }
+        }
+    }
+}

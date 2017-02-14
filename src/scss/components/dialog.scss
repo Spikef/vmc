@@ -1,0 +1,46 @@
+.vmc-dialog {
+    position: absolute;
+    z-index: 500;
+    width: $DialogWidth;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $DialogBackColor;
+    text-align: center;
+    border-radius: $DialogRadius;
+    overflow: hidden;
+
+    .dialog-head {
+        padding: $DialogHeaderPadding;
+        font-weight: 400;
+        font-size: $DialogHeaderTextSize;
+    }
+
+    .dialog-body {
+        padding: $DialogContentPadding;
+        font-size: $DialogContentTextSize;
+        word-wrap: break-word;
+        word-break: break-all;
+        text-align: left;
+    }
+
+    .dialog-foot {
+        line-height: $DialogFooterHeight;
+        font-size: $DialogFooterTextSize;
+        display: flex;
+
+        span {
+            display: block;
+            flex: 1;
+            width: 0%;
+
+            &.primary {
+                color: $DialogPrimaryColor;
+            }
+
+            &.default {
+                color: $DialogDefaultColor;
+            }
+        }
+    }
+}

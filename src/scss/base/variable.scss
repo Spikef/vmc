@@ -1,0 +1,283 @@
+// 全局变量
+$DefaultTextSize: 14px !default;     // 主文字大小
+$SmallTextSize: 12px !default;       // 小号文字大小
+$DefaultColor: #b3b3b3 !default;     // 默认文字颜色
+$PrimaryColor: #ff0000 !default;     // 默认主颜色
+$SecondaryColor: #04be02 !default;   // 默认次颜色
+$BarBackColor: #000000 !default;     // 工具栏背景色
+$BarTextColor: #fff !default;        // 工具栏文字颜色
+$HorizontalPadding: 12px !default;   // 区块水平内边距
+$VerticalPadding: 10px !default;     // 区域垂直内边距
+$TransitionDuration: .3s !default;   // 默认动画过渡时间
+
+// 1像素边框颜色
+$BorderColor: #ccc !default;         // 边框颜色
+
+// 徽标
+$BadgeTextColor: #fff !default;          // 文字颜色
+$BadgeBackColor: #f74c31 !default;       // 背景颜色
+$BadgeTextSize: $SmallTextSize !default; // 文字大小
+$BadgeHeight: 16px !default;             // 高度
+
+// 小红点儿
+$RedDotColor: $PrimaryColor !default;    // 颜色
+$RedDotSize: 6px !default;               // 大小
+
+// Action Sheet
+$ActionSheetBackColor: #e0e0e0 !default;             // 背景色
+$ActionSheetButtonHeight: 40px !default;             // 按钮高度
+$ActionSheetButtonBackColor: #fff !default;          // 按钮背景色
+
+// Alert
+$AlertTitleHeight: 50px !default;                // 标题栏最小高度
+$AlertTitlePadding: 15px !default;               // 标题底边距
+
+// Box
+
+// Button
+$ButtonHeight: 40px !default;                    // 按钮默认高度
+$ButtonTextSize: $DefaultTextSize !default;      // 按钮默认文字大小
+$ButtonDefaultColor: #444 !default;              // 按钮文字颜色
+$ButtonDefaultBorder: #ddd !default;             // 按钮边框颜色
+$ButtonDefaultBackColor: #f4f4f4 !default;       // 按钮背景色
+$ButtonPrimaryColor: #fff !default;              // 按钮文字颜色
+$ButtonPrimaryBorder: #367fa9 !default;          // 按钮边框颜色
+$ButtonPrimaryBackColor: #3c8dbc !default;       // 按钮背景色
+$ButtonSuccessColor: #fff !default;              // 按钮文字颜色
+$ButtonSuccessBorder: #008d4c !default;          // 按钮边框颜色
+$ButtonSuccessBackColor: #00a65a !default;       // 按钮背景色
+$ButtonInfoColor: #fff !default;                 // 按钮文字颜色
+$ButtonInfoBorder: #00acd6 !default;             // 按钮边框颜色
+$ButtonInfoBackColor: #00c0ef !default;          // 按钮背景色
+$ButtonDangerColor: #fff !default;               // 按钮文字颜色
+$ButtonDangerBorder: #d73925 !default;           // 按钮边框颜色
+$ButtonDangerBackColor: #e40013 !default;        // 按钮背景色
+$ButtonWarningColor: #fff !default;              // 按钮文字颜色
+$ButtonWarningBorder: #e08e0b !default;          // 按钮边框颜色
+$ButtonWarningBackColor: #f39c12 !default;       // 按钮背景色
+
+// Card
+$CardBackColor: #fff !default;                               // 卡片背景颜色
+$CardTransitionDuration: $TransitionDuration !default;       // 收缩动画过渡时间
+$CardCardSpace: 15px !default;                               // 上下两个卡片之间的间距
+$CardHorizontalPadding: $HorizontalPadding !default;         // 卡片水平内边距
+$CardVerticalPadding: 10px !default;                         // 卡片内容区垂直内边距
+$CardHeaderHeight: 45px !default;                            // 卡片头高度
+$CardHeaderTextSize: 16px !default;                          // 卡片头文字大小
+$CardContentTextSize: 15px !default;                         // 卡片内容区文字大小
+$CardFooterHeight: 40px !default;                            // 卡片尾高度
+$CardFooterTextSize: 13px !default;                          // 卡片尾文字大小
+$CardFooterTextColor: #5f646e !default;                      // 卡片尾文字颜色
+
+// Cell
+$CellBackColor: #fff !default;                           // 背景颜色
+$CellMinHeight: 45px !default;                           // 最小高度
+$CellHorizontalPadding: $HorizontalPadding !default;     // 水平内边距
+$CellIconTextSpace: 15px !default;                       // 左图标与文字之间的距离
+$CellArrowColor: #cecece !default;                       // 右箭头的颜色
+$CellArrowScale: 0.8 !default;                           // 右箭头的缩放比例
+$CellTextSize: 15px !default;                            // 文字大小
+
+// Checkbox
+$CheckBoxHeight: 20px !default;                                              // 复选框高度
+$CheckBoxRadius: 2px !default;                                               // 勾选框的圆角半径
+$CheckBoxSpace: 10px !default;                                               // 勾选框与文字之间的距离
+$CheckBoxTextColor: #243441 !default;                                        // 文字颜色
+$CheckBoxBackColor: #fff !default;                                           // 勾选框背景色
+$CheckBoxBorderColor: #c1caca !default;                                      // 勾选框边框颜色
+$CheckBoxCheckColor: #fff !default;                                          // 勾的颜色
+$CheckBoxDisabledBackColor: #e6e6e6 !default;                                // 禁用状态下勾选框背景色
+$CheckBoxDisabledBorderColor: $CheckBoxBorderColor !default;                 // 禁用状态下勾选框边框颜色
+$CheckBoxDisabledCheckColor: #b1b1b1 !default;                               // 禁用状态下勾的颜色
+$CheckBoxCheckedBackColor: $PrimaryColor !default;                           // 选中状态下勾选框背景色
+$CheckBoxCheckedBorderColor: $PrimaryColor !default;                         // 选中状态下勾选框边框颜色
+$CheckBoxCheckedCheckColor: $CheckBoxCheckColor !default;                    // 选中状态下勾的颜色
+$CheckBoxDisabledCheckedBackColor: $CheckBoxDisabledBackColor !default;      // 禁用并选中状态下勾选框背景色
+$CheckBoxDisabledCheckedBorderColor: $CheckBoxBorderColor !default;          // 禁用并选中状态下勾选框边框颜色
+$CheckBoxDisabledCheckedCheckColor: $CheckBoxDisabledCheckColor !default;    // 禁用并选中状态下勾的颜色
+
+// Confirm
+$ConfirmTitleHeight: $AlertTitleHeight !default;         // 标题栏最小高度
+$ConfirmTitlePadding: $AlertTitlePadding !default;       // 标题底边距
+
+// Dialog
+$DialogWidth: 85% !default;                              // 对话框宽度
+$DialogBackColor: #fafafc !default;                      // 对话框背景颜色
+$DialogRadius: 5px !default;                             // 对话框圆角半径
+$DialogHeaderPadding: 15px 20px 10px !default;           // 标题栏内边距
+$DialogHeaderTextSize: 17px !default;                    // 标题栏文字大小
+$DialogContentPadding: 20px !default;                    // 内容区内边距
+$DialogContentTextSize: 15px !default;                   // 内容区文字大小
+$DialogFooterHeight: 42px !default;                      // 尾部高度
+$DialogFooterTextSize: $DialogHeaderTextSize !default;   // 尾部文字大小
+$DialogPrimaryColor: $PrimaryColor !default;             // 底部按钮主颜色
+$DialogDefaultColor: $DefaultColor !default;             // 底部按钮默认色
+
+// Drop Load
+$DropLoadTipTextSize: $SmallTextSize !default;   // 提示文字大小
+$DropLoadDownHeight: 50px !default;              // 提示区域高度
+
+// Grid
+
+// Input
+$InputPadding: 5px !default;                     // 输入框内边距
+$InputTextSize: $DefaultTextSize !default;       // 输入框文字大小
+$InputInvalidColor: $PrimaryColor !default;      // 输入错误时的边框提示颜色
+$InputMessageWidth: 70% !default;                // 输入错误提示信息的宽度
+$InputMessageTextSize: $SmallTextSize !default;  // 输入错误提示信息的文字大小
+$InputMessageTextColor: #fff !default;           // 输入错误提示信息的文字颜色
+$InputMessageBackColor: #363636 !default;        // 输入错误提示信息的背景色
+
+// Justify
+
+// Marquee
+$MarqueeTransitionDuration: .2s !default;    // 切换动画过渡时间
+$MarqueeHeight: 30px !default;               // 高度
+$MarqueeBackColor: #efefef !default;         // 背景色
+$MarqueeTextColor: $PrimaryColor !default;   // 文字颜色
+$MarqueeTextSize: $DefaultTextSize !default; // 文字大小
+$MarqueeIconScale: 0.6 !default;             // 图标缩放比例
+
+// Mask
+$MaskBackColor: rgba(0, 0, 0, .4) !default;  // 背景色
+
+// Navbar
+$NavbarHeight: 50px !default;                // 高度
+$NavbarIconWidth: 50px !default;             // 左右图标栏宽度
+$NavbarBackColor: $BarBackColor !default;    // 背景色
+$NavbarTextColor: $BarTextColor !default;    // 文字颜色
+$NavbarTextSize: 18px !default;              // 文字大小
+
+// Number
+$NumberWidth: 30px !default;                 // 输入框宽度
+$NumberHeight: $NumberWidth !default;        // 高度
+
+// Picker
+$PickerLineHeight: 35px !default;        // 单行元素高度
+$PickerSplitColor: #eee !default;        // 分割线颜色
+$PickerTextSize: 16px !default;          // 元素文字主大小
+
+// Popup
+$PopupBackColor: #fff !default;                  // 弹出层背景色
+$PopupTopHeight: 50px !default;                  // 上弹出层最小高度
+$PopupTopTextColor: #fff !default;               // 上弹出层文字颜色
+$PopupTopBackColor: rgba(0, 0, 0, .7) !default;  // 上弹出层背景色
+
+// Popup Picker
+$PopupPickerHeaderHeight: 44px !default;             // 标题栏高度
+$PopupPickerHeaderBackColor: #d5d5d6 !default;       // 标题栏背景色
+$PopupPickerHeaderTextSize: 16px !default;           // 标题栏文字大小
+$PopupPickerHeaderButtonPadding: 20px !default;      // 标题栏按钮左右内边距
+$PopupPickerHeaderButtonTextColor: #777 !default;    // 标题栏按钮文字颜色
+
+// Progressbar
+$ProgressbarHeight: 8px !default;            // 进度条高度
+$ProgressbarBackColor: #b3b3b3 !default;     // 进度条背景色
+$ProgressbarColor: #2db7f5 !default;         // 进度条颜色
+
+// Prompt
+$PromptInputHeight: 40px !default;                       // 输入框高度
+$PromptInputPadding: $InputPadding !default;             // 输入框内边距
+$PromptInputTextSize: $InputTextSize !default;           // 输入框文字大小
+$PromptInputInvalidColor: $InputInvalidColor !default;   // 输入错误时的边框提示颜色
+$PromptMessageTextSize: $InputMessageTextSize !default;  // 输入错误提示信息的文字大小
+$PromptMessageTextColor: $InputInvalidColor !default;    // 输入错误提示信息的文字颜色
+$PromptMessageInputSpace: 5px !default;                  // 输入错误提示信息与输入框边距
+
+// Radio
+$RadioHeight: $CheckBoxHeight !default;                                          // 单选框高度
+$RadioSpace: $CheckBoxSpace !default;                                            // 勾选框与文字之间的距离
+$RadioTextColor: $CheckBoxTextColor !default;                                    // 文字颜色
+$RadioBackColor: $CheckBoxBackColor !default;                                    // 勾选框背景色
+$RadioBorderColor: $CheckBoxBorderColor !default;                                // 勾选框边框颜色
+$RadioCheckColor: $CheckBoxCheckColor !default;                                  // 勾的颜色
+$RadioDisabledBackColor: $CheckBoxDisabledBackColor !default;                    // 禁用状态下勾选框背景色
+$RadioDisabledBorderColor: $CheckBoxDisabledBorderColor !default;                // 禁用状态下勾选框边框颜色
+$RadioDisabledCheckColor: $CheckBoxDisabledCheckColor !default;                  // 禁用状态下勾的颜色
+$RadioCheckedBackColor: $CheckBoxCheckedBackColor !default;                      // 选中状态下勾选框背景色
+$RadioCheckedBorderColor: $CheckBoxCheckedBorderColor !default;                  // 选中状态下勾选框边框颜色
+$RadioCheckedCheckColor: $CheckBoxCheckedCheckColor !default;                    // 选中状态下勾的颜色
+$RadioDisabledCheckedBackColor: $CheckBoxDisabledCheckedBackColor !default;      // 禁用并选中状态下勾选框背景色
+$RadioDisabledCheckedBorderColor: $CheckBoxDisabledCheckedBorderColor !default;  // 禁用并选中状态下勾选框边框颜色
+$RadioDisabledCheckedCheckColor: $CheckBoxDisabledCheckedCheckColor !default;    // 禁用并选中状态下勾的颜色
+
+// Rater
+$RaterColor: #ccc !default;          // 未选中状态的默认颜色
+$RaterActiveColor: #ffad34 !default; // 选中状态的颜色
+$RaterGutter: 2px !default;          // 星与星之间的间距
+$RaterStarSize: 25px !default;       // 星的大小
+
+// Row
+$RowHorizontalPadding: $HorizontalPadding !default;  // 水平内边距
+$RowBackColor: #fff !default;                        // 背景色
+$RowMinHeight: 45px !default;                        // 最小高度
+$RowTextSize: 15px !default;                         // 文字大小
+$RowTitleWidth: 80px !default;                       // 标题栏最小宽度
+
+// Slider
+$SliderTitlePadding: 10px !default;                  // 标题栏内边距
+$SliderTitleBackColor: rgba(0,0,0,.7) !default;      // 标题栏背景颜色
+$SliderTitleTextColor: #fff !default;                // 标题栏文字颜色
+$SliderTitleTextSize: $DefaultTextSize !default;     // 标题栏文字大小
+$SliderDotsDistance: 8px !default;                   // 点的上或下边距
+$SliderDotSize: 6px !default;                        // 点的大小
+$SliderDotColor: #d0cdd1 !default;                   // 点的默认颜色
+$SliderDotActiveColor: #323232 !default;             // 点的当前颜色
+$SliderGutter: 0 !default;                           // 多张图片时，图片之间的间距
+
+// Spinner
+$SpinnerSize: 28px !default;         // 指示器默认大小
+$SpinnerColor: #ccc !default;        // 指示器默认颜色
+
+// Submit
+
+// Switch
+$SwitchWidth: 50px !default;                     // 宽度
+$SwitchHeight: $SwitchWidth * 0.6 !default;      // 高度
+$SwitchTextSize: $SwitchHeight / 2 !default;     // 文字大小
+$SwitchTextSpace: 5px !default;                  // 与提示文字之间的距离
+$SwitchTextColor: #243441 !default;              // 文字颜色
+$SwitchBorderColor: #dfdfdf !default;            // 边框颜色
+$SwitchBackColor: #fdfdfd !default;              // 背景颜色
+$SwitchColor: #fff !default;                     // 默认颜色
+$SwitchCheckedColor: $SecondaryColor !default;   // 选中颜色
+
+// Tabbar
+$TabbarHeight: 55px !default;                    // 高度
+$TabbarBackColor: $BarBackColor !default;        // 背景色
+$TabbarTextColor: #5e5e5e !default;              // 文字颜色
+$TabbarTextSize: 13px !default;                  // 文字大小
+$TabbarTextActiveColor: $BarTextColor !default;  // 当前文字颜色
+
+// TabControl
+$TabControlTransitionDuration: $TransitionDuration !default;             // 过渡动画时间
+$TabControlTransitionTiming: cubic-bezier(0.35, 0, 0.25, 1) !default;    // 横线过渡动画效果
+$TabControlTabTextSize1: $DefaultTextSize !default;                      // 当type=1时的Tab文字大小
+$TabControlTabHeight1: 44px !default;                                    // 当type=1时的Tab高度
+$TabControlTabLineWidth: 2px !default;                                   // 当type=1时的横线宽度
+$TabControlTabDefaultColor1: #b2b2b2 !default;                           // 当type=1时的Tab默认颜色
+$TabControlTabActiveColor1: #000 !default;                               // 当type=1时的Tab高亮颜色
+$TabControlTabBackColor1: #fff !default;                                 // 当type=1时的Tab背景颜色
+$TabControlTabTextSize2: $TabControlTabTextSize1 !default;               // 当type=2时的Tab文字大小
+$TabControlTabHeight2: 30px !default;                                    // 当type=2时的Tab高度
+$TabControlTabDefaultColor2: #fff !default;                              // 当type=2时的Tab默认颜色
+$TabControlTabActiveColor2: #007aff !default;                            // 当type=2时的Tab高亮颜色
+$TabControlTabBackColor2: #fff !default;                                 // 当type=2时的Tab背景颜色
+$TabControlTabBorderWidth: 2px !default;                                 // 当type=2时的边框宽度
+$TabControlTabBorderRadius: 6px !default;                                // 当type=2时的圆角半径
+
+// TextArea
+$TextAreaPadding: $InputPadding !default;                // 文本框内边距
+$TextAreaTextSize: $InputTextSize !default;              // 文本框文字大小
+$TextAreaTipTextSize: $InputMessageTextSize !default;    // 文本框提示区文字大小
+$TextAreaTipTextColor: #e0e0e0 !default;                 // 文本框提示区文字颜色
+
+// Toast
+$ToastMaxWidth: 80% !default;                                // 提示框最大宽度
+$ToastRadius: 5px !default;                                  // 提示框圆角半径
+$ToastPadding: 10px !default;                                // 提示框内边距
+$ToastBackColor: rgba(0, 0, 0, 0.7) !default;                // 提示框背景色
+$ToastTextColor: #fff !default;                              // 提示框文字颜色
+$ToastTextSize: $DefaultTextSize !default;                   // 提示框文字大小
+$ToastIconSize: 30px !default;                               // 提示框图标大小
+$ToastTransitionDuration: $TransitionDuration !default;      // 提示框动画过渡时间

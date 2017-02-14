@@ -1,0 +1,29 @@
+.vmc-prompt {
+    .prompt-input{
+        padding-top: $PromptInputPadding;
+
+        .error-message {
+            color: $PromptMessageTextColor;
+            font-size: $PromptMessageTextSize;
+            margin-top: $PromptMessageInputSpace;
+        }
+
+        label {
+            display: block;
+        }
+
+        input {
+            box-sizing: border-box;
+            border: none;
+            padding: $PromptInputPadding;
+            font-size: $PromptInputTextSize;
+            height: $PromptInputHeight;
+            width: 100%;
+            appearance: none;
+            outline: none;
+        }
+        .invalid {
+            border-color: $PromptInputInvalidColor;
+        }
+    }
+}

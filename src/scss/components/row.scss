@@ -1,0 +1,26 @@
+.vmc-row {
+    padding: 0 $RowHorizontalPadding;
+    background: $RowBackColor;
+    min-height: $RowMinHeight;
+    font-size: $RowTextSize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.left {
+        justify-content: flex-start;
+
+        > div {
+            flex: 1;
+        }
+    }
+
+    &:first-child:before {
+        border: none;
+    }
+
+    label {
+        display: block;
+        min-width: $RowTitleWidth;
+    }
+}

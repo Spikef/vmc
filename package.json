@@ -1,11 +1,11 @@
 {
   "name": "vmc",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "description": "Mobile components for vue@1.0.21+",
   "main": "src/index.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Spikef/vmc"
+    "type": "git",
+    "url": "https://github.com/Spikef/vmc"
   },
   "keywords": [
     "vue",
@@ -40,16 +40,18 @@
     "json-loader": "^0.5.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "node-sass": "^4.5.0",
     "ora": "^0.2.0",
+    "sass-loader": "^4.1.1",
     "shelljs": "^0.6.0",
     "url-loader": "^0.5.7",
     "vue": "^1.0.21",
-    "vue-touch": "^1.1.0",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^8.3.0",
     "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
+    "vue-touch": "^1.1.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",

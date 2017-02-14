@@ -1,0 +1,25 @@
+.vmc-number {
+    display: flex;
+    height: $NumberHeight;
+    line-height: $NumberHeight;
+
+    span {
+        display: block;
+        text-align: center;
+        min-width: $NumberWidth;
+        font-size: 12px;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    label {
+        width: $NumberWidth;
+    }
+
+    .vmc-input:before {
+        border-left: none;
+        border-right: none;
+    }
+}

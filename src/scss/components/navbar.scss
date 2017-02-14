@@ -1,0 +1,35 @@
+.vmc-topbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: $NavbarHeight;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vmc-navbar {
+    color: $NavbarTextColor;
+    background-color: $NavbarBackColor;
+    font-size: $NavbarTextSize;
+
+    .left {
+        width: $NavbarIconWidth;
+        padding: ($NavbarHeight - 32px) / 2 0;
+    }
+
+    .center {
+        flex: 1;
+        text-align: center;
+    }
+
+    .right {
+        width: $NavbarIconWidth;
+        height: 100%;
+    }
+
+    +div {
+        padding-top: $NavbarHeight !important;
+    }
+}

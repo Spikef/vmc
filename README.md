@@ -10,6 +10,7 @@
 
 + 将使用频度高的组件全局化，直接注册到Vue实例化对象上；
 + 全部样式基于LESS，并允许通过覆盖LESS变量的方式快速初始化组件样式；
++ 同时，你也可以选择使用SASS，我们同样提供了基于SCSS的样式表；
 + 可以通过属性来单独定义每个组件的样式(写到style上，这样便能覆盖在LESS中定义的全局样式)；
 + 自定义的`Child`元素，可以实现按需插入元素，同时给予预定义样式；
 + 自定义的`SlotItem`元素，可以方便地自定义循环型组件（如轮播图）中显示的内容。
@@ -38,11 +39,18 @@ Vue.use(VMC);
 
 #### 引入组件样式
 
-通过LESS变量覆盖，可以自定义组件的一些初始样式，因此，需要手动引入LESS文件。
+> 通过LESS变量覆盖，可以自定义组件的一些初始样式，因此，需要手动引入LESS文件。
 
 ```css
 @import "vmc/src/styles/vmc.less";
 @import "assets/less/vmc.custom.less";      // 自定义变量覆盖，参考styles/base/variable.less
+```
+
+> 或者使用SASS变量覆盖，来自定义组件的一些初始样式，同样需要手动引入SCSS文件。
+
+```css
+@import "assets/scss/vmc.custom.scss";      // 自定义变量覆盖，参考scss/base/variable.scss
+@import "vmc/src/scss/vmc.scss";
 ```
 
 #### 引用组件

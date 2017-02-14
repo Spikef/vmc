@@ -1,0 +1,29 @@
+.vmc-cell {
+    padding: 0 $CellHorizontalPadding;
+    min-height: $CellMinHeight;
+    display: flex;
+    align-items: center;
+    background: $CellBackColor;
+
+    + .vmc-cell:before {
+        border: none;
+    }
+
+    .cell-icon {
+        margin-right: $CellIconTextSpace;
+    }
+
+    .cell-title {
+        flex: 1;
+        font-size: $CellTextSize;
+    }
+
+    .cell-arrow {
+        margin-right: -$CellHorizontalPadding;
+
+        .icono-caretRight {
+            color: $CellArrowColor;
+            transform: scale($CellArrowScale);
+        }
+    }
+}

@@ -1,0 +1,51 @@
+.vmc-toast {
+    .block {
+        position: absolute;
+        max-width: $ToastMaxWidth;
+        border-radius: $ToastRadius;
+        background: $ToastBackColor;
+        color: $ToastTextColor;
+        box-sizing: border-box;
+        text-align: center;
+        z-index: 500;
+        transition: opacity $ToastTransitionDuration linear;
+        padding: $ToastPadding;
+
+        &.block-top {
+            top: 50px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        &.block-center {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &.block-bottom {
+            bottom: 50px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        .icon {
+            font-size: $ToastIconSize;
+            text-align: center;
+
+            > div {
+                margin:0 auto
+            }
+        }
+
+        .text {
+            display: block;
+            font-size: $ToastTextSize;
+            text-align: center;
+        }
+    }
+}
+
+.vmc-toast-enter, .vmc-toast-leave {
+    opacity: 0;
+}

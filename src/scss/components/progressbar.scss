@@ -1,0 +1,23 @@
+.vmc-progressbar {
+    .bar-outer {
+        position: relative;
+        width: 100%;
+        height: $ProgressbarHeight;
+        border-radius: 100px;
+        background: $ProgressbarBackColor;
+
+        .bar-inner {
+            position: absolute;
+            left: -1px;
+            right: -1px;
+            top: 0;
+            bottom: 0;
+
+            div {
+                height: 100%;
+                border-radius: 100px;
+                background: $ProgressbarColor;
+            }
+        }
+    }
+}

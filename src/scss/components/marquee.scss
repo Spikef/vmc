@@ -1,0 +1,50 @@
+.vmc-marquee {
+    height: $MarqueeHeight;
+    background: $MarqueeBackColor;
+    color: $MarqueeTextColor;
+    position: relative;
+    overflow-y: hidden;
+
+    .marquee-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        font-size: $MarqueeTextSize;
+
+        [class*="icono-"] {
+            transform: scale($MarqueeIconScale);
+        }
+
+        > p, > i {
+            display: block;
+        }
+
+        &.left {
+            justify-content: flex-start;
+        }
+
+        &.center {
+            justify-content: center;
+        }
+
+        &.right {
+            justify-content: flex-end;
+        }
+    }
+
+    &-up-transition, &-down-transition {
+        transition: all $MarqueeTransitionDuration ease;
+    }
+
+    &-up-enter, &-down-leave {
+        transform: translate3d(0, 100%, 0);
+    }
+
+    &-up-leave, &-down-enter {
+        transform: translate3d(0, -100%, 0);
+    }
+}
