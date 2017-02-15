@@ -6,7 +6,7 @@
                 <div class="title">{{title}}</div>
                 <div class="right" @click="_onSubmit">{{confirm}}</div>
             </div>
-            <picker :list="list" :value="value" :value-type="valueType" :value-separator="valueSeparator" @on-change="_onChange"></picker>
+            <picker @on-change="_onChange" v-props></picker>
         </div>
     </popup>
 </template>
@@ -67,12 +67,12 @@
             _onSubmit() {
                 this.show = false;
                 this.value = this.selValue;
-                this.$emit('on-submit', this.result);
+                this.$emit('on-submit', this.value);
             },
-            _onChange(target, result, value) {
+            _onChange(result, value, target) {
                 this.result = result;
                 this.selValue = value;
-                this.$emit('on-change', target, result, value);
+                this.$emit('on-change', result, value, target);
             },
             _stopDefault(e){
                 e.preventDefault();

@@ -105,8 +105,8 @@ export default {
 | Name | Description | Arguments |
 | ----- | ----- | ----- |
 | on-cancel | 点击取消时触发该事件 | value：初始选择结果 |
-| on-submit | 点击确定时触发该事件 | result：选中的对象 |
-| on-change | 选择值改变时触发该事件 | target：元素对象<br> result：选中的对象 <br> selValue：最终组合的选择结果 |
+| on-submit | 点击确定时触发该事件 | value：选中的对象 |
+| on-change | 选择值改变时触发该事件 | result：选中的对象 <br> value：最终组合的选择结果 <br> target：元素对象 |
 
 ## LESS
 

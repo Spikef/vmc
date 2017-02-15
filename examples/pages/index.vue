@@ -4,44 +4,45 @@
         <div class="content">
             <div class="title">表单组件</div>
 
-            <cell @click="jump('checkbox')">checkbox</cell>
-            <cell @click="jump('radio')">radio</cell>
-            <cell @click="jump('button')">button</cell>
-            <cell @click="jump('submit')">submit</cell>
-            <cell @click="jump('switch')">switch</cell>
-            <cell @click="jump('minput')">input (auto fix)</cell>
-            <cell @click="jump('vinput')">input (prompt)</cell>
-            <cell @click="jump('textarea')">textarea</cell>
-            <cell @click="jump('number')">number</cell>
-            <cell @click="jump('rater')">rater</cell>
+            <cell @click="jump('checkbox')">Checkbox</cell>
+            <cell @click="jump('radio')">Radio</cell>
+            <cell @click="jump('button')">Button</cell>
+            <cell @click="jump('submit')">Submit</cell>
+            <cell @click="jump('switch')">Switch</cell>
+            <cell @click="jump('minput')">Input (Auto Fix)</cell>
+            <cell @click="jump('vinput')">Input (Prompt)</cell>
+            <cell @click="jump('textarea')">TextArea</cell>
+            <cell @click="jump('number')">Number</cell>
+            <cell @click="jump('rater')">Rater</cell>
 
             <div class="title">全局组件</div>
-            <cell @click="jump('message')">message</cell>
-            <cell @click="jump('toast')">toast</cell>
+            <cell @click="jump('message')">Message</cell>
+            <cell @click="jump('toast')">Toast</cell>
 
             <div class="title">UI组件</div>
-            <cell @click="jump('dialog')">dialog</cell>
-            <cell @click="jump('popup')">popup</cell>
-            <cell @click="jump('spinner')">spinner</cell>
-            <cell @click="jump('dropload')">dropload</cell>
-            <cell @click="jump('tabbar')">tabbar</cell>
-            <cell @click="jump('grid')">grid</cell>
-            <cell @click="jump('box')">box</cell>
-            <cell @click="jump('justify')">justify</cell>
-            <cell @click="jump('nowrap')">nowrap</cell>
-            <cell @click="jump('reddot')">reddot</cell>
-            <cell @click="jump('badge')">badge</cell>
-            <cell @click="jump('tabcontrol')">tabcontrol</cell>
-            <cell @click="jump('progressbar')">progressbar</cell>
-            <cell @click="jump('icons')">icons</cell>
-            <cell @click="jump('card')">card</cell>
-            <cell @click="jump('marquee')">marquee</cell>
-            <cell @click="jump('actionsheet')">actionsheet</cell>
-            <cell @click="jump('slider')">slider</cell>
-            <cell @click="jump('picker')">picker</cell>
+            <cell @click="jump('dialog')">Dialog</cell>
+            <cell @click="jump('popup')">Popup</cell>
+            <cell @click="jump('spinner')">Spinner</cell>
+            <cell @click="jump('dropload')">DropLoad</cell>
+            <cell @click="jump('tabbar')">Tabbar</cell>
+            <cell @click="jump('grid')">Grid</cell>
+            <cell @click="jump('box')">Box</cell>
+            <cell @click="jump('justify')">Justify</cell>
+            <cell @click="jump('nowrap')">Nowrap</cell>
+            <cell @click="jump('reddot')">RedDot</cell>
+            <cell @click="jump('badge')">Badge</cell>
+            <cell @click="jump('tabcontrol')">TabControl</cell>
+            <cell @click="jump('progressbar')">Progressbar</cell>
+            <cell @click="jump('icons')">Icons</cell>
+            <cell @click="jump('card')">Card</cell>
+            <cell @click="jump('marquee')">Marquee</cell>
+            <cell @click="jump('actionsheet')">Action Sheet</cell>
+            <cell @click="jump('slider')">Slider</cell>
+            <cell @click="jump('picker')">Picker</cell>
+            <cell @click="jump('datepicker')">Date Picker</cell>
 
             <div class="title">其它功能</div>
-            <cell @click="jump('shake')">shake</cell>
+            <cell @click="jump('shake')">Shake</cell>
         </div>
     </div>
 </template>

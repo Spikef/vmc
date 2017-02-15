@@ -202,5 +202,11 @@ module.exports = {
         doc_title: 'picker',
         component: require('./components/picker.vue'),
         depth: 20
+    },
+    '/components/datepicker': {
+        name: 'datepicker',
+        doc_title: 'datepicker',
+        component: require('./components/datepicker.vue'),
+        depth: 20
     }
 };

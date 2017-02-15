@@ -41,10 +41,10 @@ export default {
         }
     },
     methods: {
-        _onChange(target, result, value) {
+        _onChange(result, value, target) {
             this.result = result;
             this.selValue = value;
-            this.$emit('on-change', target, result, value);
+            this.$emit('on-change', result, value, target);
         }
     }
 }
@@ -77,7 +77,7 @@ export default {
 
 | Name | Description | Arguments |
 | ----- | ----- | ----- |
-| on-change | 选择值改变时触发该事件 | target：元素对象<br> result：选中的对象 <br> selValue：最终组合的选择结果 |
+| on-change | 选择值改变时触发该事件 | result：选中的对象 <br> value：最终组合的选择结果 <br> target：元素对象 |
 
 ## LESS
 

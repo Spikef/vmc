@@ -26,7 +26,6 @@
         },
         data() {
             return {
-                value: null,
                 showPop1: false,
                 showPop2: false,
                 showPop3: false,
@@ -35,42 +34,58 @@
                 showPop6: false,
                 showPop7: false,
                 value1: '步步高',
-                value2: '魅族 MX2',
+                value2: '',
                 list1: ['苹果', '小米', '魅族', '华为', '三星', '步步高', '诺基亚'],
-                list2: [
+                list2: [],
+                list: [
                     ['苹果', '魅族'],
                     [
                         {
                             value: 'iPhone4',
-                            parentId: '苹果'
+                            parentId: 0
                         },
                         {
                             value: 'iPhone5',
-                            parentId: '苹果'
+                            parentId: 0
                         },
                         {
                             value: 'iPhone6',
-                            parentId: '苹果'
+                            parentId: 0
                         },
                         {
                             value: 'iPhone6S',
-                            parentId: '苹果'
+                            parentId: 0
                         },
                         {
                             value: 'iPhone7',
-                            parentId: '苹果'
+                            parentId: 0
                         },
                         {
                             value: 'iPhone7S',
-                            parentId: '苹果'
+                            parentId: 0
                         },
                         {
                             value: 'MX2',
-                            parentId: '魅族'
+                            parentId: 1
+                        },
+                        {
+                            value: 'MX4',
+                            parentId: 1
+                        },
+                        {
+                            value: 'MX5',
+                            parentId: 1
                         }
                     ]
-                ],
+                ]
             }
+        },
+        ready() {
+            // 模拟异步加载数据的情况
+            setTimeout(() => {
+                this.list2 = this.list;
+                this.value2 = '魅族 MX4';
+            }, 1000);
         }
     }
 </script>

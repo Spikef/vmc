@@ -1,21 +1,21 @@
 <template>
     <div class="vmc-picker">
-        <div class="picker-list" v-for="($p, item) in state">
-            <ul :class="{'dragging': item.dragging}"
+        <div class="picker-list" v-for="($p, data) in shadowList">
+            <ul :class="{'dragging': state[$p].dragging}"
                 @touchstart="_onTouchStart($p, $event)"
                 @mousedown="_onTouchStart($p, $event)"
                 :style="{'transform' : 'translate3d(0,' + state[$p].translateY + 'px, 0)'}">
                 <li></li>
                 <li></li>
                 <li></li>
-                <li v-for="($q, data) in state[$p].data"
+                <li v-for="($q, item) in data"
                     :class="{
-                                    'current': data.value === state[$p].selectedId,
+                                    'current': $q === state[$p].index,
                                     'node1':  Math.abs($q - state[$p].index) == 1,
                                     'node2':  Math.abs($q - state[$p].index) == 2,
                                     'node3':  Math.abs($q - state[$p].index) >= 3
                                 }">
-                    {{data.name}}
+                    {{item.name}}
                 </li>
                 <li></li>
                 <li></li>
@@ -35,13 +35,13 @@
                 default() {
                     return []
                 },
-                coerce(array) {
-                    if (array.length && !Array.isArray(array[0])) {
-                        array = [array];
+                coerce(list) {
+                    if (list.length && !Array.isArray(list[0])) {
+                        list = [list];
                     }
 
-                    array = array.map(arr => {
-                        return arr.map(o => {
+                    list = list.map(arr => {
+                        return arr.map((o, i) => {
                             if (typeof o !== 'object' || o.name === undefined) {
                                 if (o.value === undefined) {
                                     o = {
@@ -53,11 +53,13 @@
                                 }
                             }
 
+                            o.id = i;
+
                             return o;
                         });
                     });
 
-                    return array;
+                    return list;
                 }
             },
             value: {
@@ -75,157 +77,142 @@
         },
         data() {
             return {
-                target: '0',
                 state: [],
-                delta: 0,
+                target: 0,
                 result: {},
-                lineHeight: 35,
-                listReady: false,
-                valueReady: false
+                lineHeight: 35
             }
         },
         created() {
-            if (this.list && this.list.length) {
-                this.listReady = true;
-                this.init();
-            }
+            this._initState();
         },
         computed: {
-            selValue() {
-                var array = [];
-                Object.keys(this.result).forEach(i => array.push(this.result[i][this.valueType]));
-                return array.join(String(this.valueSeparator));
-            }
-        },
-        methods: {
-            init() {
-                this.initList();
-                this.initValue();
-            },
-            initList() {
-                var initState = JSON.stringify({
-                    data: null,
-                    selectedId: null,
-                    index: 0,
-                    startPos: null,
-                    translateY: 0,
-                    startTranslateY: 0,
-                    dragging: false
-                });
+            // 显示的数据列表
+            shadowList() {
+                if (!this.list.length || !this.state.length) return [];
 
-                this.state = Array.from({length: this.list.length})
-                    .map((item, index) => JSON.parse(initState));
+                var list = [this.list[0]];
 
-                for (let i=0,len=this.state.length; i<len; i++) {
-                    this.state[i].data = this.list[i];
+                for (let i=1,len=this.list.length; i<len; i++) {
+                    let parentId = this.state[i-1].selectedId;
+                    list[i] = this.list[i].filter(item => item.parentId === parentId);
                 }
+
+                return list;
             },
-            initValue() {
-                var initIndex = this.getInitValue();
-                var index = initIndex[0];
-                this.state[0].index = index;
-                this.state[0].translateY = -index * this.lineHeight;
-                this.result[0] = this.list[0][index];
+            // 从值计算索引
+            indexList() {
+                var indexArray = new Array(this.list.length).fill(0);
+                var valueArray = this.valueList;
+                var parentId, index;
 
-                this.filterList(1, false);
+                indexArray = indexArray.map((item, target) => {
+                    if (typeof valueArray[target] === 'undefined') {
+                        parentId = 0;
+                        return item;
+                    }
 
-                for (let i=1,len=this.state.length; i<len; i++) {
                     index = 0;
-                    for (let item of this.state[i].data) {
-                        if (item.value === this.state[i].selectedId) {
-                            this.state[i].index = index;
-                            this.state[i].translateY = -index * this.lineHeight;
-                            this.result[i] = item;
-                            break;
+                    for (let i=0,len=this.list[target].length; i<len; i++) {
+                        let data = this.list[target][i];
+                        if (data[this.valueType] === valueArray[target]) {
+                            parentId = i;
+                            return index;
                         }
 
-                        index++;
-                    }
-                }
-            },
-            getInitValue() {
-                var indexArray = Array.from({length: this.list.length}).map((item, index) => 0);
-                var valueArray = this.parseValue();
-
-                indexArray = indexArray.map((item, index) => {
-                    if (typeof valueArray[index] === 'undefined') return item;
-
-                    for (let i=0,len=this.list[index].length; i<len; i++) {
-                        let data = this.list[index][i];
-
-                        if (data[this.valueType] === valueArray[index]) {
-                            return i;
+                        if (target === 0) {
+                            index++;
+                        } else if (data.parentId === parentId) {
+                            index++;
                         }
                     }
 
+                    parentId = 0;
                     return item;
                 });
 
-                indexArray.forEach((item, index) => this.state[index].selectedId = this.list[index][item].value);
-
                 return indexArray;
             },
-            filterList(start = 1, reset = true) {
-                for (let i=start,len=this.state.length; i<len; i++) {
-                    let parentId = this.state[i-1].selectedId;
-                    this.state[i].data = this.list[i].filter(item => item.parentId === parentId);
-
-                    if (reset) {
-                        if (this.state[i].index >= this.state[i].data.length) {
-                            this.state[i].index = this.state[i].data.length - 1;
-                        }
-
-                        if (this.state[i].index < 0) {
-                            this.state[i].index = 0;
-                        }
-
-                        this.state[i].selectedId = this.state[i].data[this.state[i].index] && this.state[i].data[this.state[i].index].value;
-                        this.state[i].translateY = -this.state[i].index * this.lineHeight;
-                    }
-                }
-            },
-            parseValue() {
+            // 解析值列表
+            valueList() {
                 return typeof this.value === 'string' && this.value.split(this.valueSeparator || '');
+            }
+        },
+        methods: {
+            _initState() {
+                var initState = {
+                    index: 0,
+                    startPos: 0,
+                    translateY: 0,
+                    startTranslateY: 0,
+                    selectedId: 0,
+                    dragging: false
+                };
+
+                this.state = Array.from({length: this.list.length})
+                    .map((item, index) => Object.assign({}, initState));
+
+                var indexList = this.indexList;
+                indexList.forEach((item, index) => {
+                    if (this.state[index]) {
+                        this._setSelectedItem(index, item);
+                    }
+                });
             },
-            getSelectedItem(index) {
-                let target = this.target;
+            _setSelectedItem(target, index) {
                 let _state = this.state[target];
-                _state.selectedId = _state.data[index].value;
 
-                this.filterList(Number(target) + 1);
+                _state.index = index;
+                _state.translateY = -index * this.lineHeight;
+                _state.selectedId = this.shadowList[target][index].id;
 
+                this._onChange();
+            },
+            _getSelectedItem() {
                 var result = {};
-                for (let i=0,len=this.state.length; i<len; i++) {
-                    result[i] = this.state[i].data[this.state[i].index];
+                for (let i=0,len=this.shadowList.length; i<len; i++) {
+                    let index = this.state[i].index;
+                    let total = this.shadowList[i].length - 1;
+                    if (index < 0 || index > total) {
+                        this._setSelectedItem(i, total);
+                    }
+
+                    result[i] = this.shadowList[i][this.state[i].index];
                 }
 
-                this.result = result;
+                this.result = Object.assign({}, result);
 
-                this.$emit('on-change', this.target, JSON.parse(JSON.stringify(this.result)), this.selValue);
+                return result;
             },
-            setSelectedItem() {
+            _getSelectedIndex() {
                 let target = this.target;
                 let _state = this.state[target];
+
                 let lineHeight = this.lineHeight;
-                let total = _state.data.length;
-                let goPage = Math.round(Number((_state.translateY / lineHeight).toFixed(1)));
-                if (goPage > 0) goPage = 0;
-                goPage = total-1 >= Math.abs(goPage) ? goPage : -(total-1);
-                let index = Math.abs(goPage);
-                _state.index = index;
-                this.getSelectedItem(index);
-                _state.translateY = goPage * lineHeight;
+                let maxIndex = this.shadowList[target].length - 1;
+
+                let index = -Math.round(_state.translateY / lineHeight);
+                index = Math.max(index, 0);
+                index = Math.min(index, maxIndex);
+
+                return index;
+            },
+            _getSelectedValue() {
+                var array = [];
+                Object.keys(this.result).forEach(i => array.push(this.result[i][this.valueType]));
+                return array.join(String(this.valueSeparator));
             },
             _getTouchPos(e) {
                 return e.changedTouches ? e.changedTouches[0]['pageY'] : e['pageY'];
             },
             _onTouchStart(target, e){
-                let _state = this.state[target];
                 this.target = target;
-                this.delta = 0;
+                let _state = this.state[target];
+
                 _state.startPos = this._getTouchPos(e);
                 _state.startTranslateY = _state.translateY;
                 _state.dragging = true;
+
                 document.addEventListener('touchmove', this._onTouchMove, false);
                 document.addEventListener('touchend', this._onTouchEnd, false);
                 document.addEventListener('mousemove', this._onTouchMove, false);
@@ -234,36 +221,37 @@
             _onTouchMove(e) {
                 let target = this.target;
                 let _state = this.state[target];
-                this.delta = this._getTouchPos(e) - _state.startPos;
-                _state.translateY = _state.startTranslateY + this.delta;
 
-                if (Math.abs(this.delta) > 0) {
-                    e.preventDefault();
-                }
+                var delta = this._getTouchPos(e) - _state.startPos;
+                _state.translateY = _state.startTranslateY + delta;
             },
-            _onTouchEnd(e) {
+            _onTouchEnd() {
                 let target = this.target;
                 let _state = this.state[target];
+
                 _state.dragging = false;
-                this.setSelectedItem();
+
+                var index = this._getSelectedIndex();
+                this._setSelectedItem(target, index);
+
                 document.removeEventListener('touchmove', this._onTouchMove);
                 document.removeEventListener('touchend', this._onTouchEnd);
                 document.removeEventListener('mousemove', this._onTouchMove);
                 document.removeEventListener('mouseup', this._onTouchEnd);
+            },
+            _onChange() {
+                var result = this._getSelectedItem();
+                var value = this._getSelectedValue();
+
+                this.$emit('on-change', result, value, this.target);
             }
         },
         watch: {
             list() {
-                this.listReady = true;
-                this.init();
+                this._initState();
             },
             value() {
-                if (this.valueReady) return;
-                this.valueReady = true;
-
-                if (this.listReady) {
-                    this.initValue();
-                }
+                this._initState();
             }
         }
     }

@@ -34,6 +34,7 @@ import Slider from './components/slider';
 import Box from './components/box';
 import Picker from './components/picker';
 import PopupPicker from './components/popup-picker';
+import PopupDatePicker from './components/popup-date-picker';
 
 module.exports = {
     Alert,
@@ -69,5 +70,6 @@ module.exports = {
     Box,
     Picker,
     PopupPicker,
+    PopupDatePicker,
     Utils: require('./utils')
 };
