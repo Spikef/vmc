@@ -146,6 +146,8 @@ import { Navbar } from 'vmc';
 
 * [弹出式选择器 (Popup Picker)](./src/components/popup-picker)
 
+* [弹出式日期选择器 (Popup Date Picker)](./src/components/popup-date-picker)
+
 * [进度条 (Progressbar)](./src/components/progressbar)
 
 * [提示输入框 (Prompt)](./src/components/prompt)
