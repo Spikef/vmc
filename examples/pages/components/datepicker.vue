@@ -10,11 +10,11 @@
             <row title="请选择入学时间：" @click="showPop3 = true">{{value3}}</row>
         </div>
 
-        <popup-date-picker :show.sync="showPop1" :value.sync="value1"></popup-date-picker>
+        <popup-date-picker :show.sync="showPop1" :value.sync="value1" tow-digit-month tow-digit-day></popup-date-picker>
 
         <popup-picker :list="listEdu" :show.sync="showPop2" :value.sync="value2"></popup-picker>
 
-        <popup-date-picker :show.sync="showPop3" :value.sync="value3" :year="[1980, 2016]" :day="false" tow-digit-year tow-digit-month></popup-date-picker>
+        <popup-date-picker :show.sync="showPop3" :value.sync="value3" :year="[1980, 2016]" :day="false" tow-digit-month></popup-date-picker>
     </div>
 </template>
 

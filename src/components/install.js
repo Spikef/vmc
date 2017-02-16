@@ -4,6 +4,7 @@ import installPrompt from './prompt/install';
 import installToast from './toast/install';
 import Filter from '../utils/filter';
 import Directive from '../utils/directive';
+import Props from 'v-props';
 
 module.exports = function(Vue, options = {
     alert: true,
@@ -28,6 +29,9 @@ module.exports = function(Vue, options = {
             Vue.directive(_name, directives[name]);
         }
     });
+
+    // Vue props directive
+    Vue.use(Props);
 
     // global components
     var configs = {

@@ -168,7 +168,7 @@
                     for (let i=0,len=this.dataList[index].length; i<len; i++) {
                         let data = this.dataList[index][i];
 
-                        if (data[this.valueType] === valueArray[index]) {
+                        if (Number(data[this.valueType]) === Number(valueArray[index])) {
                             return i;
                         }
                     }

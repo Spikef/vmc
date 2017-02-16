@@ -1,5 +1,5 @@
 <template>
-    <component :is="spinner" :size="size" :color="color"></component>
+    <component :is="spinner" v-props></component>
 </template>
 
 <script type="text/ecmascript-6">
