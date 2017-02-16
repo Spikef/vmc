@@ -24,101 +24,109 @@
             day: {
                 type: [Boolean, Array],
                 default: true
-            }
+            },
+            towDigitYear: Boolean,
+            towDigitMonth: Boolean,
+            towDigitDay: Boolean
         },
         computed: {
-            list() {
-                var list = [];
-                var value = this.valueList || [];
-                var from, to, index = 0;
+            dataList: {
+                get() {
+                    var list = [];
+                    var value = this.valueList || [];
+                    var from, to, index = 0;
 
-                // 年的数据
-                if (this.year !== false) {
-                    from = 1900;
-                    to = new Date().getFullYear();
+                    // 年的数据
+                    if (this.year !== false) {
+                        from = 1900;
+                        to = new Date().getFullYear();
 
-                    if (value[index] !== undefined) {
-                        let year = value[index];
-                        from = Math.min(from, year);
-                        to = Math.max(to, year);
+                        if (value[index]) {
+                            let year = value[index];
+                            from = Math.min(from, year);
+                            to = Math.max(to, year);
+                        }
+
+                        if (Array.isArray(this.year)) {
+                            if (this.year[0] !== undefined) from = this.year[0];
+                            if (this.year[1] !== undefined) to = this.year[1];
+                        }
+
+                        let years = [];
+                        for (let i=from;i<=to;i++) {
+                            let v = String(i);
+                            if (this.towDigitYear) v = v.slice(2);
+                            years.push({
+                                id: i,
+                                name: v,
+                                value: v
+                            });
+                        }
+
+                        list.push(years);
+                        index++;
                     }
 
-                    if (Array.isArray(this.year)) {
-                        if (this.year[0] !== undefined) from = this.year[0];
-                        if (this.year[1] !== undefined) to = this.year[1];
+                    // 月的数据
+                    if (this.month !== false) {
+                        from = 1;
+                        to = 12;
+
+                        if (Array.isArray(this.month)) {
+                            if (this.month[0] !== undefined) from = this.month[0];
+                            if (this.month[1] !== undefined) to = this.month[1];
+                        }
+
+                        let months = [];
+                        for (let i=from;i<=to;i++) {
+                            let v = String(i);
+                            if (this.towDigitMonth) v = ('0' + v).slice(-2);
+                            months.push({
+                                id: i,
+                                name: v,
+                                value: v
+                            });
+                        }
+
+                        list.push(months);
+                        index++;
                     }
 
-                    let years = [];
-                    for (let i=from;i<=to;i++) {
-                        let v = String(i);
-                        years.push({
-                            id: i,
-                            name: v,
-                            value: v
-                        });
+                    // 日的数据
+                    if (this.day !== false) {
+                        from = 1;
+                        to = 31;
+
+                        if (Array.isArray(this.day)) {
+                            if (this.day[0] !== undefined) from = this.day[0];
+                            if (this.day[1] !== undefined) to = this.day[1];
+                        }
+
+                        let days = [];
+                        for (let i=1;i<=31;i++) {
+                            let v = String(i);
+                            if (this.towDigitDay) v = ('0' + v).slice(-2);
+                            days.push({
+                                id: i,
+                                name: v,
+                                value: v
+                            });
+                        }
+
+                        list.push(days);
+                        index++;
                     }
 
-                    list.push(years);
-                    index++;
+                    return list;
                 }
-
-                // 月的数据
-                if (this.month !== false) {
-                    from = 1;
-                    to = 12;
-
-                    if (Array.isArray(this.month)) {
-                        if (this.month[0] !== undefined) from = this.month[0];
-                        if (this.month[1] !== undefined) to = this.month[1];
-                    }
-
-                    let months = [];
-                    for (let i=from;i<=to;i++) {
-                        let v = String(i);
-                        months.push({
-                            id: i,
-                            name: v,
-                            value: v
-                        });
-                    }
-
-                    list.push(months);
-                    index++;
-                }
-
-                // 日的数据
-                if (this.day !== false) {
-                    from = 1;
-                    to = 31;
-
-                    if (Array.isArray(this.day)) {
-                        if (this.day[0] !== undefined) from = this.day[0];
-                        if (this.day[1] !== undefined) to = this.day[1];
-                    }
-
-                    let days = [];
-                    for (let i=1;i<=31;i++) {
-                        let v = String(i);
-                        days.push({
-                            id: i,
-                            name: v,
-                            value: v
-                        });
-                    }
-
-                    list.push(days);
-                    index++;
-                }
-
-                return list;
             },
             shadowList() {
-                var last = this.list.length - 1;
-                var list = this.list.slice(0, last);
+                var last = this.dataList.length - 1;
+                var list = this.dataList.slice(0, last);
 
                 // 计算当月天数
                 if (this.month && this.day === true && this.result[last - 1] !== undefined) {
-                    let year = Number(this.result[last - 2].value);
+                    let year = this.year ? Number(this.result[last - 2].value) : null;
                     let month = Number(this.result[last - 1].value);
                     let day = Number(this.result[last].value);
                     let total;
@@ -142,23 +150,23 @@
                         });
                     }
 
-                    list.push(this.list[last].slice(0, total));
+                    list.push(this.dataList[last].slice(0, total));
                 } else {
-                    list.push([].concat(this.list[last]));
+                    list.push([].concat(this.dataList[last]));
                 }
 
                 return list;
             },
             // 从值计算索引
             indexList() {
-                var indexArray = new Array(this.list.length).fill(0);
+                var indexArray = new Array(this.dataList.length).fill(0);
                 var valueArray = this.valueList;
 
                 indexArray = indexArray.map((item, index) => {
                     if (typeof valueArray[index] === 'undefined') return item;
 
-                    for (let i=0,len=this.list[index].length; i<len; i++) {
-                        let data = this.list[index][i];
+                    for (let i=0,len=this.dataList[index].length; i<len; i++) {
+                        let data = this.dataList[index][i];
 
                         if (data[this.valueType] === valueArray[index]) {
                             return i;

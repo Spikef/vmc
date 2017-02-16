@@ -5,20 +5,27 @@
         <div class="content">
             <row title="请选择生日：" @click="showPop1 = true">{{value1}}</row>
 
-            <row title="请选择手机型号：" @click="showPop2 = true">{{value2}}</row>
+            <row title="请选择学历：" @click="showPop2 = true">{{value2}}</row>
+
+            <row title="请选择入学时间：" @click="showPop3 = true">{{value3}}</row>
         </div>
 
-        <popup-date-picker :show.sync="showPop1" :value.sync="value1" :day="false"></popup-date-picker>
+        <popup-date-picker :show.sync="showPop1" :value.sync="value1"></popup-date-picker>
+
+        <popup-picker :list="listEdu" :show.sync="showPop2" :value.sync="value2"></popup-picker>
+
+        <popup-date-picker :show.sync="showPop3" :value.sync="value3" :year="[1980, 2016]" :day="false" tow-digit-year tow-digit-month></popup-date-picker>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import { Navbar, vButton, PopupDatePicker, Row } from 'vmc';
+    import { Navbar, vButton, PopupPicker, PopupDatePicker, Row } from 'vmc';
 
     export default {
         components: {
             Navbar,
             vButton,
+            PopupPicker,
             PopupDatePicker,
             Row
         },
@@ -26,7 +33,11 @@
             return {
                 showPop1: false,
                 showPop2: false,
-                value1: '2016-12-31'
+                showPop3: false,
+                value1: '2016-12-31',
+                value2: '',
+                value3: '',
+                listEdu: ['', '大专', '中专', '本科', '硕士研究生', '博士研究生']
             }
         }
     }

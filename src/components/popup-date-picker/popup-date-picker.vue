@@ -1,11 +1,10 @@
 <script type="text/ecmascript-6">
-    import DatePicker from './date-picker.vue';
     import PopupPicker from '../popup-picker';
 
     export default {
         extends: PopupPicker,
         components: {
-            Picker: DatePicker
+            Picker: require('./date-picker.vue')
         },
         props: {
             valueSeparator: {
@@ -23,7 +22,10 @@
             day: {
                 type: [Boolean, Array],
                 default: true
-            }
+            },
+            towDigitYear: Boolean,
+            towDigitMonth: Boolean,
+            towDigitDay: Boolean
         }
     }
 </script>

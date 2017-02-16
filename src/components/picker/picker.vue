@@ -87,55 +87,67 @@
             this._initState();
         },
         computed: {
-            // 显示的数据列表
-            shadowList() {
-                if (!this.list.length || !this.state.length) return [];
-
-                var list = [this.list[0]];
-
-                for (let i=1,len=this.list.length; i<len; i++) {
-                    let parentId = this.state[i-1].selectedId;
-                    list[i] = this.list[i].filter(item => item.parentId === parentId);
+            // 自定义数据列表
+            dataList: {
+                get() {
+                    return this.list;
                 }
+            },
+            // 显示的数据列表
+            shadowList: {
+                get() {
+                    if (!this.dataList.length || !this.state.length) return [];
 
-                return list;
+                    var list = [this.dataList[0]];
+
+                    for (let i=1,len=this.dataList.length; i<len; i++) {
+                        let parentId = this.state[i-1].selectedId;
+                        list[i] = this.dataList[i].filter(item => item.parentId === parentId);
+                    }
+
+                    return list;
+                }
             },
             // 从值计算索引
-            indexList() {
-                var indexArray = new Array(this.list.length).fill(0);
-                var valueArray = this.valueList;
-                var parentId, index;
+            indexList: {
+                get() {
+                    var indexArray = new Array(this.dataList.length).fill(0);
+                    var valueArray = this.valueList;
+                    var parentId, index;
 
-                indexArray = indexArray.map((item, target) => {
-                    if (typeof valueArray[target] === 'undefined') {
+                    indexArray = indexArray.map((item, target) => {
+                        if (typeof valueArray[target] === 'undefined') {
+                            parentId = 0;
+                            return item;
+                        }
+
+                        index = 0;
+                        for (let i=0,len=this.dataList[target].length; i<len; i++) {
+                            let data = this.dataList[target][i];
+                            if (data[this.valueType] === valueArray[target]) {
+                                parentId = i;
+                                return index;
+                            }
+
+                            if (target === 0) {
+                                index++;
+                            } else if (data.parentId === parentId) {
+                                index++;
+                            }
+                        }
+
                         parentId = 0;
                         return item;
-                    }
+                    });
 
-                    index = 0;
-                    for (let i=0,len=this.list[target].length; i<len; i++) {
-                        let data = this.list[target][i];
-                        if (data[this.valueType] === valueArray[target]) {
-                            parentId = i;
-                            return index;
-                        }
-
-                        if (target === 0) {
-                            index++;
-                        } else if (data.parentId === parentId) {
-                            index++;
-                        }
-                    }
-
-                    parentId = 0;
-                    return item;
-                });
-
-                return indexArray;
+                    return indexArray;
+                }
             },
             // 解析值列表
-            valueList() {
-                return typeof this.value === 'string' && this.value.split(this.valueSeparator || '');
+            valueList: {
+                get() {
+                    return typeof this.value === 'string' && this.value.split(this.valueSeparator || '');
+                }
             }
         },
         methods: {
@@ -149,7 +161,7 @@
                     dragging: false
                 };
 
-                this.state = Array.from({length: this.list.length})
+                this.state = Array.from({length: this.dataList.length})
                     .map((item, index) => Object.assign({}, initState));
 
                 var indexList = this.indexList;
