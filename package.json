@@ -1,6 +1,6 @@
 {
   "name": "vmc",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "description": "Mobile components for vue@1.0.21+",
   "main": "src/index.js",
   "repository": {
@@ -18,6 +18,9 @@
     "docs": "node build/doc-server.js",
     "build": "node build/build.js",
     "release": "node build/release.js"
+  },
+  "dependencies": {
+    "v-props": "^1.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -58,8 +61,5 @@
     "webpack-merge": "^0.8.3"
   },
   "author": "Spikef",
-  "license": "MIT",
-  "dependencies": {
-    "v-props": "^1.0.3"
-  }
+  "license": "MIT"
 }
