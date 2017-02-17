@@ -15,13 +15,16 @@
             <div v-if="tabType == 1" class="tab-line" :class="'tab-line-' + direction" :style="lineStyle"></div>
         </div>
 
-        <div class="tab-pages" :class="{ 'auto-height': autoHeight }">
+        <div class="tab-pages"
+             :class="{'auto-height': autoHeight}"
+             :style="pageListStyle">
+
             <div class="tab-page"
                  v-touch:swipeLeft="onSwipeLeft"
                  v-touch:swipeRight="onSwipeRight"
                  v-touch-options:swipe="{ direction: 'horizontal' }"
-                 :class="{ active: tabIndex === $index }"
-                 v-show="tabIndex === $index"
+                 :class="pageClass($index)"
+                 :style="pageStyle($index)"
                  v-for="item in tabList"
                  :transition="'tab-page-' + direction">
 
@@ -93,6 +96,21 @@
                 this.tabIndex--;
 
                 this.$emit('on-tab-change', this.tabIndex);
+            },
+            pageClass(i) {
+                if (i === this.tabIndex) {
+                    return 'active';
+                }
+            },
+            pageStyle(i) {
+                var style = {};
+
+                style.width = this.clientWidth + 'px';
+                if (!this.autoHeight) {
+                    style.transform = 'translate(' + (i * this.clientWidth) + 'px, 0px)';
+                }
+
+                return style;
             }
         },
         computed: {
@@ -152,12 +170,23 @@
             },
             autoHeight() {
                 return this.height === 'auto';
+            },
+            pageListStyle() {
+                var style = {};
+                style.width = (this.count + 2) * this.clientWidth + 'px';
+                style.transform = 'translate(-' + (this.tabIndex * this.clientWidth) + 'px, 0px)';
+
+                return style;
             }
         },
         data() {
             return {
+                clientWidth: 0,
                 direction: 'none'
             }
+        },
+        ready() {
+            this.clientWidth = this.$el.clientWidth;
         }
     }
 </script>

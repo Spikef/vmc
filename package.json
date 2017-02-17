@@ -1,6 +1,6 @@
 {
   "name": "vmc",
-  "version": "0.2.21",
+  "version": "0.2.22",
   "description": "Mobile components for vue@1.0.21+",
   "main": "src/index.js",
   "repository": {
@@ -20,7 +20,7 @@
     "release": "node build/release.js"
   },
   "dependencies": {
-    "v-props": "^1.0.4"
+    "v-props": "^1.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

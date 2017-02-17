@@ -25,19 +25,19 @@
                 </div>
             </tab-control>
 
-            <tab-control :tab-list="tabList" tab-index="0" tab-type="2" height="200">
+            <tab-control :tab-list="tabList" tab-index="0" height="auto">
                 <div slot="tabPage">
-                    <p>{{item.name}} 内容云云</p>
+                    <p v-for="i in 2">{{item.name}} 内容云云</p>
+                    <hr>
+                    <p v-for="i in 2">{{item.name}} 内容云云</p>
+                    <hr>
+                    <p v-for="i in 2">{{item.name}} 内容云云</p>
                 </div>
             </tab-control>
 
-            <tab-control :tab-list="tabList" tab-index="0" height="auto">
+            <tab-control :tab-list="tabList" tab-index="0" tab-type="2" height="200">
                 <div slot="tabPage">
-                    <p v-for="i in 10">{{item.name}} 内容云云</p>
-                    <hr>
-                    <p v-for="i in 10">{{item.name}} 内容云云</p>
-                    <hr>
-                    <p v-for="i in 10">{{item.name}} 内容云云</p>
+                    <p>{{item.name}} 内容云云</p>
                 </div>
             </tab-control>
         </div>
@@ -91,6 +91,10 @@
 
             .vmc-tab-control {
                 margin-bottom: 20px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
 
                 .tab-pages {
                     background-color: #dddddd;
