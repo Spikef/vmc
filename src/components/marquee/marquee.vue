@@ -61,10 +61,10 @@
                 if (this.height) {
                     style.height = getCSSSize(this.height);
                 }
-                if (style.color) {
+                if (this.color) {
                     style.color = this.color;
                 }
-                if (style.backColor) {
+                if (this.backColor) {
                     style.background = this.backColor;
                 }
                 return style;
