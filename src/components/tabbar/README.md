@@ -66,6 +66,7 @@ export default {
 
 - text：按钮显示的文本
 - icon：按钮图标
+- activeIcon: 选中时的按钮图标
 - callback：点击按钮时的回调函数
 
 ## Events

@@ -1,9 +1,9 @@
 <template>
     <div class="vmc-tab-bar" v-show="show" :transition="'vmc-tab-bar-up'">
         <div class="tab-bar" :style="style">
-            <div class="tab-item" :class="{active: $index == index}" @click="_onItemClick(item, $index)" v-for="($index, item) in items">
+            <div class="tab-item" :class="[{active: $index == index}, 'tab-item-' + $index]" @click="_onItemClick(item, $index)" v-for="($index, item) in items">
                 <slot-item :scope="{item: item}">
-                    {{{item.icon}}}
+                    {{{ _getItemIcon(item, $index) }}}
                     <span class="tab-text">{{item.text}}</span>
                 </slot-item>
             </div>
@@ -41,6 +41,13 @@
                 }
 
                 this.index = index;
+            },
+            _getItemIcon(item, index) {
+                if (this.index == index) {
+                    return item.activeIcon || item.icon;
+                } else {
+                    return item.icon;
+                }
             }
         },
         computed: {
