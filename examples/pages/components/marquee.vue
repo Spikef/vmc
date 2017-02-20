@@ -7,7 +7,7 @@
 
             <marquee :list="list" direction="down" second="4" align="center"></marquee>
 
-            <marquee list="只有一条内容的公告" align="right" color="#f0f0f0"></marquee>
+            <marquee list="只有一条内容的公告" align="right" color="#ff66bb"></marquee>
         </div>
     </div>
 </template>
