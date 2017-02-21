@@ -71,7 +71,7 @@ fs.readdir(path.resolve(__dirname, 'plugins'), function(stat) {
 
             if (stat.isFile()) {
                 var plugin = require(file);
-                plugin(app);
+                plugin(app, express);
             }
         })
     });

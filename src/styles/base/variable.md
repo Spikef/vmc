@@ -355,3 +355,13 @@
 | @ToastTextSize | 提示框文字大小 | @DefaultTextSize |
 | @ToastIconSize | 提示框图标大小 | 30px |
 | @ToastTransitionDuration | 提示框动画过渡时间 | @TransitionDuration |
+
+## Upload
+| Name | Description | Default |
+| ----- | ----- | ----- |
+| @UploadWidth | 上传按钮宽度 | 60px |
+| @UploadHeight | 上传按钮高度 | 60px |
+| @UploadBorderWidth | 上传按钮边框线宽度 | 2px |
+| @UploadBorderColor | 上传按钮边框线颜色 | \#ccc |
+| @UploadBorderStyle | 上传按钮边框线样式 | dashed |
+| @UploadBorderRadius | 上传按钮边框圆角半径 | 5px |

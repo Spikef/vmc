@@ -1,0 +1,30 @@
+.vmc-upload {
+    height: @UploadWidth;
+    width: @UploadWidth;
+    border: @UploadBorderWidth @UploadBorderStyle @UploadBorderColor;
+    border-radius: @UploadBorderRadius;
+    position: relative;
+
+    input[type=file] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .vmc-upload-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        i {
+            color: #cccccc;
+            display: block;
+            transform: scale(@UploadWidth / 32);
+        }
+    }
+}

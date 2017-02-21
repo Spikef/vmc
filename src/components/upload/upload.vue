@@ -1,11 +1,11 @@
 <template>
     <div class="vmc-upload">
-        <input type="file" class="fileInput" :name="name" :accept="accept" :multiple="multiple" @change="_onFileChange">
         <slot>
             <div class="vmc-upload-button">
                 <i class="icono-plus"></i>
             </div>
         </slot>
+        <input type="file" class="fileInput" :name="name" :accept="accept" :multiple="multiple" @change="_onFileChange">
     </div>
 </template>
 
@@ -29,12 +29,8 @@
                 default: () => {}
             },
             multiple: Boolean,
-            validator: Function,
             autoReset: Boolean,
-            autoUpload: {
-                type: Boolean,
-                default: true
-            }
+            validator: Function
         },
         methods: {
             _onFileChange() {
@@ -53,6 +49,7 @@
                     fd.append(name, value);
                 }
 
+                var filename = this.name;
                 for (let i=0,len=files.length; i<len; i++) {
                     let file = files[i];
 
@@ -61,7 +58,7 @@
                         if (!allow) return;
                     }
 
-                    fd.append(this.name, files[i]);
+                    fd.append(filename, files[i]);
                 }
 
                 var xhr = new XMLHttpRequest();
@@ -85,43 +82,37 @@
                     res = JSON.parse(res)
                 } catch (e) {}
 
+                if (this.autoReset) {
+                    this._clearInputFile();
+                }
+
                 this.$emit('on-success', res, e);
             },
             _onError(e) {
                 this.$emit('on-error', e);
+            },
+            _clearInputFile() {
+                var fileInput = this.$el.querySelector('input[type=file]');
+                if (fileInput.value) {
+                    try {
+                        fileInput.value = '';
+                    } catch (e) {}
+
+                    // for old browsers, like <IE11...
+                    if (fileInput.value) {
+                        var form = document.createElement('form'),
+                            brother = fileInput.nextSibling,
+                            parent = fileInput.parentNode;
+
+                        form.appendChild(fileInput);
+                        form.reset();
+                        parent.insertBefore(fileInput, brother);
+                    }
+                }
             }
         }
     }
 </script>
 
-<style rel="stylesheet/less" lang="less">
-    .vmc-upload {
-        height: 60px;
-        width: 60px;
-        border: 2px dashed #cccccc;
-        border-radius: 5px;
-        position: relative;
-
-        > input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .vmc-upload-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-
-            i {
-                display: block;
-                transform: scale(1.875);
-            }
-        }
-    }
-</style>
+// TODO: Support old android, compress, rotateImage, preview
+// http://stackoverflow.com/questions/15639070/empty-files-uploaded-in-android-native-browser/28809955#28809955

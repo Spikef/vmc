@@ -182,6 +182,8 @@ import { Navbar } from 'vmc';
 
 * [文字提示 (Toast)](./src/components/toast#toast)
 
+* [上传组件 (Upload)](./src/components/upload)
+
 ## 开发与编译
 
 ### 开发

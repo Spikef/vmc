@@ -5,7 +5,7 @@ var utils = require('../utils');
 var target = path.resolve(__dirname, '../../uploads/');
 var upload = multer({ dest: target });
 
-module.exports = function(app) {
+module.exports = function(app, express) {
     app.post('/upload', upload.single('file'), function (req, res, next) {
         var file = req.file.path;
         var ext = req.file.originalname.split('.').pop();
@@ -19,6 +19,28 @@ module.exports = function(app) {
             url: '/uploads/' + name
         });
     });
+
+    app.post('/upload/photos', upload.array('photos', 10), function (req, res, next) {
+        var urls = [];
+
+        req.files.forEach(function (obj) {
+            var file = obj.path;
+            var ext = obj.originalname.split('.').pop();
+            var name = randName() + '.' + ext;
+            var save = path.resolve(target, name);
+            utils.renameFile(file, save);
+
+            urls.push('/uploads/' + name);
+        });
+
+        res.json({
+            status: true,
+            message: '上传成功',
+            url: urls
+        });
+    });
+
+    app.use('/uploads/', express.static(target));
 };
 
 function randName() {

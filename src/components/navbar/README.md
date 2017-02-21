@@ -12,6 +12,13 @@
 <navbar>Spinner</navbar>
 ```
 
+## Slots
+
+| Name | Description | Default |
+| ----- | ----- | ----- |
+| default | 显示的文本内容 | undefined |
+| main | 整个导航栏包含的内容 | &lt;div class="left" @click="_onBack"&gt; <br> &nbsp;&nbsp;&lt;i class="icono-caretLeft"&gt;&lt;/i&gt; <br> &lt;/div&gt; <br> &lt;div class="center"&gt; <br> &nbsp;&nbsp;&lt;slot&gt;&lt;/slot&gt; <br> &lt;/div&gt; <br> &lt;div class="right" @click="_onMenu"&gt; <br> &lt;/div&gt; |
+
 ## Props
 
 | Property | Type | Description | Default |
