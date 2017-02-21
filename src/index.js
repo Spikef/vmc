@@ -13,6 +13,7 @@ import Number from './components/number';
 import Switch from './components/switch';
 import vButton from './components/button';
 import Submit from './components/submit';
+import Upload from './components/upload';
 import Rater from './components/rater';
 
 // 界面组件
@@ -50,6 +51,7 @@ module.exports = {
     Switch,
     vButton,
     Submit,
+    Upload,
     Rater,
     Topbar,
     Navbar,

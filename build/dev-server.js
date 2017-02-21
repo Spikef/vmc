@@ -1,3 +1,4 @@
+var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
@@ -55,6 +56,26 @@ app.use(hotMiddleware);
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
 app.use(staticPath, express.static('./examples/static'));
+
+// other plugins
+fs.readdir(path.resolve(__dirname, 'plugins'), function(stat) {
+    var pluginFolder = path.resolve(__dirname, 'plugins');
+    fs.readdir(pluginFolder, function(err, res) {
+        if (err) {
+            return console.warn('None plugins found!');
+        }
+
+        res.forEach(function (name) {
+            var file = path.resolve(pluginFolder, name);
+            var stat = fs.statSync(file);
+
+            if (stat.isFile()) {
+                var plugin = require(file);
+                plugin(app);
+            }
+        })
+    });
+});
 
 module.exports = app.listen(port, function (err) {
   if (err) {

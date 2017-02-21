@@ -61,3 +61,8 @@ exports.copyFile = function(source, target) {
     var content = fs.readFileSync(source);
     fs.writeFileSync(target, content);
 };
+
+exports.renameFile = function(source, target) {
+    this.copyFile(source, target);
+    fs.unlinkSync(source);
+};

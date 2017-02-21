@@ -37,19 +37,19 @@ module.exports = {
     },
     '/components/spinner': {
         name: 'spinner',
-        doc_title: 'spinner',
+        doc_title: '动态指示器',
         component: require('./components/spinner.vue'),
         depth: 20
     },
     '/components/button': {
         name: 'button',
-        doc_title: 'button',
+        doc_title: '按钮',
         component: require('./components/button.vue'),
         depth: 20
     },
     '/components/submit': {
         name: 'submit',
-        doc_title: 'submit',
+        doc_title: '提交按钮',
         component: require('./components/submit.vue'),
         depth: 20
     },
@@ -61,7 +61,7 @@ module.exports = {
     },
     '/components/grid': {
         name: 'grid',
-        doc_title: 'grid',
+        doc_title: '网格',
         component: require('./components/grid.vue'),
         depth: 20
     },
@@ -85,19 +85,19 @@ module.exports = {
     },
     '/components/icons': {
         name: 'icons',
-        doc_title: 'icons',
+        doc_title: '图标',
         component: require('./components/icons.vue'),
         depth: 20
     },
     '/components/card': {
         name: 'card',
-        doc_title: 'card',
+        doc_title: '卡片',
         component: require('./components/card.vue'),
         depth: 20
     },
     '/components/rater': {
         name: 'rater',
-        doc_title: 'rater',
+        doc_title: '评分',
         component: require('./components/rater.vue'),
         depth: 20
     },
@@ -109,7 +109,7 @@ module.exports = {
     },
     '/components/switch': {
         name: 'switch',
-        doc_title: 'switch',
+        doc_title: '开关',
         component: require('./components/switch.vue'),
         depth: 20
     },
@@ -145,13 +145,13 @@ module.exports = {
     },
     '/components/progressbar': {
         name: 'progressbar',
-        doc_title: 'progressbar',
+        doc_title: '进度条',
         component: require('./components/progressbar.vue'),
         depth: 20
     },
     '/components/shake': {
         name: 'shake',
-        doc_title: 'shake',
+        doc_title: '摇一摇',
         component: require('./components/shake.vue'),
         depth: 20
     },
@@ -187,7 +187,7 @@ module.exports = {
     },
     '/components/slider': {
         name: 'slider',
-        doc_title: 'slider',
+        doc_title: '轮播图',
         component: require('./components/slider.vue'),
         depth: 20
     },
@@ -207,6 +207,12 @@ module.exports = {
         name: 'datepicker',
         doc_title: 'datepicker',
         component: require('./components/datepicker.vue'),
+        depth: 20
+    },
+    '/components/upload': {
+        name: 'upload',
+        doc_title: 'upload',
+        component: require('./components/upload.vue'),
         depth: 20
     }
 };

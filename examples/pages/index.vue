@@ -13,6 +13,7 @@
             <cell @click="jump('vinput')">Input (Prompt)</cell>
             <cell @click="jump('textarea')">TextArea</cell>
             <cell @click="jump('number')">Number</cell>
+            <cell @click="jump('upload')">Upload</cell>
             <cell @click="jump('rater')">Rater</cell>
 
             <div class="title">全局组件</div>

@@ -1,0 +1,127 @@
+<template>
+    <div class="vmc-upload">
+        <input type="file" class="fileInput" :name="name" :accept="accept" :multiple="multiple" @change="_onFileChange">
+        <slot>
+            <div class="vmc-upload-button">
+                <i class="icono-plus"></i>
+            </div>
+        </slot>
+    </div>
+</template>
+
+<script type="text/ecmascript-6">
+    export default {
+        props: {
+            url: {
+                type: String,
+                required: true
+            },
+            name: {
+                type: String,
+                required: true
+            },
+            accept: {
+                type: String,
+                default: 'image/*'
+            },
+            body: {
+                type: Object,
+                default: () => {}
+            },
+            multiple: Boolean,
+            validator: Function,
+            autoReset: Boolean,
+            autoUpload: {
+                type: Boolean,
+                default: true
+            }
+        },
+        methods: {
+            _onFileChange() {
+                var files = this.$el.querySelector('input[type=file]').files;
+                if (!files.length) return;
+
+                this._uploadFile(files);             // 上传文件
+            },
+            _uploadFile(files) {
+                var fd = new FormData();
+
+                for (let name in this.body) {
+                    if (!this.body.hasOwnProperty(name)) continue;
+
+                    let value = this.body[name];
+                    fd.append(name, value);
+                }
+
+                for (let i=0,len=files.length; i<len; i++) {
+                    let file = files[i];
+
+                    if (typeof this.validator === 'function') {
+                        var allow = this.validator(file.name, file.type, file.size);
+                        if (!allow) return;
+                    }
+
+                    fd.append(this.name, files[i]);
+                }
+
+                var xhr = new XMLHttpRequest();
+                xhr.upload.addEventListener('progress', this._onProgress, false);//监听上传进度
+                xhr.addEventListener('load', this._onSuccess, false);
+                xhr.addEventListener('error', this._onError, false);
+                xhr.open('POST', this.url);
+                xhr.send(fd);
+            },
+            _onProgress(e) {
+                if (e.lengthComputable) {
+                    var percentCompleted = Math.round(e.loaded * 100 / e.total);
+                    percentCompleted = percentCompleted.toString() + '%';
+
+                    this.$emit('on-progress', percentCompleted);
+                }
+            },
+            _onSuccess(e) {
+                var res = e.target.responseText;
+                try {
+                    res = JSON.parse(res)
+                } catch (e) {}
+
+                this.$emit('on-success', res, e);
+            },
+            _onError(e) {
+                this.$emit('on-error', e);
+            }
+        }
+    }
+</script>
+
+<style rel="stylesheet/less" lang="less">
+    .vmc-upload {
+        height: 60px;
+        width: 60px;
+        border: 2px dashed #cccccc;
+        border-radius: 5px;
+        position: relative;
+
+        > input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .vmc-upload-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+            i {
+                display: block;
+                transform: scale(1.875);
+            }
+        }
+    }
+</style>
