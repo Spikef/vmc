@@ -156,6 +156,7 @@ export default {
 | @CheckBoxHeight | 复选框高度 | 20px |
 | @CheckBoxRadius | 勾选框的圆角半径 | 2px |
 | @CheckBoxSpace | 勾选框与文字之间的距离 | 10px |
+| @CheckBoxTextSize | 文字大小 | @CheckBoxHeight - 6px |
 | @CheckBoxTextColor | 文字颜色 | \#243441 |
 | @CheckBoxBackColor | 勾选框背景色 | \#fff |
 | @CheckBoxBorderColor | 勾选框边框颜色 | \#c1caca |

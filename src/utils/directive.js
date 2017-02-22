@@ -92,6 +92,23 @@ export default function(Vue) {
                     valid.button = vm;
                 }
             }
+        },
+        stop: {
+            bind: function () {
+                function stopDefault(e) {
+                    e.preventDefault();
+                }
+
+                const defaultEvents = ['start', 'move', 'end'];
+
+                var keys = Object.keys(this.modifiers);
+                if (!keys.length) keys = [].concat(defaultEvents);
+
+                keys.forEach(key => {
+                    var eventName = 'touch' + key;
+                    this.el.addEventListener(eventName, stopDefault);
+                });
+            }
         }
     }
 };

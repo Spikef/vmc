@@ -82,6 +82,7 @@ $CellTextSize: 15px !default;                            // 文字大小
 $CheckBoxHeight: 20px !default;                                              // 复选框高度
 $CheckBoxRadius: 2px !default;                                               // 勾选框的圆角半径
 $CheckBoxSpace: 10px !default;                                               // 勾选框与文字之间的距离
+$CheckBoxTextSize: $CheckBoxHeight - 6px !default;                           // 文字大小
 $CheckBoxTextColor: #243441 !default;                                        // 文字颜色
 $CheckBoxBackColor: #fff !default;                                           // 勾选框背景色
 $CheckBoxBorderColor: #c1caca !default;                                      // 勾选框边框颜色
@@ -187,6 +188,7 @@ $PromptMessageInputSpace: 5px !default;                  // 输入错误提示�
 // Radio
 $RadioHeight: $CheckBoxHeight !default;                                          // 单选框高度
 $RadioSpace: $CheckBoxSpace !default;                                            // 勾选框与文字之间的距离
+$RadioTextSize: $CheckBoxTextSize !default;                                      // 文字大小
 $RadioTextColor: $CheckBoxTextColor !default;                                    // 文字颜色
 $RadioBackColor: $CheckBoxBackColor !default;                                    // 勾选框背景色
 $RadioBorderColor: $CheckBoxBorderColor !default;                                // 勾选框边框颜色

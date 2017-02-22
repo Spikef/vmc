@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-dropload" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" @scroll="scroll">
+    <div class="vmc-dropload" @scroll="scroll" v-stop>
         <div class="dropload-up" :class="{'animate-disappear': animateUp}" :style="{height: offsetHeight + 'px'}" v-if="refresh">
             <div class="dropload-refresh" v-show="pullStatus == PULLSTATUS.UPINDENT">{{options.tips.upPull}}</div>
             <div class="dropload-update" v-show="pullStatus == PULLSTATUS.UPREADY">{{options.tips.upRelease}}</div>

@@ -2,7 +2,29 @@
     <div id="messages">
         <navbar>提示框</navbar>
 
-        <div>
+        <div class="content">
+            <v-button @click="showAlert">打开alert提示框</v-button>
+
+            <v-button @click="showAlert2">打开alert提示框</v-button>
+
+            <v-button @click="showConfirm">打开confirm提示框</v-button>
+
+            <v-button @click="showPrompt">打开prompt提示框</v-button>
+
+            <v-button @click="showPrompt2">打开prompt提示框2</v-button>
+
+
+
+            <v-button @click="showAlert">打开alert提示框</v-button>
+
+            <v-button @click="showAlert2">打开alert提示框</v-button>
+
+            <v-button @click="showConfirm">打开confirm提示框</v-button>
+
+            <v-button @click="showPrompt">打开prompt提示框</v-button>
+
+            <v-button @click="showPrompt2">打开prompt提示框2</v-button>
+
             <v-button @click="showAlert">打开alert提示框</v-button>
 
             <v-button @click="showAlert2">打开alert提示框</v-button>
@@ -77,6 +99,12 @@
 
 <style rel="stylesheet/less" lang="less">
     #messages {
+        .content {
+            height: 100%;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
         .vmc-button {
             margin-top: 50px;
         }

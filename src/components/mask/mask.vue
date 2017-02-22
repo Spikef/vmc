@@ -2,8 +2,7 @@
     <div class="vmc-mask"
          :class="transparent ? 'transparent' : 'black'"
          @click.stop="_onClick"
-         @touchmove="_stopDefault"
-         @mousewheel="_stopDefault">
+         v-stop.move>
     </div>
 </template>
 
@@ -15,9 +14,6 @@
         methods: {
             _onClick() {
                 this.$emit('on-click');
-            },
-            _stopDefault(e) {
-                e.preventDefault();
             }
         }
     }

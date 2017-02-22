@@ -91,6 +91,7 @@ export default {
 | ----- | ----- | ----- |
 | @RadioHeight | 单选框高度 | @CheckBoxHeight |
 | @RadioSpace | 勾选框与文字之间的距离 | @CheckBoxSpace |
+| @RadioTextSize | 文字大小 | @CheckBoxTextSize |
 | @RadioTextColor | 文字颜色 | @CheckBoxTextColor |
 | @RadioBackColor | 勾选框背景色 | @CheckBoxBackColor |
 | @RadioBorderColor | 勾选框边框颜色 | @CheckBoxBorderColor |

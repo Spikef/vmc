@@ -1,6 +1,6 @@
 <template>
     <popup :show.sync="show" height="auto">
-        <div class="vmc-popup-picker" @touchmove="_stopDefault" @mousewheel="_stopDefault">
+        <div class="vmc-popup-picker" v-stop.move>
             <div class="header">
                 <div class="left" @click="_onCancel">{{cancel}}</div>
                 <div class="title">{{title}}</div>
@@ -73,9 +73,6 @@
                 this.result = result;
                 this.selValue = value;
                 this.$emit('on-change', result, value, target);
-            },
-            _stopDefault(e){
-                e.preventDefault();
             }
         }
     }
