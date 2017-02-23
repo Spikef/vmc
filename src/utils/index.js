@@ -1,3 +1,5 @@
+require('./polyfill');
+
 export const env = require('./env');
 export const device = require('./device');
 
