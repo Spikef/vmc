@@ -36,6 +36,7 @@ import Box from './components/box';
 import Picker from './components/picker';
 import PopupPicker from './components/popup-picker';
 import PopupDatePicker from './components/popup-date-picker';
+import Mask from './components/mask';
 
 module.exports = {
     Alert,
@@ -70,6 +71,7 @@ module.exports = {
     ActionSheet,
     Slider,
     Box,
+    Mask,
     Picker,
     PopupPicker,
     PopupDatePicker,
