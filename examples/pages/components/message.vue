@@ -12,28 +12,6 @@
             <v-button @click="showPrompt">打开prompt提示框</v-button>
 
             <v-button @click="showPrompt2">打开prompt提示框2</v-button>
-
-
-
-            <v-button @click="showAlert">打开alert提示框</v-button>
-
-            <v-button @click="showAlert2">打开alert提示框</v-button>
-
-            <v-button @click="showConfirm">打开confirm提示框</v-button>
-
-            <v-button @click="showPrompt">打开prompt提示框</v-button>
-
-            <v-button @click="showPrompt2">打开prompt提示框2</v-button>
-
-            <v-button @click="showAlert">打开alert提示框</v-button>
-
-            <v-button @click="showAlert2">打开alert提示框</v-button>
-
-            <v-button @click="showConfirm">打开confirm提示框</v-button>
-
-            <v-button @click="showPrompt">打开prompt提示框</v-button>
-
-            <v-button @click="showPrompt2">打开prompt提示框2</v-button>
         </div>
     </div>
 </template>

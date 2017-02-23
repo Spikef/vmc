@@ -1,8 +1,8 @@
 <template>
     <div class="vmc-number">
-        <span class="vmc-1px" @click="changeCount(0)">-</span>
+        <span class="vmc-1px" @click="_changeCount(0)">-</span>
         <m-input :value.sync="value" :min="min" :max="max" :type="decimal ? 'number' : 'integer'" :style="style"></m-input>
-        <span class="vmc-1px" @click="changeCount(1)">+</span>
+        <span class="vmc-1px" @click="_changeCount(1)">+</span>
     </div>
 </template>
 
@@ -44,16 +44,16 @@
             }
         },
         methods: {
-            changeCount(add) {
+            _changeCount(add) {
                 var value = Number(this.value);
                 var step = add ? this.step : -this.step;
 
-                var val = this.decimal ? this.decimalPlus(value, step) : value + step;
+                var val = this.decimal ? this._decimalPlus(value, step) : value + step;
                 if (val >= this.min && val <= this.max) {
                     this.value = val;
                 }
             },
-            decimalPlus(a, b) {
+            _decimalPlus(a, b) {
                 // http://www.cnblogs.com/colder/p/5775555.html
                 var x = Number(String(a).replace('.', ''));
                 var y = Number(String(b).replace('.', ''));

@@ -1,5 +1,5 @@
 <template>
-    <span class="vmc-button" :class="[type, {disabled: disabled}]" :style="style" @click="_submit">
+    <span class="vmc-button" :class="[type, {disabled: disabled}]" :style="style" @click="_onClick">
         <div class="block">
             <slot name="icon-left"></slot>
             <slot>{{text}}</slot>
@@ -31,7 +31,7 @@
             }
         },
         methods: {
-            _submit() {
+            _onClick() {
                 this.$nextTick(() => {
                     if (!this.disabled && this.status !== STATUS.DOING) {
                         this.disabled = true;

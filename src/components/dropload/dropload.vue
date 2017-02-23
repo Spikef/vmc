@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-dropload" @scroll="scroll" v-stop>
+    <div class="vmc-dropload" @scroll="_onScroll" v-touch-events>
         <div class="dropload-up" :class="{'animate-disappear': animateUp}" :style="{height: offsetHeight + 'px'}" v-if="refresh">
             <div class="dropload-refresh" v-show="pullStatus == PULLSTATUS.UPINDENT">{{options.tips.upPull}}</div>
             <div class="dropload-update" v-show="pullStatus == PULLSTATUS.UPREADY">{{options.tips.upRelease}}</div>
@@ -14,7 +14,7 @@
             <div class="dropload-noData" v-show="pullStatus == PULLSTATUS.NOMORE">{{options.tips.downEnd}}</div>
         </div>
 
-        <div class="dropload-mask" v-show="loading && useMask" @touch="stopDefault"></div>
+        <div class="dropload-mask" v-show="loading && useMask" v-stop></div>
     </div>
 </template>
 
@@ -104,20 +104,18 @@
                     }
                 }, 500);
             },
-            touchStart(e) {
+            _onTouchStart(pos) {
                 if (this.loading) return;
 
                 this.animateUp = false;
 
-                var touches = e.touches || e.originalEvent.touches;
-                this._startY = touches[0].pageY;
+                this._startY = pos.y;
                 this._touchScrollTop = this.$el.scrollTop;
             },
-            touchMove(e) {
+            _onTouchMove(offset, pos, value, e) {
                 if (this.loading) return;
-                var touches = e.touches || e.originalEvent.touches;
-                this._currentY = touches[0].pageY;
-                this._moveY = this._currentY - this._startY;
+
+                this._moveY = offset.y;
 
                 if (this._moveY > 0) {
                     this._direction = 'down';
@@ -144,7 +142,7 @@
                     }
                 }
             },
-            touchEnd(e) {
+            _onTouchEnd() {
                 if (this.loading) return;
 
                 var absY = Math.abs(this._moveY);
@@ -164,7 +162,7 @@
                     this._moveY = 0;
                 }
             },
-            scroll(e) {
+            _onScroll(e) {
                 if (this.loading) return;
 
                 this._scrollTop = this.$el.scrollTop;
@@ -189,9 +187,6 @@
                         }
                     }
                 }
-            },
-            stopDefault(e) {
-                e.preventDefault();
             }
         },
         ready() {

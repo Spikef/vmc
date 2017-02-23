@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import App from './App';
-import Touch from 'vue-touch';
 import Router from 'vue-router';
 import VMC from 'vmc/install';
 
@@ -21,6 +20,8 @@ if (process.env.NODE_ENV === 'development') {
         log.apply(console, args);
     };
 
+    console.print = log;
+
     window.vConsole = require('./assets/js/vconsole.min');
     require('./assets/js/vconsole-resources.min');
     require('./assets/js/vconsole-sources.min');
@@ -28,7 +29,6 @@ if (process.env.NODE_ENV === 'development') {
 
 import routes from './pages/routes';
 
-Vue.use(Touch);
 Vue.use(Router);
 Vue.use(VMC);
 

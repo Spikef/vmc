@@ -95,20 +95,109 @@ export default function(Vue) {
         },
         stop: {
             bind: function () {
-                function stopDefault(e) {
-                    e.preventDefault();
-                }
-
+                // mousedown， mousemove， 和 mouseup
                 const defaultEvents = ['start', 'move', 'end'];
 
                 var keys = Object.keys(this.modifiers);
                 if (!keys.length) keys = [].concat(defaultEvents);
 
+                this.events = [];
                 keys.forEach(key => {
-                    var eventName = 'touch' + key;
-                    this.el.addEventListener(eventName, stopDefault);
+                    var event = 'touch' + key;
+                    this.events.push(event);
+                    this.el.addEventListener(event, stopDefault);
+                });
+            },
+            unbind: function () {
+                this.events.forEach(event => {
+                    this.el.removeEventListener(event, stopDefault);
+                });
+            }
+        },
+        touchEvents: {
+            bind: function () {
+                this.events = ['touchStart', 'touchMove', 'touchEnd'];
+
+                this.touchStart = (e) => {
+                    if (this.modifiers.stop) {
+                        stopPropagation(e);
+                    }
+
+                    if (this.modifiers.prevent) {
+                        stopDefault(e);
+                    }
+
+                    // 不管是否有绑定start事件，开始位置必需要计算，否则后面拿不到该值
+                    var value = this.value;
+                    var pos = getTouchPos(e);
+                    this.__startPosition__ = pos;
+
+                    var fn = this.vm._onTouchStart;
+                    if (fn && typeof fn === 'function') {
+                        fn(pos, value, e);
+                    }
+                };
+
+                this.touchMove = (e) => {
+                    var fn = this.vm._onTouchMove;
+                    if (fn && typeof fn === 'function') {
+                        var value = this.value;
+                        var pos = getTouchPos(e);
+                        var start = this.__startPosition__;
+                        var offset = {
+                            x: pos.x - start.x,
+                            y: pos.y - start.y
+                        };
+
+                        fn(offset, pos, value, e);
+                    }
+                };
+
+                this.touchEnd = (e) => {
+                    var fn = this.vm._onTouchEnd;
+                    if (fn && typeof fn === 'function') {
+                        var value = this.value;
+                        var pos = getTouchPos(e);
+                        var start = this.__startPosition__;
+                        var offset = {
+                            x: pos.x - start.x,
+                            y: pos.y - start.y
+                        };
+
+                        fn(offset, pos, value, e);
+                    }
+                };
+            },
+            update: function (value) {
+                this.value = value;
+                this.events.forEach(event => {
+                    this.el.removeEventListener(event.toLowerCase(), this[event]);
+                    this.el.addEventListener(event.toLowerCase(), this[event], false);
+                });
+            },
+            unbind: function () {
+                this.events.forEach(event => {
+                    this.el.removeEventListener(event.toLowerCase(), this[event]);
                 });
             }
         }
     }
 };
+
+function stopDefault(e) {
+    e.preventDefault();
+}
+
+function stopPropagation(e) {
+    e.stopPropagation();
+}
+
+function getTouchPos(e) {
+    var touches = e.changedTouches || e.touches;
+    var touch = touches[0];
+
+    return {
+        x: touch.pageX,
+        y: touch.pageY
+    }
+}

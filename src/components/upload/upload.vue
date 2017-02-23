@@ -5,7 +5,7 @@
                 <i class="icono-plus"></i>
             </div>
         </slot>
-        <input type="file" class="fileInput" :name="name" :accept="accept" :multiple="multiple" @change="_onFileChange">
+        <input type="file" class="fileInput" :name="name" :accept="accept" :multiple="multiple" @change="_onChange">
     </div>
 </template>
 
@@ -33,7 +33,7 @@
             validator: Function
         },
         methods: {
-            _onFileChange() {
+            _onChange() {
                 var files = this.$el.querySelector('input[type=file]').files;
                 if (!files.length) return;
 

@@ -4,7 +4,7 @@
               :style="outStarStyle(i)"
               :class="outStarClass(i)"
               v-for="i in max"
-              @click="onClick(i)">
+              @click="_onClick(i)">
 
             {{star}}
 
@@ -43,15 +43,15 @@
             activeColor: String,
             gutter: {
                 type: [String, Number],
-                coerce: Number,
+                coerce: Number
             },
             size: {
                 type: [String, Number],
-                coerce: Number,
+                coerce: Number
             }
         },
         methods: {
-            onClick (i) {
+            _onClick (i) {
                 if (!this.disabled) {
                     var value = this.value === i + 1 ? i : i + 1;
                     if (value < this.min) value = this.min;

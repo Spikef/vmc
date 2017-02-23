@@ -17,16 +17,13 @@
 
         <div class="tab-pages"
              :class="{'auto-height': autoHeight}"
-             :style="pageListStyle">
+             :style="pageListStyle"
+             v-touch-events>
 
             <div class="tab-page"
-                 v-touch:swipeLeft="onSwipeLeft"
-                 v-touch:swipeRight="onSwipeRight"
-                 v-touch-options:swipe="{ direction: 'horizontal' }"
                  :class="pageClass($index)"
                  :style="pageStyle($index)"
-                 v-for="item in tabList"
-                 :transition="'tab-page-' + direction">
+                 v-for="item in tabList">
 
                 <slot :name="item.name"></slot>
                 <slot-item name="tabPage" :scope="{item: item, index: $index}"></slot-item>
@@ -69,6 +66,17 @@
             }
         },
         methods: {
+            _onTouchMove(offset, pos, value, e) {
+                var horizontal = Math.abs(offset.x) > Math.abs(offset.y);
+                if (horizontal) e.preventDefault();
+            },
+            _onTouchEnd(offset) {
+                var x = Math.abs(offset.x);
+                var y = Math.abs(offset.y);
+                if (x >= 60 && x > y) {
+                    offset.x < 0 ? this.onSwipeLeft() : this.onSwipeRight();
+                }
+            },
             onTabChange(index) {
                 if (this.tabIndex === index) return;
 
@@ -107,7 +115,7 @@
 
                 style.width = this.clientWidth + 'px';
                 if (!this.autoHeight) {
-                    style.transform = 'translate(' + (i * this.clientWidth) + 'px, 0px)';
+                    style.transform = 'translate3d(' + (i * this.clientWidth) + 'px, 0px, 0px)';
                 }
 
                 return style;
@@ -174,7 +182,7 @@
             pageListStyle() {
                 var style = {};
                 style.width = (this.count + 2) * this.clientWidth + 'px';
-                style.transform = 'translate(-' + (this.tabIndex * this.clientWidth) + 'px, 0px)';
+                style.transform = 'translate3d(-' + (this.tabIndex * this.clientWidth) + 'px, 0px, 0px)';
 
                 return style;
             }

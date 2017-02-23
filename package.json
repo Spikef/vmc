@@ -1,6 +1,6 @@
 {
   "name": "vmc",
-  "version": "0.2.26",
+  "version": "0.2.27",
   "description": "Mobile components for vue@1.0.21+",
   "main": "src/index.js",
   "repository": {
@@ -55,7 +55,6 @@
     "vue-loader": "^8.3.0",
     "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
-    "vue-touch": "^1.1.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",

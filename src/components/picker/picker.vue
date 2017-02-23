@@ -1,10 +1,13 @@
 <template>
     <div class="vmc-picker">
+        <hr class="split-line-top">
+        <hr class="split-line-bottom">
+
         <div class="picker-list" v-for="($p, data) in shadowList">
             <ul :class="{'dragging': state[$p].dragging}"
-                @touchstart="_onTouchStart($p, $event)"
-                @mousedown="_onTouchStart($p, $event)"
-                :style="{'transform' : 'translate3d(0,' + state[$p].translateY + 'px, 0)'}">
+                :style="{'transform' : 'translate3d(0,' + state[$p].translateY + 'px, 0)'}"
+                v-touch-events="$p">
+
                 <li></li>
                 <li></li>
                 <li></li>
@@ -22,8 +25,6 @@
                 <li></li>
             </ul>
         </div>
-        <hr class="split-line-top">
-        <hr class="split-line-bottom">
     </div>
 </template>
 
@@ -154,7 +155,7 @@
             _initState() {
                 var initState = {
                     index: 0,
-                    startPos: 0,
+                    startPosY: 0,
                     translateY: 0,
                     startTranslateY: 0,
                     selectedId: 0,
@@ -214,28 +215,19 @@
                 Object.keys(this.result).forEach(i => array.push(this.result[i][this.valueType]));
                 return array.join(String(this.valueSeparator));
             },
-            _getTouchPos(e) {
-                return e.changedTouches ? e.changedTouches[0]['pageY'] : e['pageY'];
-            },
-            _onTouchStart(target, e){
+            _onTouchStart(pos, target) {
                 this.target = target;
                 let _state = this.state[target];
 
-                _state.startPos = this._getTouchPos(e);
+                _state.startPosY = pos.y;
                 _state.startTranslateY = _state.translateY;
                 _state.dragging = true;
-
-                document.addEventListener('touchmove', this._onTouchMove, false);
-                document.addEventListener('touchend', this._onTouchEnd, false);
-                document.addEventListener('mousemove', this._onTouchMove, false);
-                document.addEventListener('mouseup', this._onTouchEnd, false);
             },
-            _onTouchMove(e) {
+            _onTouchMove(offset) {
                 let target = this.target;
                 let _state = this.state[target];
 
-                var delta = this._getTouchPos(e) - _state.startPos;
-                _state.translateY = _state.startTranslateY + delta;
+                _state.translateY = _state.startTranslateY + offset.y;
             },
             _onTouchEnd() {
                 let target = this.target;
@@ -245,11 +237,6 @@
 
                 var index = this._getSelectedIndex();
                 this._setSelectedItem(target, index);
-
-                document.removeEventListener('touchmove', this._onTouchMove);
-                document.removeEventListener('touchend', this._onTouchEnd);
-                document.removeEventListener('mousemove', this._onTouchMove);
-                document.removeEventListener('mouseup', this._onTouchEnd);
             },
             _onChange() {
                 var result = this._getSelectedItem();

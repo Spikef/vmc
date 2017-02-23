@@ -2,12 +2,10 @@
     <div class="vmc-slider" :style="{ height: getHeight }">
         <div class="slider-list"
              :class="{transition: transition, 'auto-height': autoHeight}"
-             :style="listStyle">
+             :style="listStyle"
+             v-touch-events.prevent>
 
             <div class="slider-item"
-                 v-touch:swipeLeft="onSwipeLeft"
-                 v-touch:swipeRight="onSwipeRight"
-                 v-touch-options:swipe="{ direction: 'horizontal' }"
                  :class="itemClass($index)"
                  :style="itemStyle($index)"
                  v-for="item in shadowList"
@@ -68,8 +66,25 @@
             }
         },
         methods: {
+            _onTouchStart() {
+                this.dragging = true;
+                this.transition = false;
+            },
+            _onTouchMove(offset) {
+                this.offsetWidth = this.sliderIndex * this.clientWidth - offset.x;
+            },
+            _onTouchEnd(offset) {
+                this.dragging = false;
+                this.transition = true;
+                var x = Math.abs(offset.x);
+                if (x >= 60) {
+                    offset.x < 0 ? this.onSwipeLeft() : this.onSwipeRight();
+                }
+
+                this.offsetWidth = 0;
+            },
             onSwipeLeft() {
-                if (this.sliderIndex === this.count + 1) return;
+                if (this.sliderIndex === this.count + 1) return false;
 
                 this.sliderIndex++;
 
@@ -82,7 +97,7 @@
                 }
             },
             onSwipeRight() {
-                if (this.sliderIndex === 0) return;
+                if (this.sliderIndex === 0) return false;
 
                 this.sliderIndex--;
 
@@ -116,7 +131,7 @@
 
                 style.width = this.clientWidth + 'px';
                 if (!this.autoHeight) {
-                    style.transform = 'translate(' + (i * this.clientWidth) + 'px, 0px)';
+                    style.transform = 'translate3d(' + (i * this.clientWidth) + 'px, 0px, 0px)';
                 }
 
                 return style;
@@ -194,7 +209,7 @@
             listStyle() {
                 var style = {};
                 style.width = (this.count + 2) * this.clientWidth + 'px';
-                style.transform = 'translate(-' + (this.sliderIndex * this.clientWidth) + 'px, 0px)';
+                style.transform = 'translate3d(-' + this.translateX + 'px, 0px, 0px)';
 
                 return style;
             },
@@ -214,6 +229,9 @@
                 }
 
                 return style;
+            },
+            translateX() {
+                return this.offsetWidth || this.sliderIndex * this.clientWidth;
             }
         },
         data() {
@@ -221,7 +239,9 @@
                 clientWidth: 0,
                 transition: false,
                 transitionEnd: '',
-                sliderList: null
+                sliderList: null,
+                offsetWidth: 0,
+                dragging: false
             }
         },
         ready() {
@@ -258,6 +278,7 @@
                 if (!isNaN(interval)) {
                     interval = interval * 1000;
                     this.timer = setInterval(() => {
+                        if (this.dragging) return;
                         this.onSwipeLeft();
                     }, interval);
                 }

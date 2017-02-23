@@ -61,6 +61,12 @@
             jump(path) {
                 this.$router.go('/components/' + path);
             }
+        },
+        beforeDestroy() {
+            window.__pageIndexScrollTop__ = this.$el.querySelector('.content').scrollTop;
+        },
+        ready() {
+            this.$el.querySelector('.content').scrollTop = window.__pageIndexScrollTop__;
         }
     }
 </script>
