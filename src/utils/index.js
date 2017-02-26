@@ -1,7 +1,9 @@
 require('./polyfill');
 
+export const url = require('./url');
 export const env = require('./env');
 export const device = require('./device');
+export const script = require('./script');
 
 export const getType = function(obj) {
     if (obj === null || obj === undefined) return String(obj);

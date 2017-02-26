@@ -179,6 +179,11 @@
                 _state.translateY = -index * this.lineHeight;
                 _state.selectedId = this.shadowList[target][index].id;
 
+                for (var i=target+1; i<this.shadowList.length; i++) {
+                    let selIndex = Math.min(this.state[i].index, this.shadowList[i].length - 1);
+                    this.state[i].selectedId = this.shadowList[i][selIndex].id;
+                }
+
                 this._onChange();
             },
             _getSelectedItem() {
@@ -249,8 +254,10 @@
             list() {
                 this._initState();
             },
-            value() {
-                this._initState();
+            value(value) {
+                if (value !== this._getSelectedValue()) {
+                    this._initState();
+                }
             }
         }
     }

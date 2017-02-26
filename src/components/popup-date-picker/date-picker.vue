@@ -30,95 +30,93 @@
             towDigitDay: Boolean
         },
         computed: {
-            dataList: {
-                get() {
-                    var list = [];
-                    var value = this.valueList || [];
-                    var from, to, index = 0;
+            dataList() {
+                var list = [];
+                var value = this.valueList || [];
+                var from, to, index = 0;
 
-                    // 年的数据
-                    if (this.year !== false) {
-                        from = 1900;
-                        to = new Date().getFullYear();
+                // 年的数据
+                if (this.year !== false) {
+                    from = 1900;
+                    to = new Date().getFullYear();
 
-                        if (value[index]) {
-                            let year = value[index];
-                            from = Math.min(from, year);
-                            to = Math.max(to, year);
-                        }
-
-                        if (Array.isArray(this.year)) {
-                            if (this.year[0] !== undefined) from = this.year[0];
-                            if (this.year[1] !== undefined) to = this.year[1];
-                        }
-
-                        let years = [];
-                        for (let i=from;i<=to;i++) {
-                            let v = String(i);
-                            if (this.towDigitYear) v = v.slice(2);
-                            years.push({
-                                id: i,
-                                name: v,
-                                value: v
-                            });
-                        }
-
-                        list.push(years);
-                        index++;
+                    if (value[index]) {
+                        let year = value[index];
+                        from = Math.min(from, year);
+                        to = Math.max(to, year);
                     }
 
-                    // 月的数据
-                    if (this.month !== false) {
-                        from = 1;
-                        to = 12;
-
-                        if (Array.isArray(this.month)) {
-                            if (this.month[0] !== undefined) from = this.month[0];
-                            if (this.month[1] !== undefined) to = this.month[1];
-                        }
-
-                        let months = [];
-                        for (let i=from;i<=to;i++) {
-                            let v = String(i);
-                            if (this.towDigitMonth) v = ('0' + v).slice(-2);
-                            months.push({
-                                id: i,
-                                name: v,
-                                value: v
-                            });
-                        }
-
-                        list.push(months);
-                        index++;
+                    if (Array.isArray(this.year)) {
+                        if (this.year[0] !== undefined) from = this.year[0];
+                        if (this.year[1] !== undefined) to = this.year[1];
                     }
 
-                    // 日的数据
-                    if (this.day !== false) {
-                        from = 1;
-                        to = 31;
-
-                        if (Array.isArray(this.day)) {
-                            if (this.day[0] !== undefined) from = this.day[0];
-                            if (this.day[1] !== undefined) to = this.day[1];
-                        }
-
-                        let days = [];
-                        for (let i=1;i<=31;i++) {
-                            let v = String(i);
-                            if (this.towDigitDay) v = ('0' + v).slice(-2);
-                            days.push({
-                                id: i,
-                                name: v,
-                                value: v
-                            });
-                        }
-
-                        list.push(days);
-                        index++;
+                    let years = [];
+                    for (let i=from;i<=to;i++) {
+                        let v = String(i);
+                        if (this.towDigitYear) v = v.slice(2);
+                        years.push({
+                            id: i,
+                            name: v,
+                            value: v
+                        });
                     }
 
-                    return list;
+                    list.push(years);
+                    index++;
                 }
+
+                // 月的数据
+                if (this.month !== false) {
+                    from = 1;
+                    to = 12;
+
+                    if (Array.isArray(this.month)) {
+                        if (this.month[0] !== undefined) from = this.month[0];
+                        if (this.month[1] !== undefined) to = this.month[1];
+                    }
+
+                    let months = [];
+                    for (let i=from;i<=to;i++) {
+                        let v = String(i);
+                        if (this.towDigitMonth) v = ('0' + v).slice(-2);
+                        months.push({
+                            id: i,
+                            name: v,
+                            value: v
+                        });
+                    }
+
+                    list.push(months);
+                    index++;
+                }
+
+                // 日的数据
+                if (this.day !== false) {
+                    from = 1;
+                    to = 31;
+
+                    if (Array.isArray(this.day)) {
+                        if (this.day[0] !== undefined) from = this.day[0];
+                        if (this.day[1] !== undefined) to = this.day[1];
+                    }
+
+                    let days = [];
+                    for (let i=1;i<=31;i++) {
+                        let v = String(i);
+                        if (this.towDigitDay) v = ('0' + v).slice(-2);
+                        days.push({
+                            id: i,
+                            name: v,
+                            value: v
+                        });
+                    }
+
+                    list.push(days);
+                    index++;
+                }
+
+                return list;
             },
             shadowList() {
                 var last = this.dataList.length - 1;
