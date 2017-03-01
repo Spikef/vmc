@@ -67,7 +67,7 @@
             _onSubmit() {
                 this.show = false;
                 this.value = this.selValue;
-                this.$emit('on-submit', this.value);
+                this.$emit('on-submit', this.value, this.result);
             },
             _onChange(result, value, target) {
                 this.result = result;
