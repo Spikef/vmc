@@ -37,6 +37,9 @@
             }
         },
         computed: {
+            show() {
+                return !env.isWechat;
+            },
             style() {
                 return {
                     color: this.color,
