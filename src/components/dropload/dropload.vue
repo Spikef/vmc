@@ -109,7 +109,6 @@
 
                 this.animateUp = false;
 
-                this._startY = pos.y;
                 this._touchScrollTop = this.$el.scrollTop;
             },
             _onTouchMove(offset, pos, value, e) {
