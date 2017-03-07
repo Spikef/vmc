@@ -1,9 +1,9 @@
 import Alert from './';
 
 export default configs => {
-    configs.template += `<alert v-ref:alert></alert>`;
+    configs.children.push('alert');
     configs.components.Alert = Alert;
-    
+
     return (Vue, vm) => {
         var opts = {
             title: '',
@@ -11,7 +11,7 @@ export default configs => {
             callback: null,
             button: '确定'
         };
-        
+
         Vue.prototype.$Alert = (title, callback, options) => {
             if (typeof title === 'string') {
                 options = options || {};

@@ -1,7 +1,7 @@
 import Confirm from './';
 
 export default configs => {
-    configs.template += `<confirm v-ref:confirm></confirm>`;
+    configs.children.push('confirm');
     configs.components.Confirm = Confirm;
 
     return (Vue, vm) => {

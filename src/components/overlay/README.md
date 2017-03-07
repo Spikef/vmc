@@ -1,8 +1,10 @@
-# Mask
+# Overlay
 
 ## Overview
 
 遮罩层，用于阻挡一切用户操作。
+
+> 因为vue2.0版本会对mask标签报警告，所以改名为overlay，其它并未变化。
 
 是否全局组件：否。
 

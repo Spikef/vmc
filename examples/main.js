@@ -4,7 +4,7 @@ import Router from 'vue-router';
 import VMC from 'vmc/install';
 
 if (process.env.NODE_ENV === 'development') {
-    Vue.config.debug = true;    // 开启调试模式
+    Vue.config.productionTip = false;    // 关闭生产提示
 
     var log = console.log;
     console.log = function() {
@@ -27,28 +27,25 @@ if (process.env.NODE_ENV === 'development') {
     require('./assets/js/vconsole-sources.min');
 }
 
-import routes from './pages/routes';
-
 Vue.use(Router);
 Vue.use(VMC);
 
-var router = new Router();
+import routes from './pages/routes';
+var router = new Router({ routes });
 
-router.map(routes);
-
-router.redirect({
-    '*': '/index'
-});
-
-router.beforeEach(t => {
-    if (t.to.doc_title) {
-        window.document.title = t.to.doc_title;
+router.beforeEach((t, f, next) => {
+    if (t.meta.doc_title) {
+        window.document.title = t.meta.doc_title;
     }
 
-    t.next();
+    next();
 });
 
-router.start(App, '#app');
+new Vue({
+    el: '#app',
+    router,
+    render: h => h(App)
+});
 
 
 var attachFastClick = require('fastclick');

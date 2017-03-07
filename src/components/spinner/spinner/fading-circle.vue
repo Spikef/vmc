@@ -1,12 +1,12 @@
 <template>
     <div class="vmc-spinner-fading-circle" :style="spinnerStyle">
-        <div class="block" :class="'block-' + i" v-for="i in 12">
-            <div class="circle" :class="'circle-' + i" :style="circleStyle"></div>
+        <div class="block" :class="'block-' + (i-1)" v-for="i in 12">
+            <div class="circle" :class="'circle-' + (i-1)" :style="circleStyle"></div>
         </div>
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import spinner from './spinner';
 
     export default {

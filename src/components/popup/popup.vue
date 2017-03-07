@@ -1,19 +1,19 @@
 <template>
     <div class="vmc-popup-wrapper">
-        <mask @on-click="_onMaskClick" v-if="showMask" v-show="show" transition="vmc-popup-fade"></mask>
+        <overlay @on-click="_onMaskClick" v-if="showMask" v-show="show" transition="vmc-popup-fade"></overlay>
         <div v-show="show" class="vmc-popup" :class="'vmc-popup-' + position" :style="style" :transition="'vmc-popup-' + position">
             <slot></slot>
         </div>
     </div>
 </template>
 
-<script type="text/ecmascript-6">
-    import Mask from '../mask';
+<script type="es6">
+    import Overlay from '../overlay';
     import { getCSSSize } from '../../utils';
 
     export default {
         components: {
-            Mask
+            Overlay
         },
         props: {
             show: Boolean,

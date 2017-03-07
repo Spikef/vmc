@@ -34,7 +34,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import { Navbar, Slider } from 'vmc';
 
     export default {

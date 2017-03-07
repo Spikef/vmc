@@ -1,6 +1,6 @@
 <template>
     <div class="vmc-spinner-double-bounce" :style="spinnerStyle">
-        <div class="bounce" :class="'bounce-' + i" :style="bounceStyle" v-for="i in 2"></div>
+        <div class="bounce" :class="'bounce-' + (i-1)" :style="bounceStyle" v-for="i in 2"></div>
     </div>
 </template>
 

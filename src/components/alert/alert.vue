@@ -1,35 +1,31 @@
 <template>
-    <dialog :show="show" class="vmc-alert" :class="{'no-content': !content}">
-        <child name="header">
+    <dialog-box :show="show" class="vmc-alert" :class="{'no-content': !content}">
+        <div name="header">
             <div><p>{{title}}</p></div>
-        </child>
-        <child name="content">{{{content}}}</child>
-        <child name="footer">
+        </div>
+        <div name="content" v-html="content" v-if="content"></div>
+        <div name="footer">
             <span class="primary" @click.stop="_onConfirm">
                 {{button}}
             </span>
-        </child>
-    </dialog>
+        </div>
+    </dialog-box>
 </template>
 
-<script type="text/ecmascript-6">
-    import Dialog from '../dialog';
+<script type="es6">
+    import DialogBox from '../dialogbox';
 
     export default {
         components: {
-            Dialog
+            DialogBox
         },
-        props: {
-            show: Boolean,
-            title: String,
-            content: String,
-            callback: {
-                type: Function,
-                default: null
-            },
-            button: {
-                type: String,
-                default: '确定'
+        data() {
+            return {
+                show: false,
+                title: '',
+                content: '',
+                callback: null,
+                button: '确定'
             }
         },
         methods: {

@@ -1,10 +1,10 @@
 <template>
-    <dialog :show="show" class="vmc-prompt" :class="{'no-content': !content}">
+    <dialog-box :show="show" class="vmc-prompt" :class="{'no-content': !content}">
         <child name="header">
             <div><p>{{title}}</p></div>
         </child>
-        <child name="content">
-            {{{content}}}
+        <child name="content" v-html="content">
+
             <div class="prompt-input">
                 <label class="vmc-1px" :class="{ invalid: invalid }">
                     <input v-model="value" :placeholder="placeholder">
@@ -20,17 +20,17 @@
                 {{btn2}}
             </span>
         </child>
-    </dialog>
+    </dialog-box>
 </template>
 
-<script type="text/ecmascript-6">
-    import Mask from '../mask';
-    import Dialog from '../dialog';
+<script type="es6">
+    import Overlay from '../overlay';
+    import DialogBox from '../dialogbox';
 
     export default {
         components: {
-            Mask,
-            Dialog
+            Overlay,
+            DialogBox
         },
         props: {
             show: Boolean,

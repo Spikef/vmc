@@ -1,4 +1,4 @@
-# Dialog
+# Dialog Box
 
 ## Overview
 
@@ -15,18 +15,18 @@
 </div>
 
 <dialog :show="showDialog1">
-    <child name="header">请点击以下按钮</child>
-    <child name="content" class="multi-buttons">
+    <div name="header">请点击以下按钮</div>
+    <div name="content" class="multi-buttons">
         <v-button @click="showDialog1 = false" type="danger">关闭对话框</v-button>
         <v-button @click="showDialog1 = false" type="success">关闭对话框</v-button>
-    </child>
+    </div>
 </dialog>
 
 <dialog :show="showDialog2">
-    <child name="header">请点击以下按钮</child>
-    <child name="footer">
+    <div name="header">请点击以下按钮</div>
+    <div name="footer">
         <v-button @click="showDialog2 = false" type="default">关闭对话框</v-button>
-    </child>
+    </div>
 </dialog>
 ```
 
@@ -41,9 +41,9 @@ export default {
 }
 ```
 
-## Children
+## Named Elements
 
-`Child`是一种类似于`Slot`的自定义组件，与`Slot`不同的是，`Child`没有默认值，而是将`<child>`中的内容与预定义标签进行合并(class、events)。如果未定义某个`Child`，则该块被整体移除。
+命名元素是一种类似于`Slot`的自定义组件，可以使用任意HTML标签包裹想要展示的内容。与`Slot`不同的是，命名元素没有默认值，而是将命名元素包裹的内容与预定义标签进行合并(attribute、style、class、events)。如果未定义某个命名元素，则该块被整体移除。
 
 | Name | Description |
 | ----- | ----- |

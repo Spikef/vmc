@@ -1,10 +1,10 @@
 <template>
     <div class="vmc-spinner-triple-bounce" :style="spinnerStyle">
-        <div class="bounce" :class="'bounce-' + i" :style="bounceStyle" v-for="i in 3"></div>
+        <div class="bounce" :class="'bounce-' + (i-1)" :style="bounceStyle" v-for="i in 3"></div>
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import spinner from './spinner';
 
     export default {

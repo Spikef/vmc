@@ -1,8 +1,8 @@
 <template>
-    <component :is="spinner" v-props></component>
+    <component :is="spinner" :size="size" :color="color"></component>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     const SPINNERS = [
         'blade',
         'snake',

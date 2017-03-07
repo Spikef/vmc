@@ -6,7 +6,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     const getInt = function (val) {
         switch (val) {
             case 'auto':

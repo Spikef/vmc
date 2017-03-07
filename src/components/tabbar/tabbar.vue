@@ -1,22 +1,24 @@
-<template>
-    <div class="vmc-tab-bar" v-show="show" :transition="'vmc-tab-bar-up'">
-        <div class="tab-bar" :style="style">
-            <div class="tab-item" :class="[{active: $index == index}, 'tab-item-' + $index]" @click="_onItemClick(item, $index)" v-for="($index, item) in items">
-                <slot-item :scope="{item: item}">
-                    {{{ _getItemIcon(item, $index) }}}
-                    <span class="tab-text">{{item.text}}</span>
-                </slot-item>
-            </div>
-        </div>
-    </div>
-</template>
+<!--<template>-->
+    <!--<transition name="vmc-tab-bar-up">-->
+        <!--<div class="vmc-tab-bar" v-show="show">-->
+            <!--<div class="tab-bar" :style="style">-->
+                <!--<div class="tab-item" :class="itemClass(item, $index)" @click="_onItemClick(item, $index)" v-for="(item, $index) in items">-->
+                    <!--<slot name="item" :item="item" :$index="$index" v-html="_getItemHtml(item, $index)">-->
+                        <!--<div v-html="_getItemHtml(item, $index)" v-virtual></div>-->
+                    <!--</slot>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</transition>-->
+<!--</template>-->
 
-<script type="text/ecmascript-6">
+<script type="text/jsx">
     export default {
         props: {
             index: {
                 type: [Number, String],
-                default: 0
+                default: 0,
+                sync: true
             },
             show: {
                 type: Boolean,
@@ -31,6 +33,15 @@
             fontSize: String
         },
         methods: {
+            itemClass(item, index) {
+                var classList = [
+                    'tab-item-' + index
+                ];
+
+                if (this.index == index) classList.push('active');
+
+                return classList;
+            },
             _onItemClick(item, index) {
                 if (this.index == index) return;
 
@@ -39,8 +50,6 @@
                 if (item && typeof item.callback === 'function') {
                     item.callback();
                 }
-
-                this.index = index;
             },
             _getItemIcon(item, index) {
                 if (this.index == index) {
@@ -48,6 +57,9 @@
                 } else {
                     return item.icon;
                 }
+            },
+            _getItemHtml(item, index) {
+                return this._getItemIcon(item, index) + `<span class="tab-text">${item.text}</span>`;
             }
         },
         computed: {
@@ -58,6 +70,31 @@
                     fontSize: this.fontSize
                 }
             }
+        },
+        render(h) {
+            var slots = this.$scopedSlots.default;
+            var children = this.items.map((item, index) => {
+                var props = { item, index };
+                return h('div', {
+                    class: ['tab-item', this.itemClass(item, index)],
+                    on: {
+                        click: () => this._onItemClick(item, index)
+                    },
+                    domProps: slots ? undefined : {
+                            innerHTML: this._getItemHtml(item, index)
+                        }
+                }, slots(props));
+            });
+
+            return (
+                    <transition name="vmc-tab-bar-up">
+                        <div class="vmc-tab-bar" v-show={this.show}>
+                            <div class="tab-bar" style={this.style}>
+                                {children}
+                            </div>
+                        </div>
+                    </transition>
+            );
         }
     }
 </script>

@@ -11,8 +11,8 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
-    import Mask from '../mask';
+<script type="es6">
+    import Overlay from '../overlay';
     import Spinner from '../spinner';
 
     const TOASTS = [
@@ -24,7 +24,7 @@
 
     export default {
         components: {
-            Mask,
+            Overlay,
             Spinner
         },
         props: {

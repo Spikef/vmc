@@ -23,7 +23,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import { Navbar, vButton, PopupPicker, PopupDatePicker, Row } from 'vmc';
     import PopupAddressPicker from '../extends/popup-address-picker.vue';
 

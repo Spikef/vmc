@@ -1,4 +1,4 @@
-<script type="text/ecmascript-6">
+<script type="es6">
     import PopupPicker from '../popup-picker';
 
     export default {

@@ -118,7 +118,7 @@ import { Navbar } from 'vmc';
 
 * [确认框 (Confirm)](./src/components/confirm)
 
-* [对话框 (Dialog)](./src/components/dialog)
+* [对话框 (DialogBox)](./src/components/dialogbox)
 
 * [分页刷新 (DropLoad)](./src/components/dropload)
 
@@ -132,11 +132,11 @@ import { Navbar } from 'vmc';
 
 * [滚动公告 (Marquee)](./src/components/marquee)
 
-* [遮罩层 (Mask)](./src/components/mask)
-
 * [导航栏 (Navbar)](./src/components/navbar)
 
 * [数字输入 (Number)](./src/components/number)
+
+* [遮罩层 (Overlay)](./src/components/overlay)
 
 * [选择器 (Picker)](./src/components/picker)
 

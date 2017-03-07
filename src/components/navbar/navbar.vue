@@ -14,7 +14,7 @@
     </topbar>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import Topbar from './topbar.vue';
     import { env } from '../../utils';
 
@@ -37,6 +37,9 @@
             }
         },
         computed: {
+            show() {
+                return !env.isWechat;
+            },
             style() {
                 return {
                     color: this.color,

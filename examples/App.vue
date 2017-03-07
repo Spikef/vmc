@@ -1,15 +1,18 @@
 <template>
     <div id="app">
-        <router-view
-            class="page"
-            :transition="direction">
-        </router-view>
+        <transition :name="direction" type="animation">
+            <router-view class="page"></router-view>
+        </transition>
 
-        <tabbar :index="index" :items="items" :show="showTab"></tabbar>
+        <tabbar :index="index" :items="items" :show="showTab">
+            <template scope="props">
+                <div>{{props.item.text}}</div>
+            </template>
+        </tabbar>
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import { Tabbar } from 'vmc';
 
     export default {
@@ -26,60 +29,43 @@
                     {
                         icon: `<i style="transform: scale(0.94);" class="icono-home"></i>`,
                         text: '首页',
-                        callback: () => this.$router.go('/index')
+                        callback: () => {
+                            this.index = 0;
+                            this.$router.replace('/index');
+                        }
                     },
                     {
                         icon: `<i style="transform: scale(0.94);" class="icono-exclamationCircle"></i>`,
                         text: '关于',
-                        callback: () => this.$router.go('/about')
+                        callback: () => {
+                            this.index = 1;
+                            this.$router.replace('/about');
+                        }
                     }
                 ]
             }
         },
-        ready() {
-            this.$router.records = [];
-
-            this.$router.forward = path => {
-                var state = this.$router.stringifyPath(this.$route);
-                this.$router.records.push(state);
-
-                this.$router.go(path);
-            };
-
-            this.$router.back = path => {
-                var state = this.$router.stringifyPath(path);
-                var index = this.$router.records.length - 1;
-                var last = this.$router.records[index];
-
-                if (last && last === state) {
-                    history.back();
-                    this.$router.records.pop();
-                } else {
-                    this.$router.replace(path);
-                }
-            };
-
-            this.$router.beforeEach(t => {
-                var fd = t.from.depth || 0;
-                var td = t.to.depth || 0;
-
-                if (!t.from.path || fd === td) {
-                    this.$root.$data.direction = 'null';
-                } else if (fd < td) {
-                    this.$root.$data.direction = 'forward';
-                } else if (fd > td) {
-                    this.$root.$data.direction = 'back';
-                }
-
-                this.$nextTick(() => t.next());
-            });
-
-            this.$router.afterEach(t => {
+        mounted() {
+            this.$router.afterEach(to => {
                 this.$nextTick(() => {
-                    this.index = t.to.name === 'about' ? 1 : 0;
-                    this.showTab = !!~['index', 'about'].indexOf(t.to.name);
-                })
+                    this.index = to.name === 'about' ? 1 : 0;
+                    this.showTab = !!~['index', 'about'].indexOf(to.name);
+                });
             });
+        },
+        watch: {
+            '$route'(to, from) {
+                var fd = from.meta.depth || 0;
+                var td = to.meta.depth || 0;
+
+                if (!from.path || fd === td) {
+                    this.direction = 'null';
+                } else if (fd < td) {
+                    this.direction = 'forward';
+                } else if (fd > td) {
+                    this.direction = 'back';
+                }
+            }
         }
     }
 </script>

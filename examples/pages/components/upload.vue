@@ -33,7 +33,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import { Navbar, Row, Card, Upload } from 'vmc';
 
     export default {

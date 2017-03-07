@@ -31,15 +31,11 @@
         }
     }
 
-    &-up-transition, &-down-transition {
+    &-up-enter-active, &-up-leave-active {
         transition: transform .2s linear;
     }
 
-    &-up-enter, &-up-leave {
+    &-up-enter, &-up-leave-active {
         transform: translate3d(0, 100%, 0);
-    }
-
-    &-down-enter, &-down-leave {
-        transform: translate3d(0, -100%, 0);
     }
 }

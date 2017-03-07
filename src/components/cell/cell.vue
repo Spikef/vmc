@@ -3,7 +3,7 @@
         <div class="cell-title">
             <slot>{{title}}</slot>
         </div>
-        <div class="cell-arrow" v-if="arrow">
+        <div class="cell-arrow" v-if="props_arrow">
             <slot name="arrow">
                 <i class="icono-caretRight"></i>
             </slot>
@@ -11,14 +11,21 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     export default {
         props: {
             title: String,
             arrow: {
                 type: [Boolean, String],
-                default: true,
-                coerce: val => !(val === false || val === 'false')
+                default: true
+            }
+        },
+        computed: {
+            props_arrow: {
+                get() {
+                    var val = this.arrow;
+                    return !(val === false || val === 'false');
+                }
             }
         }
     }

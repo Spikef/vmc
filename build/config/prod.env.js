@@ -1,4 +1,4 @@
 module.exports = {
-  NODE_ENV: '"production"',
-  VERSION: '"' + require('../../package.json').version + '"'
+    NODE_ENV: '"production"',
+    VERSION: '"' + require('../../package.json').version + '"'
 };

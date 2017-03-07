@@ -1,20 +1,17 @@
+require('./check-versions');
+
 // https://github.com/shelljs/shelljs
 require('shelljs/global');
-env.NODE_ENV = 'production';
 
-var fs = require('fs');
-var path = require('path');
-var config = require('./config');
+process.env.NODE_ENV = 'production';
+
 var ora = require('ora');
+var path = require('path');
+var chalk = require('chalk');
 var webpack = require('webpack');
+var config = require('./config');
 var webpackConfig = require('./webpack.prod.conf');
 var after = require('./after-build');
-
-console.log(
-    '  Tip:\n' +
-    '  Built files are meant to be served over an HTTP server.\n' +
-    '  Opening index.html over file:// won\'t work.\n'
-);
 
 var spinner = ora('building for production...');
 spinner.start();
@@ -40,5 +37,11 @@ webpack(webpackConfig, function (err, stats) {
             children: false,
             chunks: false,
             chunkModules: false
-        }) + '\n')
+        }) + '\n\n');
+
+    console.log(chalk.cyan('  Build complete.\n'));
+    console.log(chalk.yellow(
+        '  Tip: built files are meant to be served over an HTTP server.\n' +
+        '  Opening index.html over file:// won\'t work.\n'
+    ));
 });

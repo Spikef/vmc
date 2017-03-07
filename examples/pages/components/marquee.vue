@@ -12,7 +12,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import { Navbar, Marquee,vButton } from 'vmc';
 
     export default {

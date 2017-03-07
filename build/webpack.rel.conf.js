@@ -4,10 +4,7 @@ var webpack = require('webpack');
 var merge = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.conf');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var version = require('../package.json').version;
-var env = process.env.NODE_ENV === 'testing'
-    ? require('./config/test.env')
-    : config.release.env;
+var env = config.release.env;
 
 var webpackConfig = merge(baseWebpackConfig, {
     entry: {
@@ -20,12 +17,6 @@ var webpackConfig = merge(baseWebpackConfig, {
     output: {
         path: config.release.assetsRoot,
         filename: utils.assetsPath('vmc.js', config.release.assetsSubDirectory)
-    },
-    vue: {
-        loaders: utils.cssLoaders({
-            sourceMap: config.release.productionSourceMap,
-            extract: true
-        })
     },
     plugins: [
         // http://vuejs.github.io/vue-loader/workflow/production.html

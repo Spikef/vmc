@@ -8,8 +8,18 @@
 
 ## Usage
 
+**使用默认slot**
 ```html
 <tabbar :index="index" :items="items" :show="showTab"></tabbar>
+```
+
+**自定义slot**
+```
+<tabbar :index="index" :items="items" :show="showTab">
+    <template scope="props">
+        <div>{{props.item.text}}</div>
+    </template>
+</tabbar>
 ```
 
 ```javascript
@@ -43,13 +53,11 @@ export default {
 }
 ```
 
-## SlotItem
+## Scoped Slots
 
-`SlotItem`是一种类似于`Slot`的自定义组件，用于自定义列表循环中单个元素的样式。`SlotItem`具有单独的作用域，在该作用域内，可以使用`item`来访问循环的当前元素，使用`index`来访问当前索引。
-
-| Name | Description | Default |
-| ----- | ----- | ----- |
-| default | 每个导航栏显示的内容 | {{{item.icon}}}<br>&lt;span class="tab-text"&gt;{{item.text}}&lt;/span&gt; |
+| Name | Description | props | Default |
+| ----- | ----- | ----- | ----- |
+| default | 每个导航栏显示的内容 | item: 循环的当前元素；index：当前索引 | {{{item.icon}}}<br>&lt;span class="tab-text"&gt;{{item.text}}&lt;/span&gt; |
 
 ## Props
 

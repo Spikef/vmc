@@ -3,20 +3,20 @@
         <navbar>提示框</navbar>
 
         <div class="content">
-            <v-button @click="showAlert">打开alert提示框</v-button>
+            <v-button @click.native="showAlert">打开alert提示框</v-button>
 
-            <v-button @click="showAlert2">打开alert提示框</v-button>
+            <v-button @click.native="showAlert2">打开alert提示框</v-button>
 
-            <v-button @click="showConfirm">打开confirm提示框</v-button>
+            <v-button @click.native="showConfirm">打开confirm提示框</v-button>
 
-            <v-button @click="showPrompt">打开prompt提示框</v-button>
+            <v-button @click.native="showPrompt">打开prompt提示框</v-button>
 
-            <v-button @click="showPrompt2">打开prompt提示框2</v-button>
+            <v-button @click.native="showPrompt2">打开prompt提示框2</v-button>
         </div>
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import { Navbar, vButton } from 'vmc'
 
     export default {

@@ -18,7 +18,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     const PULLSTATUS = {
         INITIAL: 0,
         UPINDENT: 1,
@@ -109,7 +109,6 @@
 
                 this.animateUp = false;
 
-                this._startY = pos.y;
                 this._touchScrollTop = this.$el.scrollTop;
             },
             _onTouchMove(offset, pos, value, e) {

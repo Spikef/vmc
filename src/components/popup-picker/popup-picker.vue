@@ -11,7 +11,7 @@
     </popup>
 </template>
 
-<script type="text/ecmascript-6">
+<script type="es6">
     import Popup from '../popup';
     import Picker from '../picker';
 
