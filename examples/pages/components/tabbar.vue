@@ -6,7 +6,7 @@
 
         </div>
 
-        <tabbar :index="index" :items="items"></tabbar>
+        <tabbar :items="items"></tabbar>
     </div>
 </template>
 

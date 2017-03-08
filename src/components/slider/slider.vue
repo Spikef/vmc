@@ -99,6 +99,8 @@
 
                     var item = this.list[index];
                     if (item) this.onSliderClick(item);
+
+                    alert(item.image)
                 }
             },
             onSwipeLeft() {
