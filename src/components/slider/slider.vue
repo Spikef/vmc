@@ -75,7 +75,7 @@
             _onTouchMove(offset) {
                 this.offsetWidth = this.sliderIndex * this.clientWidth - offset.x;
             },
-            _onTouchEnd(offset) {
+            _onTouchEnd(offset, pos) {
                 this.dragging = false;
                 this.transition = true;
                 var x = Math.abs(offset.x);
@@ -89,7 +89,15 @@
                 var duration = Date.now() - this._start_touch_timer;
                 if (duration < 200 && move.x < 10 && move.y < 10) {
                     // 认为是点击事件
-                    var item = this.list[this.sliderIndex - 1];
+                    var index = this.sliderIndex - 1;
+                    if (this.multiple) {
+                        var unitWidth = this.clientWidth / this.perPage;
+                        var unitIndex = Math.floor(pos.x / unitWidth);
+
+                        index = index * this.perPage + Math.abs(unitIndex);
+                    }
+
+                    var item = this.list[index];
                     if (item) this.onSliderClick(item);
                 }
             },
