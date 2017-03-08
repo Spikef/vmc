@@ -4,24 +4,24 @@
 
         <div class="content">
             <card>
-                <child name="header">只显示一行</child>
-                <child name="content">
+                <div name="header">只显示一行</div>
+                <div name="content">
                     <div class="vmc-nowrap">{{text}}</div>
-                </child>
+                </div>
             </card>
 
             <card>
-                <child name="header">只显示两行</child>
-                <child name="content">
+                <div name="header">只显示两行</div>
+                <div name="content">
                     <div class="vmc-nowrap-2">{{text}}</div>
-                </child>
+                </div>
             </card>
 
             <card>
-                <child name="header">只显示五行</child>
-                <child name="content">
+                <div name="header">只显示五行</div>
+                <div name="content">
                     <div class="vmc-nowrap-5">{{text}}</div>
-                </child>
+                </div>
             </card>
         </div>
     </div>

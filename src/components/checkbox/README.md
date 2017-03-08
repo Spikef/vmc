@@ -10,89 +10,89 @@
 
 ```html
 <card>
-    <child name="header">单个复选框</child>
-    <child name="content">
+    <div name="header">单个复选框</div>
+    <div name="content">
         <checkbox :checked.sync="checked1">同意 <a href="http://www.baidu.com" slot="extra">用户注册协议</a></checkbox>
-    </child>
-    <child name="footer">
+    </div>
+    <div name="footer">
         <span>选择值:</span>
         <span> {{ checked1 }} </span>
-    </child>
+    </div>
 </card>
 
 <card>
-    <child name="header">单个复选框，默认选中</child>
-    <child name="content">
+    <div name="header">单个复选框，默认选中</div>
+    <div name="content">
         <checkbox :checked.sync="checked2">同意用户注册协议</checkbox>
-    </child>
-    <child name="footer">
+    </div>
+    <div name="footer">
         <span>选择值:</span>
         <span> {{ checked2 }} </span>
-    </child>
+    </div>
 </card>
 
 <card>
-    <child name="header">单个复选框，指定选择结果</child>
-    <child name="content">
+    <div name="header">单个复选框，指定选择结果</div>
+    <div name="content">
         <checkbox :checked.sync="checked3" :values="[1, 0]">同意用户注册协议</checkbox>
-    </child>
-    <child name="footer">
+    </div>
+    <div name="footer">
         <span>选择值:</span>
         <span> {{ checked3 }} </span>
-    </child>
+    </div>
 </card>
 
 <card>
-    <child name="header">复选框列表，显示在一行</child>
-    <child name="content">
+    <div name="header">复选框列表，显示在一行</div>
+    <div name="content">
         <checkbox :checked.sync="list1" :value="item" v-for="item in listA" inline>{{item}}</checkbox>
-    </child>
-    <child name="footer">
+    </div>
+    <div name="footer">
         <span>选中的项:</span>
         <span> {{ list1 | json }} </span>
-    </child>
+    </div>
 </card>
 
 <card>
-    <child name="header">复选框列表，最多只允许选择两项</child>
-    <child name="content">
+    <div name="header">复选框列表，最多只允许选择两项</div>
+    <div name="content">
         <checkbox :checked.sync="list2" :value="item" v-for="item in listB" max="2">{{item}}</checkbox>
-    </child>
-    <child name="footer">
+    </div>
+    <div name="footer">
         <span>选中的项:</span>
         <span> {{ list2 | json }} </span>
-    </child>
+    </div>
 </card>
 
 <card>
-    <child name="header">可禁用的复选框列表</child>
-    <child name="content">
+    <div name="header">可禁用的复选框列表</div>
+    <div name="content">
         <checkbox :checked.sync="list3" value="选项A" disabled>选项A</checkbox>
         <checkbox :checked.sync="list3" value="选项B" disabled>选项B</checkbox>
         <checkbox :checked.sync="list3" value="选项C">选项C</checkbox>
         <checkbox :checked.sync="list3" value="选项D">选项D</checkbox>
-    </child>
-    <child name="footer">
+    </div>
+    <div name="footer">
         <span>选中的项:</span>
         <span> {{ list3 | json }} </span>
-    </child>
+    </div>
 </card>
 
 <card>
-    <child name="header">支持全选的复选框列表</child>
-    <child name="content">
+    <div name="header">支持全选的复选框列表</div>
+    <div name="content">
         <checkbox :checked.sync="list4" :value="item" v-for="item in listA">{{item}}</checkbox>
         <checkbox :checked="true" :child-values="listA" :child-checked.sync="list4">全选</checkbox>
-    </child>
-    <child name="footer">
+    </div>
+    <div name="footer">
         <span>选中的项:</span>
         <span> {{ list4 | json }} </span>
-    </child>
+    </div>
 </card>
 
 <card>
-    <child name="header">支持分组全选的复选框列表</child>
-    <child name="content" class="group-box">
+    <div name="header">支持分组全选的复选框列表</div>
+    <div name="content" class="group-box">
         <checkbox :checked.sync="list7" value="A" :child-values="listA" :child-checked.sync="list5" max="1">选择分组A</checkbox>
         <checkbox :checked.sync="list5" :value="item" v-for="item in listA" class="box-item">{{item}}</checkbox>
 
@@ -100,11 +100,11 @@
 
         <checkbox :checked.sync="list7" value="B" :child-values="listB" :child-checked.sync="list6" max="1">选择分组B</checkbox>
         <checkbox :checked.sync="list6" :value="item" v-for="item in listB" class="box-item">{{item}}</checkbox>
-    </child>
-    <child name="footer">
+    </div>
+    <div name="footer">
         <span>选中的项:</span>
         <span> {{ list7 | json }} </span>
-    </child>
+    </div>
 </card>
 ```
 

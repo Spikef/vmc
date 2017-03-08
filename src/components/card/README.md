@@ -10,39 +10,39 @@
 
 ```html
 <card>
-    <child name="header">普通卡片</child>
-    <child name="content">
+    <div name="header">普通卡片</div>
+    <div name="content">
         头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-    </child>
-    <child name="footer">尾部</child>
+    </div>
+    <div name="footer">尾部</div>
 </card>
 
 <card status="expand">
-    <child name="header">可折叠的卡片</child>
-    <child name="content">
+    <div name="header">可折叠的卡片</div>
+    <div name="content">
         头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-    </child>
-    <child name="footer">尾部</child>
+    </div>
+    <div name="footer">尾部</div>
 </card>
 
 <card status="collapse">
-    <child name="header">可折叠的卡片(默认折叠)</child>
-    <child name="content">
+    <div name="header">可折叠的卡片(默认折叠)</div>
+    <div name="content">
         头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-    </child>
-    <child name="footer">尾部</child>
+    </div>
+    <div name="footer">尾部</div>
 </card>
 
 <card>
-    <child name="content">
+    <div name="content">
         头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-    </child>
+    </div>
 </card>
 
 <card class="with-shadow">
-    <child name="content">
+    <div name="content">
         头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-    </child>
+    </div>
 </card>
 ```
 
@@ -56,9 +56,9 @@ export default {
 }
 ```
 
-## Children
+## Named Elements
 
-`Child`是一种类似于`Slot`的自定义组件，与`Slot`不同的是，`Child`没有默认值，而是将`<child>`中的内容与预定义标签进行合并(class、events)。如果未定义某个`Child`，则该块被整体移除。
+命名元素是一种类似于`Slot`的自定义组件，可以使用任意HTML标签包裹想要展示的内容。与`Slot`不同的是，命名元素没有默认值，而是将命名元素包裹的内容与预定义标签进行合并(attribute、style、class、events)。如果未定义某个命名元素，则该块被整体移除。
 
 | Name | Description |
 | ----- | ----- |

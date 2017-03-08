@@ -36,15 +36,15 @@
         }
     }
 
-    &-up-transition, &-down-transition {
+    &-up-enter-active, &-up-leave-active, &-down-enter-active, &-down-leave-active {
         transition: all @MarqueeTransitionDuration ease;
     }
 
-    &-up-enter, &-down-leave {
+    &-up-enter, &-down-leave-active {
         transform: translate3d(0, 100%, 0);
     }
 
-    &-up-leave, &-down-enter {
+    &-up-leave-active, &-down-enter {
         transform: translate3d(0, -100%, 0);
     }
 }

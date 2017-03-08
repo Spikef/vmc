@@ -4,9 +4,9 @@
 
         <div class="content">
             <card>
-                <child name="content">
+                <div name="content">
                     <v-textarea placeholder="请输入您的评论内容" min="10" max="15"></v-textarea>
-                </child>
+                </div>
             </card>
         </div>
     </div>

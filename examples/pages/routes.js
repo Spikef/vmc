@@ -138,15 +138,15 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'card',
-    //     path: '/components/card',
-    //     component: require('./components/card.vue'),
-    //     meta: {
-    //         doc_title: '卡片',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'card',
+        path: '/components/card',
+        component: require('./components/card.vue'),
+        meta: {
+            doc_title: '卡片',
+            depth: 20
+        }
+    },
     // {
     //     name: 'rater',
     //     path: '/components/rater',
@@ -262,15 +262,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'marquee',
-    //     path: '/components/marquee',
-    //     component: require('./components/marquee.vue'),
-    //     meta: {
-    //         doc_title: 'marquee',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'marquee',
+        path: '/components/marquee',
+        component: require('./components/marquee.vue'),
+        meta: {
+            doc_title: 'marquee',
+            depth: 20
+        }
+    },
     // {
     //     name: 'actionsheet',
     //     path: '/components/actionsheet',
@@ -289,15 +289,15 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'box',
-    //     path: '/components/box',
-    //     component: require('./components/box.vue'),
-    //     meta: {
-    //         doc_title: 'box',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'box',
+        path: '/components/box',
+        component: require('./components/box.vue'),
+        meta: {
+            doc_title: 'box',
+            depth: 20
+        }
+    },
     // {
     //     name: 'picker',
     //     path: '/components/picker',

@@ -1,9 +1,9 @@
 <template>
     <dialog-box :show="show" class="vmc-prompt" :class="{'no-content': !content}">
-        <child name="header">
+        <div name="header">
             <div><p>{{title}}</p></div>
-        </child>
-        <child name="content" v-html="content">
+        </div>
+        <div name="content" v-html="content">
 
             <div class="prompt-input">
                 <label class="vmc-1px" :class="{ invalid: invalid }">
@@ -11,15 +11,15 @@
                 </label>
                 <div class="error-message" v-if="!!message">{{message}}</div>
             </div>
-        </child>
-        <child name="footer">
+        </div>
+        <div name="footer">
             <span class="vmc-1px-right" :class="type === 0 ? 'default' : 'primary'" @click.stop="_onCancel">
                 {{btn1}}
             </span>
             <span class="primary" @click.stop="_onConfirm">
                 {{btn2}}
             </span>
-        </child>
+        </div>
     </dialog-box>
 </template>
 

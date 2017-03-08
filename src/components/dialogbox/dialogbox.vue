@@ -39,7 +39,6 @@
                         staticClass = className[name] + staticClass;
 
                         data = Object.assign({}, data, { staticClass });
-                        delete data.attrs.name;
 
                         children[name] = h(vNode.tag, data, vNode.children);
                     }

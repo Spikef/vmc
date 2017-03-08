@@ -83,7 +83,7 @@
                     domProps: slots ? undefined : {
                             innerHTML: this._getItemHtml(item, index)
                         }
-                }, slots(props));
+                }, slots ? slots(props) : []);
             });
 
             return (

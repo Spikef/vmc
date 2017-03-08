@@ -5,8 +5,8 @@
         <div class="content">
             <div class="help-block">注：该示例只能在本地dev环境下访问</div>
             <card>
-                <child name="header">请上传图片(单张图片)</child>
-                <child name="content">
+                <div name="header">请上传图片(单张图片)</div>
+                <div name="content">
                     <div class="image-list">
                         <div class="image" v-for="image in images1">
                             <img :src="image">
@@ -14,12 +14,12 @@
                         </div>
                         <upload name="file" url="/upload" :body="data" @on-success="onSuccess" auto-reset></upload>
                     </div>
-                </child>
+                </div>
             </card>
 
             <card>
-                <child name="header">请上传图片(多张图片)</child>
-                <child name="content">
+                <div name="header">请上传图片(多张图片)</div>
+                <div name="content">
                     <div class="image-list">
                         <div class="image" v-for="image in images2">
                             <img :src="image">
@@ -27,7 +27,7 @@
                         </div>
                         <upload name="photos" url="/upload/photos" :body="data" @on-success="onSuccess" multiple></upload>
                     </div>
-                </child>
+                </div>
             </card>
         </div>
     </div>

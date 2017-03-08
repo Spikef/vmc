@@ -3,39 +3,39 @@
         <navbar>卡片</navbar>
 
         <card>
-            <child name="header">普通卡片</child>
-            <child name="content">
+            <div name="header">普通卡片</div>
+            <div name="content">
                 头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-            </child>
-            <child name="footer">尾部</child>
+            </div>
+            <div name="footer">尾部</div>
         </card>
 
         <card status="expand">
-            <child name="header">可折叠的卡片</child>
-            <child name="content">
+            <div name="header">可折叠的卡片</div>
+            <div name="content">
                 头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-            </child>
-            <child name="footer">尾部</child>
+            </div>
+            <div name="footer">尾部</div>
         </card>
 
         <card status="collapse">
-            <child name="header">可折叠的卡片(默认折叠)</child>
-            <child name="content">
+            <div name="header">可折叠的卡片(默认折叠)</div>
+            <div name="content">
                 头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-            </child>
-            <child name="footer">尾部</child>
+            </div>
+            <div name="footer">尾部</div>
         </card>
 
         <card>
-            <child name="content">
+            <div name="content">
                 头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-            </child>
+            </div>
         </card>
 
         <card class="with-shadow">
-            <child name="content">
+            <div name="content">
                 头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。
-            </child>
+            </div>
         </card>
     </div>
 </template>

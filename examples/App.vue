@@ -1,14 +1,10 @@
 <template>
     <div id="app">
-        <transition :name="direction" type="animation">
+        <transition :name="direction">
             <router-view class="page"></router-view>
         </transition>
 
-        <tabbar :index="index" :items="items" :show="showTab">
-            <template scope="props">
-                <div>{{props.item.text}}</div>
-            </template>
-        </tabbar>
+        <tabbar :index="index" :items="items" :show="showTab"></tabbar>
     </div>
 </template>
 
@@ -46,17 +42,20 @@
             }
         },
         mounted() {
-            this.$router.afterEach(to => {
-                this.$nextTick(() => {
-                    this.index = to.name === 'about' ? 1 : 0;
-                    this.showTab = !!~['index', 'about'].indexOf(to.name);
-                });
-            });
+            this.updateTab(this.$route.name);
+        },
+        methods: {
+            updateTab(route) {
+                this.index = route === 'about' ? 1 : 0;
+                this.showTab = !!~['index', 'about'].indexOf(route);
+            }
         },
         watch: {
             '$route'(to, from) {
                 var fd = from.meta.depth || 0;
                 var td = to.meta.depth || 0;
+
+                this.updateTab(to.name);
 
                 if (!from.path || fd === td) {
                     this.direction = 'null';

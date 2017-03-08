@@ -25,14 +25,14 @@ import Spinner  from './components/spinner';
 // import Justify from './components/justify';
 // import TabControl from './components/tabcontrol';
 import Cell from './components/cell';
-// import Card from './components/card';
+import Card from './components/card';
 // import Row from './components/row';
 // import Progressbar from './components/progressbar';
 // import Popup from './components/popup';
-// import Marquee from './components/marquee';
+import Marquee from './components/marquee';
 // import ActionSheet from './components/actionsheet';
 // import Slider from './components/slider';
-// import Box from './components/box';
+import Box from './components/box';
 // import Picker from './components/picker';
 // import PopupPicker from './components/popup-picker';
 // import PopupDatePicker from './components/popup-date-picker';
@@ -63,14 +63,14 @@ export {
     // Justify,
     // TabControl,
     Cell,
-    // Card,
+    Card,
     // Row,
     // Progressbar,
     // Popup,
-    // Marquee,
+    Marquee,
     // ActionSheet,
     // Slider,
-    // Box,
+    Box,
     Overlay,
     // Picker,
     // PopupPicker,

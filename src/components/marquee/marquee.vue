@@ -1,18 +1,18 @@
 <template>
-    <div class="vmc-marquee" :style="style">
+    <transition-group tag="div" :name="'vmc-marquee-' + direction" class="vmc-marquee" :style="style">
         <div class="marquee-line"
              :class="align"
              :style="lineStyle"
              @click="_onItemClick(note)"
              v-show="index === $index"
-             v-for="note in notes"
-             :transition="'vmc-marquee-' + direction">
+             v-for="(note, $index) in notes"
+             :key="$index">
 
             <i class="icono-volumeHigh"></i>
-            <p class="vmc-nowrap">{{_getText(note)}}</p>
+            <span class="vmc-nowrap">{{_getText(note)}}</span>
             <i class="icono-caretRight"></i>
         </div>
-    </div>
+    </transition-group>
 </template>
 
 <script type="es6">
@@ -89,7 +89,7 @@
                 return note.text || note;
             }
         },
-        ready() {
+        mounted() {
             this.timer = setInterval(() => {
                 if (this.notes.length <= 1) return;
 
