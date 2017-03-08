@@ -1,6 +1,6 @@
 {
   "name": "vmc",
-  "version": "1.2.32",
+  "version": "1.2.33",
   "description": "Mobile components for vue@1.0.21+",
   "main": "src/index.js",
   "repository": {

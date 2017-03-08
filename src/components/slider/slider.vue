@@ -13,12 +13,12 @@
 
                 <div class="slider-group" :style="groupStyle" v-if="multiple"><div class="slider-group-item" :style="groupItemStyle" v-for="_item in item">
                     <slot-item :scope="{index: index, item: _item}">
-                        <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
+                        <img class="slider-image" :src="item.image">
                     </slot-item>
                 </div></div>
 
                 <slot-item :scope="{item: item, index: $index}" v-else>
-                    <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
+                    <img class="slider-image" :src="item.image">
                     <p class="slider-title" v-if="item.title">{{item.title}}</p>
                 </slot-item>
             </div>
@@ -69,6 +69,8 @@
             _onTouchStart() {
                 this.dragging = true;
                 this.transition = false;
+
+                this._start_touch_timer = Date.now();
             },
             _onTouchMove(offset) {
                 this.offsetWidth = this.sliderIndex * this.clientWidth - offset.x;
@@ -82,6 +84,14 @@
                 }
 
                 this.offsetWidth = 0;
+
+                var move = {x: Math.abs(offset.x), y: Math.abs(offset.y)};
+                var duration = Date.now() - this._start_touch_timer;
+                if (duration < 200 && move.x < 10 && move.y < 10) {
+                    // 认为是点击事件
+                    var item = this.list[this.sliderIndex - 1];
+                    if (item) this.onSliderClick(item);
+                }
             },
             onSwipeLeft() {
                 if (this.sliderIndex === this.count + 1) return false;
@@ -110,8 +120,8 @@
                 }
             },
             onSliderClick(item) {
-                if (item.link) {
-                    window.location = item.link;
+                if (item.link && typeof item.link === 'string') {
+                    window.location.href = item.link;
                 } else {
                     this.$emit('on-item-click', item, this.sliderIndex);
                 }
