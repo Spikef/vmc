@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 
     window.vConsole = require('./assets/js/vconsole.min');
     require('./assets/js/vconsole-resources.min');
-    require('./assets/js/vconsole-sources.min');
+    require('./assets/js/vconsole-elements.min');
 }
 
 import routes from './pages/routes';
