@@ -1,5 +1,5 @@
 <template>
-    <span class="vmc-button" :class="[type, {disabled: disabled}]" :style="style">
+    <span class="vmc-button" :class="[type, {disabled: disabled}]" :style="style" @click="_onClick">
         <div class="block">
             <slot name="icon-left"></slot>
             <slot>{{text}}</slot>
@@ -78,6 +78,11 @@
                 }
 
                 return style;
+            }
+        },
+        methods: {
+            _onClick(event) {
+                this.$emit('click', event)
             }
         }
     }

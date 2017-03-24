@@ -22,15 +22,15 @@ import Tabbar from './components/tabbar';
 import Spinner  from './components/spinner';
 // import DropLoad from './components/dropload';
 // import Grid from './components/grid';
-// import Justify from './components/justify';
+import Justify from './components/justify';
 // import TabControl from './components/tabcontrol';
 import Cell from './components/cell';
 import Card from './components/card';
 import Row from './components/row';
 // import Progressbar from './components/progressbar';
-// import Popup from './components/popup';
+import Popup from './components/popup';
 import Marquee from './components/marquee';
-// import ActionSheet from './components/actionsheet';
+import ActionSheet from './components/actionsheet';
 // import Slider from './components/slider';
 import Box from './components/box';
 // import Picker from './components/picker';
@@ -60,15 +60,15 @@ export {
     Spinner,
     // DropLoad,
     // Grid,
-    // Justify,
+    Justify,
     // TabControl,
     Cell,
     Card,
     Row,
     // Progressbar,
-    // Popup,
+    Popup,
     Marquee,
-    // ActionSheet,
+    ActionSheet,
     // Slider,
     Box,
     Overlay,

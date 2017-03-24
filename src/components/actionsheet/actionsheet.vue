@@ -1,8 +1,9 @@
 <template>
-    <popup :show.sync="show" :hide-on-mask="hideOnMask" height="auto" class="vmc-action-sheet">
+    <popup :show="localShow" :hide-on-mask="hideOnMask" height="auto" class="vmc-action-sheet" @on-hide="_hide">
         <v-button class="vmc-1px-top"
-                  @click="_onItemClick(item, $index)"
-                  v-for="item in list">
+                  @click="_onItemClick(item, index)"
+                  v-for="(item, index) in list"
+                  key="index">
 
             {{_getText(item)}}
         </v-button>
@@ -39,7 +40,7 @@
         },
         methods: {
             _onItemClick(item, index) {
-                this.show = false;
+                this._hide();
 
                 this.$nextTick(() => {
                     this.$emit('on-item-click', item, index);
@@ -51,6 +52,22 @@
             },
             _getText(item) {
                 return item.text || item;
+            },
+            _hide() {
+                this.localShow = false;
+                this.$emit('on-hide');
+            }
+        },
+        data() {
+            return {
+                localShow: this.show
+            }
+        },
+        watch: {
+            show(show) {
+                if (this.localShow !== show) {
+                    this.localShow = show;
+                }
             }
         }
     }

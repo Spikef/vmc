@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-cell vmc-1px-top-bottom">
+    <div class="vmc-cell vmc-1px-top-bottom" @click="_onClick">
         <div class="cell-title">
             <slot>{{title}}</slot>
         </div>
@@ -26,6 +26,11 @@
                     var val = this.arrow;
                     return !(val === false || val === 'false');
                 }
+            }
+        },
+        methods: {
+            _onClick(event) {
+                this.$emit('click', event)
             }
         }
     }

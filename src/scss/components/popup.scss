@@ -32,35 +32,35 @@
         bottom: 0;
     }
 
-    &-fade-transition {
-        opacity: 1;
-        transition: opacity .3s ease;
-    }
+  &-fade-enter-active, &-fade-leave-active {
+    opacity: 1;
+    transition: opacity .3s ease;
+  }
 
-    &-fade-enter, &-fade-leave {
-        opacity: 0;
-    }
+  &-fade-enter, &-fade-leave-active {
+    opacity: 0;
+  }
 
-    &-top-transition,
-    &-right-transition,
-    &-bottom-transition,
-    &-left-transition {
-        transition: transform .3s ease-out 100ms;
-    }
+  &-top-enter-active, &-top-leave-active,
+  &-bottom-enter-active, &-bottom-leave-active,
+  &-right-enter-active, &-right-leave-active,
+  &-left-enter-active, &-left-leave-active {
+    transition: transform .3s ease-out 100ms;
+  }
 
-    &-top-enter, &-top-leave {
-        transform: translate3d(0, -100%, 0);
-    }
+  &-top-enter, &-top-leave-active {
+    transform: translate3d(0, -100%, 0);
+  }
 
-    &-bottom-enter, &-bottom-leave {
-        transform: translate3d(0, 100%, 0);
-    }
+  &-bottom-enter, &-bottom-leave-active {
+    transform: translate3d(0, 100%, 0);
+  }
 
-    &-left-enter, &-left-leave {
-        transform: translate3d(-100%, 0, 0);
-    }
+  &-left-enter, &-left-leave-active {
+    transform: translate3d(-100%, 0, 0);
+  }
 
-    &-right-enter, &-right-leave {
-        transform: translate3d(100%, 0, 0);
-    }
+  &-right-enter, &-right-leave-active {
+    transform: translate3d(100%, 0, 0);
+  }
 }

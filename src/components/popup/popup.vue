@@ -1,9 +1,14 @@
 <template>
     <div class="vmc-popup-wrapper">
-        <overlay @on-click="_onMaskClick" v-if="showMask" v-show="show" transition="vmc-popup-fade"></overlay>
-        <div v-show="show" class="vmc-popup" :class="'vmc-popup-' + position" :style="style" :transition="'vmc-popup-' + position">
-            <slot></slot>
-        </div>
+        <transition name="vmc-popup-fade">
+            <overlay @on-click="_onMaskClick" v-if="showMask" v-show="localShow"></overlay>
+        </transition>
+
+        <transition :name="'vmc-popup-' + position">
+            <div v-show="localShow" class="vmc-popup" :class="'vmc-popup-' + position" :style="style">
+                <slot></slot>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -66,15 +71,28 @@
         methods: {
             _onMaskClick() {
                 if (this.hideOnMask) {
-                    this.show = false;
+                    this._hide();
                 }
+            },
+            _hide() {
+                this.localShow = false;
+                this.$emit('on-hide');
+            }
+        },
+        data() {
+            return {
+                localShow: this.show
             }
         },
         watch: {
             show(show) {
+                if (this.localShow !== show) {
+                    this.localShow = show;
+                }
+
                 if (this.position === 'top' && show === true) {
                     setTimeout(() => {
-                        this.show = false;
+                        this._hide();
                     }, 1000);
                 }
             }

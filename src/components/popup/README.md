@@ -92,6 +92,12 @@ export default {
 | hideOnMask | Boolean | 点击遮罩层时是否自动隐藏弹出层 | true |
 | position | String | 从哪个方向弹出：top、left、right、bottom | bottom |
 
+## Events
+
+| Name | Description | Arguments |
+| ----- | ----- | ----- |
+| on-hide | 当弹出层隐藏时触发该事件。 |  |
+
 ## LESS
 
 | Name | Description | Default |

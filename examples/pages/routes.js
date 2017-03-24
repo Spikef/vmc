@@ -30,15 +30,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'toast',
-    //     path: '/components/toast',
-    //     component: require('./components/toast.vue'),
-    //     meta: {
-    //         doc_title: '消息提示',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'toast',
+        path: '/components/toast',
+        component: require('./components/toast.vue'),
+        meta: {
+            doc_title: '消息提示',
+            depth: 20
+        }
+    },
     // {
     //     name: 'radio',
     //     path: '/components/radio',
@@ -102,15 +102,15 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'justify',
-    //     path: '/components/justify',
-    //     component: require('./components/justify.vue'),
-    //     meta: {
-    //         doc_title: 'justify',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'justify',
+        path: '/components/justify',
+        component: require('./components/justify.vue'),
+        meta: {
+            doc_title: 'justify',
+            depth: 20
+        }
+    },
     // {
     //     name: 'dropload',
     //     path: '/components/dropload',
@@ -244,15 +244,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'popup',
-    //     path: '/components/popup',
-    //     component: require('./components/popup.vue'),
-    //     meta: {
-    //         doc_title: 'popup',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'popup',
+        path: '/components/popup',
+        component: require('./components/popup.vue'),
+        meta: {
+            doc_title: 'popup',
+            depth: 20
+        }
+    },
     {
         name: 'badge',
         path: '/components/badge',
@@ -271,15 +271,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'actionsheet',
-    //     path: '/components/actionsheet',
-    //     component: require('./components/actionsheet.vue'),
-    //     meta: {
-    //         doc_title: 'actionsheet',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'actionsheet',
+        path: '/components/actionsheet',
+        component: require('./components/actionsheet.vue'),
+        meta: {
+            doc_title: 'actionsheet',
+            depth: 20
+        }
+    },
     // {
     //     name: 'slider',
     //     path: '/components/slider',

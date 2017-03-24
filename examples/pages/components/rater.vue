@@ -31,7 +31,7 @@
                 <rater :value="point1" star="☻"></rater>
             </row>
 
-            <v-button type="danger" @click.native="updatePoint">更新评分数</v-button>
+            <v-button type="danger" @click="updatePoint">更新评分数</v-button>
         </div>
     </div>
 </template>

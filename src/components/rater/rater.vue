@@ -56,8 +56,12 @@
                 if (!this.disabled) {
                     var value = this.localValue === i + 1 ? i : i + 1;
                     if (value < this.min) value = this.min;
-                    this.updateValue(value);
+                    this._updateValue(value);
                 }
+            },
+            _updateValue(value) {
+                this.localValue = value;
+                this.$emit('on-value-change', value);
             },
             outStarStyle(index) {
                 var i = index - 1;
@@ -105,10 +109,6 @@
                 if (parts.length === 2 && parts[0] == i && parts[1] > 0) {
                     return 'active';
                 }
-            },
-            updateValue(value) {
-                this.localValue = value;
-                this.$emit('on-value-change', value);
             }
         },
         data() {

@@ -1,6 +1,6 @@
 <template>
     <div class="vmc-toast" transition="vmc-toast" v-show="show">
-        <mask transparent></mask>
+        <overlay transparent></overlay>
         <div class="block" :class="where" :style="{ 'padding': showIcon ? '20px' : '10px' }">
             <div class="icon" v-if="showIcon">
                 <spinner v-if="type == 'loading'" color="#ffffff" size="48" type="0"></spinner>
@@ -27,11 +27,13 @@
             Overlay,
             Spinner
         },
-        props: {
-            type: String,
-            show: Boolean,
-            content: String,
-            position: String    // top, center, bottom
+        data() {
+            return {
+                type: 'loading',
+                show: false,
+                content: '',
+                position: 'center'    // top, center, bottom
+            }
         },
         computed: {
             showIcon() {

@@ -1,5 +1,5 @@
 <template>
-    <div class="vmc-row vmc-1px-top" :class="align">
+    <div class="vmc-row vmc-1px-top" :class="align" @click="_onClick">
         <label :style="style" v-if="title">{{title}}</label>
         <slot></slot>
     </div>
@@ -19,6 +19,11 @@
                 return {
                     width: getCSSSize(this.width)
                 }
+            }
+        },
+        methods: {
+            _onClick(event) {
+                this.$emit('click', event)
             }
         }
     }

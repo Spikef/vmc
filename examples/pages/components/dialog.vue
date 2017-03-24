@@ -3,22 +3,22 @@
         <navbar>对话框</navbar>
 
         <div class="content">
-            <v-button @click.native="showDialog1 = true">显示对话框1</v-button>
-            <v-button @click.native="showDialog2 = true">显示对话框2</v-button>
+            <v-button @click="showDialog1 = true">显示对话框1</v-button>
+            <v-button @click="showDialog2 = true">显示对话框2</v-button>
         </div>
 
         <dialog-box :show="showDialog1">
             <div name="header">请点击以下按钮</div>
             <div name="content" class="multi-buttons">
-                <v-button @click.native="showDialog1 = false" type="danger">关闭对话框</v-button>
-                <v-button @click.native="showDialog1 = false" type="success">关闭对话框</v-button>
+                <v-button @click="showDialog1 = false" type="danger">关闭对话框</v-button>
+                <v-button @click="showDialog1 = false" type="success">关闭对话框</v-button>
             </div>
         </dialog-box>
 
         <dialog-box :show="showDialog2">
             <div name="header">请点击以下按钮</div>
             <div name="footer">
-                <v-button @click.native="showDialog2 = false" type="default">关闭对话框</v-button>
+                <v-button @click="showDialog2 = false" type="default">关闭对话框</v-button>
             </div>
         </dialog-box>
     </div>

@@ -1,7 +1,7 @@
 import Toast from './';
 
 export default configs => {
-    configs.template += `<toast v-ref:toast></toast>`;
+    configs.children.push('toast');
     configs.components.Toast = Toast;
 
     return (Vue, vm) => {

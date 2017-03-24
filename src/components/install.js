@@ -1,7 +1,7 @@
 import installAlert from './alert/install';
 import installConfirm from './confirm/install';
 // import installPrompt from './prompt/install';
-// import installToast from './toast/install';
+import installToast from './toast/install';
 import Filter from '../utils/filter';
 import Directive from '../utils/directive';
 
@@ -44,11 +44,9 @@ export default function(Vue, options = {
     //     plugins.push(installPrompt(configs));
     // }
     //
-    // if (options.toast) {
-    //     plugins.push(installToast(configs));
-    // }
-
-    // configs.template = '<div id="vmc">' + configs.template + '</div>';
+    if (options.toast) {
+        plugins.push(installToast(configs));
+    }
 
     var children = configs.children;
     delete configs.children;

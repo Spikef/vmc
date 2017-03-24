@@ -4,46 +4,46 @@
         <div class="content">
             <div class="title">表单组件</div>
 
-            <cell @click.native="jump('checkbox')">Checkbox</cell>
-            <cell @click.native="jump('radio')">Radio</cell>
-            <cell @click.native="jump('button')">Button</cell>
-            <cell @click.native="jump('submit')">Submit</cell>
-            <cell @click.native="jump('switch')">Switch</cell>
-            <cell @click.native="jump('minput')">Input (Auto Fix)</cell>
-            <cell @click.native="jump('vinput')">Input (Prompt)</cell>
-            <cell @click.native="jump('textarea')">TextArea</cell>
-            <cell @click.native="jump('number')">Number</cell>
-            <cell @click.native="jump('upload')">Upload</cell>
-            <cell @click.native="jump('rater')">Rater</cell>
+            <cell @click="jump('checkbox')">Checkbox</cell>
+            <cell @click="jump('radio')">Radio</cell>
+            <cell @click="jump('button')">Button</cell>
+            <cell @click="jump('submit')">Submit</cell>
+            <cell @click="jump('switch')">Switch</cell>
+            <cell @click="jump('minput')">Input (Auto Fix)</cell>
+            <cell @click="jump('vinput')">Input (Prompt)</cell>
+            <cell @click="jump('textarea')">TextArea</cell>
+            <cell @click="jump('number')">Number</cell>
+            <cell @click="jump('upload')">Upload</cell>
+            <cell @click="jump('rater')">Rater</cell>
 
             <div class="title">全局组件</div>
-            <cell @click.native="jump('message')">Message</cell>
-            <cell @click.native="jump('toast')">Toast</cell>
+            <cell @click="jump('message')">Message</cell>
+            <cell @click="jump('toast')">Toast</cell>
 
             <div class="title">UI组件</div>
-            <cell @click.native="jump('dialog')">Dialog</cell>
-            <cell @click.native="jump('popup')">Popup</cell>
-            <cell @click.native="jump('spinner')">Spinner</cell>
-            <cell @click.native="jump('dropload')">DropLoad</cell>
-            <cell @click.native="jump('tabbar')">Tabbar</cell>
-            <cell @click.native="jump('grid')">Grid</cell>
-            <cell @click.native="jump('box')">Box</cell>
-            <cell @click.native="jump('justify')">Justify</cell>
-            <cell @click.native="jump('nowrap')">Nowrap</cell>
-            <cell @click.native="jump('reddot')">RedDot</cell>
-            <cell @click.native="jump('badge')">Badge</cell>
-            <cell @click.native="jump('tabcontrol')">TabControl</cell>
-            <cell @click.native="jump('progressbar')">Progressbar</cell>
-            <cell @click.native="jump('icons')">Icons</cell>
-            <cell @click.native="jump('card')">Card</cell>
-            <cell @click.native="jump('marquee')">Marquee</cell>
-            <cell @click.native="jump('actionsheet')">Action Sheet</cell>
-            <cell @click.native="jump('slider')">Slider</cell>
-            <cell @click.native="jump('picker')">Picker</cell>
-            <cell @click.native="jump('datepicker')">Date Picker</cell>
+            <cell @click="jump('dialog')">Dialog</cell>
+            <cell @click="jump('popup')">Popup</cell>
+            <cell @click="jump('spinner')">Spinner</cell>
+            <cell @click="jump('dropload')">DropLoad</cell>
+            <cell @click="jump('tabbar')">Tabbar</cell>
+            <cell @click="jump('grid')">Grid</cell>
+            <cell @click="jump('box')">Box</cell>
+            <cell @click="jump('justify')">Justify</cell>
+            <cell @click="jump('nowrap')">Nowrap</cell>
+            <cell @click="jump('reddot')">RedDot</cell>
+            <cell @click="jump('badge')">Badge</cell>
+            <cell @click="jump('tabcontrol')">TabControl</cell>
+            <cell @click="jump('progressbar')">Progressbar</cell>
+            <cell @click="jump('icons')">Icons</cell>
+            <cell @click="jump('card')">Card</cell>
+            <cell @click="jump('marquee')">Marquee</cell>
+            <cell @click="jump('actionsheet')">Action Sheet</cell>
+            <cell @click="jump('slider')">Slider</cell>
+            <cell @click="jump('picker')">Picker</cell>
+            <cell @click="jump('datepicker')">Date Picker</cell>
 
             <div class="title">其它功能</div>
-            <cell @click.native="jump('shake')">Shake</cell>
+            <cell @click="jump('shake')">Shake</cell>
         </div>
     </div>
 </template>
