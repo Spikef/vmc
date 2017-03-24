@@ -49,37 +49,37 @@
                     {
                         image: '/static/image/slider/1.jpg',
                         title: '标题标题一',
-                        link: 'http://m.baidu.com'
+                        link: 'http://m.baidu.com/s?word=1'
                     },
                     {
                         image: '/static/image/slider/2.jpg',
                         title: '标题标题二',
-                        link: 'http://m.baidu.com'
+                        link: 'http://m.baidu.com/s?word=2'
                     },
                     {
                         image: '/static/image/slider/3.jpg',
                         title: '标题标题三',
-                        link: 'http://m.baidu.com'
+                        link: 'http://m.baidu.com/s?word=3'
                     },
                     {
                         image: '/static/image/slider/4.jpg',
                         title: '标题标题四',
-                        link: 'http://m.baidu.com'
+                        link: 'http://m.baidu.com/s?word=4'
                     },
                     {
                         image: '/static/image/slider/5.jpg',
                         title: '标题标题五',
-                        link: 'http://m.baidu.com'
+                        link: 'http://m.baidu.com/s?word=5'
                     },
                     {
                         image: '/static/image/slider/6.jpg',
                         title: '标题标题六标题标题六标题标题六',
-                        link: 'http://m.baidu.com'
+                        link: 'http://m.baidu.com/s?word=6'
                     },
                     {
                         image: '/static/image/slider/7.jpg',
                         title: '标题标题七标题标题七',
-                        link: 'http://m.baidu.com'
+                        link: 'http://m.baidu.com/s?word=7'
                     }
                 ],
                 imageList: [

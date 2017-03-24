@@ -45,16 +45,20 @@ if (!Array.prototype.fill) {
 if ([1, 0].sort((a, b) => a > b).toString() !== '0,1') {
     var sort = Array.prototype.sort;
     Array.prototype.sort = function (callback) {
-        return sort.call(this, function() {
-            var ret = callback.apply(null, arguments);
-            if (ret === true) {
-                ret = 1;
-            } else if (ret === false) {
-                ret = -1;
-            }
+        var fn;
+        if (typeof callback === 'function') {
+            fn = function() {
+                var ret = callback.apply(null, arguments);
+                if (ret === true) {
+                    ret = 1;
+                } else if (ret === false) {
+                    ret = -1;
+                }
 
-            return ret;
-        })
+                return ret;
+            }
+        }
+        return sort.call(this, fn);
     };
 }
 

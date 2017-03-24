@@ -22,9 +22,8 @@ if (process.env.NODE_ENV === 'development') {
 
     console.print = log;
 
-    window.vConsole = require('./assets/js/vconsole.min');
-    require('./assets/js/vconsole-resources.min');
-    require('./assets/js/vconsole-sources.min');
+    // 比vConsole功能略牛的调试工具
+    require('eruda').init();
 }
 
 Vue.use(Router);

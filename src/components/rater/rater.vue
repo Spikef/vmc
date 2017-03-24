@@ -51,14 +51,16 @@
             }
         },
         methods: {
-            _onClick (i) {
+            _onClick (index) {
+                var i = index - 1;
                 if (!this.disabled) {
-                    var value = this.value === i + 1 ? i : i + 1;
+                    var value = this.localValue === i + 1 ? i : i + 1;
                     if (value < this.min) value = this.min;
-                    this.value = value;
+                    this.updateValue(value);
                 }
             },
-            outStarStyle(i) {
+            outStarStyle(index) {
+                var i = index - 1;
                 var style = {
                     fontSize: this.size + 'px'
                 };
@@ -73,7 +75,7 @@
                     }
                 }
 
-                if (i <= this.value - 1) {
+                if (i <= this.localValue - 1) {
                     style.color = this.activeColor;
                 } else {
                     style.color = this.defaultColor;
@@ -81,8 +83,9 @@
 
                 return style;
             },
-            innerStarStyle(i) {
-                var parts = String(this.value).split('.');
+            innerStarStyle(index) {
+                var i = index - 1;
+                var parts = String(this.localValue).split('.');
                 if (parts.length === 2 && parts[0] == i && parts[1] > 0) {
                     return {
                         color: this.activeColor,
@@ -90,23 +93,37 @@
                     }
                 }
             },
-            outStarClass(i) {
-                if (i <= this.value - 1) {
+            outStarClass(index) {
+                var i = index - 1;
+                if (i <= this.localValue - 1) {
                     return 'active';
                 }
             },
-            innerStarClass(i) {
-                var parts = String(this.value).split('.');
+            innerStarClass(index) {
+                var i = index - 1;
+                var parts = String(this.localValue).split('.');
                 if (parts.length === 2 && parts[0] == i && parts[1] > 0) {
                     return 'active';
                 }
+            },
+            updateValue(value) {
+                this.localValue = value;
+                this.$emit('on-value-change', value);
             }
         },
         data() {
             return {
                 colors: [],
                 cutIndex: -1,
-                cutPercent: 0
+                cutPercent: 0,
+                localValue: this.value
+            }
+        },
+        watch: {
+            value(value) {
+                if (value !== this.localValue) {
+                    this.localValue = value;
+                }
             }
         }
     }

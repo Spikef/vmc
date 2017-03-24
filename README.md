@@ -6,7 +6,7 @@
 
 ## 特性介绍
 
-`VMC`是一套针对移动端开发的组件库，适用于`vue@1.0.21+`。
+`VMC`是一套针对移动端开发的组件库，适用于`vue@2.2.1+`。
 
 + 将使用频度高的组件全局化，直接注册到Vue实例化对象上；
 + 全部样式基于LESS，并允许通过覆盖LESS变量的方式快速初始化组件样式；
@@ -100,7 +100,7 @@ import { Navbar } from 'vmc';
 
 ### JS组件
 
-* [操作按钮列表 (ActionSheet)](./src/components/actionsheet)
+* [-操作按钮列表 (ActionSheet)](./src/components/actionsheet)
 
 * [警告框 (Alert)](./src/components/alert)
 
@@ -112,73 +112,73 @@ import { Navbar } from 'vmc';
 
 * [单栏 (Cell)](./src/components/cell)
 
-* [复选框 (CheckBox)](./src/components/checkbox)
+* [-复选框 (CheckBox)](./src/components/checkbox)
 
 * [确认框 (Confirm)](./src/components/confirm)
 
 * [对话框 (DialogBox)](./src/components/dialogbox)
 
-* [分页刷新 (DropLoad)](./src/components/dropload)
+* [-分页刷新 (DropLoad)](./src/components/dropload)
 
-* [网格 (Grid)](./src/components/grid)
+* [-网格 (Grid)](./src/components/grid)
 
-* [强制型输入框 (mInput)](./src/components/input#minput)
+* [-强制型输入框 (mInput)](./src/components/input#minput)
 
-* [提示型输入框 (vInput)](./src/components/input#vinput)
+* [-提示型输入框 (vInput)](./src/components/input#vinput)
 
-* [两端对齐 (Justify)](./src/components/justify)
+* [-两端对齐 (Justify)](./src/components/justify)
 
 * [滚动公告 (Marquee)](./src/components/marquee)
 
 * [导航栏 (Navbar)](./src/components/navbar)
 
-* [数字输入 (Number)](./src/components/number)
+* [-数字输入 (Number)](./src/components/number)
 
 * [遮罩层 (Overlay)](./src/components/overlay)
 
-* [选择器 (Picker)](./src/components/picker)
+* [-选择器 (Picker)](./src/components/picker)
 
-* [弹出层 (Popup)](./src/components/popup)
+* [-弹出层 (Popup)](./src/components/popup)
 
-* [弹出式选择器 (Popup Picker)](./src/components/popup-picker)
+* [-弹出式选择器 (Popup Picker)](./src/components/popup-picker)
 
-* [弹出式日期选择器 (Popup Date Picker)](./src/components/popup-date-picker)
+* [-弹出式日期选择器 (Popup Date Picker)](./src/components/popup-date-picker)
 
-* [进度条 (Progressbar)](./src/components/progressbar)
+* [-进度条 (Progressbar)](./src/components/progressbar)
 
-* [提示输入框 (Prompt)](./src/components/prompt)
+* [-提示输入框 (Prompt)](./src/components/prompt)
 
-* [单选框 (Radio)](./src/components/radio)
+* [-单选框 (Radio)](./src/components/radio)
 
 * [评分 (Rater)](./src/components/rater)
 
 * [标题行 (Row)](./src/components/row)
 
-* [轮播图 (Slider)](./src/components/slider)
+* [-轮播图 (Slider)](./src/components/slider)
 
 * [动态指示器 (Spinner)](./src/components/spinner)
 
-* [提交按钮 (Submit)](./src/components/submit)
+* [-提交按钮 (Submit)](./src/components/submit)
 
-* [开关 (Switch)](./src/components/switch)
+* [-开关 (Switch)](./src/components/switch)
 
 * [导航栏 (Tabbar)](./src/components/tabbar)
 
-* [选项卡 (TabControl)](./src/components/tabcontrol)
+* [-选项卡 (TabControl)](./src/components/tabcontrol)
 
-* [文本框 (TextArea)](./src/components/textarea)
+* [-文本框 (TextArea)](./src/components/textarea)
 
-* [加载提示 (Loading)](./src/components/toast#loading)
+* [-加载提示 (Loading)](./src/components/toast#loading)
 
-* [成功提示 (Success)](./src/components/toast#success)
+* [-成功提示 (Success)](./src/components/toast#success)
 
-* [错误提示 (Error)](./src/components/toast#error)
+* [-错误提示 (Error)](./src/components/toast#error)
 
-* [信息提示 (Info)](./src/components/toast#info)
+* [-信息提示 (Info)](./src/components/toast#info)
 
-* [文字提示 (Toast)](./src/components/toast#toast)
+* [-文字提示 (Toast)](./src/components/toast#toast)
 
-* [上传组件 (Upload)](./src/components/upload)
+* [-上传组件 (Upload)](./src/components/upload)
 
 ## 开发与编译
 

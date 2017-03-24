@@ -84,15 +84,15 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'tabbar',
-    //     path: '/components/tabbar',
-    //     component: require('./components/tabbar.vue'),
-    //     meta: {
-    //         doc_title: 'tabbar',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'tabbar',
+        path: '/components/tabbar',
+        component: require('./components/tabbar.vue'),
+        meta: {
+            doc_title: 'tabbar',
+            depth: 20
+        }
+    },
     // {
     //     name: 'grid',
     //     path: '/components/grid',
@@ -147,15 +147,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'rater',
-    //     path: '/components/rater',
-    //     component: require('./components/rater.vue'),
-    //     meta: {
-    //         doc_title: '评分',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'rater',
+        path: '/components/rater',
+        component: require('./components/rater.vue'),
+        meta: {
+            doc_title: '评分',
+            depth: 20
+        }
+    },
     {
         name: 'reddot',
         path: '/components/reddot',

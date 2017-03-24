@@ -6,7 +6,7 @@
 
         </div>
 
-        <tabbar :index="index" :items="items"></tabbar>
+        <tabbar :items="items"></tabbar>
     </div>
 </template>
 
@@ -25,12 +25,12 @@
                     {
                         icon: `<i style="transform: scale(0.94);" class="icono-home"></i>`,
                         text: '首页',
-                        callback: () => this.$router.go('/index')
+                        callback: () => this.$router.replace('/index')
                     },
                     {
                         icon: `<i style="transform: scale(0.94);" class="icono-exclamationCircle"></i>`,
                         text: '关于',
-                        callback: () => this.$router.go('/about')
+                        callback: () => this.$router.replace('/about')
                     }
                 ]
             }

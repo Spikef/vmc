@@ -63,6 +63,12 @@ export default {
 | disabled | Boolean | 是否禁用评分(仅展示) | false |
 | star | String | 标签列表 | ★ |
 
+## Events
+
+| Name | Description | Arguments |
+| ----- | ----- | ----- |
+| on-value-change | 当评分值改变时触发该事件。 | value：评分值 |
+
 ## LESS
 
 | Name | Description | Default |

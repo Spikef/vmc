@@ -14,7 +14,7 @@ import DialogBox from './components/dialogbox';
 import vButton from './components/button';
 // import Submit from './components/submit';
 // import Upload from './components/upload';
-// import Rater from './components/rater';
+import Rater from './components/rater';
 
 // 界面组件
 import { Topbar, Navbar } from './components/navbar';
@@ -26,7 +26,7 @@ import Spinner  from './components/spinner';
 // import TabControl from './components/tabcontrol';
 import Cell from './components/cell';
 import Card from './components/card';
-// import Row from './components/row';
+import Row from './components/row';
 // import Progressbar from './components/progressbar';
 // import Popup from './components/popup';
 import Marquee from './components/marquee';
@@ -53,7 +53,7 @@ export {
     vButton,
     // Submit,
     // Upload,
-    // Rater,
+    Rater,
     Topbar,
     Navbar,
     Tabbar,
@@ -64,7 +64,7 @@ export {
     // TabControl,
     Cell,
     Card,
-    // Row,
+    Row,
     // Progressbar,
     // Popup,
     Marquee,

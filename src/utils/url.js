@@ -9,7 +9,7 @@ export const parse = function (url) {
         url.split('&').forEach(function (part) {
             var parts = part.split('=');
             var name = parts.shift();
-            var value = parts.join('&');
+            var value = parts.join('=');
 
             if (/\[]$/.test(name) || typeof params[name] !== 'undefined') {
                 name = name.replace(/\[]$/, '');
