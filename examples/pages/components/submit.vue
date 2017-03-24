@@ -4,7 +4,7 @@
 
         <div class="content">
             <div class="button-list">
-                <submit type="primary" @submit="onSubmit" v-ref:submit>保存</submit>
+                <submit type="primary" @submit="onSubmit" ref="submit">保存</submit>
                 <submit type="primary" disabled>不可点击的提交按钮</submit>
             </div>
         </div>

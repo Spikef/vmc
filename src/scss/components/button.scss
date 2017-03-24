@@ -66,11 +66,11 @@
         background: $ButtonWarningBackColor;
     }
 
-    [slot="icon-left"] {
-        margin-right: 5px;
-    }
+  .icon-left {
+    margin-right: 5px;
+  }
 
-    [slot="icon-right"] {
-        margin-left: 5px;
-    }
+  .icon-right {
+    margin-left: 5px;
+  }
 }

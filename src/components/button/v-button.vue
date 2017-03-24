@@ -1,9 +1,13 @@
 <template>
     <span class="vmc-button" :class="[type, {disabled: disabled}]" :style="style" @click="_onClick">
         <div class="block">
-            <slot name="icon-left"></slot>
+            <span class="icon-left">
+                <slot name="icon-left"></slot>
+            </span>
             <slot>{{text}}</slot>
-            <slot name="icon-right"></slot>
+            <span class="icon-right">
+                <slot name="icon-right"></slot>
+            </span>
         </div>
     </span>
 </template>

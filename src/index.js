@@ -12,7 +12,7 @@ import DialogBox from './components/dialogbox';
 // import Number from './components/number';
 // import Switch from './components/switch';
 import vButton from './components/button';
-// import Submit from './components/submit';
+import Submit from './components/submit';
 // import Upload from './components/upload';
 import Rater from './components/rater';
 
@@ -51,7 +51,7 @@ export {
     // Radio,
     // Switch,
     vButton,
-    // Submit,
+    Submit,
     // Upload,
     Rater,
     Topbar,

@@ -75,15 +75,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'submit',
-    //     path: '/components/submit',
-    //     component: require('./components/submit.vue'),
-    //     meta: {
-    //         doc_title: '提交按钮',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'submit',
+        path: '/components/submit',
+        component: require('./components/submit.vue'),
+        meta: {
+            doc_title: '提交按钮',
+            depth: 20
+        }
+    },
     {
         name: 'tabbar',
         path: '/components/tabbar',

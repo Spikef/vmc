@@ -1,11 +1,11 @@
 <template>
-    <span class="vmc-button" :class="[type, {disabled: disabled}]" :style="style" @click="_onClick">
+    <span class="vmc-button" :class="[type, {disabled: disabled || disable}]" :style="style" @click="_onClick">
         <div class="block">
-            <slot name="icon-left"></slot>
-            <slot>{{text}}</slot>
-            <span slot="icon-right" v-show="status === STATUS.DOING">
-                <spinner color="white" size="20"></spinner>
+            <span class="icon-left">
+                <slot name="icon-left"></slot>
             </span>
+            <slot>{{text}}</slot>
+            <spinner class="icon-right" color="white" size="20" v-show="status === STATUS.DOING"></spinner>
         </div>
     </span>
 </template>
@@ -27,21 +27,22 @@
         data() {
             return {
                 STATUS,
-                status: STATUS.NORMAL
+                status: STATUS.NORMAL,
+                disable: false
             }
         },
         methods: {
             _onClick() {
                 this.$nextTick(() => {
-                    if (!this.disabled && this.status !== STATUS.DOING) {
-                        this.disabled = true;
+                    if (!(this.disabled || this.disable) && this.status !== STATUS.DOING) {
+                        this.disable = true;
                         this.status = STATUS.DOING;
                         this.$emit('submit', this);
                     }
                 });
             },
             done() {
-                this.disabled = false;
+                this.disable = false;
                 this.status = STATUS.NORMAL;
             }
         }

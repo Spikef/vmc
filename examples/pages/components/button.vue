@@ -22,9 +22,7 @@
                 <v-button type="primary">
                     <i slot="icon-left" class="icono-cart"></i>
                     button with icon and spinner
-                    <span slot="icon-right">
-                        <spinner color="white" size="20"></spinner>
-                    </span>
+                    <spinner slot="icon-right" color="white" size="20"></spinner>
                 </v-button>
             </div>
         </div>
