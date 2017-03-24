@@ -3,7 +3,7 @@
         <span class="vmc-rater-outer"
               :style="outStarStyle(i)"
               :class="outStarClass(i)"
-              v-for="i in max"
+              v-for="i in coerce.max"
               @click="_onClick(i)">
 
             {{star}}
@@ -21,17 +21,14 @@
         props: {
             min: {
                 type: [Number, String],
-                default: 1,
-                coerce: parseInt
+                default: 1
             },
             max: {
                 type: [Number, String],
-                default: 5,
-                coerce: parseInt
+                default: 5
             },
             value: {
                 type: [String, Number],
-                coerce: Number,
                 default: 5
             },
             disabled: Boolean,
@@ -42,12 +39,23 @@
             defaultColor: String,
             activeColor: String,
             gutter: {
-                type: [String, Number],
-                coerce: Number
+                type: [String, Number]
             },
             size: {
-                type: [String, Number],
-                coerce: Number
+                type: [String, Number]
+            }
+        },
+        computed: {
+            coerce: {
+                get() {
+                    return {
+                        min: parseInt(this.min),
+                        max: parseInt(this.max),
+                        value: Number(this.value),
+                        gutter: Number(this.gutter),
+                        size: Number(this.size)
+                    }
+                }
             }
         },
         methods: {
@@ -55,7 +63,7 @@
                 var i = index - 1;
                 if (!this.disabled) {
                     var value = this.localValue === i + 1 ? i : i + 1;
-                    if (value < this.min) value = this.min;
+                    if (value < this.coerce.min) value = this.coerce.min;
                     this._updateValue(value);
                 }
             },
@@ -66,16 +74,16 @@
             outStarStyle(index) {
                 var i = index - 1;
                 var style = {
-                    fontSize: this.size + 'px'
+                    fontSize: this.coerce.size + 'px'
                 };
 
-                if (this.gutter) {
-                    if (i === 0 && i < this.max) {
-                        style.marginRight = `${this.gutter / 2}px`;
-                    } else if (i > 0 && i === this.max - 1) {
-                        style.marginLeft = `${this.gutter / 2}px`;
+                if (this.coerce.gutter) {
+                    if (i === 0 && i < this.coerce.max) {
+                        style.marginRight = `${this.coerce.gutter / 2}px`;
+                    } else if (i > 0 && i === this.coerce.max - 1) {
+                        style.marginLeft = `${this.coerce.gutter / 2}px`;
                     } else {
-                        style.margin = `0 ${this.gutter / 2}px`;
+                        style.margin = `0 ${this.coerce.gutter / 2}px`;
                     }
                 }
 
@@ -116,13 +124,13 @@
                 colors: [],
                 cutIndex: -1,
                 cutPercent: 0,
-                localValue: this.value
+                localValue: Number(this.value)
             }
         },
         watch: {
             value(value) {
                 if (value !== this.localValue) {
-                    this.localValue = value;
+                    this.localValue = Number(value);
                 }
             }
         }

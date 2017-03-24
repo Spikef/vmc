@@ -1,7 +1,7 @@
 <template>
     <div class="vmc-grid">
-        <ul :class="{justify: justify}" :style="style"><li :style="itemStyle" v-for="(index, item) in list">
-            <slot-item :scope="{index: index, item: item}"></slot-item>
+        <ul :class="{justify: justify}" :style="style"><li :style="itemStyle" v-for="(item, index) in list">
+            <slot :item="item" :index="index"></slot>
         </li></ul>
     </div>
 </template>
@@ -30,26 +30,32 @@
             columns: {
                 type: [Number, String],
                 default: 0,
-                coerce: getInt,
                 description: '列数，默认为1列'
             },
             gutter: {
                 type: [Number, String],
                 default: 0,
-                coerce: getInt,
                 description: '列与列之间的间隔'
             },
             margin: {
                 type: [Number, String],
                 default: 0,
-                coerce: getInt,
                 description: '行与行之间的间隔'
             }
         },
         computed: {
+            coerce: {
+                get() {
+                    return {
+                        columns: getInt(this.columns),
+                        gutter: getInt(this.gutter),
+                        margin: getInt(this.margin)
+                    }
+                }
+            },
             style() {
-                var gutter = this.gutter > 0 ? this.gutter : 0;
-                var margin = this.margin > 0 ? this.margin : 0;
+                var gutter = this.coerce.gutter > 0 ? this.coerce.gutter : 0;
+                var margin = this.coerce.margin > 0 ? this.coerce.margin : 0;
                 var margins = `-${margin / 2}px -${gutter / 2}px`;
 
                 return {
@@ -57,9 +63,9 @@
                 }
             },
             itemStyle() {
-                var columns = this.columns || 1;
-                var gutter = this.gutter > 0 ? this.gutter : 0;
-                var margin = this.margin > 0 ? this.margin : 0;
+                var columns = this.coerce.columns || 1;
+                var gutter = this.coerce.gutter > 0 ? this.coerce.gutter : 0;
+                var margin = this.coerce.margin > 0 ? this.coerce.margin : 0;
                 var width = columns > 0 ? (100 / columns) + '%' : null;
                 var padding = `${margin / 2}px ${gutter / 2}px`;
 
@@ -69,7 +75,7 @@
                 }
             },
             justify() {
-                return this.columns < 0 && this.gutter < 0;
+                return this.coerce.columns < 0 && this.coerce.gutter < 0;
             }
         }
     }

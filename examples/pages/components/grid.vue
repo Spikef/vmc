@@ -4,15 +4,21 @@
 
         <div class="content">
             <grid :list="buttonList" columns="3" gutter="10" margin="6">
-                <v-button :type="item.type" radius="5">按钮{{index}}</v-button>
+                <template scope="props">
+                    <v-button :type="props.item.type" radius="5">按钮{{props.index}}</v-button>
+                </template>
             </grid>
 
             <grid :list="buttonList" columns="auto" gutter="auto" margin="6">
-                <v-button :type="item.type" width="50" height="30" radius="5">按钮{{index}}</v-button>
+                <template scope="props">
+                    <v-button :type="props.item.type" width="50" height="30" radius="5">按钮{{props.index}}</v-button>
+                </template>
             </grid>
 
             <grid :list="buttonList" columns="auto" gutter="10" margin="6">
-                <v-button :type="item.type" width="50" height="30" radius="5">按钮{{index}}</v-button>
+                <template scope="props">
+                    <v-button :type="props.item.type" width="50" height="30" radius="5">按钮{{props.index}}</v-button>
+                </template>
             </grid>
         </div>
     </div>

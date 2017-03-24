@@ -93,15 +93,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'grid',
-    //     path: '/components/grid',
-    //     component: require('./components/grid.vue'),
-    //     meta: {
-    //         doc_title: '网格',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'grid',
+        path: '/components/grid',
+        component: require('./components/grid.vue'),
+        meta: {
+            doc_title: '网格',
+            depth: 20
+        }
+    },
     {
         name: 'justify',
         path: '/components/justify',
@@ -210,13 +210,13 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'nowrap',
-    //     path: '/components/nowrap',
-    //     doc_title: 'nowrap',
-    //     component: require('./components/nowrap.vue'),
-    //     depth: 20
-    // },
+    {
+        name: 'nowrap',
+        path: '/components/nowrap',
+        doc_title: 'nowrap',
+        component: require('./components/nowrap.vue'),
+        depth: 20
+    },
     // {
     //     name: 'progressbar',
     //     path: '/components/progressbar',

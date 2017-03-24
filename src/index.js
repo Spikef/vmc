@@ -21,7 +21,7 @@ import { Topbar, Navbar } from './components/navbar';
 import Tabbar from './components/tabbar';
 import Spinner  from './components/spinner';
 // import DropLoad from './components/dropload';
-// import Grid from './components/grid';
+import Grid from './components/grid';
 import Justify from './components/justify';
 // import TabControl from './components/tabcontrol';
 import Cell from './components/cell';
@@ -59,7 +59,7 @@ export {
     Tabbar,
     Spinner,
     // DropLoad,
-    // Grid,
+    Grid,
     Justify,
     // TabControl,
     Cell,

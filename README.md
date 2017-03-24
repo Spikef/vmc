@@ -6,7 +6,7 @@
 
 ## 特性介绍
 
-`VMC`是一套针对移动端开发的组件库，适用于`vue@2.2.1+`。
+`VMC`是一套针对移动端开发的组件库，适用于`vue@1.0.21+`。
 
 + 将使用频度高的组件全局化，直接注册到Vue实例化对象上；
 + 全部样式基于LESS，并允许通过覆盖LESS变量的方式快速初始化组件样式；
@@ -100,7 +100,7 @@ import { Navbar } from 'vmc';
 
 ### JS组件
 
-* [-操作按钮列表 (ActionSheet)](./src/components/actionsheet)
+* [操作按钮列表 (ActionSheet)](./src/components/actionsheet)
 
 * [警告框 (Alert)](./src/components/alert)
 
@@ -126,7 +126,7 @@ import { Navbar } from 'vmc';
 
 * [-提示型输入框 (vInput)](./src/components/input#vinput)
 
-* [-两端对齐 (Justify)](./src/components/justify)
+* [两端对齐 (Justify)](./src/components/justify)
 
 * [滚动公告 (Marquee)](./src/components/marquee)
 
@@ -138,7 +138,7 @@ import { Navbar } from 'vmc';
 
 * [-选择器 (Picker)](./src/components/picker)
 
-* [-弹出层 (Popup)](./src/components/popup)
+* [弹出层 (Popup)](./src/components/popup)
 
 * [-弹出式选择器 (Popup Picker)](./src/components/popup-picker)
 
@@ -176,7 +176,7 @@ import { Navbar } from 'vmc';
 
 * [-信息提示 (Info)](./src/components/toast#info)
 
-* [-文字提示 (Toast)](./src/components/toast#toast)
+* [文字提示 (Toast)](./src/components/toast#toast)
 
 * [-上传组件 (Upload)](./src/components/upload)
 

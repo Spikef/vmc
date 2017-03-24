@@ -31,7 +31,6 @@
             },
             second: {
                 type: [Number, String],
-                coerce: Number,
                 default: 3
             },
             // up, down
@@ -98,7 +97,7 @@
                     index = 0;
                 }
                 this.index = index;
-            }, this.second * 1000);
+            }, Number(this.second) * 1000);
         },
         beforeDestroy() {
             clearInterval(this.timer);
