@@ -174,24 +174,24 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'minput',
-    //     path: '/components/minput',
-    //     component: require('./components/minput.vue'),
-    //     meta: {
-    //         doc_title: 'minput',
-    //         depth: 20
-    //     }
-    // },
-    // {
-    //     name: 'vinput',
-    //     path: '/components/vinput',
-    //     component: require('./components/vinput.vue'),
-    //     meta: {
-    //         doc_title: 'vinput',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'minput',
+        path: '/components/minput',
+        component: require('./components/minput.vue'),
+        meta: {
+            doc_title: 'minput',
+            depth: 20
+        }
+    },
+    {
+        name: 'vinput',
+        path: '/components/vinput',
+        component: require('./components/vinput.vue'),
+        meta: {
+            doc_title: 'vinput',
+            depth: 20
+        }
+    },
     // {
     //     name: 'number',
     //     path: '/components/number',

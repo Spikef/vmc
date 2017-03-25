@@ -7,7 +7,7 @@
                 <div name="header">只能输入整数(0-10)</div>
                 <div name="content">
                     <div class="input">
-                        <m-input type="integer" :value.sync="value1" min="0" max="10"></m-input>
+                        <m-input type="integer" v-model="value1" min="0" max="10"></m-input>
                     </div>
                 </div>
                 <div name="footer">
@@ -20,7 +20,7 @@
                 <div name="header">只能输入小写字母(最长12位)</div>
                 <div name="content">
                     <div class="input">
-                        <m-input type="alphabet" :value.sync="value2" max="12"></m-input>
+                        <m-input type="alphabet" v-model="value2" max="12"></m-input>
                     </div>
                 </div>
                 <div name="footer">
@@ -33,7 +33,7 @@
                 <div name="header">只能输入大写字母(最长12位)</div>
                 <div name="content">
                     <div class="input">
-                        <m-input type="ALPHABET" :value.sync="value3" max="12"></m-input>
+                        <m-input type="ALPHABET" v-model="value3" max="12"></m-input>
                     </div>
                 </div>
                 <div name="footer">

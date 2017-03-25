@@ -1,7 +1,7 @@
 <template>
     <div class="vmc-input-area" :class="{invalid: !valid}">
         <label class="vmc-input" :class="{'vmc-1px': border}">
-            <input :type="type" :placeholder="placeholder" v-model="value" @keyUp="_onKeyUp" @blur="_onBlur" @input="_onInput">
+            <input ref="input" :placeholder="placeholder" :value="value" @keyUp="_onKeyUp" @blur="_onBlur" @input="_onInput" :type="localType">
         </label>
         <div class="vmc-input-message" v-show="message">{{message}}</div>
     </div>
@@ -16,7 +16,10 @@
                 type: String,
                 default: 'text'
             },
-            value: [String, Number, Boolean],
+            value: {
+                type: [String, Number, Boolean],
+                default: ''
+            },
             placeholder: String,
             errorMessage: String,
             validator: {
@@ -31,36 +34,49 @@
         data() {
             return {
                 message: '',
-                valid: true
+                valid: true,
+                localType: this.type
             }
         },
         methods: {
             _onKeyUp(e) {
                 if (e.keyCode === 13) {
-                    this._checkValue();
+                    debugger
+                    this._checkValue(e.target.value);
                 }
             },
-            _onBlur() {
-                this._checkValue();
+            _onBlur(e) {
+                debugger
+                this._checkValue(e.target.value);
             },
-            _onInput() {
-                if (this.type === 'password') {
+            _onInput(e) {
+                var value = e.target.value;
+
+                if (this.localType === 'password') {
                     clearTimeout(this.timer);
-                    this.type = 'text';
+                    this.localType = 'text';
+
                     this.timer = setTimeout(() => {
-                        this.type = 'password';
+                        this.localType = 'password';
                     }, 1500);
                 }
+
+                this.$nextTick(() => {
+                    this.$refs.input.value = value;
+                    this.$emit('input', value);
+                });
+
             },
-            _checkValue(init) {
-                var value = this.value === undefined || this.value === null ? '' : this.value;
-                if (!this.validator) return;
-                if (!Array.isArray(this.validator)) {
-                    this.validator = [this.validator];
+            _checkValue(value, init) {
+                var validator = this.validator;
+                value = value === undefined || value === null ? '' : value;
+                if (!validator) return;
+                if (!Array.isArray(validator)) {
+                    validator = [validator];
                 }
                 var result = null;
-                for (var i=0;i<this.validator.length;i++) {
-                    var valid = this.validator[i];
+                for (var i=0;i<validator.length;i++) {
+                    var valid = validator[i];
                     var vType = getType(valid);
 
                     switch (vType) {
@@ -95,8 +111,8 @@
                 }
             }
         },
-        ready() {
-            this._checkValue(true);
+        mounted() {
+            this._checkValue(this.value, true);
         }
     }
 </script>

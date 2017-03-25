@@ -69,7 +69,7 @@
             },
             _updateValue(value) {
                 this.localValue = value;
-                this.$emit('on-value-change', value);
+                this.$emit('input', value);
             },
             outStarStyle(index) {
                 var i = index - 1;

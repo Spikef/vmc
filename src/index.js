@@ -7,7 +7,7 @@ import DialogBox from './components/dialogbox';
 // 表单组件
 // import Checkbox from './components/checkbox';
 // import Radio from './components/radio';
-// import { mInput, vInput } from './components/input';
+import { mInput, vInput } from './components/input';
 // import vTextarea from './components/textarea';
 // import Number from './components/number';
 // import Switch from './components/switch';
@@ -44,8 +44,8 @@ export {
     DialogBox,
     // Prompt,
     // Checkbox,
-    // mInput,
-    // vInput,
+    mInput,
+    vInput,
     // vTextarea,
     // Number,
     // Radio,

@@ -6,6 +6,8 @@
 
 是否全局组件：否。
 
+是否支持v-model：是。
+
 ## Usage
 
 ```html
@@ -62,12 +64,6 @@ export default {
 | size | String | 星的大小 | 由LESS变量定义 |
 | disabled | Boolean | 是否禁用评分(仅展示) | false |
 | star | String | 标签列表 | ★ |
-
-## Events
-
-| Name | Description | Arguments |
-| ----- | ----- | ----- |
-| on-value-change | 当评分值改变时触发该事件。 | value：评分值 |
 
 ## LESS
 

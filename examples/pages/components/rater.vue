@@ -3,31 +3,31 @@
         <navbar>评分</navbar>
 
         <div class="content">
-            <row title="普通评分">
-                <rater :value="point1"></rater>
+            <row :title="'普通评分 (' + point1 + ')'">
+                <rater v-model="point1"></rater>
             </row>
-            <row title="允许评0分">
-                <rater :value="point1" min="0"></rater>
+            <row :title="'允许评0分 (' + point1 + ')'">
+                <rater v-model="point1" min="0"></rater>
             </row>
-            <row title="仅展示评分">
+            <row :title="'仅展示评分 (' + point1 + ')'">
                 <rater :value="point1" disabled></rater>
             </row>
             <row :title="'评分为小数(' + point2 + ')'">
                 <rater :value="point2" disabled></rater>
             </row>
-            <row title="自定义可评分">
+            <row :title="'自定义可评分 (' + point1 + ')'">
                 <rater :value="point1" max="6"></rater>
             </row>
-            <row title="自定义大小">
+            <row :title="'自定义大小 (' + point1 + ')'">
                 <rater :value="point1" size="15"></rater>
             </row>
-            <row title="自定义颜色">
+            <row :title="'自定义颜色 (' + point1 + ')'">
                 <rater :value="point1" active-color="#00C85E"></rater>
             </row>
-            <row title="自定义间距">
+            <row :title="'自定义间距 (' + point1 + ')'">
                 <rater :value="point1" gutter="4"></rater>
             </row>
-            <row title="自定义形状">
+            <row :title="'自定义形状 (' + point1 + ')'">
                 <rater :value="point1" star="☻"></rater>
             </row>
 
