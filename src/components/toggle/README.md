@@ -1,8 +1,10 @@
-# Switch
+# Toggle
 
 ## Overview
 
 开关。
+
+> 因为vue2.0版本会对switch标签报警告，所以改名为toggle，其它并未变化。
 
 是否全局组件：否。
 
@@ -12,7 +14,7 @@
 <card>
     <div name="header">普通开关</div>
     <div name="content">
-        <switch :checked.sync="checked1">是否选择？</switch>
+        <toggle :checked.sync="checked1">是否选择？</toggle>
     </div>
     <div name="footer">
         选中状态: {{checked1}}
@@ -22,7 +24,7 @@
 <card>
     <div name="header">默认关闭</div>
     <div name="content">
-        <switch value="是" :checked.sync="checked2">是否选择？</switch>
+        <toggle value="是" :checked.sync="checked2">是否选择？</toggle>
     </div>
     <div name="footer">
         选中的值: {{checked2 | json}}
@@ -32,7 +34,7 @@
 <card>
     <div name="header">禁用状态</div>
     <div name="content">
-        <switch :checked.sync="checked3" disabled>是否选择？嘿嘿嘿，不让你选。</switch>
+        <toggle :checked.sync="checked3" disabled>是否选择？嘿嘿嘿，不让你选。</toggle>
     </div>
     <div name="footer">
         选中状态: {{checked3}}
@@ -63,8 +65,8 @@ export default {
 | Property | Type | Description | Default |
 | ----- | ----- | ----- | ----- |
 | id | String | 原生checkbox的id值 | 随机生成一个值 |
-| value | String, Number, Boolean | 复选框的值 | undefined |
-| checked | Boolean, Array | 选中的值：<br>如果为Boolean类型，则选中时为true；<br>如果为数组，则在选中时向数组追加value值 | undefined |
+| originValue | String, Number, Boolean | 复选框的值 | undefined |
+| value | Boolean, Array | 选中的值：<br>如果为Boolean类型，则选中时为true；<br>如果为数组，则在选中时向数组追加originValue值 | undefined |
 | disabled | Boolean | 是否禁用 | false |
 
 ## LESS

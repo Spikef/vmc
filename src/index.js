@@ -10,7 +10,7 @@ import DialogBox from './components/dialogbox';
 import { mInput, vInput } from './components/input';
 // import vTextarea from './components/textarea';
 import Number from './components/number';
-// import Switch from './components/switch';
+import Toggle from './components/toggle';
 import vButton from './components/button';
 import Submit from './components/submit';
 // import Upload from './components/upload';
@@ -27,7 +27,7 @@ import Justify from './components/justify';
 import Cell from './components/cell';
 import Card from './components/card';
 import Row from './components/row';
-// import Progressbar from './components/progressbar';
+import Progressbar from './components/progressbar';
 import Popup from './components/popup';
 import Marquee from './components/marquee';
 import ActionSheet from './components/actionsheet';
@@ -49,7 +49,7 @@ export {
     // vTextarea,
     Number,
     // Radio,
-    // Switch,
+    Toggle,
     vButton,
     Submit,
     // Upload,
@@ -65,7 +65,7 @@ export {
     Cell,
     Card,
     Row,
-    // Progressbar,
+    Progressbar,
     Popup,
     Marquee,
     ActionSheet,

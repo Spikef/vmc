@@ -165,15 +165,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'switch',
-    //     path: '/components/switch',
-    //     component: require('./components/switch.vue'),
-    //     meta: {
-    //         doc_title: '开关',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'switch',
+        path: '/components/switch',
+        component: require('./components/switch.vue'),
+        meta: {
+            doc_title: '开关',
+            depth: 20
+        }
+    },
     {
         name: 'minput',
         path: '/components/minput',
@@ -217,15 +217,15 @@ module.exports = [
         component: require('./components/nowrap.vue'),
         depth: 20
     },
-    // {
-    //     name: 'progressbar',
-    //     path: '/components/progressbar',
-    //     component: require('./components/progressbar.vue'),
-    //     meta: {
-    //         doc_title: '进度条',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'progressbar',
+        path: '/components/progressbar',
+        component: require('./components/progressbar.vue'),
+        meta: {
+            doc_title: '进度条',
+            depth: 20
+        }
+    },
     // {
     //     name: 'shake',
     //     path: '/components/shake',
