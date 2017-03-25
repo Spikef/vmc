@@ -120,9 +120,9 @@ import { Navbar } from 'vmc';
 
 * [-分页刷新 (DropLoad)](./src/components/dropload)
 
-* [-网格 (Grid)](./src/components/grid)
+* [网格 (Grid)](./src/components/grid)
 
-* [-强制型输入框 (mInput)](./src/components/input#minput)
+* [强制型输入框 (mInput)](./src/components/input#minput)
 
 * [-提示型输入框 (vInput)](./src/components/input#vinput)
 
@@ -146,7 +146,7 @@ import { Navbar } from 'vmc';
 
 * [-进度条 (Progressbar)](./src/components/progressbar)
 
-* [-提示输入框 (Prompt)](./src/components/prompt)
+* [提示输入框 (Prompt)](./src/components/prompt)
 
 * [-单选框 (Radio)](./src/components/radio)
 
@@ -168,13 +168,13 @@ import { Navbar } from 'vmc';
 
 * [-文本框 (TextArea)](./src/components/textarea)
 
-* [-加载提示 (Loading)](./src/components/toast#loading)
+* [加载提示 (Loading)](./src/components/toast#loading)
 
-* [-成功提示 (Success)](./src/components/toast#success)
+* [成功提示 (Success)](./src/components/toast#success)
 
-* [-错误提示 (Error)](./src/components/toast#error)
+* [错误提示 (Error)](./src/components/toast#error)
 
-* [-信息提示 (Info)](./src/components/toast#info)
+* [信息提示 (Info)](./src/components/toast#info)
 
 * [文字提示 (Toast)](./src/components/toast#toast)
 

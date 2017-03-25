@@ -3,8 +3,8 @@
         <div name="header">
             <div><p>{{title}}</p></div>
         </div>
-        <div name="content" v-html="content">
-
+        <div name="content">
+            <div v-html="content" v-if="content"></div>
             <div class="prompt-input">
                 <label class="vmc-1px" :class="{ invalid: invalid }">
                     <input v-model="value" :placeholder="placeholder">
@@ -32,38 +32,22 @@
             Overlay,
             DialogBox
         },
-        props: {
-            show: Boolean,
-            title: String,
-            content: String,
-            validator: {
-                type: Object,
-                default: null
-            },
-            confirm: {
-                type: Function,
-                default: null
-            },
-            cancel: {
-                type: Function,
-                default: null
-            },
-            btn1: {
-                type: String,
-                default: '取消'
-            },
-            btn2: {
-                type: String,
-                default: '确定'
-            },
-            type: {
-                type: Number,
-                default: 0
-            },
-            value: String,
-            invalid: Boolean,
-            placeholder: String,
-            message: String
+        data() {
+            return {
+                show: false,
+                title: '',
+                content: '',
+                validator: null,
+                confirm: null,
+                cancel: null,
+                btn1: '取消',
+                btn2: '确定',
+                type: 0,
+                value: '',
+                invalid: false,
+                placeholder: '',
+                message: ''
+            }
         },
         methods: {
             _onConfirm(e) {

@@ -1,6 +1,6 @@
 import installAlert from './alert/install';
 import installConfirm from './confirm/install';
-// import installPrompt from './prompt/install';
+import installPrompt from './prompt/install';
 import installToast from './toast/install';
 import Filter from '../utils/filter';
 import Directive from '../utils/directive';
@@ -40,10 +40,10 @@ export default function(Vue, options = {
         plugins.push(installConfirm(configs));
     }
 
-    // if (options.prompt) {
-    //     plugins.push(installPrompt(configs));
-    // }
-    //
+    if (options.prompt) {
+        plugins.push(installPrompt(configs));
+    }
+
     if (options.toast) {
         plugins.push(installToast(configs));
     }

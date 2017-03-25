@@ -1,7 +1,7 @@
 import Prompt from './';
 
 export default configs => {
-    configs.template += `<prompt v-ref:prompt></prompt>`;
+    configs.children.push('prompt');
     configs.components.Prompt = Prompt;
 
     return (Vue, vm) => {
