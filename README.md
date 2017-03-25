@@ -6,7 +6,7 @@
 
 ## 特性介绍
 
-`VMC`是一套针对移动端开发的组件库，适用于`vue@1.0.21+`。
+`VMC`是一套针对移动端开发的组件库，适用于`vue@2.2.1+`。
 
 + 将使用频度高的组件全局化，直接注册到Vue实例化对象上；
 + 全部样式基于LESS，并允许通过覆盖LESS变量的方式快速初始化组件样式；
@@ -132,7 +132,7 @@ import { Navbar } from 'vmc';
 
 * [导航栏 (Navbar)](./src/components/navbar)
 
-* [-数字输入 (Number)](./src/components/number)
+* [数字输入 (Number)](./src/components/number)
 
 * [遮罩层 (Overlay)](./src/components/overlay)
 

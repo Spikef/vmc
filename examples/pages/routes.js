@@ -192,15 +192,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'number',
-    //     path: '/components/number',
-    //     component: require('./components/number.vue'),
-    //     meta: {
-    //         doc_title: 'number',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'number',
+        path: '/components/number',
+        component: require('./components/number.vue'),
+        meta: {
+            doc_title: 'number',
+            depth: 20
+        }
+    },
     // {
     //     name: 'textarea',
     //     path: '/components/textarea',

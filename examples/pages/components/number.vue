@@ -6,7 +6,7 @@
             <card>
                 <div name="header">请选择购买数量(1-10)</div>
                 <div name="content">
-                    <number :value.sync="value1" min="1" max="10"></number>
+                    <number v-model="value1" min="1" max="10"></number>
                 </div>
                 <div name="footer">
                     <span>输入的值:</span>
@@ -17,7 +17,7 @@
             <card>
                 <div name="header">请选择购买数量(任意正整数)</div>
                 <div name="content">
-                    <number :value.sync="value2" min="1"></number>
+                    <number v-model="value2" min="1"></number>
                 </div>
                 <div name="footer">
                     <span>输入的值:</span>
@@ -28,7 +28,7 @@
             <card>
                 <div name="header">请输入价格(0.1-10)</div>
                 <div name="content">
-                    <number :value.sync="value3" min="0.1" max="10" step="0.01" width="auto" decimal></number>
+                    <number v-model="value3" min="0.1" max="10" step="0.01" width="auto" decimal></number>
                 </div>
                 <div name="footer">
                     <span>输入的值:</span>

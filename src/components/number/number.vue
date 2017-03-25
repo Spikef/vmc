@@ -1,7 +1,7 @@
 <template>
     <div class="vmc-number">
         <span class="vmc-1px" @click="_changeCount(0)">-</span>
-        <m-input :value.sync="value" :min="min" :max="max" :type="decimal ? 'number' : 'integer'" :style="style"></m-input>
+        <m-input v-model="localValue" :min="min" :max="max" :type="decimal ? 'number' : 'integer'" :style="style"></m-input>
         <span class="vmc-1px" @click="_changeCount(1)">+</span>
     </div>
 </template>
@@ -20,18 +20,20 @@
             width: [String, Number],
             min: {
                 type: [Number, String],
-                coerce: Number,
                 default: -Infinity
             },
             max: {
                 type: [Number, String],
-                coerce: Number,
                 default: Infinity
             },
             step: {
                 type: [Number, String],
-                coerce: Number,
                 default: 1
+            }
+        },
+        data() {
+            return {
+                localValue: this.value
             }
         },
         computed: {
@@ -41,16 +43,25 @@
                         width: getCSSSize(this.width)
                     }
                 }
+            },
+            coerce: {
+                get() {
+                    return {
+                        min: Number(this.min),
+                        max: Number(this.max),
+                        step: Number(this.step)
+                    }
+                }
             }
         },
         methods: {
             _changeCount(add) {
-                var value = Number(this.value);
-                var step = add ? this.step : -this.step;
+                var value = Number(this.localValue);
+                var step = add ? this.coerce.step : -this.coerce.step;
 
                 var val = this.decimal ? this._decimalPlus(value, step) : value + step;
-                if (val >= this.min && val <= this.max) {
-                    this.value = val;
+                if (val >= this.coerce.min && val <= this.coerce.max) {
+                    this.localValue = val;
                 }
             },
             _decimalPlus(a, b) {
@@ -73,6 +84,16 @@
                 }
 
                 return (x + y) / p;
+            }
+        },
+        watch: {
+            value(value) {
+                if (value !== this.localValue) {
+                    this.localValue = value;
+                }
+            },
+            localValue(value) {
+                this.$emit('input', value);
             }
         }
     }

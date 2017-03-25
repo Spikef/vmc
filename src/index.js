@@ -9,7 +9,7 @@ import DialogBox from './components/dialogbox';
 // import Radio from './components/radio';
 import { mInput, vInput } from './components/input';
 // import vTextarea from './components/textarea';
-// import Number from './components/number';
+import Number from './components/number';
 // import Switch from './components/switch';
 import vButton from './components/button';
 import Submit from './components/submit';
@@ -47,7 +47,7 @@ export {
     mInput,
     vInput,
     // vTextarea,
-    // Number,
+    Number,
     // Radio,
     // Switch,
     vButton,
