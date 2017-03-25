@@ -144,7 +144,7 @@ import { Navbar } from 'vmc';
 
 * [-弹出式日期选择器 (Popup Date Picker)](./src/components/popup-date-picker)
 
-* [-进度条 (Progressbar)](./src/components/progressbar)
+* [进度条 (Progressbar)](./src/components/progressbar)
 
 * [提示输入框 (Prompt)](./src/components/prompt)
 
@@ -158,15 +158,15 @@ import { Navbar } from 'vmc';
 
 * [动态指示器 (Spinner)](./src/components/spinner)
 
-* [-提交按钮 (Submit)](./src/components/submit)
-
-* [-开关 (Switch)](./src/components/switch)
+* [提交按钮 (Submit)](./src/components/submit)
 
 * [导航栏 (Tabbar)](./src/components/tabbar)
 
 * [-选项卡 (TabControl)](./src/components/tabcontrol)
 
-* [-文本框 (TextArea)](./src/components/textarea)
+* [文本框 (TextArea)](./src/components/textarea)
+
+* [开关 (Toggle)](./src/components/toggle)
 
 * [加载提示 (Loading)](./src/components/toast#loading)
 

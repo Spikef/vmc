@@ -20,14 +20,19 @@
             value: [Boolean, Array],
             disabled: Boolean
         },
-        computed: {
-            localValue: {
-                get() {
-                    return this.value;
-                },
-                set(value) {
-                    this.$emit('input', value);
+        data() {
+            return {
+                localValue: this.value
+            }
+        },
+        watch: {
+            value(value) {
+                if (value !== this.localValue) {
+                    this.localValue = value;
                 }
+            },
+            localValue(value) {
+                this.$emit('input', value);
             }
         }
     }

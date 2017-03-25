@@ -8,7 +8,7 @@ import DialogBox from './components/dialogbox';
 // import Checkbox from './components/checkbox';
 // import Radio from './components/radio';
 import { mInput, vInput } from './components/input';
-// import vTextarea from './components/textarea';
+import vTextarea from './components/textarea';
 import Number from './components/number';
 import Toggle from './components/toggle';
 import vButton from './components/button';
@@ -38,6 +38,8 @@ import Box from './components/box';
 // import PopupDatePicker from './components/popup-date-picker';
 import Overlay from './components/overlay';
 
+import * as Utils from './utils';
+
 export {
     Alert,
     Confirm,
@@ -46,7 +48,7 @@ export {
     // Checkbox,
     mInput,
     vInput,
-    // vTextarea,
+    vTextarea,
     Number,
     // Radio,
     Toggle,
@@ -75,5 +77,5 @@ export {
     // Picker,
     // PopupPicker,
     // PopupDatePicker,
-    // Utils: require('./utils')
+    Utils
 };

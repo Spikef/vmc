@@ -1,7 +1,7 @@
 <template>
     <div class="vmc-text-area" :class="{invalid: !valid}">
         <div :class="{'vmc-1px': border}">
-            <textarea :rows="rows" :placeholder="placeholder" v-model="value" @input="_onInput()"></textarea>
+            <textarea :rows="coerce.rows" :placeholder="placeholder" v-model="localValue" @input="_onInput()"></textarea>
         </div>
         <div class="vmc-textarea-number">{{length}}/{{max}}</div>
     </div>
@@ -14,17 +14,14 @@
             placeholder: String,
             min: {
                 type: [Number, String],
-                coerce: parseInt,
                 default: 0
             },
             max: {
                 type: [Number, String],
-                coerce: parseInt,
                 default: 99999
             },
             rows: {
                 type: [Number, String],
-                coerce: parseInt,
                 default: 5
             },
             border: {
@@ -34,21 +31,22 @@
         },
         data() {
             return {
-                valid: true
+                valid: true,
+                localValue: this.value
             }
         },
         methods: {
             _onInput() {
                 var len = this.length;
-                if (!isNaN(this.max) && len > this.max) {
-                    this.value = this.value.substr(0, this.max);
+                if (!isNaN(this.coerce.max) && len > this.coerce.max) {
+                    this.localValue = this.localValue.substr(0, this.coerce.max);
                 }
 
                 this._checkValue();
             },
             _checkValue() {
                 var len = this.length;
-                if (!isNaN(this.min) && len < this.min) {
+                if (!isNaN(this.coerce.min) && len < this.coerce.min) {
                     return this.valid = false;
                 }
 
@@ -57,13 +55,35 @@
         },
         computed: {
             length() {
-                var value = this.value;
+                var value = this.localValue;
                 if (value === undefined || value === null) return 0;
                 return String(value).length;
+            },
+            coerce: {
+                get() {
+                    return {
+                        min: parseInt(this.min),
+                        max: parseInt(this.max),
+                        rows: parseInt(this.rows)
+                    }
+                }
             }
         },
-        ready() {
+        mounted() {
             this._checkValue();
+        },
+        watch: {
+            value(value) {
+                if (value !== this.localValue) {
+                    this.localValue = value;
+                }
+            },
+            localValue(value) {
+                this.$emit('input', value);
+            },
+            valid(value) {
+                this.$emit('on-valid', value);
+            }
         }
     }
 </script>

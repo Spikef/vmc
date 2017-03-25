@@ -1,6 +1,6 @@
 <template>
     <label class="vmc-input" :class="{'vmc-1px': border}">
-        <input ref="input" type="text" :placeholder="placeholder" :value="value" @input="_onInput">
+        <input ref="input" type="text" :placeholder="placeholder" :value="value" @keypress="_onKeyPress" @input="_onInput">
     </label>
 </template>
 
@@ -26,6 +26,11 @@
                 default: true
             }
         },
+        data() {
+            return {
+                lastChar: null
+            }
+        },
         computed: {
             coerce: {
                 get() {
@@ -37,6 +42,14 @@
             }
         },
         methods: {
+            _onKeyPress(e) {
+                var char = String.fromCharCode(e.keyCode);
+                if (/[0-9a-zA-Z+-.]/.test(char)) {
+                    this.lastChar = char;
+                } else {
+                    this.lastChar = null;
+                }
+            },
             _onInput(e) {
                 var val = e.target.value;
                 var typ = typeof this.type;
@@ -51,7 +64,14 @@
                                 if (isNaN(val)) val = 0;
 
                                 if (this.coerce.min !== undefined && val < this.coerce.min) val = this.coerce.min;
-                                if (this.coerce.max !== undefined && val > this.coerce.max) val = this.coerce.max;
+                                if (this.coerce.max !== undefined && val > this.coerce.max) {
+                                    if (this.lastChar !== null && this.lastChar < this.coerce.max) {
+                                        val = parseInt(this.lastChar);
+                                    } else {
+                                        val = this.coerce.max;
+                                    }
+                                }
+                                if (this.coerce.min !== undefined && val < this.coerce.min) val = this.coerce.min;
                             } else if (this.coerce.min !== undefined && this.coerce.min >= 0) {
                                 val = this.coerce.min;
                             }
@@ -66,7 +86,14 @@
                                 if (isNaN(val)) val = 0;
 
                                 if (this.coerce.min !== undefined && val < this.coerce.min) val = this.coerce.min;
-                                if (this.coerce.max !== undefined && val > this.coerce.max) val = this.coerce.max;
+                                if (this.coerce.max !== undefined && val > this.coerce.max) {
+                                    if (this.lastChar !== null && this.lastChar < this.coerce.max) {
+                                        val = parseFloat(this.lastChar);
+                                    } else {
+                                        val = this.coerce.max;
+                                    }
+                                }
+                                if (this.coerce.min !== undefined && val < this.coerce.min) val = this.coerce.min;
                             } else if (this.coerce.min !== undefined && this.coerce.min > 0) {
                                 val = this.coerce.min;
                             }

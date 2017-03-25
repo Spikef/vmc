@@ -1,7 +1,7 @@
 require('./polyfill');
 
 export const url = require('./url');
-export const env = require('./env');
+export const env = require('./env').default;
 export const device = require('./device');
 export const script = require('./script');
 

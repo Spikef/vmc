@@ -201,15 +201,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'textarea',
-    //     path: '/components/textarea',
-    //     component: require('./components/textarea.vue'),
-    //     meta: {
-    //         doc_title: 'textarea',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'textarea',
+        path: '/components/textarea',
+        component: require('./components/textarea.vue'),
+        meta: {
+            doc_title: 'textarea',
+            depth: 20
+        }
+    },
     {
         name: 'nowrap',
         path: '/components/nowrap',

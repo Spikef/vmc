@@ -1,30 +1,5 @@
 export default function(Vue) {
     return {
-        // valid: {
-        //     bind: function(el, binding, vnode) {
-        //         var vm = vnode.context;
-        //         var key = this.arg || 'default';
-        //         var name = binding.expression;
-        //
-        //         vm.__valids__ = vm.__valids__ || {};
-        //         vm.__valids__[key] = vm.__valids__[key] || {};
-        //         var valid = vm.__valids__[key];
-        //
-        //         if (name) {
-        //             valid.checks = valid.checks || [];
-        //             var checks = valid.checks;
-        //             var index = checks.length;
-        //             checks.push(vm[name]);
-        //             vm.$watch(name, value => {
-        //                 checks[index] = value;
-        //                 var disabled = !!~checks.indexOf(false);
-        //                 valid.button && valid.button.$set('disabled', disabled);
-        //             });
-        //         } else {
-        //             valid.button = vm;
-        //         }
-        //     }
-        // },
         stop: {
             bind: function(el, binding) {
                 // mousedown， mousemove， 和 mouseup
