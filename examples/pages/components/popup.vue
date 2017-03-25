@@ -18,31 +18,31 @@
             <v-button @click="back">返回主页</v-button>
         </div>
 
-        <popup position="top" :show="showPop1" @on-hide="showPop1 = false">从顶部弹出一些提示文字</popup>
+        <popup position="top" :show="showPop1" v-sync:show="showPop1">从顶部弹出一些提示文字</popup>
 
-        <popup position="bottom" :show="showPop2" @on-hide="showPop2 = false">
+        <popup position="bottom" :show="showPop2">
             <div class="center-middle">
                 <v-button type="success" @click="showPop2 = false">关闭弹窗</v-button>
             </div>
         </popup>
 
-        <popup position="bottom" :show="showPop3" height="40%" @on-hide="showPop3 = false"></popup>
+        <popup position="bottom" :show="showPop3" height="40%" v-sync:show="showPop3"></popup>
 
-        <popup position="left" :show="showPop4" @on-hide="showPop4 = false">
+        <popup position="left" :show="showPop4">
             <div class="center-middle">
                 <v-button type="success" @click="showPop4 = false">关闭弹窗</v-button>
             </div>
         </popup>
 
-        <popup position="left" :show="showPop5" width="90%" @on-hide="showPop5 = false"></popup>
+        <popup position="left" :show="showPop5" width="90%" v-sync:show="showPop5"></popup>
 
-        <popup position="right" :show="showPop6" @on-hide="showPop6 = false">
+        <popup position="right" :show="showPop6">
             <div class="center-middle">
                 <v-button type="success" @click="showPop6 = false">关闭弹窗</v-button>
             </div>
         </popup>
 
-        <popup position="right" :show="showPop7" width="90%" @on-hide="showPop7 = false"></popup>
+        <popup position="right" :show="showPop7" width="90%" v-sync:show="showPop7"></popup>
     </div>
 </template>
 

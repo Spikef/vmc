@@ -48,15 +48,15 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'checkbox',
-    //     path: '/components/checkbox',
-    //     component: require('./components/checkbox.vue'),
-    //     meta: {
-    //         doc_title: '复选框',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'checkbox',
+        path: '/components/checkbox',
+        component: require('./components/checkbox.vue'),
+        meta: {
+            doc_title: '复选框',
+            depth: 20
+        }
+    },
     {
         name: 'spinner',
         path: '/components/spinner',
@@ -129,15 +129,15 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'icons',
-    //     path: '/components/icons',
-    //     component: require('./components/icons.vue'),
-    //     meta: {
-    //         doc_title: '图标',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'icons',
+        path: '/components/icons',
+        component: require('./components/icons.vue'),
+        meta: {
+            doc_title: '图标',
+            depth: 20
+        }
+    },
     {
         name: 'card',
         path: '/components/card',

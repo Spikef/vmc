@@ -112,7 +112,7 @@ import { Navbar } from 'vmc';
 
 * [单栏 (Cell)](./src/components/cell)
 
-* [-复选框 (CheckBox)](./src/components/checkbox)
+* [复选框 (CheckBox)](./src/components/checkbox)
 
 * [确认框 (Confirm)](./src/components/confirm)
 

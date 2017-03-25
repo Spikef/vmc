@@ -77,6 +77,7 @@
             _hide() {
                 this.localShow = false;
                 this.$emit('on-hide');
+                this.$emit('on-sync-show', false);
             }
         },
         data() {

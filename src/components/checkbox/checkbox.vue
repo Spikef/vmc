@@ -1,6 +1,6 @@
 <template>
     <span class="vmc-checkbox" :class="{ inline: inline }">
-        <input type="checkbox" :id="id" :value="value" :disabled="disabled" v-model="checkedValue">
+        <input type="checkbox" :id="id" :value="originValue" :disabled="disabled" v-model="checkedValue">
         <label :for="id" :class="{disabled: disabled}">
             <slot></slot>
         </label>
@@ -17,49 +17,66 @@
                     return 'checkbox-' + Math.random().toString(36).substr(2, 8);
                 }
             },
-            value: [String, Number, Boolean],
-            values: Array,
-            checked: [Boolean, Array],
+            value: [Boolean, Array, Number, String],
+            valueList: Array,
+            originValue: [String, Number, Boolean],
             disabled: Boolean,
             inline: Boolean,
             max: {
-                type: [Number, String],
-                coerce: parseInt
+                type: [Number, String]
             },
             childValues: Array,
             childChecked: Array
         },
+        data() {
+            return {
+                localValue: this.value,
+                localChild: this.childChecked
+            }
+        },
         computed: {
+            coerce: {
+                get() {
+                    return {
+                        max: parseInt(this.max)
+                    }
+                }
+            },
             isChecked: {
                 get() {
-                    if (typeof this.checked === 'boolean') {
-                        return this.checked;
-                    } else if (Array.isArray(this.checked)) {
-                        return !!~this.checked.indexOf(this.value);
-                    } else if (Array.isArray(this.values)) {
-                        return this.checked === this.values[0];
+                    if (typeof this.localValue === 'boolean') {
+                        return this.localValue;
+                    } else if (Array.isArray(this.localValue)) {
+                        return !!~this.localValue.indexOf(this.originValue);
+                    } else if (Array.isArray(this.valueList)) {
+                        return this.localValue === this.valueList[0];
                     } else {
-                        return !!this.checked;
+                        return !!this.localValue;
                     }
                 },
-                set(checked) {
-                    if (typeof this.checked === 'boolean') {
-                        this.checked = checked;
-                    } else if (Array.isArray(this.checked)) {
-                        var index = this.checked.indexOf(this.value);
-                        if (checked && !~index) {
-                            this.checked.push(this.value);
-                            if (this.max) {
-                                this.checked = this.checked.slice(-this.max);
+                set(value) {
+                    if (typeof this.localValue === 'boolean') {
+//                        this.localValue = checked;
+                    } else if (Array.isArray(this.localValue)) {
+                        var index = this.localValue.indexOf(this.originValue);
+                        if (value && !~index) {
+                            this.localValue.push(this.originValue);
+                            if (this.coerce.max) {
+                                this.localValue = this.localValue.slice(-this.coerce.max);
                             }
-                        } else if (!checked && !!~index) {
-                            this.checked.splice(index, 1);
+                        } else if (!value && !!~index) {
+                            this.localValue.splice(index, 1);
                         }
-                    } else if (Array.isArray(this.values)) {
-                        this.checked = checked ? this.values[0] : this.values[1];
+
+                        value = this.localValue;
+                    } else if (Array.isArray(this.valueList)) {
+//                        this.localValue = value ? this.valueList[0] : this.valueList[1];
+                        value = value ? this.valueList[0] : this.valueList[1];
                     } else {
-                        this.checked = checked;
+//                        this.localValue = value;
                     }
+
+                    this._updateValue(value);
                 }
             },
             checkedValue: {
@@ -84,31 +101,42 @@
             },
             isCheckedAll: {
                 get() {
-                    if (this.childValues && this.childChecked && this.childValues.length) {
-                        return this.childValues.length === this.childChecked.length;
+                    if (this.childValues && this.localChild && this.childValues.length) {
+                        return this.childValues.length === this.localChild.length;
                     }
                 },
                 set(checked) {
                     if (checked) {
-                        this.innerUpdate = true;
-                        this.childChecked = [].concat(this.childValues);
+                        this._updateChild([].concat(this.childValues));
                     } else {
-                        this.innerUpdate = true;
-                        this.childChecked = [];
+                        this._updateChild([]);
                     }
                 }
             }
         },
+        methods: {
+            _updateValue(value) {
+                this.localValue = value;
+                this.$emit('input', value);
+            },
+            _updateChild(value) {
+                this.localChild = value;
+                this.$emit('on-sync-child', value);
+            }
+        },
         watch: {
+            value(value) {
+                if (value !== this.localValue) {
+                    this.localValue = value;
+                }
+            },
             childChecked(value) {
-                if (!this.innerUpdate && this.isCheckedAll !== undefined) {
+                if (this.isCheckedAll !== undefined) {
                     this.isChecked = this.isCheckedAll; // toggle child
                     this.$nextTick(() => {
-                        this.childChecked = value;      // resolve unCheck child
+                        this.localChild = value;      // resolve unCheck child
                     });
                 }
-
-                delete this.innerUpdate;
             }
         }
     }

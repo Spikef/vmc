@@ -9,7 +9,7 @@
         </v-button>
 
         <v-button class="vmc-1px-top cancel"
-                  @click="show = false"
+                  @click="_hide"
                   v-if="cancel">
 
             {{cancelText}}
@@ -56,6 +56,7 @@
             _hide() {
                 this.localShow = false;
                 this.$emit('on-hide');
+                this.$emit('on-sync-show', false);
             }
         },
         data() {

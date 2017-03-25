@@ -2,10 +2,10 @@
 import Alert from './components/alert';
 import Confirm from './components/confirm';
 import DialogBox from './components/dialogbox';
-// import Prompt from './components/prompt';
+import Prompt from './components/prompt';
 
 // 表单组件
-// import Checkbox from './components/checkbox';
+import Checkbox from './components/checkbox';
 // import Radio from './components/radio';
 import { mInput, vInput } from './components/input';
 import vTextarea from './components/textarea';
@@ -44,8 +44,8 @@ export {
     Alert,
     Confirm,
     DialogBox,
-    // Prompt,
-    // Checkbox,
+    Prompt,
+    Checkbox,
     mInput,
     vInput,
     vTextarea,

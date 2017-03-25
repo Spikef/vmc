@@ -8,9 +8,9 @@
             <v-button @click="showAction2 = true">弹出ActionSheet(带取消按钮)</v-button>
         </div>
 
-        <action-sheet :show="showAction1" :list="buttons" @on-hide="showAction1 = false"></action-sheet>
+        <action-sheet :show="showAction1" :list="buttons" v-sync:show="showAction1"></action-sheet>
 
-        <action-sheet :show="showAction2" :list="buttons" cancel @on-hide="showAction2 = false"></action-sheet>
+        <action-sheet :show="showAction2" :list="buttons" v-sync:show="showAction2" cancel></action-sheet>
     </div>
 </template>
 

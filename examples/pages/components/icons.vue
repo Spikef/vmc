@@ -7,9 +7,11 @@
 
         <div class="content">
             <grid :list="icons" columns="auto">
-                <div class="icon" :class="{ active: INDEX === index }" @click="onItemClick(index, item)">
-                    <i :class="'icono-' + item"></i>
-                </div>
+                <template scope="props">
+                    <div class="icon" :class="{ active: INDEX === props.index }" @click="onItemClick(props.index, props.item)">
+                        <i :class="'icono-' + props.item"></i>
+                    </div>
+                </template>
             </grid>
         </div>
     </div>

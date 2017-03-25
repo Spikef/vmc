@@ -1,5 +1,22 @@
 export default function(Vue) {
     return {
+        sync: {
+            bind: function (el, binding, vnode) {
+                if (!binding.expression) return;
+
+                var event = `on-sync-${binding.arg}`;
+                var keys = binding.expression.split();
+                var vm = el.__vue__;
+                var context = vnode.context;
+
+                vm.$on(event, function (...args) {
+                    keys.forEach(function (key, index) {
+                        key = key.trim();
+                        context[key] = args[index];
+                    });
+                });
+            }
+        },
         stop: {
             bind: function(el, binding) {
                 // mousedown， mousemove， 和 mouseup

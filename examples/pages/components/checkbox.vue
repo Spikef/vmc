@@ -6,7 +6,7 @@
             <card>
                 <div name="header">单个复选框</div>
                 <div name="content">
-                    <checkbox :checked.sync="checked1">同意 <a href="http://www.baidu.com" slot="extra">用户注册协议</a></checkbox>
+                    <checkbox v-model="checked1">同意 <a href="http://www.baidu.com" slot="extra">用户注册协议</a></checkbox>
                 </div>
                 <div name="footer">
                     <span>选择值:</span>
@@ -17,7 +17,7 @@
             <card>
                 <div name="header">单个复选框，默认选中</div>
                 <div name="content">
-                    <checkbox :checked.sync="checked2">同意用户注册协议</checkbox>
+                    <checkbox v-model="checked2">同意用户注册协议</checkbox>
                 </div>
                 <div name="footer">
                     <span>选择值:</span>
@@ -28,7 +28,7 @@
             <card>
                 <div name="header">单个复选框，指定选择结果</div>
                 <div name="content">
-                    <checkbox :checked.sync="checked3" :values="[1, 0]">同意用户注册协议</checkbox>
+                    <checkbox v-model="checked3" :value-list="[1, 0]">同意用户注册协议</checkbox>
                 </div>
                 <div name="footer">
                     <span>选择值:</span>
@@ -39,82 +39,82 @@
             <card>
                 <div name="header">复选框列表，显示在一行</div>
                 <div name="content">
-                    <checkbox :checked.sync="list1" :value="item" v-for="item in listA" inline>{{item}}</checkbox>
+                    <checkbox v-model="list1" :origin-value="item" v-for="(item, index) in listA" key="index" inline>{{item}}</checkbox>
                 </div>
                 <div name="footer">
                     <span>选中的项:</span>
-                    <span> {{ list1 | json }} </span>
+                    <span> {{ list1 }} </span>
                 </div>
             </card>
 
             <card>
                 <div name="header">复选框列表，最多只允许选择两项</div>
                 <div name="content">
-                    <checkbox :checked.sync="list2" :value="item" v-for="item in listB" max="2">{{item}}</checkbox>
+                    <checkbox v-model="list2" :origin-value="item" v-for="(item, index) in listB" key="index" max="2">{{item}}</checkbox>
                 </div>
                 <div name="footer">
                     <span>选中的项:</span>
-                    <span> {{ list2 | json }} </span>
+                    <span> {{ list2 }} </span>
                 </div>
             </card>
 
             <card>
                 <div name="header">可禁用的复选框列表</div>
                 <div name="content">
-                    <checkbox :checked.sync="list3" value="选项A" disabled>选项A</checkbox>
-                    <checkbox :checked.sync="list3" value="选项B" disabled>选项B</checkbox>
-                    <checkbox :checked.sync="list3" value="选项C">选项C</checkbox>
-                    <checkbox :checked.sync="list3" value="选项D">选项D</checkbox>
+                    <checkbox v-model="list3" origin-value="选项A" disabled>选项A</checkbox>
+                    <checkbox v-model="list3" origin-value="选项B" disabled>选项B</checkbox>
+                    <checkbox v-model="list3" origin-value="选项C">选项C</checkbox>
+                    <checkbox v-model="list3" origin-value="选项D">选项D</checkbox>
                 </div>
                 <div name="footer">
                     <span>选中的项:</span>
-                    <span> {{ list3 | json }} </span>
+                    <span> {{ list3 }} </span>
                 </div>
             </card>
 
             <card>
                 <div name="header">支持全选的复选框列表</div>
                 <div name="content">
-                    <checkbox :checked.sync="list4" :value="item" v-for="item in listA">{{item}}</checkbox>
-                    <checkbox :checked="true" :child-values="listA" :child-checked.sync="list4">全选</checkbox>
+                    <checkbox v-model="list4" :origin-value="item" v-for="(item, index) in listA" key="index">{{item}}</checkbox>
+                    <checkbox :checked="true" :child-values="listA" :child-checked="list4" v-sync:child="list4">全选</checkbox>
                 </div>
                 <div name="footer">
                     <span>选中的项:</span>
-                    <span> {{ list4 | json }} </span>
+                    <span> {{ list4 }} </span>
                 </div>
             </card>
 
             <card>
                 <div name="header">支持分组全选的复选框列表</div>
                 <div name="content" class="group-box">
-                    <checkbox :checked.sync="list7" value="A" :child-values="listA" :child-checked.sync="list5" max="1">选择分组A</checkbox>
-                    <checkbox :checked.sync="list5" :value="item" v-for="item in listA" class="box-item">{{item}}</checkbox>
+                    <checkbox v-model="list7" origin-value="A" :child-values="listA" :child-checked="list5" max="1" v-sync:child="list5">选择分组A</checkbox>
+                    <checkbox v-model="list5" :origin-value="item" v-for="(item, index) in listA" key="index" class="box-item">{{item}}</checkbox>
 
                     <div class="separator"></div>
 
-                    <checkbox :checked.sync="list7" value="B" :child-values="listB" :child-checked.sync="list6" max="1">选择分组B</checkbox>
-                    <checkbox :checked.sync="list6" :value="item" v-for="item in listB" class="box-item">{{item}}</checkbox>
+                    <checkbox v-model="list7" origin-value="B" :child-values="listB" :child-checked="list6" max="1" v-sync:child="list6">选择分组B</checkbox>
+                    <checkbox v-model="list6" :origin-value="item" v-for="(item, index) in listB" key="index" class="box-item">{{item}}</checkbox>
                 </div>
                 <div name="footer">
                     <span>选中的项:</span>
-                    <span> {{ list7 | json }} </span>
+                    <span> {{ list7 }} </span>
                 </div>
             </card>
 
             <card>
                 <div name="header">支持多级分组全选的复选框列表</div>
                 <div name="content" class="group-box">
-                    <checkbox :checked.sync="list10" value="A" :child-values="listA" :child-checked.sync="list8">选择分组A</checkbox>
-                    <checkbox :checked.sync="list8" :value="item" v-for="item in listA" class="box-item">{{item}}</checkbox>
+                    <checkbox v-model="list10" origin-value="A" :child-values="listA" :child-checked="list8" v-sync:child="list8">选择分组A</checkbox>
+                    <checkbox v-model="list8" :origin-value="item" v-for="(item, index) in listA" key="index" class="box-item">{{item}}</checkbox>
 
                     <div class="separator"></div>
 
-                    <checkbox :checked.sync="list10" value="B" :child-values="listB" :child-checked.sync="list9">选择分组B</checkbox>
-                    <checkbox :checked.sync="list9" :value="item" v-for="item in listB" class="box-item">{{item}}</checkbox>
+                    <checkbox v-model="list10" origin-value="B" :child-values="listB" :child-checked="list9" v-sync:child="list9">选择分组B</checkbox>
+                    <checkbox v-model="list9" :origin-value="item" v-for="(item, index) in listB" key="index" class="box-item">{{item}}</checkbox>
                 </div>
                 <div name="footer">
                     <span>
-                        <checkbox :child-values="listC" :child-checked.sync="list10" class="inline-block">全选</checkbox>
+                        <checkbox :child-values="listC" :child-checked="list10" class="inline-block" v-sync:child="list10">全选</checkbox>
                     </span>
                 </div>
             </card>

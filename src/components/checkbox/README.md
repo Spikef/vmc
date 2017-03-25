@@ -141,8 +141,9 @@ export default {
 | Property | Type | Description | Default |
 | ----- | ----- | ----- | ----- |
 | id | String | 原生checkbox的id值 | 随机生成一个值 |
-| value | String, Number, Boolean | 复选框的值 | undefined |
-| checked | Boolean, Array | 选中的值：<br>如果为Boolean类型，则选中时为true；<br>如果为数组，则在选中时向数组追加value值 | undefined |
+| originValue | String, Number, Boolean | 复选框的值 | undefined |
+| valueList | Array | 元素0和元素1分别对应选中和非选中状态时对应的值 | undefined |
+| value | Boolean, Array | 选中的值：<br>如果为Boolean类型，则选中时为true；<br>如果为数组，则在选中时向数组追加value值 | undefined |
 | disabled | Boolean | 是否禁用 | false |
 | inline | Boolean | 是否行内显示 | false |
 | max | Number, String | 最多选中几项 | undefined |
