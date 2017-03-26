@@ -298,24 +298,24 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'picker',
-    //     path: '/components/picker',
-    //     component: require('./components/picker.vue'),
-    //     meta: {
-    //         doc_title: 'picker',
-    //         depth: 20
-    //     }
-    // },
-    // {
-    //     name: 'datepicker',
-    //     path: '/components/datepicker',
-    //     component: require('./components/datepicker.vue'),
-    //     meta: {
-    //         doc_title: 'datepicker',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'picker',
+        path: '/components/picker',
+        component: require('./components/picker.vue'),
+        meta: {
+            doc_title: 'picker',
+            depth: 20
+        }
+    },
+    {
+        name: 'datepicker',
+        path: '/components/datepicker',
+        component: require('./components/datepicker.vue'),
+        meta: {
+            doc_title: 'datepicker',
+            depth: 20
+        }
+    },
     {
         name: 'upload',
         path: '/components/upload',

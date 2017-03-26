@@ -33,9 +33,9 @@ import Marquee from './components/marquee';
 import ActionSheet from './components/actionsheet';
 // import Slider from './components/slider';
 import Box from './components/box';
-// import Picker from './components/picker';
-// import PopupPicker from './components/popup-picker';
-// import PopupDatePicker from './components/popup-date-picker';
+import Picker from './components/picker';
+import PopupPicker from './components/popup-picker';
+import PopupDatePicker from './components/popup-date-picker';
 import Overlay from './components/overlay';
 
 import * as Utils from './utils';
@@ -74,8 +74,8 @@ export {
     // Slider,
     Box,
     Overlay,
-    // Picker,
-    // PopupPicker,
-    // PopupDatePicker,
+    Picker,
+    PopupPicker,
+    PopupDatePicker,
     Utils
 };

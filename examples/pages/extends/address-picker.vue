@@ -100,7 +100,7 @@
                 chinaArea: []
             }
         },
-        ready() {
+        mounted() {
             Utils.script.loadJs('static/js/china-area.js', () => {
                 this.chinaArea = window.china_area;
                 this.$nextTick(() => {

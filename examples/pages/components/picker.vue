@@ -8,9 +8,9 @@
             <row title="请选择手机型号：" @click="showPop2 = true">{{value2}}</row>
         </div>
 
-        <popup-picker :show.sync="showPop1" :list="list1" :value.sync="value1"></popup-picker>
+        <popup-picker :show="showPop1" v-sync:show="showPop1" :list="list1" v-model="value1"></popup-picker>
 
-        <popup-picker :show.sync="showPop2" :list="list2" :value.sync="value2"></popup-picker>
+        <popup-picker :show="showPop2" v-sync:show="showPop2" :list="list2" v-model="value2"></popup-picker>
     </div>
 </template>
 
@@ -80,7 +80,7 @@
                 ]
             }
         },
-        ready() {
+        mounted() {
             // 模拟异步加载数据的情况
             setTimeout(() => {
                 this.list2 = this.list;

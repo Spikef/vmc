@@ -25,37 +25,38 @@ export default function(Vue) {
                 var keys = Object.keys(binding.modifiers);
                 if (!keys.length) keys = [].concat(defaultEvents);
 
-                el.events = [];
+                el.__events__ = [];
                 keys.forEach(key => {
                     var event = 'touch' + key;
-                    el.events.push(event);
+                    el.__events__.push(event);
                     el.addEventListener(event, stopDefault);
                 });
             },
             unbind: function(el) {
-                el.events.forEach(event => {
+                el.__events__.forEach(event => {
                     el.removeEventListener(event, stopDefault);
                 });
             }
         },
         touchEvents: {
-            bind: function (el, binding, vnode) {
+            bind: function(el, binding, vnode) {
                 var vm = vnode.context;
-                this.events = ['touchStart', 'touchMove', 'touchEnd'];
+                el.__value__ = binding.value;
+                el.__events__ = ['touchStart', 'touchMove', 'touchEnd'];
 
-                this.touchStart = (e) => {
-                    if (this.modifiers.stop) {
+                el.__touchStart__ = (e) => {
+                    if (binding.modifiers.stop) {
                         stopPropagation(e);
                     }
 
-                    if (this.modifiers.prevent) {
+                    if (binding.modifiers.prevent) {
                         stopDefault(e);
                     }
 
                     // 不管是否有绑定start事件，开始位置必需要计算，否则后面拿不到该值
-                    var value = this.value;
+                    var value = el.__value__;
                     var pos = getTouchPos(e);
-                    this.__startPosition__ = pos;
+                    el.__startPosition__ = pos;
 
                     var fn = vm._onTouchStart;
                     if (fn && typeof fn === 'function') {
@@ -63,12 +64,12 @@ export default function(Vue) {
                     }
                 };
 
-                this.touchMove = (e) => {
+                el.__touchMove__ = (e) => {
                     var fn = vm._onTouchMove;
                     if (fn && typeof fn === 'function') {
-                        var value = this.value;
+                        var value = el.__value__;
                         var pos = getTouchPos(e);
-                        var start = this.__startPosition__;
+                        var start = el.__startPosition__;
                         var offset = {
                             x: pos.x - start.x,
                             y: pos.y - start.y
@@ -78,12 +79,12 @@ export default function(Vue) {
                     }
                 };
 
-                this.touchEnd = (e) => {
+                el.__touchEnd__ = (e) => {
                     var fn = vm._onTouchEnd;
                     if (fn && typeof fn === 'function') {
-                        var value = this.value;
+                        var value = el.__value__;
                         var pos = getTouchPos(e);
-                        var start = this.__startPosition__;
+                        var start = el.__startPosition__;
                         var offset = {
                             x: pos.x - start.x,
                             y: pos.y - start.y
@@ -93,16 +94,16 @@ export default function(Vue) {
                     }
                 };
             },
-            update: function (value) {
-                this.value = value;
-                this.events.forEach(event => {
-                    this.el.removeEventListener(event.toLowerCase(), this[event]);
-                    this.el.addEventListener(event.toLowerCase(), this[event], false);
+            update: function (el, binding) {
+                el.__value__ = binding.value;
+                el.__events__.forEach(event => {
+                    el.removeEventListener(event.toLowerCase(), el[`__${event}__`]);
+                    el.addEventListener(event.toLowerCase(), el[`__${event}__`], false);
                 });
             },
-            unbind: function () {
-                this.events.forEach(event => {
-                    this.el.removeEventListener(event.toLowerCase(), this[event]);
+            unbind: function (el) {
+                el.__events__.forEach(event => {
+                    el.removeEventListener(event.toLowerCase(), el[`__${event}__`]);
                 });
             }
         }

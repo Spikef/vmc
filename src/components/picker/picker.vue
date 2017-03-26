@@ -3,7 +3,7 @@
         <hr class="split-line-top">
         <hr class="split-line-bottom">
 
-        <div class="picker-list" v-for="($p, data) in shadowList">
+        <div class="picker-list" v-for="(data, $p) in shadowList">
             <ul :class="{'dragging': state[$p].dragging}"
                 :style="{'transform' : 'translate3d(0,' + state[$p].translateY + 'px, 0)'}"
                 v-touch-events="$p">
@@ -11,7 +11,7 @@
                 <li></li>
                 <li></li>
                 <li></li>
-                <li v-for="($q, item) in data"
+                <li v-for="(item, $q) in data"
                     :class="{
                                     'current': $q === state[$p].index,
                                     'node1':  Math.abs($q - state[$p].index) == 1,
@@ -35,32 +35,6 @@
                 type: Array,
                 default() {
                     return []
-                },
-                coerce(list) {
-                    if (list.length && !Array.isArray(list[0])) {
-                        list = [list];
-                    }
-
-                    list = list.map(arr => {
-                        return arr.map((o, i) => {
-                            if (typeof o !== 'object' || o.name === undefined) {
-                                if (o.value === undefined) {
-                                    o = {
-                                        name: o,
-                                        value: o
-                                    };
-                                } else {
-                                    o.name = o.value;
-                                }
-                            }
-
-                            o.id = i;
-
-                            return o;
-                        });
-                    });
-
-                    return list;
                 }
             },
             value: {
@@ -88,10 +62,41 @@
             this._initState();
         },
         computed: {
+            // 处理后的数据列表
+            realList: {
+                get() {
+                    var list = this.list;
+
+                    if (list.length && !Array.isArray(list[0])) {
+                        list = [list];
+                    }
+
+                    list = list.map(arr => {
+                        return arr.map((o, i) => {
+                            if (typeof o !== 'object' || o.name === undefined) {
+                                if (o.value === undefined) {
+                                    o = {
+                                        name: o,
+                                        value: o
+                                    };
+                                } else {
+                                    o.name = o.value;
+                                }
+                            }
+
+                            o.id = i;
+
+                            return o;
+                        });
+                    });
+
+                    return list;
+                }
+            },
             // 自定义数据列表
             dataList: {
                 get() {
-                    return this.list;
+                    return this.realList;
                 }
             },
             // 显示的数据列表

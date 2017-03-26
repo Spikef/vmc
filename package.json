@@ -78,6 +78,7 @@
     "not ie <= 8"
   ],
   "dependencies": {
-    "vue": "^2.2.5"
+    "vue": "^2.2.5",
+    "vue-template-compiler": "^2.2.5"
   }
 }

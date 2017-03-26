@@ -12,14 +12,14 @@
             <row title="请选择所在城市：" @click="showPop4 = true">{{value4}}</row>
         </div>
 
-        <popup-date-picker :show.sync="showPop1" :value.sync="value1" tow-digit-month tow-digit-day></popup-date-picker>
+        <popup-date-picker :show="showPop1" v-sync:show="showPop1" v-model="value1" tow-digit-month tow-digit-day></popup-date-picker>
 
-        <popup-picker :list="listEdu" :show.sync="showPop2" :value.sync="value2"></popup-picker>
+        <popup-picker :list="listEdu" :show="showPop2" v-sync:show="showPop2" v-model="value2"></popup-picker>
 
-        <popup-date-picker :show.sync="showPop3" :value.sync="value3" :year="[1980, 2016]" :day="false" tow-digit-month></popup-date-picker>
+        <popup-date-picker :show="showPop3" v-sync:show="showPop3" v-model="value3" :year="[1980, 2016]" :day="false" tow-digit-month></popup-date-picker>
 
         <!-- 注：该组件因为省市区数据比较大，所以并未集成到vmc中，请自动拷贝extends中的两个组件来调用 -->
-        <popup-address-picker :show.sync="showPop4" :value.sync="value4" :area="false"></popup-address-picker>
+        <popup-address-picker :show="showPop4" v-sync:show="showPop4" v-model="value4" :area="false"></popup-address-picker>
     </div>
 </template>
 
