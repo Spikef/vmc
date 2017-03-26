@@ -1,6 +1,6 @@
 <template>
     <span class="vmc-radio" :class="{ inline: inline }">
-        <input type="radio" :id="id" :value="value" v-model="checked" :disabled="disabled">
+        <input type="radio" :id="id" :value="originValue" v-model="localValue" :disabled="disabled">
         <label :for="id" :class="{disabled: disabled}">
             <slot></slot>
         </label>
@@ -18,46 +18,56 @@
                 }
             },
             value: [String, Number, Boolean],
-            checked: [String, Number, Boolean],
+            originValue: [String, Number, Boolean],
             disabled: Boolean,
             inline: Boolean,
             childValues: Array,
             childChecked: Array
         },
+        data() {
+            return {
+                localValue: this.value,
+                localChild: this.childChecked
+            }
+        },
         computed: {
             isChecked: {
                 get() {
-                    return this.checked === this.value;
+                    return this.localValue === this.originValue;
                 }
-            },
-            isCheckedAll: {
-                set(checked) {
-                    if (checked) {
-                        this.innerUpdate = true;
-                        this.childChecked = [].concat(this.childValues);
-                    } else {
-                        this.innerUpdate = true;
-                        this.childChecked = [];
-                    }
+            }
+        },
+        methods: {
+            _updateChild() {
+                if (this.isChecked) {
+                    this.localChild = [].concat(this.childValues);
+                } else {
+                    this.localChild = [];
                 }
+
+                this.$emit('on-sync-child', this.localChild);
             }
         },
         watch: {
+            value(value) {
+                if (value !== this.localValue) {
+                    this.localValue = value;
+                }
+            },
+            localValue(value) {
+                this._updateChild();
+                this.$emit('input', value);
+            },
             childChecked(value) {
-                if (!this.innerUpdate && !this.isChecked && value.length) {
+                if (!this.isChecked && value.length) {
                     this.$nextTick(() => {
-                        this.isCheckedAll = false;
+                        this._updateChild();
                     });
                 }
-
-                delete this.innerUpdate;
-            },
-            isChecked(checked) {
-                this.isCheckedAll = checked;
             }
         },
-        ready() {
-            this.isCheckedAll = this.isChecked;
+        mounted() {
+            this._updateChild();
         }
     }
 </script>

@@ -148,7 +148,7 @@ import { Navbar } from 'vmc';
 
 * [提示输入框 (Prompt)](./src/components/prompt)
 
-* [-单选框 (Radio)](./src/components/radio)
+* [单选框 (Radio)](./src/components/radio)
 
 * [评分 (Rater)](./src/components/rater)
 

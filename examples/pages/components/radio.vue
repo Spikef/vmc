@@ -6,7 +6,7 @@
             <card>
                 <div name="header">单选框列表</div>
                 <div name="content">
-                    <radio :checked.sync="value1" :value="item" v-for="item in listA" inline>{{item}}</radio>
+                    <radio v-model="value1" :origin-value="item" v-for="(item, index) in listA" key="index" inline>{{item}}</radio>
                 </div>
                 <div name="footer">
                     <span>选中的项:</span>
@@ -17,8 +17,8 @@
             <card>
                 <div name="header">可禁用的单选框列表</div>
                 <div name="content">
-                    <radio :checked.sync="value2" :value="item" v-for="item in listA">{{item}}</radio>
-                    <radio :checked.sync="value2" value="选项D" disabled>选项D</radio>
+                    <radio v-model="value2" :origin-value="item" v-for="(item, index) in listA" key="index">{{item}}</radio>
+                    <radio v-model="value2" origin-value="选项D" disabled>选项D</radio>
                 </div>
                 <div name="footer">
                     <span>选中的项:</span>
@@ -29,13 +29,13 @@
             <card>
                 <div name="header">支持关联复选框列表的单选框</div>
                 <div name="content" class="group-box">
-                    <radio :checked.sync="value3" value="A" :child-values="listA" :child-checked.sync="list1">选择分组A</radio>
-                    <checkbox :checked.sync="list1" :value="item" v-for="item in listA" class="box-item">{{item}}</checkbox>
+                    <radio v-model="value3" origin-value="A" :child-values="listA" :child-checked="list1" v-sync:child="list1">选择分组A</radio>
+                    <checkbox v-model="list1" :origin-value="item" v-for="(item, index) in listA" :key="'A' + index" class="box-item">{{item}}</checkbox>
 
                     <div class="separator"></div>
 
-                    <radio :checked.sync="value3" value="B" :child-values="listB" :child-checked.sync="list2" >选择分组B</radio>
-                    <checkbox :checked.sync="list2" :value="item" v-for="item in listB" class="box-item">{{item}}</checkbox>
+                    <radio v-model="value3" origin-value="B" :child-values="listB" :child-checked="list2" v-sync:child="list2">选择分组B</radio>
+                    <checkbox v-model="list2" :origin-value="item" v-for="(item, index) in listB" :key="'B' + index" class="box-item">{{item}}</checkbox>
                 </div>
                 <div name="footer">
                     <span>选中的项:</span>

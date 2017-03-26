@@ -6,7 +6,7 @@ import Prompt from './components/prompt';
 
 // 表单组件
 import Checkbox from './components/checkbox';
-// import Radio from './components/radio';
+import Radio from './components/radio';
 import { mInput, vInput } from './components/input';
 import vTextarea from './components/textarea';
 import Number from './components/number';
@@ -50,7 +50,7 @@ export {
     vInput,
     vTextarea,
     Number,
-    // Radio,
+    Radio,
     Toggle,
     vButton,
     Submit,

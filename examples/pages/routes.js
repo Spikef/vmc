@@ -39,15 +39,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'radio',
-    //     path: '/components/radio',
-    //     component: require('./components/radio.vue'),
-    //     meta: {
-    //         doc_title: '单选框',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'radio',
+        path: '/components/radio',
+        component: require('./components/radio.vue'),
+        meta: {
+            doc_title: '单选框',
+            depth: 20
+        }
+    },
     {
         name: 'checkbox',
         path: '/components/checkbox',
@@ -226,15 +226,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'shake',
-    //     path: '/components/shake',
-    //     component: require('./components/shake.vue'),
-    //     meta: {
-    //         doc_title: '摇一摇',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'shake',
+        path: '/components/shake',
+        component: require('./components/shake.vue'),
+        meta: {
+            doc_title: '摇一摇',
+            depth: 20
+        }
+    },
     {
         name: 'dialog',
         path: '/components/dialog',
