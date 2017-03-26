@@ -13,7 +13,7 @@ import Number from './components/number';
 import Toggle from './components/toggle';
 import vButton from './components/button';
 import Submit from './components/submit';
-// import Upload from './components/upload';
+import Upload from './components/upload';
 import Rater from './components/rater';
 
 // 界面组件
@@ -54,7 +54,7 @@ export {
     Toggle,
     vButton,
     Submit,
-    // Upload,
+    Upload,
     Rater,
     Topbar,
     Navbar,

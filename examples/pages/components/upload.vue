@@ -8,7 +8,7 @@
                 <div name="header">请上传图片(单张图片)</div>
                 <div name="content">
                     <div class="image-list">
-                        <div class="image" v-for="image in images1">
+                        <div class="image" v-for="(image, $index) in images1">
                             <img :src="image">
                             <span class="vmc-badge" @click="images1.splice($index, 1)">x</span>
                         </div>
@@ -21,7 +21,7 @@
                 <div name="header">请上传图片(多张图片)</div>
                 <div name="content">
                     <div class="image-list">
-                        <div class="image" v-for="image in images2">
+                        <div class="image" v-for="(image, $index) in images2">
                             <img :src="image">
                             <span class="vmc-badge" @click="images2.splice($index, 1)">x</span>
                         </div>

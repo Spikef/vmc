@@ -316,13 +316,13 @@ module.exports = [
     //         depth: 20
     //     }
     // },
-    // {
-    //     name: 'upload',
-    //     path: '/components/upload',
-    //     component: require('./components/upload.vue'),
-    //     meta: {
-    //         doc_title: 'upload',
-    //         depth: 20
-    //     }
-    // }
+    {
+        name: 'upload',
+        path: '/components/upload',
+        component: require('./components/upload.vue'),
+        meta: {
+            doc_title: 'upload',
+            depth: 20
+        }
+    }
 ];
