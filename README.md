@@ -2,7 +2,7 @@
 
 > Mobile components for vue@2.2.1+.
 
-> 如果需要在vue1.x上使用vmc，请查看[@1x](../../tree/@1x)分支。
+**如果需要在vue1.x上使用vmc，请查看[@1x](../../tree/@1x)分支。**
 
 [View Demos](https://spikef.github.io/vmc/)
 
