@@ -188,7 +188,7 @@
                 }
             }
         },
-        ready() {
+        mounted() {
             if (this.autoLoad && this.refresh) {
                 this.animateUp = true;
                 this.offsetHeight = 50;

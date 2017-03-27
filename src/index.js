@@ -20,7 +20,7 @@ import Rater from './components/rater';
 import { Topbar, Navbar } from './components/navbar';
 import Tabbar from './components/tabbar';
 import Spinner  from './components/spinner';
-// import DropLoad from './components/dropload';
+import DropLoad from './components/dropload';
 import Grid from './components/grid';
 import Justify from './components/justify';
 // import TabControl from './components/tabcontrol';
@@ -31,7 +31,7 @@ import Progressbar from './components/progressbar';
 import Popup from './components/popup';
 import Marquee from './components/marquee';
 import ActionSheet from './components/actionsheet';
-// import Slider from './components/slider';
+import Slider from './components/slider';
 import Box from './components/box';
 import Picker from './components/picker';
 import PopupPicker from './components/popup-picker';
@@ -60,7 +60,7 @@ export {
     Navbar,
     Tabbar,
     Spinner,
-    // DropLoad,
+    DropLoad,
     Grid,
     Justify,
     // TabControl,
@@ -71,7 +71,7 @@ export {
     Popup,
     Marquee,
     ActionSheet,
-    // Slider,
+    Slider,
     Box,
     Overlay,
     Picker,

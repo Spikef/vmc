@@ -23,12 +23,16 @@
 
             <div class="label">自定义显示的内容</div>
             <slider :list="list" height="200">
-                <img class="slider-image" :src="item.image" :alt="item.image">
+                <template scope="props">
+                    <img class="slider-image" :src="props.item.image" :alt="props.item.image">
+                </template>
             </slider>
 
             <div class="label">自定义显示的内容</div>
             <slider :list="imageList" height="auto" per-page="3" gutter="6" dots="false">
-                <img class="slider-image" :src="item.image" :alt="item.image">
+                <template scope="props">
+                    <img class="slider-image" :src="props.item.image" :alt="props.item.image">
+                </template>
             </slider>
         </div>
     </div>
@@ -131,7 +135,7 @@
                 ]
             }
         },
-        ready() {
+        mounted() {
             setTimeout(() => {
                 this.list = this.dataList;
             }, 1000);

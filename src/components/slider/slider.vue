@@ -8,24 +8,24 @@
             <div class="slider-item"
                  :class="itemClass($index)"
                  :style="itemStyle($index)"
-                 v-for="item in shadowList"
-                 track-by="$index">
+                 v-for="(item, $index) in shadowList"
+                 key="$index">
 
-                <div class="slider-group" :style="groupStyle" v-if="multiple"><div class="slider-group-item" :style="groupItemStyle" v-for="_item in item">
-                    <slot-item :scope="{index: index, item: _item}">
-                        <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
-                    </slot-item>
+                <div class="slider-group" :style="groupStyle" v-if="multiple"><div class="slider-group-item" :style="groupItemStyle" v-for="(_item, index) in item">
+                    <slot :item="_item" :index="index">
+                        <img class="slider-image" :src="_item.image">
+                    </slot>
                 </div></div>
 
-                <slot-item :scope="{item: item, index: $index}" v-else>
-                    <img class="slider-image" :src="item.image" @click="onSliderClick(item)">
+                <slot :item="item" :index="$index" v-else>
+                    <img class="slider-image" :src="item.image">
                     <p class="slider-title" v-if="item.title">{{item.title}}</p>
-                </slot-item>
+                </slot>
             </div>
         </div>
 
-        <div class="slider-dots" :class="dots" v-if="dots !== 'false'">
-            <i :class="{ active: sliderIndex === $index + 1 }" v-for="i in count"></i>
+        <div class="slider-dots" :class="showDots" v-if="showDots !== 'false'">
+            <i :class="{ active: shadowIndex === i }" v-for="i in count"></i>
         </div>
     </div>
 </template>
@@ -39,8 +39,7 @@
             ratio: null,
             perPage: {
                 type: [Number, String],
-                default: 1,
-                coerce: parseInt
+                default: 1
             },
             gutter: {
                 type: [Number, String]
@@ -51,8 +50,7 @@
             },
             sliderIndex: {
                 type: [Number, String],
-                default: 1,
-                coerce: parseInt
+                default: 1
             },
             list: {
                 type: Array,
@@ -61,8 +59,7 @@
                 }
             },
             dots: {
-                default: 'bottom',  // top or bottom or false
-                coerce: String
+                default: 'bottom'  // top or bottom or false
             }
         },
         methods: {
@@ -73,7 +70,7 @@
                 this._start_touch_timer = Date.now();
             },
             _onTouchMove(offset) {
-                this.offsetWidth = this.sliderIndex * this.clientWidth - offset.x;
+                this.offsetWidth = this.shadowIndex * this.clientWidth - offset.x;
             },
             _onTouchEnd(offset) {
                 this.dragging = false;
@@ -89,12 +86,12 @@
                 var duration = Date.now() - this._start_touch_timer;
                 if (duration < 200 && move.x < 10 && move.y < 10) {
                     // 认为是点击事件
-                    var index = this.sliderIndex - 1;
+                    var index = this.shadowIndex - 1;
                     if (this.multiple) {
-                        var unitWidth = this.clientWidth / this.perPage;
+                        var unitWidth = this.clientWidth / this.pageSize;
                         var unitIndex = Math.floor(pos.x / unitWidth);
 
-                        index = index * this.perPage + Math.abs(unitIndex);
+                        index = index * this.pageSize + Math.abs(unitIndex);
                     }
 
                     var item = this.list[index];
@@ -102,11 +99,11 @@
                 }
             },
             onSwipeLeft() {
-                if (this.sliderIndex === this.count + 1) return false;
+                if (this.shadowIndex === this.count + 1) return false;
 
-                this.sliderIndex++;
+                this.shadowIndex++;
 
-                if (this.sliderIndex === this.count + 1) {
+                if (this.shadowIndex === this.count + 1) {
                     if (this.transitionEnd) {
                         this.sliderList.addEventListener(this.transitionEnd, this.resetIndex);
                     } else {
@@ -115,11 +112,11 @@
                 }
             },
             onSwipeRight() {
-                if (this.sliderIndex === 0) return false;
+                if (this.shadowIndex === 0) return false;
 
-                this.sliderIndex--;
+                this.shadowIndex--;
 
-                if (this.sliderIndex === 0) {
+                if (this.shadowIndex === 0) {
                     if (this.transitionEnd) {
                         this.sliderList.addEventListener(this.transitionEnd, this.resetIndex);
                     } else {
@@ -131,14 +128,14 @@
                 if (item.link) {
                     window.location = item.link;
                 } else {
-                    this.$emit('on-item-click', item, this.sliderIndex);
+                    this.$emit('on-item-click', item, this.shadowIndex);
                 }
             },
             itemClass(i) {
                 var classList = [];
                 if (i === 0 || i === this.count + 1) {
                     classList.push('shadow');
-                } else if (i === this.sliderIndex) {
+                } else if (i === this.shadowIndex) {
                     classList.push('active');
                 }
 
@@ -157,10 +154,10 @@
             resetIndex() {
                 this.sliderList.removeEventListener(this.transitionEnd, this.resetIndex);
 
-                var index = this.sliderIndex === 0 ? this.count : 1;
+                var index = this.shadowIndex === 0 ? this.count : 1;
 
                 this.transition = false;
-                this.sliderIndex = index;
+                this.shadowIndex = index;
                 this.$nextTick(() => {
                     // 解决在安卓机上切换时候仍然有动画的问题
                     setTimeout(() => {
@@ -169,11 +166,11 @@
                 });
             },
             resetIndexLow() {
-                var index = this.sliderIndex === 0 ? this.count : 1;
+                var index = this.shadowIndex === 0 ? this.count : 1;
 
                 setTimeout(() => {
                     this.transition = false;
-                    this.sliderIndex = index;
+                    this.shadowIndex = index;
                     this.$nextTick(() => {
                         // 解决在安卓机上切换时候仍然有动画的问题
                         setTimeout(() => {
@@ -185,23 +182,33 @@
         },
         computed: {
             count() {
-                return Math.ceil(this.list.length / this.perPage);
+                return Math.ceil(this.list.length / this.pageSize);
+            },
+            pageSize() {
+                return parseInt(this.perPage);
             },
             multiple() {
-                return this.perPage > 1;
+                return this.pageSize > 1;
             },
             getHeight() {
+                if (this.ratio) {
+                    var ratio = Number(this.ratio);
+                    if (ratio > 0) {
+                        return this.clientWidth * ratio + 'px';
+                    }
+                }
+
                 return getCSSSize(this.height);
             },
             autoHeight() {
-                return this.height === 'auto';
+                return this.getHeight === 'auto';
             },
             shadowList() {
                 var list = this.list;
                 if (list.length) {
                     if (this.multiple) {
                         var array = [];
-                        var size = this.perPage;
+                        var size = this.pageSize;
                         var page = Math.ceil(list.length / size);
                         for (let i=0;i<page;i++) {
                             let items = [];
@@ -224,6 +231,15 @@
                     return [];
                 }
             },
+            shadowIndex: {
+                get() {
+                    return parseInt(this.localIndex);
+                },
+                set(index) {
+                    this.localIndex = index;
+                    this.$emit('on-slider-change', index);
+                }
+            },
             listStyle() {
                 var style = {};
                 style.width = (this.count + 2) * this.clientWidth + 'px';
@@ -239,7 +255,7 @@
                 }
             },
             groupItemStyle() {
-                var width = this.perPage > 0 ? (100 / this.perPage) + '%' : null;
+                var width = this.pageSize > 0 ? (100 / this.pageSize) + '%' : null;
                 var style = { width };
 
                 if (this.gutter) {
@@ -249,7 +265,10 @@
                 return style;
             },
             translateX() {
-                return this.offsetWidth || this.sliderIndex * this.clientWidth;
+                return this.offsetWidth || this.shadowIndex * this.clientWidth;
+            },
+            showDots() {
+                return String(this.dots);
             }
         },
         data() {
@@ -259,51 +278,54 @@
                 transitionEnd: '',
                 sliderList: null,
                 offsetWidth: 0,
-                dragging: false
+                dragging: false,
+                localIndex: this.sliderIndex
             }
         },
-        ready() {
-            this.clientWidth = this.$el.clientWidth;
-            this.sliderList = this.$el.querySelector('.slider-list');
-
-            if (this.ratio) {
-                var ratio = Number(this.ratio);
-                if (ratio > 0) {
-                    this.height = this.clientWidth * ratio;
-                }
-            }
-
-            var trans = {
-                'transition':'transitionend',
-                'OTransition':'oTransitionEnd',
-                'MozTransition':'transitionend',
-                'WebkitTransition':'webkitTransitionEnd'
-            };
-
-            for (let i in trans) {
-                if (this.sliderList.style[i] !== undefined) {
-                    this.transitionEnd = trans[i];
-                    break;
-                }
-            }
-
+        mounted() {
             this.$nextTick(() => {
-                this.transition = true;
-            });
+                this.clientWidth = this.$el.clientWidth;
+                this.sliderList = this.$el.querySelector('.slider-list');
 
-            if (this.auto) {
-                var interval = Number(this.auto);
-                if (!isNaN(interval)) {
-                    interval = interval * 1000;
-                    this.timer = setInterval(() => {
-                        if (this.dragging) return;
-                        this.onSwipeLeft();
-                    }, interval);
+                var trans = {
+                    'transition':'transitionend',
+                    'OTransition':'oTransitionEnd',
+                    'MozTransition':'transitionend',
+                    'WebkitTransition':'webkitTransitionEnd'
+                };
+
+                for (let i in trans) {
+                    if (this.sliderList.style[i] !== undefined) {
+                        this.transitionEnd = trans[i];
+                        break;
+                    }
                 }
-            }
+
+                this.$nextTick(() => {
+                    this.transition = true;
+                });
+
+                if (this.auto) {
+                    var interval = Number(this.auto);
+                    if (!isNaN(interval)) {
+                        interval = interval * 1000;
+                        this.timer = setInterval(() => {
+                            if (this.dragging) return;
+                            this.onSwipeLeft();
+                        }, interval);
+                    }
+                }
+            });
         },
         beforeDestroy() {
             clearInterval(this.timer);
+        },
+        watch: {
+            sliderIndex(value) {
+                if (value !== this.localIndex) {
+                    this.localIndex = value;
+                }
+            }
         }
     }
 </script>

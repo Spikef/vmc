@@ -111,15 +111,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'dropload',
-    //     path: '/components/dropload',
-    //     component: require('./components/dropload.vue'),
-    //     meta: {
-    //         doc_title: 'dropload',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'dropload',
+        path: '/components/dropload',
+        component: require('./components/dropload.vue'),
+        meta: {
+            doc_title: 'dropload',
+            depth: 20
+        }
+    },
     // {
     //     name: 'tabcontrol',
     //     path: '/components/tabcontrol',
@@ -280,15 +280,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'slider',
-    //     path: '/components/slider',
-    //     component: require('./components/slider.vue'),
-    //     meta: {
-    //         doc_title: '轮播图',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'slider',
+        path: '/components/slider',
+        component: require('./components/slider.vue'),
+        meta: {
+            doc_title: '轮播图',
+            depth: 20
+        }
+    },
     {
         name: 'box',
         path: '/components/box',

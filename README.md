@@ -118,7 +118,7 @@ import { Navbar } from 'vmc';
 
 * [对话框 (DialogBox)](./src/components/dialogbox)
 
-* [-分页刷新 (DropLoad)](./src/components/dropload)
+* [分页刷新 (DropLoad)](./src/components/dropload)
 
 * [网格 (Grid)](./src/components/grid)
 
@@ -136,13 +136,13 @@ import { Navbar } from 'vmc';
 
 * [遮罩层 (Overlay)](./src/components/overlay)
 
-* [-选择器 (Picker)](./src/components/picker)
+* [选择器 (Picker)](./src/components/picker)
 
 * [弹出层 (Popup)](./src/components/popup)
 
-* [-弹出式选择器 (Popup Picker)](./src/components/popup-picker)
+* [弹出式选择器 (Popup Picker)](./src/components/popup-picker)
 
-* [-弹出式日期选择器 (Popup Date Picker)](./src/components/popup-date-picker)
+* [弹出式日期选择器 (Popup Date Picker)](./src/components/popup-date-picker)
 
 * [进度条 (Progressbar)](./src/components/progressbar)
 
@@ -154,7 +154,7 @@ import { Navbar } from 'vmc';
 
 * [标题行 (Row)](./src/components/row)
 
-* [-轮播图 (Slider)](./src/components/slider)
+* [轮播图 (Slider)](./src/components/slider)
 
 * [动态指示器 (Spinner)](./src/components/spinner)
 
@@ -178,7 +178,7 @@ import { Navbar } from 'vmc';
 
 * [文字提示 (Toast)](./src/components/toast#toast)
 
-* [-上传组件 (Upload)](./src/components/upload)
+* [上传组件 (Upload)](./src/components/upload)
 
 ## 开发与编译
 

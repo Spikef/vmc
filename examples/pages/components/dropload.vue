@@ -3,9 +3,9 @@
         <navbar>下拉刷新、上拉加载</navbar>
 
         <div class="content">
-            <drop-load v-ref:dropload :refresh="refresh" :load-more="loadMore" :has-more="hasMore" auto-load>
+            <drop-load ref="dropload" :refresh="refresh" :load-more="loadMore" :has-more="hasMore" auto-load>
                 <div class="list" v-for="i in count">
-                    <p :class="'line-' + classList[i % 2]">这是第{{i + 1}}行</p>
+                    <p :class="'line-' + classList[i % 2]">这是第{{i}}行</p>
                 </div>
             </drop-load>
         </div>
