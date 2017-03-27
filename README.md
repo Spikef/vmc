@@ -22,7 +22,7 @@
 #### 安装与引用
 
 ```bash
-$ npm install vmc --save
+$ npm install vmc@1 --save
 ```
 
 #### 注册全局组件
