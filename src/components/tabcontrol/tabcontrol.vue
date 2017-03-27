@@ -1,18 +1,18 @@
 <template>
     <div class="vmc-tab-control" :style="{ height: getHeight }">
-        <div v-if="tabType" class="tab-items" :class="'tab-items-' + tabType" :style="tabStyle">
+        <div v-if="type" class="tab-items" :class="'tab-items-' + type" :style="tabStyle">
             <div class="tab-item"
-                 :class="{ active: tabIndex === $index }"
-                 :style="tabIndex === $index ? itemActiveStyle : itemStyle"
+                 :class="{ active: shadowIndex === $index }"
+                 :style="shadowIndex === $index ? itemActiveStyle : itemStyle"
                  @click="onTabChange($index)"
-                 v-for="item in tabList">
+                 v-for="(item, $index) in tabList">
 
-                <slot-item name="tabItem" :scope="{item: item, index: $index}">
+                <slot name="tabItem" :item="item" :index="$index">
                     {{ item.title }}
-                </slot-item>
+                </slot>
             </div>
 
-            <div v-if="tabType == 1" class="tab-line" :class="'tab-line-' + direction" :style="lineStyle"></div>
+            <div v-if="type == 1" class="tab-line" :class="'tab-line-' + direction" :style="lineStyle"></div>
         </div>
 
         <div class="tab-pages"
@@ -23,10 +23,10 @@
             <div class="tab-page"
                  :class="pageClass($index)"
                  :style="pageStyle($index)"
-                 v-for="item in tabList">
+                 v-for="(item, $index) in tabList">
 
                 <slot :name="item.name"></slot>
-                <slot-item name="tabPage" :scope="{item: item, index: $index}"></slot-item>
+                <slot name="tabPage" :item="item" :index="$index"></slot>
             </div>
         </div>
     </div>
@@ -40,12 +40,10 @@
             height: [Number, String],
             tabType: {
                 type: [Number, String],
-                default: 1,
-                coerce: parseInt
+                default: 1
             },
             lineWidth: {
-                type: [Number, String],
-                coerce: Number
+                type: [Number, String]
             },
             activeColor: {
                 type: String
@@ -78,35 +76,29 @@
                 }
             },
             onTabChange(index) {
-                if (this.tabIndex === index) return;
+                if (this.shadowIndex === index) return;
 
-                var direction = this.tabIndex < index ? 'left' : 'right';
+                var direction = this.shadowIndex < index ? 'left' : 'right';
                 if (this.direction !== direction) this.direction = direction;
 
-                this.tabIndex = index;
-
-                this.$emit('on-tab-change', this.tabIndex);
+                this.shadowIndex = index;
             },
             onSwipeLeft() {
-                if (this.tabIndex >= this.tabList.length - 1) return;
+                if (this.shadowIndex >= this.tabList.length - 1) return;
 
                 this.direction = 'left';
 
-                this.tabIndex++;
-
-                this.$emit('on-tab-change', this.tabIndex);
+                this.shadowIndex++;
             },
             onSwipeRight() {
-                if (this.tabIndex === 0) return;
+                if (this.shadowIndex === 0) return;
 
                 this.direction = 'right';
 
-                this.tabIndex--;
-
-                this.$emit('on-tab-change', this.tabIndex);
+                this.shadowIndex--;
             },
             pageClass(i) {
-                if (i === this.tabIndex) {
+                if (i === this.shadowIndex) {
                     return 'active';
                 }
             },
@@ -122,11 +114,14 @@
             }
         },
         computed: {
+            type() {
+                return parseInt(this.tabType);
+            },
             count() {
                 return this.tabList.length;
             },
             tabStyle() {
-                switch (this.tabType) {
+                switch (this.type) {
                     case 2:
                         return {
                             borderColor: this.activeColor,
@@ -135,7 +130,7 @@
                 }
             },
             itemStyle() {
-                switch (this.tabType) {
+                switch (this.type) {
                     case 1:
                         return {
                             color: this.defaultColor
@@ -149,7 +144,7 @@
                 }
             },
             itemActiveStyle() {
-                switch (this.tabType) {
+                switch (this.type) {
                     case 1:
                         return {
                             color: this.activeColor
@@ -163,8 +158,8 @@
                 }
             },
             lineStyle() {
-                var left = `${this.tabIndex * (100 / this.count)}%`;
-                var right = `${(this.count - this.tabIndex - 1) * (100 / this.count)}%`;
+                var left = `${this.shadowIndex * (100 / this.count)}%`;
+                var right = `${(this.count - this.shadowIndex - 1) * (100 / this.count)}%`;
 
                 return {
                     left: left,
@@ -182,19 +177,38 @@
             pageListStyle() {
                 var style = {};
                 style.width = (this.count + 2) * this.clientWidth + 'px';
-                style.transform = 'translate3d(-' + (this.tabIndex * this.clientWidth) + 'px, 0px, 0px)';
+                style.transform = 'translate3d(-' + (this.shadowIndex * this.clientWidth) + 'px, 0px, 0px)';
 
                 return style;
+            },
+            shadowIndex: {
+                get() {
+                    return parseInt(this.localIndex);
+                },
+                set(index) {
+                    this.localIndex = index;
+                    this.$emit('on-tab-change', index);
+                }
             }
         },
         data() {
             return {
                 clientWidth: 0,
-                direction: 'none'
+                direction: 'none',
+                localIndex: this.tabIndex
             }
         },
-        ready() {
-            this.clientWidth = this.$el.clientWidth;
+        mounted() {
+            this.$nextTick(() => {
+                this.clientWidth = this.$el.clientWidth;
+            });
+        },
+        watch: {
+            tabIndex(value) {
+                if (value !== this.localIndex) {
+                    this.localIndex = value;
+                }
+            }
         }
     }
 </script>

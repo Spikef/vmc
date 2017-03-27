@@ -162,7 +162,7 @@ import { Navbar } from 'vmc';
 
 * [导航栏 (Tabbar)](./src/components/tabbar)
 
-* [-选项卡 (TabControl)](./src/components/tabcontrol)
+* [选项卡 (TabControl)](./src/components/tabcontrol)
 
 * [文本框 (TextArea)](./src/components/textarea)
 

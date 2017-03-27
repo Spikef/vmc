@@ -4,9 +4,11 @@
 
         <div class="content">
             <tab-control :tab-list="tabList" tab-index="0" height="200">
-                <div slot="tabPage">
-                    <p>{{item.name}} 内容云云</p>
-                </div>
+                <template slot="tabPage" scope="props">
+                    <div>
+                        <p>{{props.item.name}} 内容云云</p>
+                    </div>
+                </template>
             </tab-control>
 
             <tab-control :tab-list="tabList" tab-index="2" height="200">
@@ -26,19 +28,21 @@
             </tab-control>
 
             <tab-control :tab-list="tabList" tab-index="0" height="auto">
-                <div slot="tabPage">
-                    <p v-for="i in 2">{{item.name}} 内容云云</p>
-                    <hr>
-                    <p v-for="i in 2">{{item.name}} 内容云云</p>
-                    <hr>
-                    <p v-for="i in 2">{{item.name}} 内容云云</p>
-                </div>
+                <template slot="tabPage" scope="props">
+                    <div>
+                        <p v-for="i in 2">{{props.item.name}} 内容云云</p>
+                        <hr>
+                        <p v-for="i in 2">{{props.item.name}} 内容云云</p>
+                        <hr>
+                        <p v-for="i in 2">{{props.item.name}} 内容云云</p>
+                    </div>
+                </template>
             </tab-control>
 
             <tab-control :tab-list="tabList" tab-index="0" tab-type="2" height="200">
-                <div slot="tabPage">
-                    <p>{{item.name}} 内容云云</p>
-                </div>
+                <template slot="tabPage" scope="props">
+                    <p>{{props.item.name}} 内容云云</p>
+                </template>
             </tab-control>
         </div>
     </div>
@@ -70,7 +74,7 @@
                 ]
             }
         },
-        ready() {
+        mounted() {
             setTimeout(() => {
                 this.tabList.push({
                     title: 'Tab4',

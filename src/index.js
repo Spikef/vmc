@@ -23,7 +23,7 @@ import Spinner  from './components/spinner';
 import DropLoad from './components/dropload';
 import Grid from './components/grid';
 import Justify from './components/justify';
-// import TabControl from './components/tabcontrol';
+import TabControl from './components/tabcontrol';
 import Cell from './components/cell';
 import Card from './components/card';
 import Row from './components/row';
@@ -63,7 +63,7 @@ export {
     DropLoad,
     Grid,
     Justify,
-    // TabControl,
+    TabControl,
     Cell,
     Card,
     Row,

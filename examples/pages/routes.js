@@ -120,15 +120,15 @@ module.exports = [
             depth: 20
         }
     },
-    // {
-    //     name: 'tabcontrol',
-    //     path: '/components/tabcontrol',
-    //     component: require('./components/tabcontrol.vue'),
-    //     meta: {
-    //         doc_title: 'tabcontrol',
-    //         depth: 20
-    //     }
-    // },
+    {
+        name: 'tabcontrol',
+        path: '/components/tabcontrol',
+        component: require('./components/tabcontrol.vue'),
+        meta: {
+            doc_title: 'tabcontrol',
+            depth: 20
+        }
+    },
     {
         name: 'icons',
         path: '/components/icons',
