@@ -3302,39 +3302,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             message: '',
             valid: true,
-            localType: this.type
+            localType: this.type,
+            localValue: this.value
         };
     },
 
+    computed: {
+        isPassword: {
+            get: function get() {
+                return this.localType === 'password';
+            }
+        }
+    },
     methods: {
         _onKeyUp: function _onKeyUp(e) {
             if (e.keyCode === 13) {
-                debugger;
                 this._checkValue(e.target.value);
             }
         },
         _onBlur: function _onBlur(e) {
-            debugger;
             this._checkValue(e.target.value);
         },
         _onInput: function _onInput(e) {
-            var _this = this;
-
             var value = e.target.value;
 
-            if (this.localType === 'password') {
-                clearTimeout(this.timer);
-                this.localType = 'text';
-
-                this.timer = setTimeout(function () {
-                    _this.localType = 'password';
-                }, 1500);
+            if (this.isPassword) {} else {
+                if (this.$refs.input) {
+                    this.localValue = value;
+                    this.$refs.input.value = value;
+                }
             }
-
-            this.$nextTick(function () {
-                _this.$refs.input.value = value;
-                _this.$emit('input', value);
-            });
         },
         _checkValue: function _checkValue(value, init) {
             var validator = this.validator;
@@ -3372,18 +3369,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (result === true) this.valid = true;
         },
         _showMessage: function _showMessage(message) {
-            var _this2 = this;
+            var _this = this;
 
             if (message) {
                 this.message = message;
                 setTimeout(function () {
-                    _this2.message = '';
+                    _this.message = '';
                 }, 2000);
             }
         }
     },
     mounted: function mounted() {
         this._checkValue(this.value, true);
+    },
+
+    watch: {
+        value: function value(_value) {
+            if (_value !== this.localValue) {
+                this.localValue = _value;
+            }
+        },
+        localValue: function localValue(value) {
+            this.$emit('input', value);
+        }
     }
 };
 
@@ -9807,12 +9815,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "arrow": "false"
     }
   }, [_c('v-input', {
-    directives: [{
-      name: "valid",
-      rawName: "v-valid",
-      value: (_vm.valid),
-      expression: "valid"
-    }],
     attrs: {
       "placeholder": "请输入用户名，长度为6-12位",
       "validator": _vm.validName,
@@ -9823,12 +9825,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "arrow": "false"
     }
   }, [_c('v-input', {
-    directives: [{
-      name: "valid",
-      rawName: "v-valid",
-      value: (_vm.valid),
-      expression: "valid"
-    }],
     attrs: {
       "placeholder": "请输入密码，长度为6-16位",
       "validator": _vm.validPass,
@@ -9840,12 +9836,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "arrow": "false"
     }
   }, [_c('v-input', {
-    directives: [{
-      name: "valid",
-      rawName: "v-valid",
-      value: (_vm.valid),
-      expression: "valid"
-    }],
     attrs: {
       "placeholder": "请再次确认密码",
       "validator": _vm.validPass2,
@@ -9855,10 +9845,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "button"
   }, [_c('submit', {
-    directives: [{
-      name: "valid",
-      rawName: "v-valid"
-    }],
     attrs: {
       "type": "danger"
     },
@@ -10388,7 +10374,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "content"
-  }, [_c('p', [_vm._v("Vue Mobile Components(VMC)是一套针对移动端开发的组件库，适用于vue@1.0.21+。参考了vux、mint-ui等知名的vue组件库。")]), _vm._v(" "), _c('ul', [_c('li', [_vm._v("将使用频度高的组件全局化，直接注册到Vue实例化对象上；")]), _vm._v(" "), _c('li', [_vm._v("全部样式基于LESS，并允许通过覆盖LESS变量的方式快速初始化组件样式；")]), _vm._v(" "), _c('li', [_vm._v("同时，你也可以选择使用SASS，我们同样提供了基于SCSS的样式表；")]), _vm._v(" "), _c('li', [_vm._v("可以通过属性来单独定义每个组件的样式(写到style上，这样便能覆盖在LESS中定义的全局样式)；")]), _vm._v(" "), _c('li', [_vm._v("自定义的`Child`元素，可以实现按需插入元素，同时给予预定义样式；")]), _vm._v(" "), _c('li', [_vm._v("自定义的`SlotItem`元素，可以方便地自定义循环型组件（如轮播图）中显示的内容。")])])])
+  }, [_c('p', [_vm._v("Vue Mobile Components(VMC)是一套针对移动端开发的组件库，适用于vue1和vue2。参考了vux、mint-ui等知名的vue组件库。")]), _vm._v(" "), _c('ul', [_c('li', [_vm._v("将使用频度高的组件全局化，直接注册到Vue实例化对象上；")]), _vm._v(" "), _c('li', [_vm._v("全部样式基于LESS，并允许通过覆盖LESS变量的方式快速初始化组件样式；")]), _vm._v(" "), _c('li', [_vm._v("同时，你也可以选择使用SASS，我们同样提供了基于SCSS的样式表；")]), _vm._v(" "), _c('li', [_vm._v("可以通过属性来单独定义每个组件的样式(写到style上，这样便能覆盖在LESS中定义的全局样式)；")]), _vm._v(" "), _c('li', [_vm._v("自定义的`Child`元素(vue1)，可以实现按需插入元素，同时给予预定义样式；")]), _vm._v(" "), _c('li', [_vm._v("自定义的`SlotItem`元素(vue1)，可以方便地自定义循环型组件（如轮播图）中显示的内容。")])])])
 }]}
 
 /***/ }),
@@ -12719,14 +12705,37 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: {
       'vmc-1px': _vm.border
     }
-  }, [_c('input', {
+  }, [(_vm.isPassword) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.localValue),
+      expression: "localValue"
+    }],
+    attrs: {
+      "placeholder": _vm.placeholder,
+      "type": "password"
+    },
+    domProps: {
+      "value": _vm.localValue,
+      "value": (_vm.localValue)
+    },
+    on: {
+      "keyUp": _vm._onKeyUp,
+      "blur": _vm._onBlur,
+      "input": [function($event) {
+        if ($event.target.composing) { return; }
+        _vm.localValue = $event.target.value
+      }, _vm._onInput]
+    }
+  }) : _c('input', {
     ref: "input",
     attrs: {
       "placeholder": _vm.placeholder,
       "type": _vm.localType
     },
     domProps: {
-      "value": _vm.value
+      "value": _vm.localValue
     },
     on: {
       "keyUp": _vm._onKeyUp,

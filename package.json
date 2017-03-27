@@ -1,6 +1,6 @@
 {
   "name": "vmc",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Mobile components for vue@2x",
   "main": "src/index.js",
   "author": "Spikef",

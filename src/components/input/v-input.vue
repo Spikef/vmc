@@ -1,7 +1,8 @@
 <template>
     <div class="vmc-input-area" :class="{invalid: !valid}">
         <label class="vmc-input" :class="{'vmc-1px': border}">
-            <input ref="input" :placeholder="placeholder" :value="value" @keyUp="_onKeyUp" @blur="_onBlur" @input="_onInput" :type="localType">
+            <input :placeholder="placeholder" :value="localValue" @keyUp="_onKeyUp" @blur="_onBlur" @input="_onInput" type="password" v-model="localValue" v-if="isPassword">
+            <input :placeholder="placeholder" :value="localValue" @keyUp="_onKeyUp" @blur="_onBlur" @input="_onInput" :type="localType" ref="input" v-else>
         </label>
         <div class="vmc-input-message" v-show="message">{{message}}</div>
     </div>
@@ -35,37 +36,42 @@
             return {
                 message: '',
                 valid: true,
-                localType: this.type
+                localType: this.type,
+                localValue: this.value
+            }
+        },
+        computed: {
+            isPassword: {
+                get() {
+                    return this.localType === 'password';
+                }
             }
         },
         methods: {
             _onKeyUp(e) {
                 if (e.keyCode === 13) {
-                    debugger
                     this._checkValue(e.target.value);
                 }
             },
             _onBlur(e) {
-                debugger
                 this._checkValue(e.target.value);
             },
             _onInput(e) {
                 var value = e.target.value;
 
-                if (this.localType === 'password') {
-                    clearTimeout(this.timer);
-                    this.localType = 'text';
-
-                    this.timer = setTimeout(() => {
-                        this.localType = 'password';
-                    }, 1500);
+                if (this.isPassword) {
+//                    clearTimeout(this.timer);
+//                    this.localType = 'text';
+//
+//                    this.timer = setTimeout(() => {
+//                        this.localType = 'password';
+//                    }, 1500);
+                } else {
+                    if (this.$refs.input) {
+                        this.localValue = value;
+                        this.$refs.input.value = value;
+                    }
                 }
-
-                this.$nextTick(() => {
-                    this.$refs.input.value = value;
-                    this.$emit('input', value);
-                });
-
             },
             _checkValue(value, init) {
                 var validator = this.validator;
@@ -113,6 +119,16 @@
         },
         mounted() {
             this._checkValue(this.value, true);
+        },
+        watch: {
+            value(value) {
+                if (value !== this.localValue) {
+                    this.localValue = value;
+                }
+            },
+            localValue(value) {
+                this.$emit('input', value);
+            }
         }
     }
 </script>

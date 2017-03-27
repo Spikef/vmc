@@ -124,7 +124,7 @@ import { Navbar } from 'vmc';
 
 * [强制型输入框 (mInput)](./src/components/input#minput)
 
-* [-提示型输入框 (vInput)](./src/components/input#vinput)
+* [提示型输入框 (vInput)](./src/components/input#vinput)
 
 * [两端对齐 (Justify)](./src/components/justify)
 

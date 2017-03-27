@@ -4,18 +4,18 @@
 
         <div class="content">
             <cell arrow="false">
-                <v-input placeholder="请输入用户名，长度为6-12位" v-valid="valid" :validator="validName" error-message="用户名长度必须为6-12位"></v-input>
+                <v-input placeholder="请输入用户名，长度为6-12位" :validator="validName" error-message="用户名长度必须为6-12位"></v-input>
             </cell>
             <cell arrow="false">
-                <v-input placeholder="请输入密码，长度为6-16位" v-valid="valid" :validator="validPass" type="password" :value.sync="form.password1"></v-input>
+                <v-input placeholder="请输入密码，长度为6-16位" :validator="validPass" type="password" :value.sync="form.password1"></v-input>
             </cell>
             <cell arrow="false">
-                <v-input placeholder="请再次确认密码" v-valid="valid" :validator="validPass2" type="password" :value.sync="form.password2"></v-input>
+                <v-input placeholder="请再次确认密码" :validator="validPass2" type="password" :value.sync="form.password2"></v-input>
             </cell>
         </div>
 
         <div class="button">
-            <submit type="danger" @submit="submit" v-valid>保存</submit>
+            <submit type="danger" @submit="submit">保存</submit>
         </div>
     </div>
 </template>
