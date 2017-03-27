@@ -3,7 +3,7 @@ require('./styles/vmc.less');
 
 (function() {
     var vmc = require('./index');
-    var install = require('./components/install');
+    var install = require('./components/install').default;
 
     if (window.Vue) {
         var Vue = window.Vue;
@@ -19,7 +19,7 @@ require('./styles/vmc.less');
 
     vmc.version = process.env.VERSION;
 
-    if (exports === 'object' && typeof module !== 'undefined') {
+    if (module && module.exports) {
         module.exports = vmc;
     } else {
         window.VMC = vmc;
