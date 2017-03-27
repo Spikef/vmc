@@ -1,9 +1,12 @@
+var path = require('path');
 var config = require('./config');
 var utils = require('./utils');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.conf');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+
 var env = config.release.env;
 
 var webpackConfig = merge(baseWebpackConfig, {
@@ -11,12 +14,15 @@ var webpackConfig = merge(baseWebpackConfig, {
         app: './src/vmc.js'
     },
     module: {
-        loaders: utils.styleLoaders({ sourceMap: config.release.productionSourceMap, extract: true })
+        rules: utils.styleLoaders({
+            sourceMap: config.release.productionSourceMap,
+            extract: true
+        })
     },
     devtool: config.release.productionSourceMap ? '#source-map' : false,
     output: {
         path: config.release.assetsRoot,
-        filename: utils.assetsPath('vmc.js', config.release.assetsSubDirectory)
+        filename: path.posix.join(config.release.assetsSubDirectory, 'vmc.js')
     },
     plugins: [
         // http://vuejs.github.io/vue-loader/workflow/production.html
@@ -31,9 +37,13 @@ var webpackConfig = merge(baseWebpackConfig, {
                 drop_console: true
             }
         }),
-        new webpack.optimize.OccurenceOrderPlugin(),
         // extract css into its own file
-        new ExtractTextPlugin(utils.assetsPath('vmc.css', config.release.assetsSubDirectory))
+        new ExtractTextPlugin({
+            filename: path.posix.join(config.release.assetsSubDirectory, 'vmc.css')
+        }),
+        // Compress extracted CSS. We are using this plugin so that possible
+        // duplicated CSS from different components can be deduped.
+        new OptimizeCSSPlugin()
     ]
 });
 
