@@ -40,11 +40,14 @@
     }
 
     .tab-items-1 {
+        overflow-y: hidden;
+        overflow-x: auto;
         height: $TabControlTabHeight1;
         background-color: $TabControlTabBackColor1;
         font-size: $TabControlTabTextSize1;
 
         .tab-item {
+            flex: none;
             line-height: $TabControlTabHeight1;
             color: $TabControlTabDefaultColor1;
 
