@@ -141,7 +141,7 @@ export default {
 | defaultColor | String | 标签栏默认颜色 | 由LESS变量定义 |
 | tabIndex | Number, String | 默认激活的标签索引 | 1 |
 | tabList | Array | 标签列表 | [] |
-| tabMinWwidth | Number, String | 当tabType=1时标签最小宽度 | undefined |
+| tabMinWidth | Number, String | 当tabType=1时标签最小宽度 | undefined |
 
 ### tabList item
 
