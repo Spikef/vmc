@@ -37,6 +37,12 @@
     </div>
 </tab-control>
 
+<tab-control :tab-list="tabList2" tab-min-width="60" tab-index="0" height="200">
+    <div slot="tabPage">
+        <p>{{item.name}} 内容云云</p>
+    </div>
+</tab-control>
+
 <tab-control :tab-list="tabList" tab-index="0" height="auto">
     <div slot="tabPage">
         <p v-for="i in 10">{{item.name}} 内容云云</p>
@@ -64,6 +70,44 @@ export default {
                 {
                     title: 'Tab3',
                     name: 'tab3'
+                }
+            ],
+            tabList2: [
+                {
+                    title: 'Tab1',
+                    name: 'tab1'
+                },
+                {
+                    title: 'Tab2',
+                    name: 'tab2'
+                },
+                {
+                    title: 'Tab3',
+                    name: 'tab3'
+                },
+                {
+                    title: 'Tab4',
+                    name: 'tab4'
+                },
+                {
+                    title: 'Tab5',
+                    name: 'tab5'
+                },
+                {
+                    title: 'Tab6',
+                    name: 'tab6'
+                },
+                {
+                    title: 'Tab7',
+                    name: 'tab7'
+                },
+                {
+                    title: 'Tab8',
+                    name: 'tab8'
+                },
+                {
+                    title: 'Tab9',
+                    name: 'tab9'
                 }
             ]
         }
@@ -97,6 +141,7 @@ export default {
 | defaultColor | String | 标签栏默认颜色 | 由LESS变量定义 |
 | tabIndex | Number, String | 默认激活的标签索引 | 1 |
 | tabList | Array | 标签列表 | [] |
+| tabMinWidth | Number, String | 当tabType=1时标签最小宽度 | undefined |
 
 ### tabList item
 

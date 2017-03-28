@@ -1,9 +1,9 @@
 <template>
     <div class="vmc-tab-control" :style="{ height: getHeight }">
-        <div v-if="tabType" class="tab-items" :class="'tab-items-' + tabType" :style="tabStyle">
+        <div v-if="tabType" class="tab-items" :class="'tab-items-' + tabType" :style="tabStyle" v-el:vmc-tab-bar>
             <div class="tab-item"
                  :class="{ active: tabIndex === $index }"
-                 :style="tabIndex === $index ? itemActiveStyle : itemStyle"
+                 :style="tabIndex === $index ? itemActiveStyle : itemStyle, itemWidthStyle"
                  @click="onTabChange($index)"
                  v-for="item in tabList">
 
@@ -63,6 +63,11 @@
                 default() {
                     return []
                 }
+            },
+            tabMinWidth: {
+                type: [Number, String],
+                default: 0,
+                coerce: Number
             }
         },
         methods: {
@@ -95,6 +100,8 @@
                 this.tabIndex++;
 
                 this.$emit('on-tab-change', this.tabIndex);
+
+                this.tabScroll();
             },
             onSwipeRight() {
                 if (this.tabIndex === 0) return;
@@ -104,6 +111,8 @@
                 this.tabIndex--;
 
                 this.$emit('on-tab-change', this.tabIndex);
+
+                this.tabScroll();
             },
             pageClass(i) {
                 if (i === this.tabIndex) {
@@ -119,11 +128,25 @@
                 }
 
                 return style;
+            },
+            tabScroll() {
+                if (this.tabType !==1 ) return;
+                if( this.tabMinWidth > this.clientWidth/this.count ){
+                    this.$els.vmcTabBar.scrollLeft = this.tabWidth * this.tabIndex;
+                }
             }
         },
         computed: {
             count() {
                 return this.tabList.length;
+            },
+            tabWidth(){
+                return Math.max(this.tabMinWidth, this.clientWidth/this.count);
+            },
+            itemWidthStyle() {
+                return {
+                    width: this.tabWidth +'px'
+                };
             },
             tabStyle() {
                 switch (this.tabType) {
@@ -163,12 +186,9 @@
                 }
             },
             lineStyle() {
-                var left = `${this.tabIndex * (100 / this.count)}%`;
-                var right = `${(this.count - this.tabIndex - 1) * (100 / this.count)}%`;
-
                 return {
-                    left: left,
-                    right: right,
+                    left: this.tabIndex * this.tabWidth +'px',
+                    width: this.tabWidth +'px',
                     backgroundColor: this.activeColor,
                     height: getCSSSize(this.lineWidth)
                 }
